@@ -1,0 +1,83 @@
+header {
+    height: 60px;
+    padding-top: 40px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background: {
+        image: url(../images/bg_header.jpg);
+        size: cover;
+        position: top center;
+        repeat: no-repeat;
+    }
+    color:white;
+    z-index: 10;
+    .wrapper {@extend %clear;
+       
+        
+        nav {
+            margin-left: -$m_abs*2;
+            float: left;
+            font-size: $f_18;
+            a {
+                display: inline-block;
+                padding: 10px 17.5px 0 17.5px;
+            }
+        }
+        .contacts {
+            $height: 35px;
+            //max-width: 480px;
+            float: right;
+            >* {
+                float: left
+            }
+            .tel {
+                padding-top: 8px;
+                padding-right: $m_abs;
+                span {
+                    display: inline-block;
+                    padding-right: inherit;
+                    vertical-align: middle;
+                    font-size: 10rem;
+                }
+                font-size: $f_20;
+            }
+            %header_buttons {
+                box-sizing: border-box;
+                height: $height;
+                line-height: $height;
+                font-size: $f_14;
+            }
+            .submit_app_btn {
+                @extend %header_buttons;
+                padding: 0 $m_abs 0 $m_abs;
+                margin-right: $m_abs;
+                border: 2px solid $soft_red;
+                text-align: center;
+            }
+            .lang_btn {
+                @extend %header_buttons;
+                width: 78px;
+                position: relative;
+                border: 1px solid $soft_violet;
+                .lang {
+                    @extend %header_buttons;
+                    width: 100%;
+                    height: 100%;
+                    padding-left: $m_abs;
+                }
+                .arrow {
+                    width: 4px;
+                    height: 4px;
+                    position: absolute;
+                    top: 13px;
+                    right: $m_abs;
+                    border-bottom: 1px solid $soft_violet;
+                    border-right: 1px solid $soft_violet;
+                    transform: rotate(45deg)
+                }
+            }
+        }
+    }
+}

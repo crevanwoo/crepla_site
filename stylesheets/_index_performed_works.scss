@@ -1,0 +1,16 @@
+.performed_works {padding-top: 60px;
+padding-bottom:30px;
+    h2 {padding-bottom: 50px;}
+    .portfolio {@extend %clear;
+       
+        margin: -$m_abs;
+        >* {height: $cell_s_abs;
+            margin: $m_abs;
+        float:left;
+            background-color: black;
+            overflow:auto;
+        }
+        
+        .cell_cube { width: $cell_s_abs }
+        .cell_rect { width: $cell_s_abs*2 + $m_abs*2 }
+    }}

@@ -1,0 +1,164 @@
+//Fonts
+@font-face {
+    font-family: GothamProLight;
+    src: url(../fonts/GothamProLight.ttf);
+}
+
+@font-face {
+    font-family: GothamProRegular;
+    src: url(../fonts/GothamProRegular.ttf);
+}
+
+@font-face {
+    font-family: GothamProMedium;
+    src: url(../fonts/GothamProMedium.ttf);
+}
+
+@font-face {
+    font-family: GothamProBold;
+    src: url(../fonts/GothamProBold.ttf);
+}
+//sizes
+$m_abs: 10px;
+$cell_s_abs: 373.32px;
+//ffamily
+$f_light: GothamProLight;
+$f_regular: GothamProRegular;
+$f_medium: GothamProMedium;
+$f_bold: GothamProBold;
+//fsize
+$f_14: 14rem;
+$f_16: 16rem;
+$f_18: 18rem;
+$f_20: 20rem;
+$f_24: 24rem;
+$f_25: 25rem;
+$f_48: 48rem;
+$f_80: 80rem;
+//colors
+$soft_red: #f15151;
+$soft_violet: #6671ad;
+//abstract_classes
+%clear {
+    position: relative;
+    &:after {
+        content: ' ';
+        display: block;
+        clear: both;
+    }
+}
+
+//animations 
+@keyframes orbit1 {
+    0% {
+        left: 19%;
+        top: 50px;
+    }
+    10% {
+        left: 20%
+    }
+    20% {
+        left: 21%
+    }
+    30% {
+        left: 20%
+    }
+    40% {
+        left: 19%;
+    }
+    50% {
+        left: 18%;
+    }
+    60% {
+        left: 17%;
+    }
+    70% {
+        left: 16%;
+    }
+    80% {
+        left: 15%;
+    }
+    90% {
+        left: 14%;
+    }
+    100% {
+        left: 13%;
+        top: 350px;
+    }
+}
+
+@keyframes orbit2 {
+    0% {
+        left: 20%;
+        top: 70px;
+    }
+    10% {
+        left: 21%
+    }
+    20% {
+        left: 20%
+    }
+    30% {
+        left: 19%
+    }
+    40% {
+        left: 18%;
+    }
+    50% {
+        left: 17%;
+    }
+    60% {
+        left: 16%;
+    }
+    70% {
+        left: 15%;
+    }
+    80% {
+        left: 14%;
+    }
+    90% {
+        left: 13%;
+    }
+    100% {
+        left: 12%;
+        top: 370px;
+    }
+}
+
+@keyframes orbit3 {
+    0% {
+        left: 12%;
+        top: -60px;
+    }
+    10% {
+        left: 16%
+    }
+    20% {
+        left: 18%
+    }
+    30% {
+        left: 20%
+    }
+    40% {
+        left: 22%;
+    }
+    50% {
+        left: 20%;
+    }
+    60% {
+        left: 18%;
+    }
+    70% {
+        left: 16%;
+    }
+    80% {
+        left: 14%;
+    }
+    90% {
+        left: 12%;
+    }
+    100% {
+        left: 10%;
+        top: 370px;
+    }
+}
