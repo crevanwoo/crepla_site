@@ -12,11 +12,11 @@
         height: 100%;
         position: relative;
     }
-    h1 {
+   .main_h {
         padding-top: 50px;
         padding-bottom: 15px;
     }
-    h5 {
+    p {
         margin-bottom: 70px;
         position: relative;
         display: inline-block;
@@ -49,6 +49,7 @@
         line-height: $height;
         font-family: $f_medium;
         font-size: $f_16;
+        text-transform: uppercase;
     }
     .planet {
         width: auto;

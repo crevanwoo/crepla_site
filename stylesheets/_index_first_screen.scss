@@ -9,25 +9,22 @@
         repeat: no-repeat;
     }
     color: white;
-    h1 {
+    .main_h {
         padding-top: 40px;
         padding-bottom: 60px;
-        
     }
     .slider {
+        @extend %slider;
         $width: 1040px;
         width: $width;
         margin: auto;
         .slider_wrapper {
             width: 100%;
-            //overflow:hidden;
             .slides_wrapper {
-                @extend %clear;
                 .slide {
                     $height: 300px;
                     width: $width;
                     height: $height;
-                    float: left;
                     >* {
                         float: left;
                     }
@@ -46,6 +43,7 @@
                             text-align: center;
                             font-family: $f_medium;
                             font-size: $f_18;
+                            text-transform: uppercase;
                         }
                         &.info {
                             padding-top: 70px;
@@ -113,7 +111,7 @@
         @extend %clear;
         height: 100%;
         position: relative;
-        h2 {
+        .main_h {
             padding-top: 120px;
             position: absolute;
             right: 0;
@@ -181,6 +179,7 @@
                         top: -25px;
                         font-family: $f_medium;
                         font-size: $f_20;
+                        text-transform: uppercase;
                     }
                     .price {
                         $height: 34px;
@@ -198,15 +197,15 @@
                         font-size: $f_18;
                     }
                     &.item1 {
-                        animation-name: orbit1;
+                      //  animation-name: orbit1;
                         animation-duration: 3s;
                     }
                     &.item2 {
-                        animation-name: orbit2;
+                      //  animation-name: orbit2;
                         animation-duration: 4s;
                     }
                     &.item3 {
-                        animation-name: orbit3;
+                      //  animation-name: orbit3;
                         animation-duration: 5s;
                     }
                 }

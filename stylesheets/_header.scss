@@ -13,16 +13,25 @@ header {
     }
     color:white;
     z-index: 10;
-    .wrapper {@extend %clear;
-       
-        
+    .wrapper {
+        @extend %clear;
         nav {
             margin-left: -$m_abs*2;
             float: left;
             font-size: $f_18;
+            text-transform: uppercase;
             a {
+                box-sizing: border-box;
                 display: inline-block;
-                padding: 10px 17.5px 0 17.5px;
+                margin: 10px 17.5px 0 17.5px;
+                padding-bottom: 3px;
+                border-bottom-color: rgba(255, 255, 255, 0);
+                border-bottom-style: solid;
+                border-bottom-width: 2px;
+                &:hover {
+                    border-bottom-color: $soft_red;
+                    transition-duration: 1s;
+                }
             }
         }
         .contacts {
@@ -55,12 +64,14 @@ header {
                 margin-right: $m_abs;
                 border: 2px solid $soft_red;
                 text-align: center;
+                text-transform: uppercase;
             }
             .lang_btn {
                 @extend %header_buttons;
                 width: 78px;
                 position: relative;
                 border: 1px solid $soft_violet;
+                text-transform: uppercase;
                 .lang {
                     @extend %header_buttons;
                     width: 100%;

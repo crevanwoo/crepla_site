@@ -1,21 +1,23 @@
 html,
-body {
+body {width: 100%;
     padding: 0;
     margin: 0;
     background-color: #f0f0f0;
     font-family: $f_regular;
-    
+    color: $black;
 }
 
 html {
     font-size: 1px;
 }
 
+
 .wrapper {
-    max-width: 1200px;    
+    width: 1200px;
+    //min-width: 
     margin: auto;
-    padding-right:20px;
-    padding-left:20px;
+    padding-right: 20px;
+    padding-left: 20px;
     box-sizing: border-box;
 }
 
@@ -29,16 +31,25 @@ h6 {
     text-align: center;
 }
 
-h1 {
-    
+.main_h {
     font-family: $f_medium;
     font-size: $f_24;
-    //font-variant: small-caps;
+    text-transform: uppercase;
 }
-h2 {    
+
+.med_h {  font-family: $f_medium;
+    font-size: $f_20;}
+
+.small_h {
     font-family: $f_medium;
-    font-size: $f_25;}
-h5 {font-size: $f_14;;}
+    font-size: $f_18;
+    text-transform: uppercase;
+}
+
+p {
+    margin: 0;
+    font-size: $f_14;
+}
 
 a {
     font-family: inherit;
@@ -53,7 +64,10 @@ ul {
         display: inline-block;
     }
 }
-img {display: block;}
+
+img {
+    display: block;
+}
 
 .image1 {
     width: auto;
@@ -73,4 +87,42 @@ image5 {
     width: auto;
     height: 114px;
     overflow: hidden
+}
+
+input,
+textarea,
+button{  display: block;
+    box-sizing: border-box;
+    border:none;
+   &:focus {
+        outline: none;
+    }}
+
+
+input,
+textarea
+{ 
+    padding-left: 15px;
+    @include placeholder;
+  
+ 
+    &::-webkit-input-placeholder {
+        @include placeholder
+    }
+    &::-moz-placeholder {
+          @include placeholder
+    }
+    /* Firefox 19+ */
+    &:-moz-placeholder {
+          @include placeholder
+    }
+    /* Firefox 18- */
+    &:-ms-input-placeholder {
+           @include placeholder
+    }
+}
+
+
+textarea {
+    resize: none;
 }
