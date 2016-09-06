@@ -19,6 +19,12 @@ section.review {
 					$img-size-vw: 12.3vw;
 					$text-padding-vw: 1.64vw;
 					position: relative;
+					$width: 1079px;
+		width: $width;
+		margin: auto;
+		@include bp(1220) {
+			width: 1079 * 0.082vw;
+		}
 					.slide_content_part {
 						max-width: 890px;
 						min-width: 50%;

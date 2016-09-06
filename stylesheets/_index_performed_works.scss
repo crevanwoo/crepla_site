@@ -1,6 +1,7 @@
 .performed_works {
 	padding-top: 60px;
 	padding-bottom: 30px;
+	position: relative;
 	@include bp(1220) {
 		padding-top: 60 * 0.082vw;
 		padding-bottom: 30 * 0.082vw;

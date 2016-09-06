@@ -325,6 +325,10 @@ textarea {
 textarea {
   resize: none; }
 
+.invisible_scroll {
+  position: absolute;
+  z-index: -100; }
+
 .modal {
   min-height: 100vh;
   height: 1px;
@@ -703,6 +707,7 @@ header {
 
 .work_directions {
   height: 650px;
+  position: relative;
   background-image: url(../images/bg_top_section_bottom_part.jpg);
   background-size: cover;
   background-position: center center;
@@ -824,7 +829,8 @@ header {
 
 .performed_works {
   padding-top: 60px;
-  padding-bottom: 30px; }
+  padding-bottom: 30px;
+  position: relative; }
   @media screen and (max-width: 1220px) {
     .performed_works {
       padding-top: 4.92vw;
@@ -1010,7 +1016,12 @@ section.review {
     section.review .slider .arrow {
       top: 85px; }
     section.review .slider .slider_wrapper .slides_wrapper .slide {
-      position: relative; }
+      position: relative;
+      width: 1079px;
+      margin: auto; }
+      @media screen and (max-width: 1220px) {
+        section.review .slider .slider_wrapper .slides_wrapper .slide {
+          width: 88.478vw; } }
       section.review .slider .slider_wrapper .slides_wrapper .slide .slide_content_part {
         max-width: 890px;
         min-width: 50%;
@@ -1097,6 +1108,7 @@ section.team {
 footer {
   padding-top: 130px;
   padding-bottom: 100px;
+  position: relative;
   background-image: url(../images/bg_footer.jpg);
   background-position: center bottom;
   background-size: cover;

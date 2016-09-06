@@ -147,3 +147,6 @@ textarea {
 textarea {
 	resize: none;
 }
+.invisible_scroll{position: absolute;
+z-index:-100;
+}
