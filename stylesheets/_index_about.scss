@@ -1,61 +1,64 @@
 section.about {
-    padding-top: 60px;
-    padding-bottom: 10px;
-    .main_h {
-        padding-left: $m_abs *2;
-        text-align: left;
-    }
-    p {
-        padding: $m_abs *2;
-    }
-    .small_h {
-        padding-top: 25px;
-        padding-bottom: 55px;
-        padding-left: $m_abs *2;
-        text-align: left;
-    }
-    .cycle {
-        $margin: 1.724%/2;
-        @extend %clear;
-        min-height: 215px;
-        height: 1px;
-        >div {
-            margin-left: $margin;
-            margin-right: $margin;
-            float: left;
-        }
-        div.step {
-            width: 13.793%;
-            min-height: 100%;
-            height: auto;
-            >img {
-                display: block;
-                margin: auto;
-                height: 112px;
-                width: auto;
-            }
-            .text {
-                padding-top: 25px;
-                padding-bottom: 10px;
-                text-align: center;
-                line-height: 20px;
-                font-size: $f_14;
-                span {
-                    font-family: $f_medium;
-                    font-size: $f_18;
-                    text-transform: uppercase
-                }
-            }
-        }
-        .arrow {
-            width: 3.448%;
-            height: 100%;
-            background: {
-                image: url(../images/arrow.png);
-                position: center 48px;
-                size: 100% auto;
-                repeat: no-repeat;
-            }
-        }
-    }
+	padding-top: 60px;
+	padding-bottom: 10px;
+	.main_h {
+		padding-left: $m_abs *2;
+		text-align: left;
+	}
+	p {
+		padding: $m_abs *2;
+	}
+	.small_h {
+		padding-top: 25px;
+		padding-bottom: 55px;
+		padding-left: $m_abs *2;
+		text-align: left;
+	}
+	.cycle {
+		$margin: 1.724%/2;
+		@extend %clear;
+		min-height: 215px;
+		height: 1px;
+		>div {
+			margin-left: $margin;
+			margin-right: $margin;
+			float: left;
+		}
+		div.step {
+			width: 13.793%;
+			min-height: 100%;
+			height: auto;
+			>img {
+				display: block;
+				margin: auto;
+				height: 112px;
+				width: auto;
+				@include bp(1220) {
+					height: 9.18vw;
+				}
+			}
+			.text {
+				padding-top: 25px;
+				padding-bottom: 10px;
+				text-align: center;
+				line-height: 20px;
+				font-size: $f_14;
+				span {
+					font-family: $f_medium;
+					font-size: $f_18;
+					text-transform: uppercase
+				}
+			}
+		}
+		.arrow {
+			width: 3.448%;
+			height: 100%;
+			background: {
+				image: url(../images/arrow.png);
+				position: center 48px;
+				size: 100% auto;
+				repeat: no-repeat;
+			}
+		}
+	}
 }

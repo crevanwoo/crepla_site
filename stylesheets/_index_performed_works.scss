@@ -1,16 +1,44 @@
-.performed_works {padding-top: 60px;
-padding-bottom:30px;
-   .main_h {padding-bottom: 50px;}
-    .portfolio {@extend %clear;
-       
-        margin: -$m_abs;
-        >* {height: $cell_s_abs;
-            margin: $m_abs;
-        float:left;
-            background-color: black;
-            overflow:auto;
-        }
-        
-        .cell_cube { width: $cell_s_abs }
-        .cell_rect { width: $cell_s_abs*2 + $m_abs*2 }
-    }}
+.performed_works {
+	padding-top: 60px;
+	padding-bottom: 30px;
+	@include bp(1220) {
+		padding-top: 60 * 0.082vw;
+		padding-bottom: 30 * 0.082vw;
+	}
+	.main_h {
+		padding-bottom: 50px;
+		@include bp(1220) {
+			padding-bottom: 50 * 0.082vw;
+		}
+	}
+	.portfolio {
+		@extend %clear;
+		margin: -$m_abs;
+		@include bp(1220) {
+			margin: -$m_rel;
+		}
+		>* {
+			height: $cell_s_abs;
+			margin: $m_abs;
+			float: left;
+			background-color: black;
+			overflow: hidden;
+			@include bp(1220) {
+				height: $cell_s_rel;
+				margin: $m_rel;
+			}
+		}
+		.cell_cube {
+			width: $cell_s_abs;
+			@include bp(1220) {
+				width: $cell_s_rel
+			}
+		}
+		.cell_rect {
+			width: $cell_s_abs*2 + $m_abs*2;
+			@include bp(1220) {
+				width: $cell_s_rel*2 + $m_rel*2;
+			}
+		}
+	}
+}

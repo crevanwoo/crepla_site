@@ -1,88 +1,108 @@
 .site_ordering {
-    height: 350px;
-    text-align: center;
-    background: {
-        image: url(../images/bg_order_website.jpg);
-        size: cover;
-        position: center center;
-        repeat: no-repeat;
-    }
-    color: white;
-    .wrapper {
-        height: 100%;
-        position: relative;
-    }
-   .main_h {
-        padding-top: 50px;
-        padding-bottom: 15px;
-    }
-    p {
-        margin-bottom: 70px;
-        position: relative;
-        display: inline-block;
-        &:before,
-        &:after {
-            position: absolute;
-            display: block;
-        }
-        &:before {
-            content: url(../images/little_star_1.png);
-            left: -35px;
-            top: -8px;
-        }
-        &:after {
-            content: url(../images/little_star_2.png);
-            right: -25px;
-            top: -3px;
-        }
-    }
-    .submit_app_btn {
-        position: relative;
-        z-index: 1;
-        $height: 45px;
-        height: $height;
-        padding: 0 25px 0 25px;
-        display: table;
-        margin: auto;
-        box-sizing: border-box;
-        border: 2px solid $soft_red;
-        line-height: $height;
-        font-family: $f_medium;
-        font-size: $f_16;
-        text-transform: uppercase;
-    }
-    .planet {
-        width: auto;
-        height: auto;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: {
-            image: url(../images/orbit_horiz.png);
-            position: center bottom;
-            repeat: no-repeat
-        }
-        &:before {content: url(../images/green_planet.png);
-             display: block;
-            position: absolute;
-            bottom: -70px;
-            left: 125px;
-        }
-        &:after {
-            content: " ";
-            display: block;
-            position: absolute;
-            bottom: 32px;
-            right: 220px;
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background-color: #39ff97;
-            -webkit-box-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
-            -moz-box-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
-            box-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
-        }
-    }
+	height: 350px;
+	text-align: center;
+	background: {
+		image: url(../images/bg_order_website.jpg);
+		size: cover;
+		position: center center;
+		repeat: no-repeat;
+	}
+	color: white;
+	@include bp(1220) {
+		height: 350 * 0.082vw;
+	}
+	.wrapper {
+		height: 100%;
+		position: relative;
+	}
+	.main_h {
+		padding-top: 50px;
+		padding-bottom: 15px;
+		@include bp(1220) {
+			padding-top: 50 * 0.082vw;
+			padding-bottom: 15 * 0.082vw;
+		}
+	}
+	p {
+		margin-bottom: 70px;
+		position: relative;
+		display: inline-block;
+		@include bp(1220) {
+			margin-bottom: 70* 0.082vw;
+		}
+		&:before,
+		&:after {
+			position: absolute;
+			display: block;
+		}
+		&:before {
+			content: url(../images/little_star_1.png);
+			left: -35px;
+			top: -8px;
+		}
+		&:after {
+			content: url(../images/little_star_2.png);
+			right: -25px;
+			top: -3px;
+		}
+	}
+	.submit_app_btn {
+		position: relative;
+		z-index: 1;
+		$height: 45px;
+		height: $height;
+		padding: 0 25px 0 25px;
+		display: table;
+		margin: auto;
+		box-sizing: border-box;
+		border: 2px solid $soft_red;
+		line-height: $height;
+		font-family: $f_medium;
+		font-size: $f_16;
+		text-transform: uppercase;
+		@include bp(1220) {
+			height: 45 * 0.082vw;
+			padding-left: 25 * 0.082vw;
+			padding-right: 25 * 0.082vw;
+			line-height: 45 * 0.082vw;
+		}
+	}
+	.planet {
+		width: auto;
+		height: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: {
+			image: url(../images/orbit_horiz.png);
+			position: center bottom;
+			repeat: no-repeat
+		}
+		&:before {
+			content: url(../images/green_planet.png);
+			display: block;
+			position: absolute;
+			bottom: -70px;
+			left: 125px;
+			@include bp(1220) {
+				left: 10vw
+			}
+		}
+		&:after {
+			content: " ";
+			display: block;
+			position: absolute;
+			bottom: 32px;
+			right: 220px;
+			width: 13px;
+			height: 13px;
+			border-radius: 50%;
+			background-color: #39ff97;
+			-webkit-box-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
+			-moz-box-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
+			box-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
+		}
+	}
 }

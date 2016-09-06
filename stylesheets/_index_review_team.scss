@@ -1,116 +1,138 @@
 section.review {
-    padding-top: 60px;
-    .main_h {
-        padding-bottom: 20px;
-    }
-    .slider {
-        @extend %slider;
-        @extend %slider_with_arrows;
-        min-height: 230px;
-        padding-bottom: 150px;
-        .arrow {
-            top: 85px;
-        }
-        .slider_wrapper {
-            .slides_wrapper {
-                .slide {
-                    $text-padding: 20px;
-                    $img-size: 150px;
-                    position: relative;
-                    .slide_content_part {
-                        max-width: 890px;
-                        min-width: 50%;
-                        margin: 15px 0 30px $text-padding;
-                        padding: 25px 20px 45px $img-size;
-                        white-space: pre-wrap;
-                        background-color: white;
-                        img {
-                            width: $img-size;
-                            height: $img-size;
-                            display: block;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                        }
-                        .name {
-                            font-family: $f_medium;
-                            font-size: $f_20;
-                            text-transform: uppercase;
-                        }
-                        .post {
-                            padding-bottom: 25px;
-                        }
-                        .text {
-                            text-align: justify
-                        }
-                        a.button {
-                            @extend %button_bottom;
-                            display: block;
-                            position: absolute;
-                            bottom: 0;
-                            &:nth-of-type(1) {
-                                left: $img-size+ $text-padding;
-                            }
-                            &:nth-of-type(2) {
-                                right: $m_abs
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+	padding-top: 60px;
+	.main_h {
+		padding-bottom: 20px;
+	}
+	.slider {
+		@extend %slider;
+		@extend %slider_with_arrows;
+		min-height: 230px;
+		padding-bottom: 150px;
+		.arrow {
+			top: 85px;
+		}
+		.slider_wrapper {
+			.slides_wrapper {
+				.slide {
+					$text-padding: 20px;
+					$img-size: 150px;
+					$img-size-vw: 12.3vw;
+					$text-padding-vw: 1.64vw;
+					position: relative;
+					.slide_content_part {
+						max-width: 890px;
+						min-width: 50%;
+						margin: 15px 0 30px $text-padding;
+						padding: 25px 20px 45px $img-size;
+						white-space: pre-wrap;
+						background-color: white;
+						@include bp(1220) {
+							padding: 25px 20px 45px $img-size-vw;
+							margin: 15px 0 30px $text-padding-vw;
+						}
+						img {
+							width: $img-size;
+							height: $img-size;
+							display: block;
+							position: absolute;
+							top: 0;
+							left: 0;
+							@include bp(1220) {
+								width: $img-size-vw;
+								height: $img-size-vw;
+							}
+						}
+						.name {
+							font-family: $f_medium;
+							font-size: $f_20;
+							text-transform: uppercase;
+						}
+						.post {
+							padding-bottom: 25px;
+						}
+						.text {
+							text-align: justify
+						}
+						a.button {
+							@extend %button_bottom;
+							display: block;
+							position: absolute;
+							bottom: 0;
+							&:nth-of-type(1) {
+								left: $img-size+ $text-padding;
+								@include bp(1220) {
+									left: $img-size-vw + $text-padding-vw;
+								}
+							}
+							&:nth-of-type(2) {
+								right: $m_abs
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 section.team {
-    padding-bottom: 65px;
-    text-align: center;
-    background: {
-        image: url(../images/orbit_horiz_big.png);
-        position: bottom center;
-        repeat: no-repeat;
-    }
-    .wrapper {
-        >.main_h {
-            padding-bottom: 75px;
-        }
-        .slider {
-            @extend %slider;
-            @extend %slider_with_arrows;
-            height: 285px;
-            .arrow {
-                top: 117px;
-            }
-            .slider_wrapper {
-                .slides_wrapper {
-                    .slide {
-                        @extend %clear;
-                        div.slide_content_part {
-                            $width_abs: 359.6px;
-                            width: $width_abs;
-                            float: left;
-                            &:nth-of-type(odd) {
-                                padding-top: 40px;
-                            }
-                            img {
-                                width: 192px;
-                                height: 143px;
-                                margin: auto;
-                                display: block;
-                                overflow: hidden;
-                            }
-                            .main_h {
-                                padding-top: 15px;
-                                padding-bottom: 5px;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        a.button {
-            @extend %button_bottom;
-            display: inline-block;
-        }
-    }
+	padding-bottom: 65px;
+	text-align: center;
+	background: {
+		image: url(../images/orbit_horiz_big.png);
+		position: bottom center;
+		repeat: no-repeat;
+	}
+	.wrapper {
+		>.main_h {
+			padding-bottom: 75px;
+		}
+		.slider {
+			@extend %slider;
+			@extend %slider_with_arrows;
+			height: 285px;
+			.arrow {
+				top: 117px;
+			}
+			.slider_wrapper {
+				.slides_wrapper {
+					.slide {
+						$widtn_vw: 29.4vw;
+						$width_abs: 359.57px;
+						width: $width_abs;
+						padding-top: 0;
+						float: left;
+						transition-duration: 1s;
+						@include bp(1220) {
+							width: $widtn_vw;
+						}
+						&[data-slide-position='left'],
+						&[data-slide-position='right'] {
+							padding-top: 40px;
+							transition-duration: 1s;
+						}
+						img {
+							width: 192px;
+							height: 143px;
+							margin: auto;
+							display: block;
+							overflow: hidden;
+							@include bp(1220) {
+								width: 15.7vw;
+								height: 11.7vw;
+							}
+						}
+						.main_h {
+							padding-top: 15px;
+							padding-bottom: 5px;
+						}
+					}
+				}
+			}
+		}
+		a.button {
+			@extend %button_bottom;
+			display: inline-block;
+		}
+	}
 }
