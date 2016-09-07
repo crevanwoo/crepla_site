@@ -1,30 +1,30 @@
 @mixin bp($size) {
-	@if $size==1220 {
-		@media screen and (max-width: 1220px) {
-			@content
-		}
-	}
+    @if $size==1220 {
+        @media screen and (max-width: 1220px) {
+            @content
+        }
+    }
 }
 
 //Fonts
 @font-face {
-	font-family: GothamProLight;
-	src: url(../fonts/GothamProLight.ttf);
+    font-family: GothamProLight;
+    src: url(../fonts/GothamProLight.ttf);
 }
 
 @font-face {
-	font-family: GothamProRegular;
-	src: url(../fonts/GothamProRegular.ttf);
+    font-family: GothamProRegular;
+    src: url(../fonts/GothamProRegular.ttf);
 }
 
 @font-face {
-	font-family: GothamProMedium;
-	src: url(../fonts/GothamProMedium.ttf);
+    font-family: GothamProMedium;
+    src: url(../fonts/GothamProMedium.ttf);
 }
 
 @font-face {
-	font-family: GothamProBold;
-	src: url(../fonts/GothamProBold.ttf);
+    font-family: GothamProBold;
+    src: url(../fonts/GothamProBold.ttf);
 }
 
 //sizes
@@ -59,198 +59,234 @@ $bright_blue: #2cebf2;
 $black: #333333;
 //abstract_classes
 %clear {
-	position: relative;
-	&:after {
-		content: ' ';
-		display: block;
-		clear: both;
-	}
+    position: relative;
+    &:after {
+        content: ' ';
+        display: block;
+        clear: both;
+    }
 }
 
 %arrow {
-	position: relative;
-	>div.arrow {
-		width: 18px;
-		height: 18px;
-		position: absolute;
-		border-bottom: 1px solid $black;
-		border-right: 1px solid $black;
-		@include bp(1220) {
-			width: 1.47vw;
-			height: 1.47vw;
-		}
-		&:nth-of-type(1) {
-			left: 0;
-			transform: rotate(135deg)
-		}
-		&:nth-of-type(2) {
-			right: 0;
-			transform: rotate(-45deg)
-		}
-	}
+    position: relative;
+    >div.arrow {
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        border-bottom: 1px solid $black;
+        border-right: 1px solid $black;
+        @include bp(1220) {
+            width: 1.47vw;
+            height: 1.47vw;
+        }
+        &:nth-of-type(1) {
+            left: 0;
+            transform: rotate(135deg)
+        }
+        &:nth-of-type(2) {
+            right: 0;
+            transform: rotate(-45deg)
+        }
+    }
 }
 
 %slider {
-	.slider_wrapper {
-		overflow: hidden;
-		.slides_wrapper {
-			position: relative;
-			right: 0;
-			transition-duration: 1s;
-			@extend %clear;
-			.slide {
-				float: left;
-			}
-		}
-	}
-	@include bp(1220) {
-		width: 95vw;
-	}
+    .slider_wrapper {
+        overflow: hidden;
+        .slides_wrapper {
+            position: relative;
+            right: 0;
+            transition-duration: 1s;
+            @extend %clear;
+            .slide {
+                float: left;
+            }
+        }
+    }
+    @include bp(1220) {
+        width: 95vw;
+    }
 }
 
 %slider_with_arrows {
-	@extend %arrow;
-	.slider_wrapper {
-		width: 93%;
-		margin: auto;
-		overflow: hidden;
-	}
+    @extend %arrow;
+    .slider_wrapper {
+        width: 93%;
+        margin: auto;
+        overflow: hidden;
+    }
 }
 
 %button_bottom {
-	$height: 50px;
-	height: $height;
-	padding: 0 $m_abs*1.8 0 $m_abs*1.8;
-	box-sizing: border-box;
-	border: 2px solid $soft_red;
-	line-height: $height - 4px;
-	font-family: $f_medium;
-	font-size: $f_14;
-	text-transform: uppercase;
+    $height: 50px;
+    height: $height;
+    padding: 0 $m_abs*1.8 0 $m_abs*1.8;
+    box-sizing: border-box;
+    border: 2px solid $soft_red;
+    line-height: $height - 4px;
+    font-family: $f_medium;
+    font-size: $f_14;
+    text-transform: uppercase;
 }
 
 @mixin placeholder {
-	font-family: $f_regular;
-	font-size: $f_14;
-	color: $black;
+    font-family: $f_regular;
+    font-size: $f_14;
+    color: $black;
 }
 
 @mixin placeholder_white {
-	color: white;
+    color: white;
 }
 
 //animations 
-
-/*@keyframes orbit1 {
+@keyframes orbit1 {
     0% {
-        left: 19%;
-        top: 50px;
+        transform: translate(19%, 50px);
     }
     10% {
-        left: 20%
+        transform: translate(20%, 80px);
     }
     20% {
-        left: 21%
+        transform: translate(21%, 110px);
     }
     30% {
-        left: 20%
+        transform: translate(20%, 140px);
     }
     40% {
-        left: 19%;
+        transform: translate(19%, 170px);
     }
     50% {
-        left: 18%;
+        transform: translate(18%, 200px);
     }
     60% {
-        left: 17%;
+        transform: translate(17%, 230px);
     }
     70% {
-        left: 16%;
+        transform: translate(16%, 260px);
     }
     80% {
-        left: 15%;
+        transform: translate(15%, 290px);
     }
     90% {
-        left: 14%;
+        transform: translate(14%, 320px);
     }
     100% {
-        left: 13%;
-        top: 350px;
+        transform: translate(13%, 350px);
     }
 }
 
 @keyframes orbit2 {
-    0% {
-        left: 20%;
-        top: 70px;
-    }
-    10% {
-        left: 21%
-    }
-    20% {
-        left: 20%
-    }
-    30% {
-        left: 19%
-    }
-    40% {
-        left: 18%;
-    }
-    50% {
-        left: 17%;
-    }
-    60% {
-        left: 16%;
-    }
-    70% {
-        left: 15%;
-    }
-    80% {
-        left: 14%;
+    100% {
+        transform: translate(20%, 70px);
     }
     90% {
-        left: 13%;
+        transform: translate(21%, 100px);
     }
-    100% {
-        left: 12%;
-        top: 370px;
+    80% {
+        transform: translate(20%, 130px);
+    }
+    70% {
+        transform: translate(19%, 160px);
+    }
+    60% {
+        transform: translate(18%, 190px);
+    }
+    50% {
+        transform: translate(17%, 220px);
+    }
+    40% {
+        transform: translate(16%, 250px);
+    }
+    30% {
+        transform: translate(15%, 280px);
+    }
+    20% {
+        transform: translate(14%, 310px);
+    }
+    10% {
+        transform: translate(13%, 340px);
+    }
+    0% {
+        transform: translate(12%, 370px);
     }
 }
 
 @keyframes orbit3 {
     0% {
-        left: 10%;
-        top: -60px;
+        transform: translate(10%, -60px);
     }
     10% {
-        left: 12%
+        transform: translate(12%, -17px);
     }
     20% {
-        left: 14%
+        transform: translate(14%, 26px);
     }
     30% {
-        left: 16%
+        transform: translate(16%, 69px);
     }
     40% {
-        left: 10%;
+        transform: translate(18%, 112px);
     }
     50% {
-        left: 16%;
+        transform: translate(16%, 155px);
     }
     60% {
-        left: 14%;
+        transform: translate(14%, 198px);
     }
     70% {
-        left: 12%;
+        transform: translate(12%, 241px);
     }
     80% {
-        left: 10%;
+        transform: translate(10%, 284px);
     }
     90% {
-        left: 8%;
+        transform: translate(8%, 327px);
     }
     100% {
-        left: 6%;
-        top: 370px;
+        transform: translate(6%, 370px);
     }
-}*/
+}
+
+@keyframes hvr-buzz-out {
+    10% {
+        -webkit-transform: translateX(3px) rotate(2deg);
+        transform: translateX(3px) rotate(2deg);
+    }
+    20% {
+        -webkit-transform: translateX(-3px) rotate(-2deg);
+        transform: translateX(-3px) rotate(-2deg);
+    }
+    30% {
+        -webkit-transform: translateX(3px) rotate(2deg);
+        transform: translateX(3px) rotate(2deg);
+    }
+    40% {
+        -webkit-transform: translateX(-3px) rotate(-2deg);
+        transform: translateX(-3px) rotate(-2deg);
+    }
+    50% {
+        -webkit-transform: translateX(2px) rotate(1deg);
+        transform: translateX(2px) rotate(1deg);
+    }
+    60% {
+        -webkit-transform: translateX(-2px) rotate(-1deg);
+        transform: translateX(-2px) rotate(-1deg);
+    }
+    70% {
+        -webkit-transform: translateX(2px) rotate(1deg);
+        transform: translateX(2px) rotate(1deg);
+    }
+    80% {
+        -webkit-transform: translateX(-2px) rotate(-1deg);
+        transform: translateX(-2px) rotate(-1deg);
+    }
+    90% {
+        -webkit-transform: translateX(1px) rotate(0);
+        transform: translateX(1px) rotate(0);
+    }
+    100% {
+        -webkit-transform: translateX(-1px) rotate(0);
+        transform: translateX(-1px) rotate(0);
+    }
+}
