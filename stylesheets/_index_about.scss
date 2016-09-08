@@ -33,21 +33,12 @@ section.about {
 				margin: auto;
 				height: 112px;
 				width: auto;
+                
 				@include bp(1220) {
 					height: 9.18vw;
 				}
 			}
-			.text {
-				padding-top: 25px;
-				padding-bottom: 10px;
-				text-align: center;
-				line-height: 20px;
-				font-size: $f_14;
-				span {
-					font-family: $f_medium;
-					font-size: $f_18;
-					text-transform: uppercase
-				}
+			.text {@extend %text_plus_span;
 			}
 		}
 		.arrow {

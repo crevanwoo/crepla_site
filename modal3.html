@@ -21,11 +21,11 @@
 
 
 
-    <div class="modal test_show_elem">
-        <div class="bg_modal_trans"></div>
-        <div class="bg_modal_top">
-            <div class="bg_modal_bottom"></div>
-            <div class="modal_content">
+    <div class="modal">
+        <div class="bg_modal_trans big_height"></div>
+        <div class="bg_modal_top big_height">
+            <div class="bg_modal_bottom big_height"></div>
+            <div class="modal_content big_height">
                 <h1 class="modal_main_h">Отправить резюме</h1>
                 <p>Если вам захотелось поработать с нами вы можете отправить свое резюме</p>
                 <div class="close"></div>
@@ -34,15 +34,10 @@
                         <label for="">Ваше имя:
                             <input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
                         </label>
-                        <label for="">Ваш email:
-                            <input type="text" placeholder="Ваш email:" required>
-                        </label>
+                     
                     </div>
                     <div>
-                        <label for="">Ваш телефон:
-                            <input type="text" placeholder="Ваш телефон:">
-                        </label>
-                        <label for="">Желаемая должность:
+                           <label for="">Ваша должность:
                             <input type="text" placeholder="Например: сварщик">
                         </label>
 
@@ -50,11 +45,21 @@
 
 
                     </div>
+                    <label for="" class="modal_textarea">Ваше сообщение:
+						<textarea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение:" ></textarea>
+					</label>
 
-                    <label for="upload" class="upload">Резюме:
-                        <input type="file" id="upload">
-                        <label for="upload">загрузите своё резюме</label>
+                    <label for="upload_photo" class="upload">Ваше фото:
+                        <input type="file" id="upload_photo">
+                        <label for="upload_photo">загрузите свою фотографию</label>
                     </label>
+                    
+                    
+                    <label for="recomend_yes">Порекомендуете ли вы Creative Planet другим?</label><span>(необязательно):</span>
+                    <input id="recomend_yes" type="radio" name="recomend">
+					<label for="recomend_yes" class="radio_label">Да</label>
+					<input type="radio" id="recomend_no" name="recomend">
+					<label for="recomend_no" class="radio_label">Нет</label>					
 
 
                     <button type="submit">отправить заявку</button>

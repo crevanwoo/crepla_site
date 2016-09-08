@@ -1,3 +1,11 @@
+%big_height {
+    min-height: 575px
+}
+
+%big_min_height {
+    height: 575px
+}
+
 .modal {
     opacity: 0;
     display: none;
@@ -19,6 +27,9 @@
         background-position: center center;
         background-repeat: no-repeat;
         opacity: 0.9;
+        &.big_height {
+            @extend %big_height;
+        }
     }
     .bg_modal_top {
         min-height: 460px;
@@ -31,6 +42,9 @@
         //background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
+        &.big_height {
+            @extend %big_height;
+        }
     }
     .bg_modal_bottom {
         min-height: 460px;
@@ -42,6 +56,9 @@
         //background-image: url(../images/bg_modal_bottom.png);
         background-position: bottom left;
         background-repeat: no-repeat;
+        &.big_height {
+            @extend %big_height;
+        }
     }
     .modal_content {
         width: 800px;
@@ -52,6 +69,9 @@
         left: 0;
         bottom: 0;
         right: 0;
+        &.big_height {
+            @extend %big_min_height;
+        }
         @include bp(1220) {
             max-width: 800px;
             width: 95vw;
@@ -138,8 +158,12 @@
         }
         input:not([type="checkbox"]) {
             @extend %form_common;
+            @extend %valid;
             height: 47px;
             line-height: 45px;
+            &:valid {
+                border: 2px solid $soft_blue;
+            }
         }
         textarea {
             @extend %form_common;
@@ -164,6 +188,11 @@
         label {
             font-family: $f_medium;
             font-size: $f_14;
+             & + span { display: inline-block;
+                 padding-left: 5px;
+                 padding-right: 10px;
+                 font-family: $f_regular;
+                font-size: $f_14;}
             &.chkbox_label {
                 position: relative;
                 width: 50%;
@@ -185,6 +214,31 @@
                     border: 1px solid $soft_blue
                 }
             }
+            &.radio_label {
+                display: inline-block;
+                cursor: pointer;
+                position: relative;
+                padding-left: 25px;
+                padding-bottom: 25px;
+                margin-right: 15px;
+                font-family: $f_regular;
+                font-size: $f_14;
+              
+                &:before {
+                    content: "";
+                    display: block;
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 10px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    background-color:transparent;
+                    border: 1px solid $soft_blue;
+                    
+                    border-radius: 50%;
+                }
+            }
         }
         input[type="checkbox"] {
             display: none;
@@ -196,6 +250,16 @@
                 font-size: 17px;
                 color: $bright_blue;
                 line-height: 15px;
+            }
+        }
+        input[type=radio] {
+            display: none;
+            &:checked + label:before {
+                content: "\2022";
+                color: $bright_blue;
+                font-size: 20px;
+                text-align: center;
+                line-height: 17px;
             }
         }
         input[type='file'] {
@@ -221,5 +285,22 @@
                 font-size: $f_14;
             }
         }
+        .modal_textarea {
+            display: block;
+            clear: both;
+            position: relative;
+            top: -15px;
+        }
+       
+        .tel_comment {visibility:hidden;
+            position: relative;
+             bottom: 5px;
+            float: left;
+            opacity: 0;
+            transition-duration: 0.5s;
+
+       
+        white-space: nowrap}
+        
     }
 }

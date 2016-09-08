@@ -16,16 +16,13 @@
         tick1 = 0,
         tick2 = 0,
 
-        slider = document.getElementsByClassName('slider'),
-        header = document.getElementsByTagName('header')[0],
-        header_height = header.offsetHeight,
-        contact_position = calcPageHeight() - document.getElementsByTagName('footer')[0].offsetHeight - header_height
-        //,
-        // offers_position = document.getElementsByClassName('top_offer')[0].offsetHeight - header_height,
-        // works_position = document.getElementsByClassName('top_offer')[0].offsetHeight + document.getElementsByClassName('work_directions')[0].offsetHeight - header_height
-        ,
-        offers_position = document.getElementsByClassName('full_screen_slider')[0].offsetHeight - header_height,
-        works_position = document.getElementsByClassName('full_screen_slider')[0].offsetHeight + document.getElementsByClassName('work_directions')[0].offsetHeight - header_height;
+        slider,
+        header;
+
+
+    callFunctions();
+
+
 
     /* --------------------------------------------- create elements --------------------------------------------- */
 
@@ -35,14 +32,15 @@
      */
 
     function createNav(slider_num) {
+        console.log('sdafsadfdsf')
         wrapper = slider[slider_num].querySelector('.slides_wrapper');
         slide = wrapper.querySelectorAll('.slide');
         pag = slider[slider_num].querySelector('.pagination');
         slides_amount = slide.length;
-        slide[0].classList.add('active');//for fade in effect
-		slide[0].querySelector('.slide_content_wrapper').style.opacity = "1";//for fade in effect
-		
-         if (pag) {
+        slide[0].classList.add('active'); //for fade in effect
+        slide[0].querySelector('.slide_content_wrapper').style.opacity = "1"; //for fade in effect
+
+        if (slide.length > 1 && pag) {
             for (var i = 0; i < slides_amount; i++) {
                 var new_elem = document.createElement('div');
                 new_elem.className = 'nav_item';
@@ -87,19 +85,21 @@
      * set width of slider_wrapper
      */
     function setSliderWidth() {
-        for (var i = 1; i < slider.length; i++) {
-            slide = slider[i].getElementsByClassName('slide');
-            var width = slide[0].offsetWidth;
-            //var width = parseFloat(getComputedStyle(slide[0]).width);
-            //slider[i].querySelector('.slides_wrapper').style.width = width * slide.length + "px";
-            //if (i == 1) {
-            //slider[i].querySelector('.slides_wrapper').style.width = (width + 2) * slide.length + "px";
-            //}
-            slider[i].querySelector('.slides_wrapper').style.width = width * slide.length + "px";
-            /*slider[i].querySelector('.slides_wrapper').style.width = (width + 2) * slide.length + "px";
-            if (i == 1) {
-            	slider[i].querySelector('.slides_wrapper').style.width = (width + 3) * slide.length + "px";
-            }*/
+        if (slider.length > 0) {
+            for (var i = 1; i < slider.length; i++) {
+                slide = slider[i].getElementsByClassName('slide');
+                var width = slide[0].offsetWidth;
+                //var width = parseFloat(getComputedStyle(slide[0]).width);
+                //slider[i].querySelector('.slides_wrapper').style.width = width * slide.length + "px";
+                //if (i == 1) {
+                //slider[i].querySelector('.slides_wrapper').style.width = (width + 2) * slide.length + "px";
+                //}
+                slider[i].querySelector('.slides_wrapper').style.width = width * slide.length + "px";
+                /*slider[i].querySelector('.slides_wrapper').style.width = (width + 2) * slide.length + "px";
+                if (i == 1) {
+                	slider[i].querySelector('.slides_wrapper').style.width = (width + 3) * slide.length + "px";
+                }*/
+            }
         }
     }
 
@@ -108,12 +108,14 @@
      * @returns {num} [page_height]
      */
     function calcPageHeight() {
-        var total = 0;
-        for (var i = 0; i < document.body.children.length; i++) {
-            total += document.body.children[i].offsetHeight;
+        if (header) {
+            var total = 0;
+            for (var i = 0; i < document.body.children.length; i++) {
+                total += document.body.children[i].offsetHeight;
+            }
+            total -= getHeaderHeight();
+            return total;
         }
-        total -= header_height;
-        return total;
     }
 
     /**
@@ -122,17 +124,20 @@
      * second param: border when scrolling should stop (created additional element for fixed header offset)
      */
     function setScrollingArguments1() {
-        elem_position = contact_position;
+
+        elem_position = calcPageHeight() - document.getElementsByTagName('footer')[0].offsetHeight - getHeaderHeight();
         elem_name = 'footer .invisible_scroll'
     }
 
     function setScrollingArguments2() {
-        elem_position = offers_position;
+
+        elem_position = document.getElementsByClassName('full_screen_slider')[0].offsetHeight - getHeaderHeight();
         elem_name = 'section.work_directions .invisible_scroll'
     }
 
     function setScrollingArguments3() {
-        elem_position = works_position;
+
+        elem_position = document.getElementsByClassName('full_screen_slider')[0].offsetHeight + document.getElementsByClassName('work_directions')[0].offsetHeight - getHeaderHeight();
         elem_name = 'section.performed_works .invisible_scroll'
     }
 
@@ -141,8 +146,8 @@
      */
     function setElemForPropertyScrolling() {
         for (var i = 0; i < document.getElementsByClassName('invisible_scroll').length; i++) {
-            document.getElementsByClassName('invisible_scroll')[i].style.height = header_height + "px";
-            document.getElementsByClassName('invisible_scroll')[i].style.top = "-" + header_height + "px";
+            document.getElementsByClassName('invisible_scroll')[i].style.height = getHeaderHeight() + "px";
+            document.getElementsByClassName('invisible_scroll')[i].style.top = "-" + getHeaderHeight() + "px";
         }
     }
 
@@ -174,41 +179,39 @@
 
             }
         }
-       /* var tick = false;
-        if (tick === false) {
-            tick = true;
-            var int1 = setInterval(function () {
-                if ((getComputedStyle(active_slide).opacity) > 0.02 && active_slide.classList.contains('active')) {
-                    console.log('start');
-                    active_slide.style.opacity = +active_slide.style.opacity - 0.2;
+        /* var tick = false;
+         if (tick === false) {
+             tick = true;
+             var int1 = setInterval(function () {
+                 if ((getComputedStyle(active_slide).opacity) > 0.02 && active_slide.classList.contains('active')) {
+                     console.log('start');
+                     active_slide.style.opacity = +active_slide.style.opacity - 0.2;
 
-                } else {
-                    var int2 = setInterval(function () {
-                        if ((getComputedStyle(slide).opacity) < 0.98) {
+                 } else {
+                     var int2 = setInterval(function () {
+                         if ((getComputedStyle(slide).opacity) < 0.98) {
 
-                            slide.style.opacity = +slide.style.opacity + 0.2;
+                             slide.style.opacity = +slide.style.opacity + 0.2;
 
-                        } else {
+                         } else {
 
-                            clearInterval(int2)
-                        }
-                    }, 50);
+                             clearInterval(int2)
+                         }
+                     }, 50);
 
-                    console.log('end');
-                    active_slide.classList.remove('active');
-                    clearInterval(int1);
-                    tick = false;
-                }
-            }, 50);
-        }*/
+                     console.log('end');
+                     active_slide.classList.remove('active');
+                     clearInterval(int1);
+                     tick = false;
+                 }
+             }, 50);
+         }*/
 
         active_slide.classList.remove('active');
-		active_slide.querySelector('.slide_content_wrapper').style.opacity = "0";//
+        active_slide.querySelector('.slide_content_wrapper').style.opacity = "0"; //
         slide_index.target.classList.add('active'); //change style of nav elem
-        slide.classList.add('active'); 
-		slide.querySelector('.slide_content_wrapper').style.opacity = "1";//show slide
-		
-		
+        slide.classList.add('active');
+        slide.querySelector('.slide_content_wrapper').style.opacity = "1"; //show slide
 
 
 
@@ -323,7 +326,18 @@
         for (var i = 0; i < document.getElementsByClassName('submit_app_btn').length; i++) {
             document.getElementsByClassName('submit_app_btn')[i].addEventListener('click', modalOpen);
         }
-        document.querySelector('.modal .close').addEventListener('click', modalClose);
+        for (var i = 0; i < document.getElementsByClassName('modal_comment').length; i++) {
+            document.getElementsByClassName('modal_comment')[i].addEventListener('click', modalOpen);
+        }
+        for (var i = 0; i < document.getElementsByClassName('modal_resume').length; i++) {
+            document.getElementsByClassName('  modal_resume')[i].addEventListener('click', modalOpen);
+        }
+
+
+        for (var i = 0; i < document.querySelectorAll('.modal .close').length; i++) {
+            document.querySelectorAll('.modal .close')[i].addEventListener('click', modalClose);
+        }
+
     }
 
     /**
@@ -332,7 +346,7 @@
      */
     function checkTarget(e) {
         console.log(e.target);
-        if (!e.target.classList.contains('lang') || (e.target.classList.contains('lang') && e.target.classList.contains('active'))) {
+        if (document.getElementsByClassName('lang') > 0 && !e.target.classList.contains('lang') || (e.target.classList.contains('lang') && e.target.classList.contains('active'))) {
             if (e.target.classList.contains('lang')) {
                 e.target.classList.remove('active')
             }
@@ -340,7 +354,7 @@
         } else if (e.target.classList.contains('lang')) {
             showElems('lang')
         }
-        if (!e.target.classList.contains('tel_num') || (e.target.classList.contains('tel_num') && e.target.classList.contains('active'))) {
+        if (document.getElementsByClassName('tel_num') > 0 && !e.target.classList.contains('tel_num') || (e.target.classList.contains('tel_num') && e.target.classList.contains('active'))) {
             if (e.target.classList.contains('tel_num')) {
                 e.target.classList.remove('active')
             }
@@ -355,12 +369,7 @@
     window.addEventListener('resize', setSliderWidth);
     window.addEventListener('resize', calcPageHeight);
     window.addEventListener('resize', glowingPlanet);
-    document.getElementById('cont_btn').addEventListener('click', scrollingButtonAction);
-    document.getElementById('cont_btn').addEventListener('click', setScrollingArguments1);
-    document.getElementById('offers_btn').addEventListener('click', scrollingButtonAction);
-    document.getElementById('offers_btn').addEventListener('click', setScrollingArguments2);
-    document.getElementById('works_btn').addEventListener('click', scrollingButtonAction);
-    document.getElementById('works_btn').addEventListener('click', setScrollingArguments3);
+
 
     /* --------------------------------------------- other functions --------------------------------------------- */
 
@@ -368,10 +377,21 @@
      * modal_window + smooth display
      */
     function modalOpen(e) {
-        document.getElementsByClassName('modal')[0].style.display = "block";
+        var index;
+        if (e.target.classList.contains('submit_app_btn')) {
+            index = 0
+        } else if (e.target.classList.contains('modal_resume')) {
+            e.preventDefault();
+            index = 1
+        } else if (e.target.classList.contains('modal_comment')) {
+            e.preventDefault();
+            index = 2
+        }
+
+        document.getElementsByClassName('modal')[index].style.display = "block";
         var int = setInterval(function () {
-            if ((getComputedStyle(document.getElementsByClassName('modal')[0]).opacity) < 0.98) {
-                document.getElementsByClassName('modal')[0].style.opacity = +document.getElementsByClassName('modal')[0].style.opacity + 0.1;
+            if ((getComputedStyle(document.getElementsByClassName('modal')[index]).opacity) < 0.98) {
+                document.getElementsByClassName('modal')[index].style.opacity = +document.getElementsByClassName('modal')[index].style.opacity + 0.1;
 
             } else {
                 clearInterval(int)
@@ -383,8 +403,17 @@
     }
 
     function modalClose(e) {
-        document.getElementsByClassName('modal')[0].style.display = "none";
-        document.getElementsByClassName('modal')[0].style.opacity = "0";
+        var index;
+        if (e.target.parentElement.parentElement.parentElement.id == 'modal_order') {
+            index = 0
+        } else if (e.target.parentElement.parentElement.parentElement.id == 'modal_resume') {
+            index = 1
+        } else if (e.target.parentElement.parentElement.parentElement.id == 'modal_comment') {
+            index = 2
+        }
+
+        document.getElementsByClassName('modal')[index].style.display = "none";
+        document.getElementsByClassName('modal')[index].style.opacity = "0";
 
         document.getElementsByTagName('body')[0].classList.remove('hidden');
     }
@@ -393,10 +422,12 @@
      * change color of fixed nav block when scrolled under nth px
      */
     function changeHeaderColor() {
-        if (window.pageYOffset > 0) {
-            header.getElementsByClassName('header_bg')[0].style.opacity = "0.9"
-        } else {
-            header.getElementsByClassName('header_bg')[0].style.opacity = "0"
+        if (header) {
+            if (window.pageYOffset > 0) {
+                header.getElementsByClassName('header_bg')[0].style.opacity = "0.9"
+            } else {
+                header.getElementsByClassName('header_bg')[0].style.opacity = "0"
+            }
         }
     }
 
@@ -451,14 +482,14 @@
         }
     }
     /* --------------------------------------------- calls --------------------------------------------- */
-    createNav(0);
+
     setSliderWidth();
     getArrows();
     getArrowsInParticularSlider();
     setModalButton();
-    changeHeaderColor();
+
     setElemForPropertyScrolling();
-    setElemsAttr();
+
     createGlowingPlanets();
     glowingPlanet();
     manageGlowing();
@@ -518,10 +549,98 @@
     //resize, load; hover - jnltkmyj
 
 
+    function changeInvalidColor(e) {
+
+        var form_input = e.target.parentElement.getElementsByTagName('input');
+        for (var i = 0; i < form_input.length; i++) {
+            form_input[i].classList.add('valid')
+        }
 
 
 
 
+    }
+
+    function addButtonListener() {
+        var form_button = document.getElementsByTagName('button')
+        for (var i = 0; i < form_button.length; i++) {
+
+            form_button[i].addEventListener('click', changeInvalidColor)
+        }
+
+    }
+    addButtonListener();
+
+    function showTelComment() {
+        var tel_comment = document.querySelector('.tel_comment');
+        tel_comment.style.visibility = "visible";
+        tel_comment.style.opacity = "1";
+
+
+    }
+
+    function hideTelComment() {
+        var tel_comment = document.querySelector('.tel_comment');
+        tel_comment.style.visibility = "hidden";
+        tel_comment.style.opacity = "0";
+
+
+    }
+
+
+
+
+
+    function getHeaderHeight() {
+        return header.offsetHeight;
+    }
+
+
+
+
+
+
+
+    function addListeners() {
+        if (document.getElementById('cont_btn')) {
+            document.getElementById('cont_btn').addEventListener('click', scrollingButtonAction);
+            document.getElementById('cont_btn').addEventListener('click', setScrollingArguments1);
+        }
+
+        if (document.getElementById('offers_btn')) {
+            document.getElementById('offers_btn').addEventListener('click', scrollingButtonAction);
+            document.getElementById('offers_btn').addEventListener('click', setScrollingArguments2);
+        }
+        if (document.getElementById('works_btn')) {
+            document.getElementById('works_btn').addEventListener('click', scrollingButtonAction);
+            document.getElementById('works_btn').addEventListener('click', setScrollingArguments3);
+        }
+        if (document.getElementById('tel_modal')) {
+            document.getElementById('tel_modal').addEventListener('focus', showTelComment);
+            document.getElementById('tel_modal').addEventListener('blur', hideTelComment);
+        }
+
+
+
+
+    }
+    addListeners();
+
+    function callFunctions() {
+        slider = document.getElementsByClassName('slider');
+        header = document.getElementsByTagName('header')[0];
+
+        if (slider.length > 0) {
+            createNav(0);
+        }
+        if (header) {
+            changeHeaderColor();
+        }
+        if (document.getElementsByClassName('slider')[2]) {
+            setElemsAttr();
+        }
+
+    }
 
 
 

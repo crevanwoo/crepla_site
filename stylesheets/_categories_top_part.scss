@@ -1,0 +1,59 @@
+section.cat_top_part {
+    height: 700px;
+    position: relative;
+    text-align: center;
+    background-image: url(../images/bg_top.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: white;
+    .wrapper {
+        height: 100%;
+        >div {
+            @extend %clear;
+        }
+    }
+    .main_h {
+        padding-top: 170px;
+        padding-bottom: 50px;
+    }
+    .bg_orbit {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-image: url(../images/orbit_horiz_big_white.png);
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+    .submit_app_btn {
+        @extend %button_width_border;
+        @extend %button_buzz;
+        margin-top: 85px;
+        display: inline-block;
+        clear: both;
+    }
+    .item_block {
+        width: 25%;
+        float: left;
+        &.lower_position {
+            margin-top: 40px;
+        }
+        &:nth-of-type(odd) >img {
+            transform: rotate(30deg)
+        }
+        >img {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 10px;
+            height: 112px;
+            width: auto;
+            @include bp(1220) {
+                height: 9.18vw;
+            }
+        }
+        .text {
+            @extend %text_plus_span;
+        }
+    }
+}
