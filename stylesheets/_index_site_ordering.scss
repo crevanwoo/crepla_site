@@ -1,5 +1,5 @@
 .site_ordering {
-    height: 350px;
+    height: 350rem;
     text-align: center;
     background: {
         image: url(../images/bg_order_website.jpg);
@@ -16,15 +16,15 @@
         position: relative;
     }
     .main_h {
-        padding-top: 50px;
-        padding-bottom: 15px;
+        padding-top: 50rem;
+        padding-bottom: 15rem;
         @include bp(1220) {
             padding-top: 50 * 0.082vw;
             padding-bottom: 15 * 0.082vw;
         }
     }
     p {
-        margin-bottom: 70px;
+        margin-bottom: 70rem;
         position: relative;
         display: inline-block;
         @include bp(1220) {
@@ -37,26 +37,26 @@
         }
         &:before {
             content: url(../images/little_star_1.png);
-            left: -35px;
-            top: -8px;
+            left: -35rem;
+            top: -8rem;
         }
         &:after {
             content: url(../images/little_star_2.png);
-            right: -25px;
-            top: -3px;
+            right: -25rem;
+            top: -3rem;
         }
     }
     .submit_app_btn {
         @extend %button_buzz;
         position: relative;
         z-index: 1;
-        $height: 45px;
+        $height: 45rem;
         height: $height;
-        padding: 0 25px 0 25px;
+        padding: 0 25rem 0 25rem;
         display: table;
         margin: auto;
         box-sizing: border-box;
-        border: 2px solid $soft_red;
+        border: 2rem solid $soft_red;
         line-height: $height;
         font-family: $f_medium;
         font-size: $f_16;
@@ -85,8 +85,8 @@
             content: url(../images/green_planet.png);
             display: block;
             position: absolute;
-            bottom: -70px;
-            left: 125px;
+            bottom: -70rem;
+            left: 125rem;
             @include bp(1220) {
                 left: 10vw
             }
@@ -95,15 +95,15 @@
             content: " ";
             display: block;
             position: absolute;
-            bottom: 32px;
-            right: 220px;
-            width: 13px;
-            height: 13px;
+            bottom: 32rem;
+            right: 220rem;
+            width: 13rem;
+            height: 13rem;
             border-radius: 50%;
             background-color: #39ff97;
-            -webkit-box-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
-            -moz-box-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
-            box-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
+            -webkit-box-shadow: 0rem 0rem 8rem rgba(255, 255, 255, 1);
+            -moz-box-shadow: 0rem 0rem 8rem rgba(255, 255, 255, 1);
+            box-shadow: 0rem 0rem 8rem rgba(255, 255, 255, 1);
         }
     }
 }

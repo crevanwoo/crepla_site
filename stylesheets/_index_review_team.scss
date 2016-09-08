@@ -1,41 +1,32 @@
 section.review {
-	padding-top: 60px;
+	padding-top: 60rem;
 	.main_h {
-		padding-bottom: 20px;
+		padding-bottom: 20rem;
 	}
 	.slider {
 		@extend %slider;
 		@extend %slider_with_arrows;
-		min-height: 230px;
-		padding-bottom: 150px;
+		min-height: 230rem;
+		padding-bottom: 150rem;
 		.arrow {
-			top: 85px;
+			top: 85rem;
 		}
 		.slider_wrapper {
 			.slides_wrapper {
 				.slide {
-					$text-padding: 20px;
-					$img-size: 150px;
-					$img-size-vw: 12.3vw;
-					$text-padding-vw: 1.64vw;
+					$text-padding: 20rem;
+					$img-size: 150rem;
 					position: relative;
-					$width: 1079px;
-		width: $width;
-		margin: auto;
-		@include bp(1220) {
-			width: 1079 * 0.082vw;
-		}
+					$width: 1079rem;
+					width: $width;
+					margin: auto;
 					.slide_content_part {
-						max-width: 890px;
+						max-width: 890rem;
 						min-width: 50%;
-						margin: 15px 0 30px $text-padding;
-						padding: 25px 20px 45px $img-size;
+						margin: 15rem 0 30rem $text-padding;
+						padding: 25rem 20rem 45rem $img-size;
 						white-space: pre-wrap;
 						background-color: white;
-						@include bp(1220) {
-							padding: 25px 20px 45px $img-size-vw;
-							margin: 15px 0 30px $text-padding-vw;
-						}
 						img {
 							width: $img-size;
 							height: $img-size;
@@ -43,10 +34,6 @@ section.review {
 							position: absolute;
 							top: 0;
 							left: 0;
-							@include bp(1220) {
-								width: $img-size-vw;
-								height: $img-size-vw;
-							}
 						}
 						.name {
 							font-family: $f_medium;
@@ -54,7 +41,7 @@ section.review {
 							text-transform: uppercase;
 						}
 						.post {
-							padding-bottom: 25px;
+							padding-bottom: 25rem;
 						}
 						.text {
 							text-align: justify
@@ -66,9 +53,6 @@ section.review {
 							bottom: 0;
 							&:nth-of-type(1) {
 								left: $img-size+ $text-padding;
-								@include bp(1220) {
-									left: $img-size-vw + $text-padding-vw;
-								}
 							}
 							&:nth-of-type(2) {
 								right: $m_abs
@@ -82,7 +66,7 @@ section.review {
 }
 
 section.team {
-	padding-bottom: 65px;
+	padding-bottom: 65rem;
 	text-align: center;
 	background: {
 		image: url(../images/orbit_horiz_big.png);
@@ -91,20 +75,20 @@ section.team {
 	}
 	.wrapper {
 		>.main_h {
-			padding-bottom: 75px;
+			padding-bottom: 75rem;
 		}
 		.slider {
 			@extend %slider;
 			@extend %slider_with_arrows;
-			height: 285px;
+			height: 285rem;
 			.arrow {
-				top: 117px;
+				top: 117rem;
 			}
 			.slider_wrapper {
 				.slides_wrapper {
 					.slide {
 						$widtn_vw: 29.4vw;
-						$width_abs: 359.57px;
+						$width_abs: 359.57rem;
 						width: $width_abs;
 						padding-top: 0;
 						float: left;
@@ -114,17 +98,17 @@ section.team {
 						}
 						&[data-slide-position='left'],
 						&[data-slide-position='right'] {
-							padding-top: 40px;
+							padding-top: 40rem;
 							transition-duration: 1s;
 						}
-                        &[data-slide-position='left_bottom'],
+						&[data-slide-position='left_bottom'],
 						&[data-slide-position='right_bottom'] {
-							padding-top: 80px;
+							padding-top: 80rem;
 							transition-duration: 1s;
 						}
 						img {
-							width: 192px;
-							height: 143px;
+							width: 192rem;
+							height: 143rem;
 							margin: auto;
 							display: block;
 							overflow: hidden;
@@ -134,8 +118,8 @@ section.team {
 							}
 						}
 						.main_h {
-							padding-top: 15px;
-							padding-bottom: 5px;
+							padding-top: 15rem;
+							padding-bottom: 5rem;
 						}
 					}
 				}

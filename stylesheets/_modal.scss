@@ -292,15 +292,15 @@
             top: -15px;
         }
        
-        .tel_comment {visibility:hidden;
-            position: relative;
-             bottom: 5px;
-            float: left;
-            opacity: 0;
-            transition-duration: 0.5s;
-
-       
-        white-space: nowrap}
+        .tel_comment {
+	visibility: hidden;
+	position: relative;
+	bottom: 5px;
+	float: left;
+	opacity: 0;
+	transition-duration: 0.5s;
+	white-space: nowrap
+}
         
     }
 }

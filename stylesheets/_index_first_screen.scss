@@ -1,7 +1,7 @@
 /*.top_offer {
     width: 100%;
-    height: 551px;
-    padding-top: 100px;
+    height: 551rem;
+    padding-top: 100rem;
 
     background: {
         image: url(../images/bg_top.jpg);
@@ -14,8 +14,8 @@
         height: 551 * 0.082vw;
     }
     .main_h {
-        padding-top: 40px;
-        padding-bottom: 60px;
+        padding-top: 40rem;
+        padding-bottom: 60rem;
         @include bp(1220) {
             padding-top: 40 * 0.082vw;
             padding-bottom: 60 * 0.082vw;
@@ -23,7 +23,7 @@
     }
     .slider {
         @extend %slider;
-        $width: 1040px;
+        $width: 1040rem;
         width: $width;
         margin: auto;
         @include bp(1220) {
@@ -33,7 +33,7 @@
             width: 100%;
             .slides_wrapper {
                 .slide {
-                    $height: 300px;
+                    $height: 300rem;
                     width: $width;
                     height: $height;
                     @include bp(1220) {
@@ -44,8 +44,8 @@
                         float: left;
                     }
                     .sign {
-                        padding-left: 50px;
-                        padding-right: 50px;
+                        padding-left: 50rem;
+                        padding-right: 50rem;
                         line-height: $height;
                         font-size: $f_80;
                         @include bp(1220) {
@@ -55,12 +55,12 @@
                         }
                     }
                     .slide_content_part {
-                        width: 237px;
+                        width: 237rem;
                         @include bp(1220) {
                             width: 237 * 0.082vw;
                         }
                         .slide_image {
-                            height: 235px;
+                            height: 235rem;
                             @include bp(1220) {
                                 height: 235 * 0.082vw;
                             }
@@ -72,7 +72,7 @@
                             text-transform: uppercase;
                         }
                         &.info {
-                            padding-top: 70px;
+                            padding-top: 70rem;
                             float: right;
                             @include bp(1220) {
                                 padding-top: 70 * 0.082vw;
@@ -89,14 +89,14 @@
                                 }
                             }
                             .submit_app_btn {
-                                $height: 55px;
+                                $height: 55rem;
                                 padding: 0 $m_abs*2 0 $m_abs*2;
                                 height: $height;
-                                margin-top: 20px;
+                                margin-top: 20rem;
                                 box-sizing: border-box;
-                                border: 4px solid $soft_red;
+                                border: 4rem solid $soft_red;
                                 text-align: center;
-                                line-height: $height - 8px;
+                                line-height: $height - 8rem;
                                 font-family: $f_medium;
                                 font-size: $f_20;
                                 &:hover {
@@ -122,7 +122,7 @@
             }
         }
         .pagination {
-            padding-top: 80px;
+            padding-top: 80rem;
             text-align: center;
             @include bp(1220) {
                 padding-top: 80 * 0.082vw;
@@ -130,13 +130,13 @@
             >div {
                 display: inline-block;
                 .nav_item {
-                    width: 12px;
-                    height: 12px;
-                    margin: 0 1px 0 1px;
+                    width: 12rem;
+                    height: 12rem;
+                    margin: 0 1rem 0 1rem;
                     float: left;
                     border-radius: 50%;
                     background-clip: padding-box;
-                    border: 2px solid rgba(255, 255, 255, 0);
+                    border: 2rem solid rgba(255, 255, 255, 0);
                     background-color: $soft_red;
                     @include bp(1220) {
                         width: 12 * 0.082vw;
@@ -144,8 +144,8 @@
                     }
                     &.active {
                         background-color: transparent;
-                        border: 2px solid $soft_red;
-                        margin: 0 2px 0 2px;
+                        border: 2rem solid $soft_red;
+                        margin: 0 2rem 0 2rem;
                     }
                 }
             }
@@ -154,151 +154,134 @@
 }*/
 
 .work_directions {
-    height: 650px;
-    position: relative;
-    background: {
-        image: url(../images/bg_top_section_bottom_part.jpg);
-        size: cover;
-        position: center center;
-        repeat: no-repeat;
-    }
-    color: white;
-    @include bp(1220) {
-        height: 650* 0.082vw;
-    }
-    .wrapper {
-        @extend %clear;
-        height: 100%;
-        position: relative;
-        overflow-x: hidden;
-        .main_h {
-            padding-top: 120px;
-            position: absolute;
-            right: 0;
-            left: 0;
-            @include bp(1220) {
-                padding-top: 120 * 0.082vw;
-            }
-        }
-        .direction {
-            width: 33.33%;
-            height: 100%;
-            float: left;
-            background: {
-                image: url(../images/orbit.png);
-                size: contain;
-                position: 60px center;
-                repeat: no-repeat;
-            }
-            @include bp(1220) {
-                size: 100% auto;
-                background-position: 60 * 0.082vw center;
-            }
-            .direction_wrapper {
-                position: relative;
-                height: 435px;
-                padding-top: 150px;
-                @include bp(1220) {
-                    height: 435* 0.082vw;
-                    padding-top: 150 * 0.082vw;
-                }
-                .service {
-                    position: relative;
-                    display: block;
-                    height: 120px;
-                    animation-iteration-count: infinite;
-                    animation-timing-function: linear;
-                    animation-direction: alternate;
-                    transform: translate(0, 0);
-                    * {
-                        position: absolute;
-                    }
-                    img {
-                        top: 0;
-                        left: 0;
-                    }
-                    .lines {
-                        .circle {
-                            width: 5px;
-                            height: 5px;
-                            top: -3px;
-                            border-radius: 50%;
-                            background-color: $soft_red;
-                            @include bp(1220) {
-                                width: 0.4vw;
-                                height: 0.4vw;
-                                top: -3* 0.082vw;
-                            }
-                        }
-                        .direct_line {
-                            width: 205px;
-                            top: 5px;
-                            left: 130px;
-                            border-top: 1px solid $soft_red;
-                            @include bp(1220) {
-                                width: 205 * 0.082vw;
-                                left: 10.6vw;
-                                top: 0.4vw;
-                            }
-                            .skew_line {
-                                width: 55px;
-                                top: 12px;
-                                left: -50px;
-                                border-top: 1px solid $soft_red;
-                                transform: rotate(-30deg);
-                                @include bp(1220) {
-                                    width: 55 * 0.082vw;
-                                    top: 12 * 0.082vw;
-                                    left: -50 * 0.082vw;
-                                }
-                                .first_circle {
-                                    left: 0
-                                }
-                            }
-                            .second_circle {
-                                left: 0
-                            }
-                            .third_circle {
-                                right: 0
-                            }
-                        }
-                    }
-                    .service_name {
-                        right: 17%;
-                        top: -25px;
-                        font-family: $f_medium;
-                        font-size: $f_20;
-                        text-transform: uppercase;
-                    }
-                    .price {
-                        $height: 34px;
-                        height: $height;
-                        padding-right: 15px;
-                        right: 14%;
-                        top: 15px;
-                        background: {
-                            image: url(../images/red_triangle.png);
-                            size: contain;
-                            position: right center;
-                            repeat: no-repeat;
-                        }
-                        line-height: $height;
-                        font-size: $f_18;
-                    }
-                    &.item1 {
-                        animation-name: orbit1;
-                        animation-duration: 10s;
-                    }
-                    &.item2 {
-                        animation-name: orbit2;
-                        animation-duration: 12s;
-                    }
-                    &.item3 {
-                        animation-name: orbit3;
-                        animation-duration: 15s;
-                    }
-                }
-            }
-        }
-    }
+	height: 650rem;
+	position: relative;
+	background: {
+		image: url(../images/bg_top_section_bottom_part.jpg);
+		size: cover;
+		position: center center;
+		repeat: no-repeat;
+	}
+	color: white;
+	.wrapper {
+		@extend %clear;
+		height: 100%;
+		position: relative;
+		overflow: hidden;
+		.main_h {
+			padding-top: 120rem;
+			position: absolute;
+			right: 0;
+			left: 0;
+		}
+		.direction {
+			width: 33.33%;
+			height: 100%;
+			float: left;
+			background: {
+				image: url(../images/orbit.png);
+				size: contain;
+				position: 60rem center;
+				repeat: no-repeat;
+			}
+			@include bp(1220) {
+				size: 100% auto;
+			}
+			.direction_wrapper {
+				position: relative;
+				height: 435rem;
+				padding-top: 150rem;
+				.service {
+					position: relative;
+					display: block;
+					height: 120rem;
+					animation-iteration-count: infinite;
+					animation-timing-function: linear;
+					animation-direction: alternate;
+					transform: translate(0, 0);
+					>a {
+						display: block;
+						top: -25rem;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						cursor: pointer;
+						z-index: 1
+					}
+					* {
+						position: absolute;
+					}
+					img {
+						top: 0;
+						left: 0;
+					}
+					.lines {
+						.circle {
+							width: 5rem;
+							height: 5rem;
+							top: -3rem;
+							border-radius: 50%;
+							background-color: $soft_red;
+						}
+						.direct_line {
+							width: 205rem;
+							top: 5rem;
+							left: 130rem;
+							border-top: 1rem solid $soft_red;
+							.skew_line {
+								width: 55rem;
+								top: 12rem;
+								left: -50rem;
+								border-top: 1rem solid $soft_red;
+								transform: rotate(-30deg);
+								.first_circle {
+									left: 0
+								}
+							}
+							.second_circle {
+								left: 0
+							}
+							.third_circle {
+								right: 0
+							}
+						}
+					}
+					.service_name {
+						right: 17%;
+						top: -25rem;
+						font-family: $f_medium;
+						font-size: $f_20;
+						text-transform: uppercase;
+					}
+					.price {
+						$height: 34rem;
+						height: $height;
+						padding-right: 15rem;
+						right: 14%;
+						top: 15rem;
+						background: {
+							image: url(../images/red_triangle.png);
+							size: contain;
+							position: right center;
+							repeat: no-repeat;
+						}
+						line-height: $height;
+						font-size: $f_18;
+					}
+					&.item1 {
+						animation-name: orbit1;
+						animation-duration: 10s;
+					}
+					&.item2 {
+						animation-name: orbit2;
+						animation-duration: 12s;
+					}
+					&.item3 {
+						animation-name: orbit3;
+						animation-duration: 15s;
+					}
+				}
+			}
+		}
+	}
 }

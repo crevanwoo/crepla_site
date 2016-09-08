@@ -1,97 +1,78 @@
 .performed_works {
-    padding-top: 60px;
-    padding-bottom: 30px;
-    position: relative;
-    @include bp(1220) {
-        padding-top: 60 * 0.082vw;
-        padding-bottom: 30 * 0.082vw;
-    }
-    .main_h {
-        padding-bottom: 50px;
-        @include bp(1220) {
-            padding-bottom: 50 * 0.082vw;
-        }
-    }
-    .portfolio {
-        @extend %clear;
-        margin: -$m_abs;
-        @include bp(1220) {
-            margin: -$m_rel;
-        }
-        >* {
-            height: $cell_s_abs;
-            margin: $m_abs;
-            float: left;
-            background-color: black;
-            overflow: hidden;
-            .hover_logo {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                padding-top:100px;
-                //top:-200%;
-                top:0;
-                left:0;
-                transform: translateY(0%);
-                transition-duration: 0.5s;
-                color: white;
-                text-align: center;
-                img {position: relative;
-                    margin-right: auto;
-                    margin-left: auto;
-                    
-                    
-                    width:auto;
-                    height: 40%;
-                    display: block;
-                }
-                .hover_logo_button {position: relative;
-                    display: inline-block;
-                    height: 29px;
-                    padding: 0 $m_abs 0 $m_abs;                   
-                    border: 2px solid $soft_red;
-                    text-align: center;
-                    text-transform: uppercase;
-                    line-height: 29px;
-                    margin-top: 45px;
-                    font-size: $f_14;
-                }
-                &:before {
-                    content: ' ';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    bottom: 0;
-                    right: 0;
-                    background-image: url(../images/bg_modal.jpg);
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    opacity: 0.9;
-                }
-            }
-            img {
-                width: 100%;
-                height: auto;
-                overflow: hidden;
-            }
-            @include bp(1220) {
-                height: $cell_s_rel;
-                margin: $m_rel;
-            }
-        }
-        .cell_cube {
-            width: $cell_s_abs;
-             position: relative;
-            @include bp(1220) {
-                width: $cell_s_rel
-            }
-        }
-        .cell_rect {
-            width: $cell_s_abs*2 + $m_abs*2;
-             position: relative;
-            @include bp(1220) {
-                width: $cell_s_rel*2 + $m_rel*2;
-            }
-        }
-    }
+	padding-top: 60rem;
+	padding-bottom: 30rem;
+	position: relative;
+	.main_h {
+		padding-bottom: 50rem;
+	}
+	.portfolio {
+		@extend %clear;
+		margin: -$m_abs;
+		>* {
+			height: $cell_s_abs;
+			margin: $m_abs;
+			float: left;
+			background-color: black;
+			overflow: hidden;
+			.hover_logo {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				padding-top: 70rem;
+				//top:-200%;
+				top: 0;
+				left: 0;
+				transform: translateY(0%);
+				transition-duration: 0.5s;
+				color: white;
+				text-align: center;
+				img {
+					width: auto;
+					max-width: 80%;
+					height: 40%;
+					margin-right: auto;
+					margin-left: auto;
+					display: block;
+					position: relative;
+				}
+				.hover_logo_button {
+					height: 29rem;
+					margin-top: 45rem;
+					padding: 0 $m_abs 0 $m_abs;
+					display: inline-block;
+					position: relative;
+					border: 2rem solid $soft_red;
+					text-align: center;
+					text-transform: uppercase;
+					line-height: 29rem;
+					font-size: $f_14;
+				}
+				&:before {
+					content: ' ';
+					position: absolute;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					right: 0;
+					background-image: url(../images/bg_modal.jpg);
+					background-position: center;
+					background-repeat: no-repeat;
+					opacity: 0.9;
+				}
+			}
+			img {
+				width: 100%;
+				height: auto;
+				overflow: hidden;
+			}
+		}
+		.cell_cube {
+			width: $cell_s_abs;
+			position: relative;
+		}
+		.cell_rect {
+			width: $cell_s_abs*2 + $m_abs*2;
+			position: relative;
+		}
+	}
 }
