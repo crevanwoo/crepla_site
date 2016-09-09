@@ -74,11 +74,11 @@ $black: #333333;
 		border-bottom: 1rem solid $black;
 		border-right: 1rem solid $black;
 		&:nth-of-type(1) {
-			left: 0;
+			left: 4rem;
 			transform: rotate(135deg)
 		}
 		&:nth-of-type(2) {
-			right: 0;
+			right: 4rem;
 			transform: rotate(-45deg)
 		}
 	}
@@ -130,7 +130,6 @@ $black: #333333;
 	line-height: $height - 8rem;
 	font-family: $f_medium;
 	font-size: $f_20;
-	
 }
 
 %button_buzz {

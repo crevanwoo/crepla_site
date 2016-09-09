@@ -6,13 +6,17 @@ section.review {
 	.slider {
 		@extend %slider;
 		@extend %slider_with_arrows;
-		min-height: 230rem;
-		padding-bottom: 150rem;
+		//min-height: 242rem;
+		//height: 1px;
+		height: 242rem;
+		margin-bottom: 150rem;
 		.arrow {
 			top: 85rem;
 		}
 		.slider_wrapper {
+			height: 100%;
 			.slides_wrapper {
+				height: 100%;
 				.slide {
 					$text-padding: 20rem;
 					$img-size: 150rem;
@@ -85,12 +89,15 @@ section.team {
 				top: 117rem;
 			}
 			.slider_wrapper {
+				height: 100%;
 				.slides_wrapper {
+					height: 100%;
 					.slide {
 						$widtn_vw: 29.4vw;
 						$width_abs: 359.57rem;
 						width: $width_abs;
 						padding-top: 0;
+						padding-bottom: 150rem;
 						float: left;
 						transition-duration: 1s;
 						@include bp(1220) {
