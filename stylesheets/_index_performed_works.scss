@@ -21,16 +21,16 @@
 				padding-top: 100rem;
 				box-sizing: border-box;
 				//top: -100%; old
-                top: 0; //new
+				top: 0; //new
 				left: 0;
-                opacity:0; //new
+				opacity: 0; //new
 				//transform: translateY(0%); old
 				transition-duration: 0.5s;
 				color: white;
 				text-align: center;
 				&.active {
 					//transform: translateY(100%); old
-                    opacity: 1; //new
+					opacity: 1; //new
 					transition-duration: 0.5s;
 				}
 				img {
@@ -42,13 +42,16 @@
 					display: block;
 					position: relative;
 				}
-                span { //new
-                    margin-top:20rem;
-                    margin-bottom: 20rem;
-                    display: block;
-                    position: relative;
-                    font-size: $f_14;}
+				span {
+					//new
+					margin-top: 20rem;
+					margin-bottom: 20rem;
+					display: block;
+					position: relative;
+					font-size: $f_14;
+				}
 				.hover_logo_button {
+					@extend %buttons_hover;
 					height: 29rem;
 					//margin-top: 45rem; //old
 					padding: 0 $m_abs 0 $m_abs;

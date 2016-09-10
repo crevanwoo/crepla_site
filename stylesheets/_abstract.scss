@@ -53,6 +53,7 @@ $f_80: 80rem;
 $soft_red: #f15151;
 $soft_violet: #6671ad;
 $soft_blue: #b3bbf0;
+$soft_green: #00e184;
 $bright_blue: #2cebf2;
 $black: #333333;
 //abstract_classes
@@ -134,6 +135,7 @@ $black: #333333;
 
 %button_buzz {
 	&:hover {
+		background-color: $soft_red;
 		-webkit-animation-name: hvr-buzz-out;
 		animation-name: hvr-buzz-out;
 		-webkit-animation-duration: 0.75s;
@@ -155,6 +157,14 @@ $black: #333333;
 		font-family: $f_medium;
 		font-size: $f_18;
 		text-transform: uppercase
+	}
+}
+
+%buttons_hover {
+	cursor:pointer;
+	transition-duration: 1s;
+	&:hover {
+		background-color: #ff6161;
 	}
 }
 
