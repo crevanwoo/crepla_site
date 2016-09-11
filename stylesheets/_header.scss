@@ -101,6 +101,7 @@ header {
 				position: relative;
 				// border: 1rem solid $soft_violet;
 				text-transform: uppercase;
+				cursor: pointer;
 				@include bp(1220) {
 					margin-right: 1vw
 				}

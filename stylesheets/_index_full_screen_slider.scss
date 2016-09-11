@@ -132,6 +132,7 @@
 					background-clip: padding-box;
 					border: 2rem solid rgba(255, 255, 255, 0);
 					background-color: $soft_red;
+					cursor: pointer;
 					&.active {
 						background-color: transparent;
 						border: 2rem solid $soft_red;

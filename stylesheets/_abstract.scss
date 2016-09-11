@@ -69,18 +69,40 @@ $black: #333333;
 %arrow {
 	position: relative;
 	>div.arrow {
-		width: 18rem;
-		height: 18rem;
+		width: 31rem;
+		height: 31rem;
 		position: absolute;
-		border-bottom: 1rem solid $black;
-		border-right: 1rem solid $black;
+		//background-color: $soft_red;
+		//border-radius: 3px;
+		&:hover:before {
+			border-bottom-color: $soft_violet;
+			border-right-color: $soft_violet;
+			transition-duration: 0.3s;
+		}
+		&:before {
+			content: ' ';
+			width: 18rem;
+			height: 18rem;
+			top: 6rem;
+			position: absolute;
+			display: block;
+			border-bottom: 1rem solid $black;
+			border-right: 1rem solid $black;
+			cursor: pointer;
+		}
 		&:nth-of-type(1) {
 			left: 4rem;
-			transform: rotate(135deg)
+			&:before {
+				left: 15rem;
+				transform: rotate(135deg)
+			}
 		}
 		&:nth-of-type(2) {
 			right: 4rem;
-			transform: rotate(-45deg)
+			&:before {
+				left: 0;
+				transform: rotate(-45deg)
+			}
 		}
 	}
 }
@@ -161,7 +183,7 @@ $black: #333333;
 }
 
 %buttons_hover {
-	cursor:pointer;
+	cursor: pointer;
 	transition-duration: 1s;
 	&:hover {
 		background-color: #ff6161;
