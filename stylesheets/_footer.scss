@@ -143,8 +143,9 @@ footer {
                 }
                 input {
                     @extend %valid;
+                      border: 2px solid transparent;
                     &:valid {
-                        border: none
+                        border: 2px solid transparent;
                     }
                     $height: 40rem;
                     height: $height;
@@ -166,6 +167,7 @@ footer {
                     padding-top: 15rem;
                     clear: both;
                     float: left;
+                    border: 2px solid transparent;
                 }
                 button {
                     height: 50rem;
