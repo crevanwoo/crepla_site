@@ -163,6 +163,7 @@
 		repeat: no-repeat;
 	}
 	color: white;
+    * {cursor: default !important;}
 	.wrapper {
 		@extend %clear;
 		height: 100%;

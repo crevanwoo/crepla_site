@@ -1,3 +1,5 @@
+var window_offset;
+
 ;
 (function () {
     'use strict';
@@ -13,11 +15,13 @@
         pag_index,
         slider,
         header,
-        window_offset,
+
+        // window_offset,
         tick1 = 0,
         tick2 = 0;
 
     /* --------------------------------------------- calls --------------------------------------------- */
+
     callFunctions();
     addListeners();
     setSliderWidth();
@@ -31,6 +35,9 @@
     hideSliderArrow(1, 0);
     hideSliderArrow(2, 0);
     checkIfSlidesExist();
+    highSlidePopUp();
+
+
 
 
     function callFunctions() {
@@ -138,7 +145,16 @@
         }
     }
 
-
+    /**
+     * elem on tel header
+     */
+    function createElemsForTablets() {
+        if (!device.desktop() && document.querySelector('header .contacts .tel')) {
+            var area = document.createElement('div');
+            document.querySelector('header .contacts .tel').appendChild(area);
+            area.classList.add('correct_work_on_tablet');
+        }
+    }
     /* --------------------------------------------- sizes --------------------------------------------- */
 
 
@@ -180,6 +196,11 @@
      * first param: which elem I want to see 
      * second param: border when scrolling should stop (created additional element for fixed header offset)
      */
+    function setScrollingArguments0() {
+        elem_position = "0";
+        elem_name = 'body'
+    }
+
     function setScrollingArguments1() {
 
         elem_position = calcPageHeight() - document.getElementsByTagName('footer')[0].offsetHeight - getHeaderHeight();
@@ -214,6 +235,20 @@
      */
     function getHeaderHeight() {
         return header.offsetHeight;
+    }
+
+    /**
+     * [calc height for slide depends on window height and add style on page]
+     */
+    function addStyleForHighslide() {
+        var height = window.innerHeight - 30;
+        var div = document.createElement('div');
+        var style = document.createElement('style');
+        document.body.appendChild(div);
+        div.appendChild(style);
+        div.classList.add('style_tag');
+        var newtext = document.createTextNode('.highslide-container {position: fixed !important; overflow: auto !important; height: ' + height + 'px !important} .highslide-wrapper {width: 1200rem !important; height: auto !important;     margin: auto !important; left: 0!important; right: 0; !important} .highslide-image {width: 100% !important; height: auto !important} .drop-shadow {display: none !important}');
+        style.appendChild(newtext);
     }
 
     /* --------------------------------------------- sliders --------------------------------------------- */
@@ -387,28 +422,22 @@
      * @param {object} e [clicked elem]
      */
     function checkTarget(e) {
-        console.log(e.target);
-        //alert(e.target.tagName);
         if (document.getElementsByClassName('lang').length > 0) {
             if (!e.target.classList.contains('lang') || (e.target.classList.contains('lang') && e.target.classList.contains('active'))) {
                 if (e.target.classList.contains('lang')) {
                     e.target.classList.remove('active')
                 }
                 hideElems('lang');
+                if (e.target.parentElement.querySelector('.arrow')) {
+                    e.target.parentElement.querySelector('.arrow').classList.remove('active')
+                }
             } else if (e.target.classList.contains('lang')) {
-                showElems('lang')
+                showElems('lang');
+                if (e.target.parentElement.querySelector('.arrow')) {
+                    e.target.parentElement.querySelector('.arrow').classList.add('active')
+                }
             }
         }
-        /*if (document.getElementsByClassName('tel_num').length > 0) {
-        	if (!e.target.classList.contains('tel_num') || (e.target.classList.contains('tel_num') && e.target.classList.contains('active'))) {
-        		if (e.target.classList.contains('tel_num')) {
-        			e.target.classList.remove('active')
-        		}
-        		hideElems('tel_num')
-        	} else if (e.target.classList.contains('tel_num')) {
-        		showElems('tel_num')
-        	}
-        }*/
     }
 
     /**
@@ -436,6 +465,10 @@
      * checking if element exist - add listener
      */
     function addListeners() {
+        if (document.getElementById('logo_btn')) {
+            document.getElementById('logo_btn').addEventListener('click', scrollingButtonAction);
+            document.getElementById('logo_btn').addEventListener('click', setScrollingArguments0);
+        }
         if (document.getElementById('cont_btn')) {
             document.getElementById('cont_btn').addEventListener('click', scrollingButtonAction);
             document.getElementById('cont_btn').addEventListener('click', setScrollingArguments1);
@@ -468,13 +501,43 @@
 
             }
         }
-        if (document.getElementsByClassName('tel_num').length > 0) {
+        if (document.getElementsByClassName('tel_num').length > 0 && device.desktop()) {
             for (var i = 0; i < document.getElementsByClassName('tel_num').length; i++) {
                 document.getElementsByClassName('tel_num')[i].addEventListener('mouseenter', showHeaderTel);
                 document.getElementsByClassName('tel_num')[i].addEventListener('mouseleave', hideHeaderTel);
             }
         }
+        createElemsForTablets();
+        if (document.querySelector('.correct_work_on_tablet')) {
+            document.querySelector('.correct_work_on_tablet').addEventListener('click', tabletHeaderTelToggle);
+        }
     }
+
+    /**
+     * field with image in portfolio section becomes clickable (takes link from hover area) itself
+     * @param {object} e [[direct project image]]
+     */
+    function goPortfolioLink(e) {
+        if (e.target.tagName == 'IMG') {
+            document.location.href = e.target.parentElement.getElementsByTagName('a')[0].getAttribute('href')
+        } else {
+            document.location.href = e.target.getElementsByTagName('a')[0].getAttribute('href')
+        }
+    }
+
+
+    /**
+     * [on page 'works' add listener on links bounded with highslide module ]
+     */
+    function highSlidePopUp() {
+        var slide_link = document.querySelectorAll('.work_content a.highslide');
+        if (slide_link.length > 0) {
+            for (var i = 0; i < slide_link.length; i++) {
+                slide_link[i].addEventListener('click', bodyFixOn)
+            }
+        }
+    }
+
 
     window.addEventListener('click', checkTarget);
     window.addEventListener('scroll', changeHeaderColor);
@@ -595,9 +658,11 @@
     function changeHeaderColor() {
         if (header) {
             if (window.pageYOffset > 0) {
-                header.getElementsByClassName('header_bg')[0].style.opacity = "0.9"
+                header.getElementsByClassName('header_bg')[0].style.opacity = "0.9";
+
             } else {
-                header.getElementsByClassName('header_bg')[0].style.opacity = "0"
+                header.getElementsByClassName('header_bg')[0].style.opacity = "0";
+
             }
         }
     }
@@ -722,19 +787,57 @@
      */
 
     function showHeaderTel(e) {
-        for (var i = 1; i < e.target.parentElement.getElementsByClassName('tel_num').length; i++) {
-            e.target.parentElement.getElementsByClassName('tel_num')[i].removeAttribute('hidden')
+        for (var i = 1; i < document.querySelector('header .contacts .tel').getElementsByClassName('tel_num').length; i++) {
+            document.querySelector('header .contacts .tel').getElementsByClassName('tel_num')[i].removeAttribute('hidden');
         }
+        document.querySelector('header .contacts .tel').querySelector('span').classList.add('active');
+        document.querySelector('header .contacts .tel').classList.add('active');
     }
 
     function hideHeaderTel(e) {
-        for (var i = 1; i < e.target.parentElement.getElementsByClassName('tel_num').length; i++) {
-            e.target.parentElement.getElementsByClassName('tel_num')[i].setAttribute('hidden', '')
+        for (var i = 1; i < document.querySelector('header .contacts .tel').getElementsByClassName('tel_num').length; i++) {
+            document.querySelector('header .contacts .tel').getElementsByClassName('tel_num')[i].setAttribute('hidden', '');
         }
+        document.querySelector('header .contacts .tel').querySelector('span').classList.remove('active');
+        document.querySelector('header .contacts .tel').classList.remove('active');
+
     }
 
+    /**
+     * [highslide run as modal window]
+     */
+    function bodyFixOn() {
+        var body_width = document.body.offsetWidth;
+        window_offset = window.pageYOffset;
+        document.body.style.marginRight = window.innerWidth - body_width + "px";
+        document.body.style.width = body_width + "px";
+        document.body.style.top = "-" + window_offset + "px";
+        document.body.classList.add('hidden');
+        document.querySelector('header').style.display = "none";
+        addStyleForHighslide()
+    }
 
+    /* replace to highslide.js
+    function bodyFixOut() {
+         document.body.style.marginRight = 0;
+         document.body.style.width = (document.body.offsetHeight >= 1200) ? "100%" : "100vw";
+         document.body.classList.remove('hidden');
+         window.scrollTo(0, window_offset);
+         document.body.removeChild(document.querySelector('.style_tag'))
+     }*/
 
+    /**
+     * [show header tels on tablets]
+     */
+    function tabletHeaderTelToggle() {
+        if (document.querySelector('.correct_work_on_tablet').classList.contains('active')) {
+            document.querySelector('.correct_work_on_tablet').classList.remove('active');
+            hideHeaderTel()
+        } else {
+            document.querySelector('.correct_work_on_tablet').classList.add('active');
+            showHeaderTel()
+        }
+    }
 
 
 
@@ -845,14 +948,40 @@
     }*/
 
 
-    function goPortfolioLink(e) {
-        if (e.target.tagName == 'IMG') {
-            document.location.href = e.target.parentElement.getElementsByTagName('a')[0].getAttribute('href')
-        } else {
-            document.location.href = e.target.getElementsByTagName('a')[0].getAttribute('href')
-        }
 
-    }
+
+
+
+
+
+
+    /*
+       
+           hs.registerOverlay({
+        html: '<div class=\"close_btn\" onclick=\"return hs.close(this)\" title=\"Close\"></div>',
+        position: 'top right',
+        fade: 2 // fading the semi-transparent overlay looks bad in IE
+    });
+       
+       */
+
+
+    /*  
+    window.addEventListener('mousemove', 'checkSlideClosing')
+    
+    function checkSlideClosing() {
+        if (document.querySelectorAll('.highslide-container table') > 0) {
+        for(var i = 0; i < document.querySelectorAll('.highslide-container table') )
+    if (document.querySelectorAll('.highslide-container table')) {
+            bodyFixOut()
+        }}
+
+}*/
+
+
+
+
+
 
 
 

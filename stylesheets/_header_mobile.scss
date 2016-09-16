@@ -1,0 +1,201 @@
+header {
+    @extend %clear;
+    width: 100%;
+    height: 20rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    >* {
+        float: left;
+    }
+    nav {
+        width: 20%;
+        height: 100%;
+        .toggle_btn {
+            height: 100%;
+            position: relative;
+            padding-top: $padding;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 8rem;
+            background-color: $dark_blue;
+        }
+        ul {
+            position: absolute;
+            opacity: 0;
+            transition-duration: 0.8s;
+            z-index: 1;
+            li {
+                width: 100vw;
+                height: 15rem;
+                position: relative;
+                line-height: 15rem;
+                text-align: center;
+                background-color: $dark_blue;
+                border-bottom: 0.1rem solid $soft_violet;
+                font-size: $f_small_h;
+                text-transform: uppercase;
+                span {
+                    position: absolute;
+                    top: -3rem;
+                    left: 0;
+                    right: 0;
+                    font-size: $f_p;
+                    text-transform: none;
+                }
+            }
+        }
+    }
+    .logo {
+        width: 40%;
+        height: 20rem;
+        margin-right: 10%;
+        margin-left: 10%;
+        display: block;
+        border: none;
+        background-image: url(../images/logo_mob.png);
+        background-size: contain;
+        background-position: center center;
+    }
+    .lang_btn {
+        width: 20%;
+        height: 100%;
+        //padding-top: $padding;
+        padding-bottom: $padding;
+        position: relative;
+        box-sizing: border-box;
+        // background-color: $dark_blue;
+        text-transform: uppercase;
+        .lang {
+            width: 100%;
+            height: 10rem;
+            position: relative;
+            padding-left: 3rem;
+            box-sizing: border-box;
+            line-height: 10rem;
+            font-size: $f_mid_h;
+            /* &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                box-shadow: inset 0 0 0 0.5rem $soft_violet;
+            }*/
+            &.active {
+                background-color: $dark_blue;
+            }
+        }
+        a div.lang {
+            background-color: $dark_blue;
+        }
+        .arrow {
+            width: 2rem;
+            height: 2rem;
+            position: absolute;
+            top: 3.5rem;
+            right: 3rem;
+            border-bottom: 0.3rem solid $soft_violet;
+            border-right: 0.3rem solid $soft_violet;
+            transform: rotate(45deg);
+            z-index: 1;
+            &.active {
+                top: 15rem;
+                transform: rotate(225deg);
+            }
+        }
+    }
+}
+
+section.first_screen {
+    color: white;
+    .main_h {
+        margin: auto;
+        position: absolute;
+        top: 30rem;
+        left: 0;
+        right: 0;
+    }
+    .slider {
+        .slide {
+            height: auto;
+            @extend %block_padding;
+            background-position: center center;
+            background-size: cover;
+            .slide_content {
+                height: 100vh;
+                position: relative;
+                padding-top: 50rem;
+                @include bp(landscape) {
+                    height: 300vw;
+                }
+                >* {
+                    box-sizing: border-box;
+                }
+                .slide_content_part {
+                    height: 35%;
+                    .slide_image {
+                        width: 100%;
+                        height: 70%;
+                        img {
+                            width: auto;
+                            height: 100%;
+                            margin: auto;
+                            display: block;
+                        }
+                    }
+                    .caption {
+                        line-height: 400%;
+                        text-align: center;
+                        font-family: $f_medium;
+                        font-size: 2vh;
+                        text-transform: uppercase;
+                        @include bp(landscape) {
+                            font-size: $f_mid_h;
+                        }
+                    }
+                    &.info {
+                        height: 15%;
+                        text-align: center;
+                        overflow: hidden;
+                        .price {
+                            font-family: $f_medium;
+                            font-size: 4vh;
+                            @include bp(landscape) {
+                                margin-top: $padding;
+                                font-size: $f_big_h;
+                            }
+                            span {
+                                font-family: $f_light;
+                                font-size: 3vh;
+                                @include bp(landscape) {
+                                    font-size: $f_mid_h;
+                                }
+                            }
+                        }
+                        .submit_app_btn {
+                            margin-top: 3vh;
+                            @include bp(landscape) {
+                                margin-top: $padding;
+                            }
+                        }
+                    }
+                }
+                .sign {
+                    height: 7%;
+                    position: relative;
+                    top: -5%;
+                    text-align: center;
+                    font-size: 10vh;
+                    vertical-align: top;
+                    @include bp(landscape) {
+                        font-size: 40rem;
+                    }
+                }
+            }
+        }
+    }
+}

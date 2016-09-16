@@ -19,7 +19,7 @@ body {
     &.hidden {
         //overflow: hidden //old scrolling
         position: fixed; //new scrolling
-        left: 0;//new scrolling
+        left: 0; //new scrolling
     }
     @include bp(1220) {
         // width: 100vw;
@@ -192,3 +192,21 @@ span.blue {
     font-family: $f_medium;
     color: $black
 }
+
+.share {
+    @extend %clear
+}
+
+.pulso {
+    position: relative
+}
+
+.correct_work_on_tablet {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 11;
+}
+.appimages {@extend %clear;}

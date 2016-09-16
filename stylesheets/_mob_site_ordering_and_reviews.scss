@@ -1,0 +1,73 @@
+section.site_ordering {
+    @extend %block_padding;
+    padding-bottom: $padding;
+    background-image: url(../images/mob_bg_ordering_site.jpg);
+    background-position: bottom right;
+    background-size: cover;
+    text-align: center;
+    color: white;
+    .main_h {
+        padding: $padding 0 0 0;
+    }
+    p {
+        padding: $padding/2 0;
+        font-size: $f_small_h;
+    }
+    .submit_app_btn {
+        margin-top: $padding;
+    }
+}
+
+section.review {
+    padding-bottom: $padding;
+    text-align: center;
+    .slider {
+        @extend %slider;
+        @extend %slider_with_arrows;
+        .slide {
+            width: 87.6rem;
+            padding: $padding;
+            box-sizing: border-box;
+            background-color: white;
+            .name {
+                font-family: $f_medium;
+                font-size: $f_big_h;
+            }
+            .post {
+                padding: $padding/2 0;
+                font-family: $f_medium;
+                font-size: $f_small_h;
+            }
+            .text {
+                text-align: justify;
+                font-size: $f_small_h;
+            }
+        }
+    }
+}
+
+section.team {
+    padding-bottom: $padding;
+    text-align: center;
+    .slider {
+        @extend %slider;
+        @extend %slider_with_arrows;
+        height: 55rem;
+        .slide {
+            width: 87.6rem;
+            img {
+                width: auto;
+                height: 35rem;
+                margin: auto;
+                display: block;
+            }
+            .name {
+                padding: $padding 0 $padding/2 0;
+                font-size: $f_big_h;
+            }
+            p {
+                font-size: $f_small_h;
+            }
+        }
+    }
+}

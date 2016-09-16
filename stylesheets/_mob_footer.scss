@@ -1,0 +1,85 @@
+footer {
+    @extend %clear;
+    padding: $padding;
+    position: relative;
+    background: {
+        image: url(../images/mob_bg_footer.jpg);
+        position: center bottom;
+        size: cover;
+    }
+    text-align: center;
+    color: white;
+    .main_h:nth-of-type(1) {
+        padding-bottom: 0;
+    }
+    p {
+        line-height: 200%;
+        font-size: $f_small_h;
+    }
+    a {
+        // height: $padding*2; 
+        margin-bottom: $padding;
+        display: block;
+        font-family: $f_medium;
+        font-size: $f_small_h;
+        line-height: 200%;
+        img {
+            width: 8rem;
+        }
+    }
+    .cont {
+        text-align: left;
+        float: left;
+        font-size: $f_small_h;
+        &[href^=tel] {
+            width: 45rem;
+            clear: both
+        }
+    }
+    .socials {
+        float: right;
+        img {
+            width: $padding;
+            height: auto;
+            display: block;
+             position: relative;
+            top: $padding/2;
+        }
+        &.vk {
+            img {
+              
+                top: $padding;
+            }
+        }
+    }
+}
+
+form {
+    @extend %clear;
+    >* {margin-bottom: $padding/2; }
+    input {
+        width: 100%;
+        border: $border_w solid transparent;
+        $height: 15rem;
+        height: $height;
+        line-height: $height;
+    }
+    textarea {width: 100%;
+        height: 25rem;
+        padding-top: $padding;      
+       
+        border: $border_w solid transparent;
+    }
+    button {
+        height: 15rem;
+        margin-top: $padding;
+      padding: 0 $padding;
+   
+        background-color: $soft_red;
+        font-family: $f_medium;
+        font-size: $f_small_h;
+        color: white;
+        text-transform: uppercase;
+     
+    }
+}

@@ -71,7 +71,9 @@ footer {
                     content: ' ';
                     display: block;
                     position: absolute;
-                    background: url(../images/sprites.png) no-repeat;
+                    background-position: center cenr;
+                    background-repeat: no-repeat;
+                    background-size: contain;
                 }
             }
             .s-1,
@@ -89,36 +91,36 @@ footer {
                 }
             }
             .s-1:before {
-                background-position: -55px -45px;
+                background-image: url(../images/1.png);
                 width: 20rem;
                 height: 20rem;
             }
             .s-2:before {
-                background-position: -55px -26px;
+                background-image: url(../images/2.png);
                 width: 20rem;
                 height: 8rem;
                 top: 8rem;
             }
             .s-3:before {
-                background-position: 0 -47px;
+                background-image: url(../images/3.png);
                 width: 20rem;
                 height: 21rem;
                 top: 3rem;
             }
             .s-4:before {
-                background-position: -27px -50px;
+                background-image: url(../images/4.png);
                 width: 20rem;
                 height: 15rem;
                 top: 4rem;
             }
             .s-5:before {
-                background-position: 0 0;
+                background-image: url(../images/5.png);
                 width: 31rem;
                 height: 31rem;
                 top: 35rem;
             }
             .s-6:before {
-                background-position: -48px 0;
+                background-image: url(../images/6.png);
                 width: 31rem;
                 height: 18rem;
                 top: 40rem;
@@ -143,7 +145,7 @@ footer {
                 }
                 input {
                     @extend %valid;
-                      border: 2px solid transparent;
+                    border: 2px solid transparent;
                     &:valid {
                         border: 2px solid transparent;
                     }

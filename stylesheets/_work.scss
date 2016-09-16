@@ -89,6 +89,7 @@ section.work_top_part {
 }
 
 section.work_content {
+    @extend %clear;
     padding-top: 35rem;
     padding-bottom: 55rem;
     .main_h {
@@ -100,7 +101,6 @@ section.work_content {
         width: 100%;
         min-height: 40rem;
         margin-bottom: 30rem;
-        background-color: black;
         img {
             width: 100%;
             height: auto;
@@ -110,7 +110,6 @@ section.work_content {
         @extend %clear;
         .item {
             width: 30%;
-            min-height: 40rem; //to delete
             float: left;
             .small_h {
                 padding-bottom: 20rem;
@@ -120,9 +119,7 @@ section.work_content {
                 margin-left: 5%;
             }
             a {
-                min-height: 40rem; //to delete
                 display: block;
-                background-color: black;
                 img {
                     width: 100%;
                     height: auto;
@@ -134,8 +131,13 @@ section.work_content {
 }
 
 .pluso-vkontakte {}
+
 .pluso-facebook {}
+
 .pluso-twitter {}
+
 .pluso-google {}
+
 .pluso-pinterest {}
+
 .pluso-linkedin {}
