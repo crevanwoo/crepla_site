@@ -61,6 +61,11 @@ $border_w: 1rem;
     color: $black;
 }
 
+@mixin placeholder_white {
+	@include placeholder;
+	color: white
+}
+
 //abstract_classes
 %clear {
     position: relative;

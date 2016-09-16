@@ -1,0 +1,253 @@
+%big_height {
+    min-height: 575px
+}
+
+%big_min_height {
+    height: 575px
+}
+
+.modal {
+    //opacity: 0;
+   // display: none;
+    min-height: 100vh; //!!!
+    height: 1px; //!!!
+   // position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    z-index: 100;
+    overflow: auto; //!!!
+    .bg_modal_trans {
+        width: 100%;
+        height: 100%;
+        min-height: 460px;
+		position: absolute;
+        background-image: url(../images/bg_modal.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        opacity: 0.9;
+        &.big_height {
+            @extend %big_height;
+        }
+    }
+   
+    .modal_content {		
+        width: 100%;
+        height: 300vw;
+		padding: $padding;
+        margin: auto; 
+		position: relative;
+		text-align: center;
+        p {
+            line-height: 200%;
+            font-size: $f_small_h;
+        }
+        .close {
+            width: 3vw;
+            height: 3vw;
+            position: absolute;
+            top: 3vw;
+            right: 3vw;            
+            &:before {
+                content: " ";
+                width: 3vw;
+                display: block;
+                border-bottom: $border_w solid white;
+                transform: rotate(45deg);
+                position: absolute;
+                top: 0;
+                right: -1vw;
+                bottom: 0
+            }
+            &:after {
+                content: " ";
+                width: 3vw;
+                display: block;
+                border-bottom: $border_w solid white;
+                transform: rotate(-45deg);
+                position: absolute;
+                top: 0;
+                left: -1vw;
+                bottom: 0
+            }
+        }
+           
+        .chkbox_h {
+            padding-top: $padding/2;
+            padding-bottom: $padding;
+            text-align: left;
+            font-family: $f_medium;
+            font-size: $f_small_h;
+            text-transform: uppercase;
+        }
+        %form_common {
+            width: 100%;
+            margin-top: $padding;
+            margin-bottom: $padding;
+            border: $border_w solid $soft_blue;
+            background-color: transparent;
+            color: white;
+            &::-webkit-input-placeholder {
+                @include placeholder_white
+            }
+            &::-moz-placeholder {
+                @include placeholder_white
+            }
+            /* Firefox 19+ */
+            &:-moz-placeholder {
+                @include placeholder_white
+            }
+            /* Firefox 18- */
+            &:-ms-input-placeholder {
+                @include placeholder_white
+            }
+        }
+        input:not([type="checkbox"]) {
+            @extend %form_common;           
+            $height: 15rem;
+			height: $height;
+            line-height: $height;
+			box-sizing: border-box;
+        
+        }
+        textarea {
+            @extend %form_common;
+            height: 30rem;
+            padding-top: $padding;
+        }
+        button {
+            $height: 15rem;
+            height: $height;
+            margin: 0 auto;           
+            line-height: $height;
+            background-color: $soft_red;
+            font-family: $f_medium;
+            font-size: $f_mid_h;
+            color: white;
+            text-transform: uppercase;
+        }
+        label {
+            font-family: $f_medium;
+            font-size: $f_small_h;
+            & + span {
+                display: inline-block;
+                padding-left: 5px;
+                padding-right: 10px;
+                font-family: $f_regular;
+                font-size: $f_small_h;
+            }
+            &.chkbox_label {
+                position: relative;
+                width: 50%;
+                padding-left: 30px;
+                padding-bottom: 20px;
+                float: left;
+                box-sizing: border-box;
+                font-family: $f_regular;
+                &:last-of-type {
+                    width: 100%;
+                }
+                &:after {
+                    content: ' ';
+                    width: 15px;
+                    height: 15px;
+                    box-sizing: border-box;
+                    position: absolute;
+                    left: 0;
+                    border: 1px solid $soft_blue
+                }
+            }
+            &.radio_label {
+                display: inline-block;
+                cursor: pointer;
+                position: relative;
+                padding-left: 25px;
+                padding-bottom: 25px;
+                margin-right: 15px;
+                font-family: $f_regular;
+                font-size: $f_small_h;
+                &:before {
+                    content: "";
+                    display: block;
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 10px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    background-color: transparent;
+                    border: 1px solid $soft_blue;
+                    border-radius: 50%;
+                }
+            }
+        }
+        input[type="checkbox"] {
+            display: none;
+            &:checked + label:before {
+                content: "\2713";
+                position: absolute;
+                left: 3px;
+                top: -3px;
+                font-size: 17px;
+                color: $bright_blue;
+                line-height: 15px;
+            }
+        }
+        input[type=radio] {
+            display: none;
+            &:checked + label:before {
+                content: "\2022";
+                color: $bright_blue;
+                font-size: 20px;
+                text-align: center;
+                line-height: 17px;
+            }
+        }
+        input[type='file'] {
+            display: none;
+        }
+        .upload {
+            display: block;
+            position: relative;
+            top: -15px;
+            clear: both;
+            text-align: left;
+            color: white;
+            label {
+                height: 47px;
+                margin-top: 15px;
+                padding-left: 15px;
+                display: block;
+                border: 2px solid #b3bbf0;
+                background-color: transparent;
+                line-height: 45px;
+                text-align: left;
+                font-family: $f_regular;
+                font-size: $f_small_h;
+                &:after {
+                    content: url(../images/attach.png);
+                    position: relative;
+                    top: 5px;
+                    left: 10px;
+                }
+            }
+        }
+        .modal_textarea {
+            display: block;
+            clear: both;
+            position: relative;
+            top: -15px;
+        }
+        .tel_comment {
+            visibility: hidden;
+            position: relative;
+            bottom: 5px;
+            float: left;
+            opacity: 0;
+            transition-duration: 0.5s;
+            white-space: nowrap
+        }
+    }
+}
