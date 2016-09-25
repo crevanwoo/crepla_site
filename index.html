@@ -6,7 +6,7 @@
     <meta name="format-detection" content="telephone=no">
     <title></title>
     <link rel="stylesheet" href="stylesheets/style.css">
-      <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
 
 
@@ -52,6 +52,7 @@
                         <label for="chkbox_mob_apps" class="chkbox_label">Мобильные приложения</label>
                     </div>
                     <button type="submit">отправить заявку</button>
+                    <input type="hidden" id="takes_used_button" value="">
                 </form>
             </div>
         </div>
@@ -146,9 +147,9 @@
     <header>
         <div class="header_bg"></div>
         <div class="wrapper">
-           
+
             <nav>
-               <a href="" id="logo_btn" class="logo"></a>
+                <a href="" id="logo_btn" class="logo"></a>
                 <ul>
                     <li id="works_btn"><a href="#">Наши работы</a></li>
                     <li id="offers_btn"><a href="#">Услуги</a></li>
@@ -158,15 +159,21 @@
             <div class="contacts">
                 <div class="tel">
                     <span>&#9660;</span>
-                    <div class="tel_num">+38 (095) 711-24-32<div class="tel_comment">WhatsApp, Viber, Telegram</div></div>
-                    <div class="tel_num" hidden>+38 (095) 711-24-32<div class="tel_comment">free for USA</div></div>
-                    <div class="tel_num" hidden>creplacom<div class="tel_comment">Skype</div></div>
-                 
-                   
+                    <div class="tel_num">+38 (095) 711-24-32
+                        <div class="tel_comment">WhatsApp, Viber, Telegram</div>
+                    </div>
+                    <div class="tel_num" hidden>+38 (095) 711-24-32
+                        <div class="tel_comment">free for USA</div>
+                    </div>
+                    <div class="tel_num" hidden>creplacom
+                        <div class="tel_comment">Skype</div>
+                    </div>
+
+
                 </div>
 
 
-                <div class="submit_app_btn">оставить заявку</div>
+                <div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="top_nav">оставить заявку</div>
                 <div class="lang_btn">
                     <div class="arrow"></div>
                     <div class="lang">rus</div>
@@ -279,16 +286,18 @@
 
     <section class="full_screen_slider">
         <div class="bg_figures"></div>
-        <h1 class="main_h">выгодное предложение</h1>
+
 
         <div class="slider">
             <div class="slider_wrapper">
                 <div class="slides_wrapper">
-
+                
+                
                     <!-- slide starts -->
                     <div class="slide">
-                        <div class="slide_content_wrapper" style="background-image: url(images/bg_top.jpg);">
+                        <div class="slide_content_wrapper" style="background-image: url(images/bg_top_slider_1.jpg);">
                             <div class="slide_content">
+                                <h1 class="main_h">выгодное предложение</h1>
                                 <div class="slide_content_part">
                                     <div class="slide_image"><img src="images/slider_1_pict_1.png" alt="image" class="image1"></div>
                                     <div class="caption">сайт под ключ</div>
@@ -301,34 +310,73 @@
                                 <div class="sign">=</div>
                                 <div class="slide_content_part info">
                                     <div class="price"><span>от</span> 500$</div>
-                                    <div class="submit_app_btn"> Нанять нас </div>
+                                    <div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="full_screen_slider"> Нанять нас </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- slide ends -->
+                    
+                    
+                    
+                    <!-- slide starts -->
+                    <div class="slide">
+                        <div class="slide_content_wrapper" style="background-image: url(images/bg_top_slider_1.jpg);">
+                            <div class="slide_content">
+                                <div class="slide_smart part_1"><img src="images/smart_1.png" alt=""></div>
+                                <div class="slide_smart part_2">
+                                    <h1 class="main_h">don't matter IOS or Android</h1>
+                                    <p>if at the end it will be <span>amazing app</span></p>
+                                    <div class="price">from 25$/h</div>
+                                    <div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="full_screen_slider">Send a query</div>
+                                </div>
+                                <div class="slide_smart part_3"><img src="images/smart_2.png" alt=""></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- slide ends -->
+
 
 
 
                     <!-- slide starts -->
                     <div class="slide">
-                        <div class="slide_content_wrapper" style="background-image: url(images/process_1.png);">
+                        <div class="slide_content_wrapper" style="background-image: url(images/bg_top_slider_2.jpg);">
                             <div class="slide_content">
-                                <div class="slide_content_part">
-                                    <div class="slide_image"><img src="images/slider_1_pict_1.png" alt="image" class="image1"></div>
-                                    <div class="caption">сайт под ключ</div>
+                                <h1 class="main_h">don't miss the chance to get special offer!</h1>
+
+                                <div class="talking_block">
+
+                                    <div class="left_speak">I wanna refresh <br> myself<div></div></div>
+                                    <div class="arrow"></div>
+                                    <div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="full_screen_slider">order redesign</div>
+                                    <div class="arrow"></div>
+                                    <div class="right_speak">cool, thanks <div></div></div>
+
+
                                 </div>
-                                <div class="sign">+</div>
-                                <div class="slide_content_part">
-                                    <div class="slide_image"><img src="images/slider_1_pict_2.png" alt="image" class="image2"></div>
-                                    <div class="caption">мобильная версия</div>
+                                <div class="icons_block">
+
+                                    <img src="images/slide_3_icon_2.png" alt="">
+                                    <img src="images/slide_3_icon_1.png" alt="">
+                                    <img src="images/slide_3_icon_3.png" alt="">
+
+                                    <div class="caterpillar"><div></div>
+                                    <div></div>
+                                        <img src="images/detal.png" alt="">
+                                        <img src="images/detal.png" alt="">
+                                        <img src="images/detal.png" alt="">
+                                        </div>
+
+
+
                                 </div>
-                                <div class="sign">=</div>
-                                <div class="slide_content_part info">
-                                    <div class="price"><span>от</span> 500$</div>
-                                    <div class="submit_app_btn">Оставить заявку</div>
-                                </div>
+                                <div class="old_guy"></div>
+                                <div class="young_guy"></div>
+
                             </div>
                         </div>
                     </div>
@@ -337,29 +385,12 @@
 
 
 
-                    <!-- slide starts -->
-                    <div class="slide">
-                        <div class="slide_content_wrapper" style="background-image: url(images/green_planet.png);">
-                            <div class="slide_content">
-                                <div class="slide_content_part">
-                                    <div class="slide_image"><img src="images/slider_1_pict_1.png" alt="image" class="image1"></div>
-                                    <div class="caption">сайт под ключ</div>
-                                </div>
-                                <div class="sign">+</div>
-                                <div class="slide_content_part">
-                                    <div class="slide_image"><img src="images/slider_1_pict_2.png" alt="image" class="image2"></div>
-                                    <div class="caption">мобильная версия</div>
-                                </div>
-                                <div class="sign">=</div>
-                                <div class="slide_content_part info">
-                                    <div class="price"><span>от</span> 500$</div>
-                                    <div class="submit_app_btn">Оставить заявку</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- slide ends -->
+
+
+
+
+
 
 
 
@@ -463,7 +494,7 @@
 
 
             <div class="portfolio">
-                <div class="cell_cube"><img src="" alt="">
+                <div class="cell_cube"><img src="images/old_guy.png" alt="">
                     <div class="hover_logo"><img src="images/services_2.png" alt="">
                         <span>какой-то текст</span>
                         <div class="hover_logo_button">посмотреть проект</div>
@@ -514,7 +545,7 @@
         <div class="wrapper">
             <h1 class="main_h">i want to order a website!</h1>
             <p>Or another services which will bring you success!</p>
-            <div class="submit_app_btn">оставить заявку</div>
+            <div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="separate_block">оставить заявку</div>
             <div class="planet"></div>
         </div>
     </section>
@@ -586,7 +617,7 @@
                                 <p class="post">Директор ООО «Муромские просторы»</p>
                                 <p class="text">Здравствуйте! Хотела бы поделиться впечатлениями о сотрудничестве с ребятами из CreativePlanet. Не так давно мы заказали у них разработку сайта. Результат не заставил себя ждать, и мы получили эффектный и стильный сайт, с ориентацией на привлечение новых клиентов! Спасибо!</p>
                                 <a href="" class="button">Просмотреть проект</a>
-                                <a href="" class="button modal_comment">оставить отзыв</a>
+                                <a href="" class="button modal_comment" data-modal-id="modal_comment">оставить отзыв</a>
 
 
 
@@ -704,7 +735,7 @@
                             <h4 class="main_h">Давид Подосян</h4>
                             <p>Коммерческий директор</p>
                         </div>
-<div class="slide">
+                        <div class="slide">
                             <img src="images/david.png" alt="image">
                             <h4 class="main_h">Давид Подосян</h4>
                             <p>Коммерческий директор</p>
@@ -760,7 +791,7 @@
 
 
 
-            <a href="" class="button modal_resume">Я хочу к вам в команду</a>
+            <a href="" class="button modal_resume" data-modal-id="modal_resume">Я хочу к вам в команду</a>
         </div>
     </section>
 

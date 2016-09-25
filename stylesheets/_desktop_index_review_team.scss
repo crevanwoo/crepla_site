@@ -1,0 +1,157 @@
+section.review {
+    padding-top: 60rem;
+    .main_h {
+        @extend %h_border;
+        padding-bottom: 20rem;
+    }
+    .slider {
+        @extend %slider;
+        @extend %slider_with_arrows;
+        //min-height: 242rem;
+        //height: 1px;
+        //height: 242rem;
+        // margin-bottom: 150rem;
+        margin-bottom: 50rem;
+        .arrow {
+            top: 85rem;
+        }
+        .slider_wrapper {
+            //height: 100%;
+            .slides_wrapper {
+                //height: 100%;
+                .slide {
+                    $text-padding: 20rem;
+                    $img-size: 150rem;
+                    position: relative;
+                    $width: 1079rem;
+                    width: $width;
+                    margin: auto;
+                    .slide_content_part {
+                        max-width: 890rem;
+                        min-width: 50%;
+                        margin: 15rem 0 30rem $text-padding;
+                        padding: 25rem 20rem 45rem $img-size;
+                        white-space: pre-wrap;
+                        background-color: white;
+                        img {
+                            width: $img-size;
+                            height: $img-size;
+                            display: block;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                        .name {
+                            font-family: $f_medium;
+                            font-size: $f_20;
+                            text-transform: uppercase;
+                        }
+                        .post {
+                            padding-bottom: 25rem;
+                        }
+                        .text {
+                            text-align: justify
+                        }
+                        a.button {
+                            @extend %button_bottom;
+                            display: block;
+                            position: absolute;
+                            bottom: 0;
+                            &:nth-of-type(1) {
+                                left: $img-size+ $text-padding;
+                            }
+                            &:nth-of-type(2) {
+                                right: $m_abs
+                            }
+                            transition-duration: 0s;
+                            &:hover {
+                                //color: white;
+                                border-color: black;
+                                border-style: dashed;
+                                transition-duration: 0.5s;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+section.team {
+    padding-bottom: 65rem;
+    text-align: center;
+    background: {
+        image: url(../images/orbit_horiz_big.png);
+        position: center 180rem;
+        repeat: no-repeat;
+    }
+    .wrapper {
+        >.main_h {
+            @extend %h_border;
+            padding-bottom: 75rem;
+        }
+        .slider {
+            @extend %slider;
+            @extend %slider_with_arrows;
+            height: 285rem;
+            .arrow {
+                top: 117rem;
+            }
+            .slider_wrapper {
+                height: 100%;
+                .slides_wrapper {
+                    height: 100%;
+                    .slide {
+                        $widtn_vw: 29.4vw;
+                        $width_abs: 359.57rem;
+                        width: $width_abs;
+                        padding-top: 0;
+                        padding-bottom: 150rem;
+                        float: left;
+                        transition-duration: 1s;
+                        @include bp(1220) {
+                            width: $widtn_vw;
+                        }
+                        &[data-slide-position='left'],
+                        &[data-slide-position='right'] {
+                            padding-top: 40rem;
+                            transition-duration: 1s;
+                        }
+                        &[data-slide-position='left_bottom'],
+                        &[data-slide-position='right_bottom'] {
+                            padding-top: 80rem;
+                            transition-duration: 1s;
+                        }
+                        img {
+                            width: 192rem;
+                            height: 143rem;
+                            margin: auto;
+                            display: block;
+                            overflow: hidden;
+                            @include bp(1220) {
+                                width: 15.7vw;
+                                height: 11.7vw;
+                            }
+                        }
+                        .main_h {
+                            padding-top: 15rem;
+                            padding-bottom: 5rem;
+                        }
+                    }
+                }
+            }
+        }
+        a.button {
+            @extend %button_bottom;
+            display: inline-block;
+            transition-duration: 0s;
+            &:hover {
+                //color: white;
+                border-color: black;
+                border-style: dashed;
+                transition-duration: 0.5s;
+            }
+        }
+    }
+}

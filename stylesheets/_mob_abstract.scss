@@ -1,0 +1,156 @@
+
+
+//Fonts
+@font-face {
+    font-family: GothamProLight;
+    src: url(../fonts/GothamProLight.ttf);
+}
+
+@font-face {
+    font-family: GothamProRegular;
+    src: url(../fonts/GothamProRegular.ttf);
+}
+
+@font-face {
+    font-family: GothamProMedium;
+    src: url(../fonts/GothamProMedium.ttf);
+}
+
+@font-face {
+    font-family: GothamProBold;
+    src: url(../fonts/GothamProBold.ttf);
+}
+
+$f_light: GothamProLight,
+sans-serif;
+$f_regular: GothamProRegular,
+sans-serif;
+$f_medium: GothamProMedium,
+sans-serif;
+$f_bold: GothamProBold,
+sans-serif;
+//fsize
+$f_big_h: 5rem;
+$f_mid_h: 4rem;
+$f_small_h: 3rem;
+$f_p: 2rem;
+//colors
+$soft_red: #f15151;
+$soft_violet: #6671ad;
+$soft_blue: #b3bbf0;
+$soft_green: #00e184;
+$bright_blue: #2cebf2;
+$dark_blue: rgba(1, 11, 39, 0.9);
+$black: #333333;
+//sizes 
+$padding: 5rem;
+$border_w: 1rem;
+
+//mixins
+@mixin bp($position) {
+    @if $position==landscape {
+        @media screen and (orientation: landscape) {
+            @content
+        }
+    }
+}
+
+@mixin placeholder {
+    font-family: $f_regular;
+    font-size: $f_small_h;
+    color: $black;
+}
+
+@mixin placeholder_white {
+	@include placeholder;
+	color: white
+}
+
+//abstract_classes
+%clear {
+    position: relative;
+    &:after {
+        content: ' ';
+        display: block;
+        clear: both;
+    }
+}
+
+%block_padding {
+    padding-right: 5rem;
+    padding-left: 5rem;
+}
+
+%button_border {
+    padding: 0 3vw;
+    display: inline-block;
+    border: $border_w solid $soft_red;
+    text-align: center;
+    line-height: 200%;
+    font-size: 3vh;
+    text-transform: uppercase;
+    @include bp(landscape) {
+        font-size: $f_mid_h;
+    }
+}
+
+%arrow {
+    position: relative;
+    >div.arrow {
+        width: (31rem/5);
+        height: (31rem/5);
+        position: absolute;
+        top: 50%;
+        margin-top: -3.1rem;
+        // background-color: $soft_red;
+        //border-radius: 3px;
+        &:before {
+            content: ' ';
+            width: (18rem/5);
+            height: (18rem/5);
+            top: (6rem/5);
+            position: absolute;
+            display: block;
+            border-bottom: (1rem/5) solid $black;
+            border-right: (1rem/5) solid $black;
+        }
+        &:nth-of-type(1) {
+            left: 0;
+            &:before {
+                left: 2rem; //(15rem/5);
+                transform: rotate(135deg)
+            }
+        }
+        &:nth-of-type(2) {
+            right: 0;
+            &:before {
+                left: 0;
+                transform: rotate(-45deg)
+            }
+        }
+    }
+}
+
+%slider {
+    .slider_wrapper {
+        overflow: hidden;
+        .slides_wrapper {
+            position: relative;
+            right: 0;
+            transition-duration: 1s;
+            @extend %clear;
+            .slide {
+                float: left;
+            }
+        }
+    }
+}
+
+%slider_with_arrows {
+    @extend %arrow;
+    .slider_wrapper {
+        width: 87.6rem;
+        margin: auto;
+        overflow: hidden;
+    }
+}

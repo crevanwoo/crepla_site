@@ -10,9 +10,10 @@ footer {
     text-align: center;
     color: white;
     .main_h:nth-of-type(1) {
-        padding-bottom: 0;
+        padding-bottom: $padding;
     }
     p {
+         padding-bottom: $padding;
         line-height: 200%;
         font-size: $f_small_h;
     }
@@ -52,7 +53,7 @@ footer {
             }
         }
     }
-}
+
 
 form {
     @extend %clear;
@@ -82,4 +83,4 @@ form {
         text-transform: uppercase;
      
     }
-}
+}}

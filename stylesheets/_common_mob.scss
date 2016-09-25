@@ -19,6 +19,10 @@ html {
 
 body {
     overflow-x: hidden;
+     &.hidden {       
+        position: fixed; //new scrolling
+        left: 0; //new scrolling
+    }
 }
 
 h1,
@@ -105,7 +109,7 @@ textarea {
     resize: none;
 }
 
-.invisible_scroll {
-    position: absolute;
-    z-index: -100;
+button{
+    padding-left: $padding;
+    padding-right:$padding;
 }

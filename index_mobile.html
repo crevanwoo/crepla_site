@@ -6,6 +6,7 @@
     <title></title>
     <link rel="stylesheet" href="stylesheets/style_mob.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width">
 
 
 
@@ -15,24 +16,123 @@
 
 <body>
 
+
+    <!-- modal order begins -->
+    <div class="modal" id="modal_order" hidden>
+        <div class="bg_modal_trans"></div>
+        <div class="modal_content">
+            <h1 class="main_h">send a request</h1>
+            <p>For a free consultation and discussion of the project</p>
+            <div class="close"></div>
+            <form action="">
+                <input type="text" placeholder="Your Name" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="only letters">
+                <input type="email" placeholder="Email:" required>
+                <input type="text" placeholder="Phone number" id="tel_modal">
+                <span class="tel_comment">* WhatsApp, Viber, Telegram</span>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Your message"></textarea>
+                <h3 class="chkbox_h">Select your topic (not necessary)</h3>
+                <input id="chkbox_design" type="checkbox">
+                <label for="chkbox_design" class="chkbox_label">UI/UX Design</label>
+                <input type="checkbox" id="chkbox_develop">
+                <label for="chkbox_develop" class="chkbox_label">Website Development</label>
+                <input type="checkbox" id="chkbox_mob_apps">
+                <label for="chkbox_mob_apps" class="chkbox_label">Mobile App Development</label>
+                <button type="submit">Start the coolest project!</button>
+            </form>
+        </div>
+    </div>
+    <!-- modal order ends -->
+
+
+    <!-- modal resume begins -->
+
+    <div class="modal" id="modal_resume" hidden>
+        <div class="bg_modal_trans"></div>
+        <div class="modal_content">
+            <h1 class="main_h">send cv</h1>
+            <p>If you want to join our team, just send your CV</p>
+            <div class="close"></div>
+            <form action="">
+                <input type="text" placeholder="Name:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="only letters">
+                <input type="text" placeholder="Email" required>
+                <input type="text" placeholder="Phone number">
+                <input type="text" placeholder="Position (example: Front-end)">
+                <label for="upload" class="upload">
+                    <input type="file" id="upload">
+                    <label for="upload">Upload your CV</label>
+                </label>
+                <button type="submit">send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- modal resume ends -->
+
+
+    <!-- modal user_comment begins -->
+    <div class="modal" id="modal_comment" hidden>
+        <div class="bg_modal_trans"></div>
+
+
+        <div class="modal_content ">
+            <h1 class="main_h">add your feedback</h1>
+            <p>Your opinion about our company</p>
+            <div class="close"></div>
+            <form action="">
+
+                <input type="text" placeholder="Your name" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
+
+
+                <input type="text" placeholder="Position: (example: manager)">
+
+
+
+                <textarea name="" id="" cols="30" rows="10" placeholder="Your message"></textarea>
+
+
+                <label for="upload_photo" class="upload">
+                    <input type="file" id="upload_photo">
+                    <label for="upload_photo">Upload your photo</label>
+                </label>
+                <label for="recomend_yes">Would you recommend CREPLA?</label>
+                <br>
+
+                <input id="recomend_yes" type="radio" name="recomend">
+                <label for="recomend_yes" class="radio_label">Yes</label>
+                <input type="radio" id="recomend_no" name="recomend">
+                <label for="recomend_no" class="radio_label no">No</label>
+                <button type="submit">Add feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- modal user_comment ends -->
+
+
+
+
     <!-- header begins -->
 
     <header>
         <nav>
-            <div class="toggle_btn">&#x2630;</div>
+            <div class="toggle_btn">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
 
             <ul hidden>
-                <li id="works_btn"><a href="#">Наши работы</a></li>
-                <li id="offers_btn"><a href="#">Услуги</a></li>
-                <li id="cont_btn"><a href="#">Контакты</a></li>
-                <li class="tel_num"><a href="tel:"><span class="tel_comment">WhatsApp, Viber, Telegram</span>
+                <li id="works_btn"><a href="#">Our works</a></li>
+                <li id="offers_btn"><a href="#">Services</a></li>
+                <li id="cont_btn"><a href="#">Contacts</a></li>
+                <li class="tel_num"><a href="tel:+380957112432"><span class="tel_comment">WhatsApp, Viber, Telegram</span>
                    +38 (095) 711-24-32</a>
                 </li>
-                <li class="tel_num"><a href="tel:"><span class="tel_comment">free for USA</span>
-                   +38 (095) 711-24-32</a>
+                <li class="tel_num"><a href="tel:+18885769392"><span class="tel_comment">free for USA</span>
+                   +1 (888) 5769392</a>
                 </li>
-                <li class="tel_num"> <a href="skype:"><span class="tel_comment">Skype</span>
-                    creplacom</a>
+                <li class="tel_num"> <a href="skype:creativeplanet.ua?chat"><span class="tel_comment">Skype</span>
+                    creativeplanet.ua</a>
                 </li>
             </ul>
         </nav>
@@ -42,16 +142,6 @@
 
         <a href="" id="logo_btn" class="logo"></a>
 
-
-        <div class="lang_btn">
-
-            <div class="lang">rus
-                <div class="arrow"></div>
-            </div>
-            <a href="">
-                <div class="lang" hidden>eng</div>
-            </a>
-        </div>
 
 
 
@@ -65,34 +155,43 @@
     <!-- first screen begins -->
     <section class="first_screen">
 
-        <h1 class="main_h">выгодное предложение</h1>
 
+        <h1 class="main_h">Special offer!</h1>
         <div class="slider">
 
+            <div class="arrow" data-direction="right"></div>
+            <div class="arrow" data-direction="left"></div>
+            <div class="slider_wrapper">
+                <div class="slides_wrapper">
 
-            <!-- slide starts -->
-            <div class="slide" style="background-image: url(images/bg_top.jpg);">
 
-                <div class="slide_content">
-                    <div class="slide_content_part">
-                        <div class="slide_image"><img src="images/slider_1_pict_1.png" alt="image" class="image1"></div>
-                        <div class="caption">сайт под ключ</div>
+                    <!-- slide starts -->
+                    <div class="slide" style="background-image: url(images/bg_top.jpg);">
+
+                        <div class="slide_content">
+                            <div class="slide_content_part">
+                                <div class="slide_image"><img src="images/slider_1_pict_1.png" alt="image" class="image1"></div>
+                                <div class="caption">turnkey website</div>
+                            </div>
+                            <div class="sign">+</div>
+                            <div class="slide_content_part">
+                                <div class="slide_image"><img src="images/slider_1_pict_2.png" alt="image" class="image2"></div>
+                                <div class="caption">mobile version</div>
+                            </div>
+                            <div class="sign">=</div>
+                            <div class="slide_content_part info">
+                                <div class="price"><span>from</span> 500$</div>
+                                <div class="submit_app_btn"> Hire us </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="sign">+</div>
-                    <div class="slide_content_part">
-                        <div class="slide_image"><img src="images/slider_1_pict_2.png" alt="image" class="image2"></div>
-                        <div class="caption">мобильная версия</div>
-                    </div>
-                    <div class="sign">=</div>
-                    <div class="slide_content_part info">
-                        <div class="price"><span>от</span> 500$</div>
-                        <div class="submit_app_btn"> Нанять нас </div>
-                    </div>
+
+                    <!-- slide ends -->
                 </div>
-
             </div>
-
-            <!-- slide ends -->
+            <input type="hidden">
+            <input type="hidden" class="slide_index" data-slider="0">
         </div>
     </section>
 
@@ -106,15 +205,14 @@
     <!-- second screen begins -->
 
     <section class="performed_works">
-        <div class="invisible_scroll"></div>
-        <h1 class="main_h">выполненые проекты</h1>
+        <h1 class="main_h">Our works</h1>
         <div class="portfolio">
-            <a class="cell_cube"><img src="" alt="">
-            </a>
-            <a class="cell_cube"><img src="" alt="">
-            </a>
-            <a class="cell_cube"><img src="" alt="">
-            </a>
+            <div  class="cell_cube"><a href=""><img src="" alt="">
+            </a></div>
+            <div  class="cell_cube"><a href=""><img src="" alt="">
+            </a></div>
+            <div  class="cell_cube"><a href=""><img src="" alt="">
+            </a></div>
         </div>
     </section>
 
@@ -123,9 +221,7 @@
     <!-- third screen begins -->
 
     <section class="work_directions">
-        <div class="invisible_scroll"></div>
-
-        <h1 class="main_h">направления нашей работы</h1>
+        <h1 class="main_h">Our services</h1>
 
         <div class="service">
             <a href=""></a>
@@ -188,7 +284,7 @@
     <section class="site_ordering">
         <h1 class="main_h">i want to order a website!</h1>
         <p>Or another services which will bring you success!</p>
-        <div class="submit_app_btn">оставить заявку</div>
+        <div class="submit_app_btn">contact us</div>
 
     </section>
 
@@ -198,7 +294,7 @@
 
     <!-- fifth screen begins -->
     <section class="review">
-        <h1 class="main_h">Что говорят о нас наши клиенты</h1>
+        <h1 class="main_h">What our customers says</h1>
         <div class="slider">
             <div class="arrow" data-direction="right"></div>
             <div class="arrow" data-direction="left"></div>
@@ -210,7 +306,18 @@
                         <p class="name">Александра Садовская</p>
                         <p class="post">Директор ООО «Муромские просторы»</p>
                         <p class="text">Здравствуйте! Хотела бы поделиться впечатлениями о сотрудничестве с ребятами из CreativePlanet. Не так давно мы заказали у них разработку сайта. Результат не заставил себя ждать, и мы получили эффектный и стильный сайт, с ориентацией на привлечение новых клиентов! Спасибо!</p>
-                        <a href="" class="button">Просмотреть проект</a>
+                        <a href="" class="button">view project</a>
+
+
+                    </div>
+
+
+
+                    <div class="slide">
+                        <p class="name">Александра Садовская</p>
+                        <p class="post">Директор ООО «Муромские просторы»</p>
+                        <p class="text">Здравствуйте! Хотела бы поделиться впечатлениями о сотрудничестве с ребятами из CreativePlanet. Не так давно мы заказали у них разработку сайта. Результат не заставил себя ждать, и мы получили эффектный и стильный сайт, с ориентацией на привлечение новых клиентов! Спасибо!</p>
+                        <a href="" class="button">view project</a>
 
 
                     </div>
@@ -218,11 +325,26 @@
 
 
 
+                    <div class="slide">
+                        <p class="name">Александра Садовская</p>
+                        <p class="post">Директор ООО «Муромские просторы»</p>
+                        <p class="text">Здравствуйте! Хотела бы поделиться впечатлениями о сотрудничестве с ребятами из CreativePlanet. Не так давно мы заказали у них разработку сайта. Результат не заставил себя ждать, и мы получили эффектный и стильный сайт, с ориентацией на привлечение новых клиентов! Спасибо!</p>
+                        <a href="" class="button">view project</a>
+
+
+                    </div>
+
+
+
+
+
                 </div>
             </div>
+            <input type="hidden">
+            <input type="hidden" class="slide_index" data-slider="1">
         </div>
 
-        <a href="" class="button modal_comment">оставить отзыв</a>
+        <a href="" class="button modal_comment">add your feedback</a>
 
     </section>
 
@@ -235,7 +357,7 @@
 
     <section class="team">
 
-        <h1 class="main_h">Наша команда</h1>
+        <h1 class="main_h">Our team</h1>
 
 
         <div class="slider">
@@ -250,18 +372,29 @@
                         <h4 class="name">Давид Подосян</h4>
                         <p>Коммерческий директор</p>
                     </div>
-
+                    <div class="slide">
+                        <img src="images/david.png" alt="image">
+                        <h4 class="name">Давид Подосян</h4>
+                        <p>Коммерческий директор</p>
+                    </div>
+                    <div class="slide">
+                        <img src="images/david.png" alt="image">
+                        <h4 class="name">Давид Подосян</h4>
+                        <p>Коммерческий директор</p>
+                    </div>
 
 
 
 
                 </div>
             </div>
+            <input type="hidden">
+            <input type="hidden" class="slide_index" data-slider="2">
         </div>
 
 
 
-        <a href="" class="button modal_resume">Я хочу к вам в команду</a>
+        <a href="" class="button modal_resume">Join us</a>
 
     </section>
 
@@ -273,20 +406,14 @@
 
 
     <footer>
-        <div class="invisible_scroll"></div>
-
-
-
-
-
-        <h1 class="main_h">Оставьте заявку</h1>
-        <p>и мы свяжемся с вами в ближайшее время.</p>
+        <h1 class="main_h">Leave your message</h1>
+        <p>and we'll contact you shortly</p>
         <form action="">
-            <input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
+            <input type="text" placeholder="Your name:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="only letters">
             <input type="email" placeholder="Email" required>
-            <input type="tel" placeholder="Телефон">
-            <textarea name="" id="" placeholder="Текст сообщения"></textarea>
-            <button type="submit">отправить заявку</button>
+            <input type="tel" placeholder="Phone number">
+            <textarea name="" id="" placeholder="Your message"></textarea>
+            <button type="submit">leave message</button>
         </form>
 
 
@@ -296,7 +423,7 @@
 
 
 
-        <h1 class="main_h">Наши контакты</h1>
+        <h1 class="main_h">Contacts</h1>
 
         <a class="cont" href="tel:+380957112432">Whatsapp, Viber, Telegram<br>+380957112432</a>
         <a href="skype:creativeplanet.ua?chat" class="cont">Skype<br>crepla.ua</a>
@@ -318,8 +445,8 @@
 
 
 
-    <script defer src="js/device.min.js"></script>
-    <script defer src="js/slider.js"></script>
+
+    <script defer src="js/script_mob.js"></script>
 </body>
 
 

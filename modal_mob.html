@@ -15,43 +15,41 @@
 
 <body>
 
- 
+
     <!-- modal order begins -->
-    <div class="modal" id="modal_order">
+    <div class="modal" id="modal_order" hidden>
         <div class="bg_modal_trans"></div>
-               <div class="modal_content">
-                <h1 class="main_h">Оставьте заявку</h1>
-                <p>Для получения консультации и обсуждения проекта</p>
-                <div class="close"></div>
-                <form action="">
-                   
-                        <label for="">Ваше имя:
-                            <input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
-                        </label>
-                        <label for="">Ваш email:
-                            <input type="email" placeholder="Ваш email:" required>
-                        </label>
-                        <label for="">Ваш телефон:
-                            <input type="text" placeholder="Ваш телефон:" id="tel_modal">
-                        </label>
-                        <span class="tel_comment">* заполните это поле, если вы пользуетесь WhatsApp, Viber или Telegram</span>
-                  
-                 
-                        <label for="">Ваше сообщение:
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение:"></textarea>
-                        </label>
-                        <h3 class="chkbox_h">Выберите тему обращение (необязательно)</h3>
-                        <input id="chkbox_design" type="checkbox">
-                        <label for="chkbox_design" class="chkbox_label">Дизайн сайтов</label>
-                        <input type="checkbox" id="chkbox_develop">
-                        <label for="chkbox_develop" class="chkbox_label">Разработка сайтов</label>
-                        <input type="checkbox" id="chkbox_mob_apps">
-                        <label for="chkbox_mob_apps" class="chkbox_label">Мобильные приложения</label>
-                  
-                    <button type="submit">отправить заявку</button>
-                </form>
-            </div>
-      
+        <div class="modal_content">
+            <h1 class="main_h">Оставьте заявку</h1>
+            <p>Для получения консультации и обсуждения проекта</p>
+            <div class="close"></div>
+            <form action="">
+
+                <input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
+
+
+                <input type="email" placeholder="Ваш email:" required>
+
+
+                <input type="text" placeholder="Ваш телефон:" id="tel_modal">
+
+                <span class="tel_comment">* WhatsApp, Viber, Telegram</span>
+
+
+                <textarea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение:"></textarea>
+
+                <h3 class="chkbox_h">Выберите тему обращение (необязательно)</h3>
+                <input id="chkbox_design" type="checkbox">
+                <label for="chkbox_design" class="chkbox_label">Дизайн сайтов</label>
+                <input type="checkbox" id="chkbox_develop">
+                <label for="chkbox_develop" class="chkbox_label">Разработка сайтов</label>
+                <input type="checkbox" id="chkbox_mob_apps">
+                <label for="chkbox_mob_apps" class="chkbox_label">Мобильные приложения</label>
+
+                <button type="submit">отправить заявку</button>
+            </form>
+        </div>
+
 
     </div>
     <!-- modal order ends -->
@@ -61,79 +59,77 @@
 
     <div class="modal" id="modal_resume" hidden>
         <div class="bg_modal_trans"></div>
-        <div class="bg_modal_top">
-            <div class="bg_modal_bottom"></div>
-            <div class="modal_content">
-                <h1 class="modal_main_h">Отправить резюме</h1>
-                <p>Если вам захотелось поработать с нами вы можете отправить свое резюме</p>
-                <div class="close"></div>
-                <form action="">
-                    <div>
-                        <label for="">Ваше имя:
-                            <input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
-                        </label>
-                        <label for="">Ваш email:
-                            <input type="text" placeholder="Ваш email:" required>
-                        </label>
-                    </div>
-                    <div>
-                        <label for="">Ваш телефон:
-                            <input type="text" placeholder="Ваш телефон:">
-                        </label>
-                        <label for="">Желаемая должность:
-                            <input type="text" placeholder="Например: сварщик">
-                        </label>
-                    </div>
-                    <label for="upload" class="upload">Резюме:
-                        <input type="file" id="upload">
-                        <label for="upload">загрузите своё резюме</label>
-                    </label>
-                    <button type="submit">отправить заявку</button>
-                </form>
-            </div>
+
+
+        <div class="modal_content">
+            <h1 class="main_h">Отправить резюме</h1>
+            <p>Вы можете отправить нам свое резюме</p>
+            <div class="close"></div>
+            <form action="">
+
+
+                <input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
+
+
+                <input type="text" placeholder="Ваш email:" required>
+
+
+
+
+                <input type="text" placeholder="Ваш телефон:">
+
+                <input type="text" placeholder="Например: сварщик">
+
+
+                <label for="upload" class="upload">
+                    <input type="file" id="upload">
+                    <label for="upload">загрузите своё резюме</label>
+                </label>
+                <button type="submit">отправить заявку</button>
+            </form>
         </div>
     </div>
+
     <!-- modal resume ends -->
 
 
     <!-- modal user_comment begins -->
-    <div class="modal" id="modal_comment" hidden>
-        <div class="bg_modal_trans "></div>
-        <div class="bg_modal_top ">
-            <div class="bg_modal_bottom "></div>
-            <div class="modal_content ">
-                <h1 class="modal_main_h">Отправить заявку</h1>
-                <p>Если вам захотелось поработать с нами вы можете отправить свое резюме</p>
-                <div class="close"></div>
-                <form action="">
-                    <div>
-                        <label for="">Ваше имя:
-                            <input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
-                        </label>
-                    </div>
-                    <div>
-                        <label for="">Ваша должность:
-                            <input type="text" placeholder="Например: сварщик">
-                        </label>
-                    </div>
-                    <label for="" class="modal_textarea">Ваше сообщение:
-                        <textarea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение:"></textarea>
-                    </label>
+    <div class="modal" id="modal_comment">
+        <div class="bg_modal_trans"></div>
 
-                    <label for="upload_photo" class="upload">Ваше фото:
-                        <input type="file" id="upload_photo">
-                        <label for="upload_photo">загрузите свою фотографию</label>
-                    </label>
-                    <label for="recomend_yes">Порекомендуете ли вы Creative Planet другим?</label><span>(необязательно):</span>
-                    <input id="recomend_yes" type="radio" name="recomend">
-                    <label for="recomend_yes" class="radio_label">Да</label>
-                    <input type="radio" id="recomend_no" name="recomend">
-                    <label for="recomend_no" class="radio_label">Нет</label>
-                    <button type="submit">отправить заявку</button>
-                </form>
-            </div>
+
+        <div class="modal_content ">
+            <h1 class="main_h">Оставить отзыв</h1>
+            <p>Ваше мнение о нашей компании</p>
+            <div class="close"></div>
+            <form action="">
+
+                <input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
+
+
+                <input type="text" placeholder="Например: сварщик">
+
+
+
+                <textarea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение:"></textarea>
+
+
+                <label for="upload_photo" class="upload">
+                    <input type="file" id="upload_photo">
+                    <label for="upload_photo">Загрузите свою фотографию</label>
+                </label>
+                <label for="recomend_yes">Порекомендуете ли вы Creative Planet другим?</label>
+                <br>
+
+                <input id="recomend_yes" type="radio" name="recomend">
+                <label for="recomend_yes" class="radio_label">Да</label>
+                <input type="radio" id="recomend_no" name="recomend">
+                <label for="recomend_no" class="radio_label no">Нет</label>
+                <button type="submit">отправить заявку</button>
+            </form>
         </div>
     </div>
+
     <!-- modal user_comment ends -->
 
 

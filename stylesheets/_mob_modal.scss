@@ -1,0 +1,234 @@
+$content_height: 230rem;
+$height: 15rem;
+.modal {
+    opacity: 0;
+    min-height: 100vh; //!!!
+    height: 1rem; //!!!
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition-duration: 3s;
+    color: white;
+    z-index: 100;
+    overflow: auto; //!!!
+    .bg_modal_trans {
+        width: 100%;
+        height: 100%;
+        min-height: $content_height;
+        position: absolute;
+        background-image: url(../images/mob_bg_modal.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        opacity: 0.9;
+    }
+    .modal_content {
+        height: $content_height;
+        padding: $padding;
+        margin: auto;
+        box-sizing: border-box;
+        position: relative;
+        text-align: center;
+        &#modal_comment {
+            height: 165rem;
+        }
+        p {
+            line-height: 200%;
+            font-size: $f_small_h;
+        }
+        .close {
+            width: $padding;
+            height: $padding;
+            padding: $padding;
+            position: absolute;
+            top: 0;
+            right: 0;
+            &:before {
+                content: "\2716";
+                width: $padding;
+                display: block;
+                font-size: $f_big_h;
+            }
+        }
+        .chkbox_h {
+            padding-top: $padding/2;
+            padding-bottom: $padding;
+            text-align: left;
+            font-family: $f_medium;
+            font-size: $f_small_h;
+            text-transform: uppercase;
+        }
+        %form_common {
+            width: 100%;
+            margin-top: $padding;
+            margin-bottom: $padding;
+            border: $border_w solid $soft_blue;
+            background-color: transparent;
+            color: white;
+            &::-webkit-input-placeholder {
+                @include placeholder_white
+            }
+            &::-moz-placeholder {
+                @include placeholder_white
+            }
+            /* Firefox 19+ */
+            &:-moz-placeholder {
+                @include placeholder_white
+            }
+            /* Firefox 18- */
+            &:-ms-input-placeholder {
+                @include placeholder_white
+            }
+        }
+        input:not([type="checkbox"]) {
+            @extend %form_common;
+            height: $height;
+            line-height: $height;
+            box-sizing: border-box;
+        }
+        textarea {
+            @extend %form_common;
+            height: 30rem;
+            padding-top: $padding;
+        }
+        button {
+            height: $height;
+            margin: 0 auto;
+            line-height: $height;
+            background-color: $soft_red;
+            font-family: $f_medium;
+            font-size: $f_mid_h;
+            color: white;
+            text-transform: uppercase;
+        }
+        label {
+            font-family: $f_medium;
+            font-size: $f_small_h;
+            /* & + span {
+                display: inline-block;
+                padding-left: $padding;
+//                padding-right: 10px;
+                font-family: $f_regular;
+                font-size: $f_small_h;
+            }*/
+            &.chkbox_label {
+                position: relative;
+                display: block;
+                padding-left: $padding*2;
+                padding-bottom: $padding;
+                box-sizing: border-box;
+                font-family: $f_regular;
+                text-align: left;
+                &:after {
+                    content: ' ';
+                    width: $padding;
+                    height: $padding;
+                    box-sizing: border-box;
+                    position: absolute;
+                    left: 0;
+                    border: $border_w/2 solid $soft_blue
+                }
+            }
+            &.radio_label {
+                display: inline-block;
+                cursor: pointer;
+                position: relative;
+                padding: $padding 0 $padding $padding*1.5;
+                font-family: $f_regular;
+                font-size: $f_small_h;
+                &.no {
+                    margin-left: $padding;
+                }
+                &:before {
+                    content: "";
+                    display: block;
+                    width: $padding;
+                    height: $padding;
+                    position: absolute;
+                    left: 0;
+                    top: $padding * 0.75;
+                    background-color: transparent;
+                    border: $border_w/2 solid $soft_blue;
+                    border-radius: 50%;
+                }
+            }
+        }
+        input[type="checkbox"] {
+            display: none;
+            &:checked + label:before {
+                content: "\2713";
+                position: absolute;
+                left: 1.5rem;
+                top: 0.5rem;
+                font-size: 5rem;
+                color: $bright_blue;
+                line-height: 15px;
+            }
+        }
+        input[type=radio] {
+            display: none;
+            &:checked + label:before {
+                content: "\2022";
+                color: $bright_blue;
+                font-size: $f_big_h;
+                text-align: center;
+                line-height: $padding;
+            }
+        }
+        input[type='file'] {
+            display: none;
+        }
+        .upload {
+            display: block;
+            position: relative;
+            clear: both;
+            text-align: left;
+            color: white;
+            label {
+                height: $height;
+                margin: $padding 0;
+                padding-left: $padding;
+                display: block;
+                position: relative;
+                border: $border_w solid $soft_blue;
+                box-sizing: border-box;
+                background-color: transparent;
+                line-height: $height;
+                text-align: left;
+                font-family: $f_regular;
+                font-size: $f_small_h;
+                &:after {
+                    content: '';
+                    width: $padding*1.5;
+                    height: $padding*1.5;
+                    display: block;
+                    position: absolute;
+                    top: $padding/2;
+                    right: 2rem;
+                    background-image: url(../images/attach.png);
+                    background-size: contain;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+        .modal_textarea {
+            display: block;
+            clear: both;
+            position: relative;
+            top: -15px;
+        }
+        .tel_comment {
+            font-size: $f_small_h;
+            ;
+            visibility: hidden;
+            position: relative;
+            bottom: 1rem;
+            opacity: 0;
+            transition-duration: 0.5s;
+            white-space: nowrap
+        }
+    }
+}

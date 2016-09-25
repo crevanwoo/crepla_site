@@ -55,6 +55,14 @@ section.work_top_part {
                 background-image: url(../images/planet_work_top.png);
                 background-position: top left;
                 background-repeat: no-repeat;
+                >img {
+                    width: 484rem;
+                    height: auto;
+                    position: absolute;
+                    bottom: -120rem;
+                    left: 100rem;
+                    z-index: 1;
+                }
             }
             .screen_pict {
                 width: 524rem;

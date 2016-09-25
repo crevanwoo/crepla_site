@@ -1,0 +1,180 @@
+$additional_items_color: rgba(1, 11, 39, 0.77);
+header {
+    height: 90rem;
+    position: fixed;
+    top: 0rem;
+    left: 0rem;
+    right: 0rem;
+    color: white;
+    z-index: 10;
+    .header_bg {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: {
+            //image: url(../images/bg_header.jpg);
+            image: url(../images/bg_modal.jpg);
+            size: cover;
+            position: top center;
+            repeat: no-repeat;
+        }
+        transition-duration: 1s;
+        //opacity: 0.9;
+    }
+    .wrapper {
+        @extend %clear;
+        height: 100%;
+        nav {
+            //margin-left: -$m_abs*2;
+            margin-left: 240-17.5rem;
+            padding-top: 48rem;
+            position: relative;
+            float: left;
+            font-size: $f_16;
+            //font-size: $f_18;
+            //text-transform: uppercase;
+            .logo {
+                width: 209rem;
+                height: 77rem;
+                display: block;
+                position: absolute;
+                top: 0rem;
+                left: -240rem;
+                border: none;
+                background-image: url(../images/logo.png);
+                background-size: contain;
+                background-position: center center;
+                background-repeat: no-repeat;
+                &:hover {
+                    border: none
+                }
+            }
+            a {
+                box-sizing: border-box;
+                display: inline-block;
+                margin: 0 17.5rem 0 17.5rem;
+                padding-bottom: 3rem;
+                border-bottom-color: rgba(255, 255, 255, 0);
+                border-bottom-style: solid;
+                border-bottom-width: 2rem;
+                &:hover {
+                    border-bottom-color: $soft_red;
+                    transition-duration: 1s;
+                }
+            }
+        }
+        .contacts {
+            $height: 35rem;
+            height: 100%;
+            //max-width: 480rem;
+            float: right;
+            >* {
+                float: left
+            }
+            .tel {
+                width: 248rem;
+                margin-right: 8rem;
+                padding-right: 13rem;
+                position: relative;
+                box-sizing: padding-box;
+                text-align: right;
+                font-size: $f_18;
+                &.active {
+                    background-color: $additional_items_color;
+                }
+                div.tel_num {
+                    position: relative;
+                    padding-top: 50rem;
+                    padding-left: 20rem;
+                    box-sizing: border-box;
+                    padding-bottom: 20rem;
+                    &:not(:first-of-type) {
+                        padding-top: 41-16rem;
+                        padding-bottom: 16rem;
+                        .tel_comment {
+                            top: 7rem;
+                        }
+                    }
+                    .tel_comment {
+                        position: absolute;
+                        top: 32rem;
+                        right: 0;
+                        white-space: nowrap;
+                        font-family: $f_light;
+                        font-size: 12rem;
+                    }
+                }
+                span {
+                    position: absolute;
+                    top: 54rem;
+                    left: 26rem;
+                    font-size: 10rem;
+                    &.active {
+                        transform: rotate(180deg)
+                    }
+                }
+            }
+            %header_buttons {
+                box-sizing: border-box;
+                height: $height;
+                font-size: $f_14;
+            }
+            .submit_app_btn {
+                @extend %header_buttons;
+                //margin-top: 
+                padding: 0 $m_abs 0 $m_abs;
+                margin-right: $m_abs;
+                margin-top: 41rem;
+                border: 2rem solid $soft_red;
+                text-align: center;
+                line-height: $height - 4rem;
+                text-transform: uppercase;
+            }
+            .lang_btn {
+                @extend %header_buttons;
+                width: 78rem;
+                position: relative;
+                margin-top: 41rem;
+                box-shadow: inset 0 0 0 1rem $soft_violet;
+                line-height: $height;
+                text-transform: uppercase;
+                cursor: pointer;
+                @include bp(1220) {
+                    margin-right: 1vw
+                }
+                .lang {
+                    @extend %header_buttons;
+                    width: 100%;
+                    height: 100%;
+                    padding-left: $m_abs;
+                    position: relative;
+                    //border: 1rem solid $soft_violet;
+                    &.active {
+                        background-color: $additional_items_color;
+                    }
+                }
+                a div.lang {
+                    background-color: $additional_items_color;
+                }
+                .arrow {
+                    width: 4rem;
+                    height: 4rem;
+                    position: absolute;
+                    top: 13rem;
+                    right: $m_abs;
+                    border-bottom: 1rem solid $soft_violet;
+                    border-right: 1rem solid $soft_violet;
+                    transform: rotate(45deg);
+                    z-index: 1;
+                    &.active {
+                        top: 15rem;
+                        transform: rotate(225deg);
+                    }
+                }
+            }
+        }
+    }
+}

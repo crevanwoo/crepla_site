@@ -1,0 +1,191 @@
+footer {
+    padding-top: 130rem;
+    padding-bottom: 100rem;
+    position: relative;
+    background: {
+        image: url(../images/bg_footer.jpg);
+        position: center bottom;
+        size: cover;
+        repeat: no-repeat;
+    }
+    color: white;
+    .wrapper {
+        @extend %clear;
+        padding-left: 0rem;
+        padding-right: 5rem;
+        .main_h {
+            text-align: left;
+        }
+        p {
+            padding-top: 10rem;
+            line-height: 150%;
+        }
+        >div.contacts {
+            $padding: 35rem;
+            width: 600rem;
+            >* {
+                padding-left: $padding;
+            }
+            float: left;
+            p {
+                padding-bottom: 50rem;
+                a {
+                    color: #2ceff5;
+                    text-decoration: underline;
+                }
+            }
+            .cont {
+                width: 250rem;
+                padding-left: $padding *2;
+                padding-bottom: 30rem;
+                position: relative;
+                box-sizing: border-box;
+                float: left;
+                font-size: $f_14;
+            }
+            .socials {
+                height: 93rem;
+                padding-left: $padding *2;
+                padding-top: 25rem;
+                position: relative;
+                box-sizing: border-box;
+                float: left;
+                font-size: $f_18;
+                background: {
+                    size: auto 100%;
+                    position: 20rem center;
+                    repeat: no-repeat;
+                }
+                background-image: url(../images/big_triangle.png);
+                >a {
+                    font-family: $f_medium;
+                }
+            }
+            .s-1,
+            .s-2,
+            .s-3,
+            .s-4,
+            .s-5,
+            .s-6 {
+                &:before {
+                    content: ' ';
+                    display: block;
+                    position: absolute;
+                    background-position: center cenr;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                }
+            }
+            .s-1,
+            .s-2,
+            .s-3,
+            .s-4 {
+                &:before {
+                    left: $padding;
+                }
+            }
+            .s-5,
+            .s-6 {
+                &:before {
+                    left: $padding - 10rem;
+                }
+            }
+            .s-1:before {
+                background-image: url(../images/1.png);
+                width: 20rem;
+                height: 20rem;
+            }
+            .s-2:before {
+                background-image: url(../images/2.png);
+                width: 20rem;
+                height: 8rem;
+                top: 8rem;
+            }
+            .s-3:before {
+                background-image: url(../images/3.png);
+                width: 20rem;
+                height: 21rem;
+                top: 3rem;
+            }
+            .s-4:before {
+                background-image: url(../images/4.png);
+                width: 20rem;
+                height: 15rem;
+                top: 4rem;
+            }
+            .s-5:before {
+                background-image: url(../images/5.png);
+                width: 31rem;
+                height: 31rem;
+                top: 35rem;
+            }
+            .s-6:before {
+                background-image: url(../images/6.png);
+                width: 31rem;
+                height: 18rem;
+                top: 40rem;
+            }
+        }
+        >div.form {
+            width: 570rem;
+            float: right;
+            @include bp(1220) {
+                width: 45vw;
+                padding-right: 3vw;
+            }
+            p {
+                padding-bottom: 30rem;
+            }
+            form {
+                $margin: 0.53%;
+                width: 576rem;
+                margin: -$margin;
+                @include bp(1220) {
+                    width: 40vw
+                }
+                input {
+                    @extend %valid;
+                    border: 2px solid transparent;
+                    &:valid {
+                        border: 2px solid transparent;
+                    }
+                    $height: 40rem;
+                    height: $height;
+                    margin: $margin;
+                    line-height: $height;
+                    &:nth-of-type(1) {
+                        width: 100% - $margin * 2;
+                    }
+                    &:nth-of-type(2),
+                    &:nth-of-type(3) {
+                        width: 50%- $margin * 2;
+                        float: left;
+                    }
+                }
+                textarea {
+                    width: 100% - $margin * 2;
+                    height: 65rem;
+                    margin: $margin;
+                    padding-top: 15rem;
+                    clear: both;
+                    float: left;
+                    border: 2px solid transparent;
+                }
+                button {
+                    height: 50rem;
+                    margin-top: 22rem;
+                    margin-right: $margin;
+                    padding-left: 15rem;
+                    padding-right: 15rem;
+                    clear: both;
+                    float: right;
+                    background-color: $soft_red;
+                    font-family: $f_medium;
+                    font-size: $f_14;
+                    color: white;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}

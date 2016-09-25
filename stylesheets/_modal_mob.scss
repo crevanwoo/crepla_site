@@ -1,79 +1,56 @@
-%big_height {
-    min-height: 575px
-}
-
-%big_min_height {
-    height: 575px
-}
-
+$content_height: 200rem;
+$height: 15rem;
 .modal {
-    //opacity: 0;
-   // display: none;
+    opacity: 0;
     min-height: 100vh; //!!!
-    height: 1px; //!!!
-   // position: fixed;
+    height: 1rem; //!!!
+    width: 100vw;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    transition-duration: 3s;
     color: white;
     z-index: 100;
     overflow: auto; //!!!
     .bg_modal_trans {
         width: 100%;
         height: 100%;
-        min-height: 460px;
-		position: absolute;
-        background-image: url(../images/bg_modal.jpg);
+        min-height: $content_height;
+        position: absolute;
+        background-image: url(../images/mob_bg_modal.jpg);
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         opacity: 0.9;
-        &.big_height {
-            @extend %big_height;
-        }
     }
-   
-    .modal_content {		
-        width: 100%;
-        height: 300vw;
-		padding: $padding;
-        margin: auto; 
-		position: relative;
-		text-align: center;
+    .modal_content {
+      
+        height: $content_height;
+        padding: $padding;
+        margin: auto;
+        box-sizing: border-box;
+        position: relative;
+        text-align: center;
+        &#modal_comment {   height: 165rem;}
         p {
             line-height: 200%;
             font-size: $f_small_h;
         }
         .close {
-            width: 3vw;
-            height: 3vw;
+            width: $padding;
+            height: $padding;
+            padding: $padding;
             position: absolute;
-            top: 3vw;
-            right: 3vw;            
+            top: 0;
+            right: 0;
             &:before {
-                content: " ";
-                width: 3vw;
+                content: "\2716";
+                width: $padding;
                 display: block;
-                border-bottom: $border_w solid white;
-                transform: rotate(45deg);
-                position: absolute;
-                top: 0;
-                right: -1vw;
-                bottom: 0
-            }
-            &:after {
-                content: " ";
-                width: 3vw;
-                display: block;
-                border-bottom: $border_w solid white;
-                transform: rotate(-45deg);
-                position: absolute;
-                top: 0;
-                left: -1vw;
-                bottom: 0
+                font-size: $f_big_h;
             }
         }
-           
         .chkbox_h {
             padding-top: $padding/2;
             padding-bottom: $padding;
@@ -105,12 +82,10 @@
             }
         }
         input:not([type="checkbox"]) {
-            @extend %form_common;           
-            $height: 15rem;
-			height: $height;
+            @extend %form_common;
+            height: $height;
             line-height: $height;
-			box-sizing: border-box;
-        
+            box-sizing: border-box;
         }
         textarea {
             @extend %form_common;
@@ -118,9 +93,8 @@
             padding-top: $padding;
         }
         button {
-            $height: 15rem;
             height: $height;
-            margin: 0 auto;           
+            margin: 0 auto;
             line-height: $height;
             background-color: $soft_red;
             font-family: $f_medium;
@@ -131,54 +105,51 @@
         label {
             font-family: $f_medium;
             font-size: $f_small_h;
-            & + span {
+            /* & + span {
                 display: inline-block;
-                padding-left: 5px;
-                padding-right: 10px;
+                padding-left: $padding;
+//                padding-right: 10px;
                 font-family: $f_regular;
                 font-size: $f_small_h;
-            }
+            }*/
             &.chkbox_label {
                 position: relative;
-                width: 50%;
-                padding-left: 30px;
-                padding-bottom: 20px;
-                float: left;
+                display: block;
+                padding-left: $padding*2;
+                padding-bottom: $padding;
                 box-sizing: border-box;
                 font-family: $f_regular;
-                &:last-of-type {
-                    width: 100%;
-                }
+                text-align: left;
                 &:after {
                     content: ' ';
-                    width: 15px;
-                    height: 15px;
+                    width: $padding;
+                    height: $padding;
                     box-sizing: border-box;
                     position: absolute;
                     left: 0;
-                    border: 1px solid $soft_blue
+                    border: $border_w/2 solid $soft_blue
                 }
             }
             &.radio_label {
                 display: inline-block;
                 cursor: pointer;
                 position: relative;
-                padding-left: 25px;
-                padding-bottom: 25px;
-                margin-right: 15px;
+                padding: $padding 0 $padding $padding*1.5;
                 font-family: $f_regular;
                 font-size: $f_small_h;
+                &.no {
+                    margin-left: $padding;
+                }
                 &:before {
                     content: "";
                     display: block;
-                    width: 16px;
-                    height: 16px;
-                    margin-right: 10px;
+                    width: $padding;
+                    height: $padding;
                     position: absolute;
                     left: 0;
-                    top: 0;
+                    top: $padding * 0.75;
                     background-color: transparent;
-                    border: 1px solid $soft_blue;
+                    border: $border_w/2 solid $soft_blue;
                     border-radius: 50%;
                 }
             }
@@ -188,9 +159,9 @@
             &:checked + label:before {
                 content: "\2713";
                 position: absolute;
-                left: 3px;
-                top: -3px;
-                font-size: 17px;
+                left: 1.5rem;
+                top: 0.5rem;
+                font-size: 5rem;
                 color: $bright_blue;
                 line-height: 15px;
             }
@@ -200,9 +171,9 @@
             &:checked + label:before {
                 content: "\2022";
                 color: $bright_blue;
-                font-size: 20px;
+                font-size: $f_big_h;
                 text-align: center;
-                line-height: 17px;
+                line-height: $padding;
             }
         }
         input[type='file'] {
@@ -211,26 +182,34 @@
         .upload {
             display: block;
             position: relative;
-            top: -15px;
             clear: both;
             text-align: left;
             color: white;
             label {
-                height: 47px;
-                margin-top: 15px;
-                padding-left: 15px;
+                height: $height;
+                margin: $padding 0;
+                padding-left: $padding;
                 display: block;
-                border: 2px solid #b3bbf0;
+                position: relative;
+                border: $border_w solid $soft_blue;
+                box-sizing: border-box;
                 background-color: transparent;
-                line-height: 45px;
+                line-height: $height;
                 text-align: left;
                 font-family: $f_regular;
                 font-size: $f_small_h;
                 &:after {
-                    content: url(../images/attach.png);
-                    position: relative;
-                    top: 5px;
-                    left: 10px;
+                    content: '';
+                    width: $padding*1.5;
+                    height: $padding*1.5;
+                    display: block;
+                    position: absolute;
+                    top: $padding/2;
+                    right: 2rem;
+                    background-image: url(../images/attach.png);
+                    background-size: contain;
+                    background-position: center center;
+                    background-repeat: no-repeat;
                 }
             }
         }
@@ -241,10 +220,11 @@
             top: -15px;
         }
         .tel_comment {
+            font-size: $f_small_h;
+            ;
             visibility: hidden;
             position: relative;
-            bottom: 5px;
-            float: left;
+            bottom: 1rem;
             opacity: 0;
             transition-duration: 0.5s;
             white-space: nowrap
