@@ -227,3 +227,17 @@ label.upload {
         cursor: pointer
     }
 }
+
+.thin_red_line {
+   // width: 100rem;
+    width: 0;
+    height: 2rem;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 40rem;
+    left: 0;
+    right: 0;
+    background-color: $soft_red;
+    transition-duration: 1s;
+}

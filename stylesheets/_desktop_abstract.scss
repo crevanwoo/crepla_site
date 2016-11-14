@@ -203,7 +203,7 @@
     
     %h_border {
         position: relative;
-        &:before {
+        /* &:before {
             content: ' ';
             width: 100rem;
             height: 2rem;
@@ -214,6 +214,15 @@
             left: 0;
             right: 0;
             background-color: $soft_red;
+        }*/
+    }
+    
+    %transition_header {
+        transform: translateX(0);
+        transition-duration: 0.3s;
+        &.trans_right {
+            transform: translateX(100vw);
+            transition-duration: 0s;
         }
     }
     
@@ -400,11 +409,11 @@
         25% {
             transform: translateY(0)
         }
-         50% {
+        50% {
             transform: translateY(0)
         }
-         100% {
-            display:none;
+        100% {
+            display: none;
         }
     }
     
@@ -429,7 +438,6 @@
         30% {
             transform: translate(0, 0) scale(1);
         }
-   
         100% {
             transform: translate(-300rem, -1000rem) scale(0.01);
         }

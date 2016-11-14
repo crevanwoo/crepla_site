@@ -36,7 +36,19 @@ header {
             font-size: $f_16;
             //font-size: $f_18;
             //text-transform: uppercase;
+            ul {
+                //new
+                li {
+                    @extend %transition_header;
+                    //transform: translateY(0);
+                    &.up {
+                        transform: translateY(-300rem);
+                        transition-duration: 0s;
+                    }
+                }
+            }
             .logo {
+                @extend %transition_header;
                 width: 209rem;
                 height: 77rem;
                 display: block;
@@ -75,6 +87,7 @@ header {
                 float: left
             }
             .tel {
+                @extend %transition_header;
                 width: 248rem;
                 margin-right: 8rem;
                 padding-right: 13rem;
@@ -123,8 +136,8 @@ header {
                 font-size: $f_14;
             }
             .submit_app_btn {
+                @extend %transition_header;
                 @extend %header_buttons;
-                //margin-top: 
                 padding: 0 $m_abs 0 $m_abs;
                 margin-right: $m_abs;
                 margin-top: 41rem;
@@ -132,8 +145,16 @@ header {
                 text-align: center;
                 line-height: $height - 4rem;
                 text-transform: uppercase;
+                //new
+                //transform: translateY(0);
+                //transition-duration: 0.5s;
+                //&.up {
+                //   transform: translateY(-300px);
+                //    transition-duration: 0s;
+                // }
             }
             .lang_btn {
+                @extend %transition_header;
                 @extend %header_buttons;
                 width: 78rem;
                 position: relative;
