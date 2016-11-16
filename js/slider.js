@@ -1070,8 +1070,6 @@ var window_offset;
 
 
 
-    
-    
     /* Sliding header elems when page has loaded */
 
 
@@ -1080,7 +1078,7 @@ var window_offset;
         var header_elem = document.querySelectorAll('header nav ul li, header nav .logo, header .contacts .tel, header .contacts .lang_btn, header .contacts .submit_app_btn ');
         for (var i = 0; i < header_elem.length; i++) {
             header_elem[i].classList.add('trans_right');
-        }       
+        }
     }
 
 
@@ -1095,8 +1093,8 @@ var window_offset;
     }
 
 
-   addTransitionClassToHeaderElems();
-   slideHeaderElems();
+    addTransitionClassToHeaderElems();
+    slideHeaderElems();
 
 
 
@@ -1131,9 +1129,15 @@ var window_offset;
 
     createRedLine()
 
-    
-    
-    /*  */
+
+
+    /*  Smooth scroll to next page when page onscroll  */
+
+
+
+
+   
+
 
 
 

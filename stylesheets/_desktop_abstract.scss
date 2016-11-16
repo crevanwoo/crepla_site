@@ -9,8 +9,13 @@
                 @content
             }
         }
-        @if $size==800 {
+        /*@if $size==800 {
             @media screen and (max-height: 800px) and (min-height: 500px) {
+                @content
+            }
+        }*/
+        @if $size==800 {
+            @media screen and (max-width: 800px) {
                 @content
             }
         }
@@ -237,7 +242,7 @@
     }
     
     //animations 
-    @keyframes orbit1 {
+    /*  @keyframes orbit1 {
         0% {
             transform: translate(19%, 50rem);
         }
@@ -342,6 +347,147 @@
         }
         100% {
             transform: translate(6%, 370rem);
+        }
+    }*/
+    
+    @keyframes orbit1 {
+        0% {
+            left: 25%;
+            top: 0%;
+        }
+        10% {
+            left: 27%;
+            top: 7%;
+        }
+        20% {
+            left: 29%;
+            top: 14%;
+        }
+        30% {
+            left: 31%;
+            top: 21%;
+        }
+        40% {
+            left: 31%;
+            top: 28%;
+        }
+        50% {
+            left: 31%;
+            top: 35%;
+        }
+        60% {
+            left: 29%;
+            top: 42%;
+        }
+        70% {
+            left: 27%;
+            top: 49%;
+        }
+        80% {
+            left: 25%;
+            top: 56%;
+        }
+        90% {
+            left: 23%;
+            top: 63%;
+        }
+        100% {
+            left: 21%;
+            top: 70%;
+        }
+    }
+    
+    @keyframes orbit2 {
+        0% {
+            left: 19%;
+            top: 60%;
+        }
+        10% {
+            left: 22%;
+            top: 55%;
+        }
+        20% {
+            left: 25%;
+            top: 50%;
+        }
+        30% {
+            left: 28%;
+            top: 45%;
+        }
+        40% {
+            left: 31%;
+            top: 40%;
+        }
+        50% {
+            left: 31%;
+            top: 35%;
+        }
+        60% {
+            left: 31%;
+            top: 30%;
+        }
+        70% {
+            left: 28%;
+            top: 25%;
+        }
+        80% {
+            left: 25%;
+            top: 20%;
+        }
+        90% {
+            left: 22%;
+            top: 15%;
+        }
+        100% {
+            left: 19%;
+            top: 10%;
+        }
+    }
+    
+    @keyframes orbit3 {
+        0% {
+            left: 19%;
+            top: 10%;
+        }
+        10% {
+            left: 22%;
+            top: 15%;
+        }
+        20% {
+            left: 25%;
+            top: 20%;
+        }
+        30% {
+            left: 28%;
+            top: 25%;
+        }
+        40% {
+            left: 31%; //
+            top: 30%;
+        }
+        50% {
+            left: 31%;
+            top: 35%;
+        }
+        60% {
+            left: 31%;
+            top: 40%;
+        }
+        70% {
+            left: 28%;
+            top: 45%;
+        }
+        80% {
+            left: 25%;
+            top: 50%;
+        }
+        90% {
+            left: 22%;
+            top: 55%;
+        }
+        100% {
+            left: 19%;
+            top: 60%;
         }
     }
     

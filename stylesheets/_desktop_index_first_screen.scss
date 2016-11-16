@@ -154,135 +154,146 @@
 }*/
 
 .work_directions {
-	height: 650rem;
-	position: relative;
-	background: {
-		image: url(../images/bg_top_section_bottom_part.jpg);
-		size: cover;
-		position: center center;
-		repeat: no-repeat;
-	}
-	color: white;
-    * {cursor: default !important;}
-	.wrapper {
-		@extend %clear;
-		height: 100%;
-		position: relative;
-		overflow: hidden;
-		.main_h {
-			padding-top: 120rem;
-			position: absolute;
-			right: 0;
-			left: 0;
-		}
-		.direction {
-			width: 33.33%;
-			height: 100%;
-			float: left;
-			background: {
-				image: url(../images/orbit.png);
-				size: contain;
-				position: 60rem center;
-				repeat: no-repeat;
-			}
-			@include bp(1220) {
-				size: 100% auto;
-			}
-			.direction_wrapper {
-				position: relative;
-				height: 435rem;
-				padding-top: 150rem;
-				.service {
-					position: relative;
-					display: block;
-					height: 120rem;
-					animation-iteration-count: infinite;
-					animation-timing-function: linear;
-					animation-direction: alternate;
-					transform: translate(0, 0);
-					>a {
-						display: block;
-						top: -25rem;
-						left: 0;
-						right: 0;
-						bottom: 0;
-						cursor: pointer;
-						z-index: 1
-					}
-					* {
-						position: absolute;
-					}
-					img {
-						top: 0;
-						left: 0;
-					}
-					.lines {
-						.circle {
-							width: 5rem;
-							height: 5rem;
-							top: -3rem;
-							border-radius: 50%;
-							background-color: $soft_red;
-						}
-						.direct_line {
-							width: 205rem;
-							top: 5rem;
-							left: 130rem;
-							border-top: 1rem solid $soft_red;
-							.skew_line {
-								width: 55rem;
-								top: 12rem;
-								left: -50rem;
-								border-top: 1rem solid $soft_red;
-								transform: rotate(-30deg);
-								.first_circle {
-									left: 0
-								}
-							}
-							.second_circle {
-								left: 0
-							}
-							.third_circle {
-								right: 0
-							}
-						}
-					}
-					.service_name {
-						right: 17%;
-						top: -25rem;
-						font-family: $f_medium;
-						font-size: $f_20;
-						text-transform: uppercase;
-					}
-					.price {
-						$height: 34rem;
-						height: $height;
-						padding-right: 15rem;
-						right: 14%;
-						top: 15rem;
-						background: {
-							image: url(../images/red_triangle.png);
-							size: contain;
-							position: right center;
-							repeat: no-repeat;
-						}
-						line-height: $height;
-						font-size: $f_18;
-					}
-					&.item1 {
-						animation-name: orbit1;
-						animation-duration: 10s;
-					}
-					&.item2 {
-						animation-name: orbit2;
-						animation-duration: 12s;
-					}
-					&.item3 {
-						animation-name: orbit3;
-						animation-duration: 15s;
-					}
-				}
-			}
-		}
-	}
+    height: 100vh; //650rem;
+    position: relative;
+    background: {
+        image: url(../images/bg_top_section_bottom_part.jpg);
+        size: cover;
+        position: center center;
+        repeat: no-repeat;
+    }
+    @include bp(800) {
+        height: 650rem
+    }
+    color: white;
+    * {
+        cursor: default !important;
+    }
+    .wrapper {
+        @extend %clear;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        .main_h {
+            padding-top: 10%; // 120rem;
+            position: absolute;
+            right: 0;
+            left: 0;
+            @include bp(800) {
+                padding-top: 120rem;
+            }
+        }
+        .direction {
+            position: relative;
+            left: -5%;
+            width: 33.33%;
+            height: 100%;
+            float: left;
+            background: {
+                image: url(../images/orbit.png);
+                size: contain;
+                position: 60rem center;
+                repeat: no-repeat;
+            }
+            @include bp(1220) {
+                size: 100% auto;
+            }
+            .direction_wrapper {
+                position: relative;
+                height: 100%; //435rem;
+                padding-top: 150rem;
+                box-sizing: border-box;
+                .service {
+                    position: relative;
+                    display: block;
+                    height: 120rem;
+                    animation-iteration-count: infinite;
+                    animation-timing-function: linear;
+                    animation-direction: alternate;
+                    transform: translate(0, 0);
+                    >a {
+                        display: block;
+                        top: -25rem;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        cursor: pointer;
+                        z-index: 1
+                    }
+                    * {
+                        position: absolute;
+                    }
+                    img {
+                        top: 0;
+                        left: 0;
+                    }
+                    .lines {
+                        .circle {
+                            width: 5rem;
+                            height: 5rem;
+                            top: -3rem;
+                            border-radius: 50%;
+                            background-color: $soft_red;
+                        }
+                        .direct_line {
+                            width: 205rem;
+                            top: 5rem;
+                            left: 130rem;
+                            border-top: 1rem solid $soft_red;
+                            .skew_line {
+                                width: 55rem;
+                                top: 12rem;
+                                left: -50rem;
+                                border-top: 1rem solid $soft_red;
+                                transform: rotate(-30deg);
+                                .first_circle {
+                                    left: 0
+                                }
+                            }
+                            .second_circle {
+                                left: 0
+                            }
+                            .third_circle {
+                                right: 0
+                            }
+                        }
+                    }
+                    .service_name {
+                        right: 17%;
+                        top: -25rem;
+                        font-family: $f_medium;
+                        font-size: $f_20;
+                        text-transform: uppercase;
+                    }
+                    .price {
+                        $height: 34rem;
+                        height: $height;
+                        padding-right: 15rem;
+                        right: 14%;
+                        top: 15rem;
+                        background: {
+                            image: url(../images/red_triangle.png);
+                            size: contain;
+                            position: right center;
+                            repeat: no-repeat;
+                        }
+                        line-height: $height;
+                        font-size: $f_18;
+                    }
+                    &.item1 {
+                        animation-name: orbit1;
+                        animation-duration: 10s;
+                    }
+                    &.item2 {
+                        animation-name: orbit2;
+                        animation-duration: 12s;
+                    }
+                    &.item3 {
+                        animation-name: orbit3;
+                        animation-duration: 15s;
+                    }
+                }
+            }
+        }
+    }
 }
