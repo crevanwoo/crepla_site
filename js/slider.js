@@ -1001,6 +1001,26 @@ var window_offset;
 
     (function () {
 
+        var transition_time = "1000";
+
+        function addTransitionTime(selector) {
+            if (document.querySelector(selector)) {
+                document.querySelector(selector).style.transition = transition_time + "ms";
+            }
+        }
+        addTransitionTime('.main_wrapper');
+        addTransitionTime('.first_work');
+        addTransitionTime('.first_work .left_part');
+        addTransitionTime('.first_work .right_part');
+        addTransitionTime('.second_work');
+        addTransitionTime('.third_work');
+        addTransitionTime('.fourth_work');
+        addTransitionTime('.fifth_work .left_part');
+        addTransitionTime('.fifth_work .right_part');
+
+        addTransitionTime('.sixth_work');
+
+
         function addScrollListeners() {
             var listeners = ['wheel', 'keydown', 'touchstart', 'touchmove', 'touchend'];
             for (var i = 0; i < listeners.length; i++) {
@@ -1037,29 +1057,149 @@ var window_offset;
             scr1: "0",
             scr2: "-100%",
             scr3: "-200%",
+             scr4: "-300%",
+        }
 
+        function getFullScreen(coord) {
+            return document.querySelector('.main_wrapper').style.top = coord;
+        }
 
+        function addClass(selector, classSelector) {
+            document.querySelector(selector).classList.add(classSelector);
+        }
+
+        function removeClass(selector, classSelector) {
+            document.querySelector(selector).classList.remove(classSelector);
         }
 
 
-        function translateBody(direction) {
+        function translateBody(direction, full_screen) {
+            switch (screen_num) {
+            case 1:
+                if (direction == "down") {
+                    getFullScreen(screen_effect.scr2);
+                }
+                break;
+            case 2:
+                if (direction == "down") {
+                    getFullScreen(screen_effect.scr3);
+                    setTimeout(function () {
+                        addClass('.first_work .left_part', 'active');
+                        addClass('.first_work .right_part', 'active')
+                    }, transition_time)
+
+                } else if (direction == "up") {
+                    getFullScreen(screen_effect.scr1);
+                }
+                break;
+            case 3:
+                if (direction == "down") {
+                    addClass('.second_work', 'active');
+
+                } else if (direction == "up") {
+                    removeClass('.first_work .left_part', 'active');
+                    removeClass('.first_work .right_part', 'active')
+                    setTimeout(function () {
+                        getFullScreen(screen_effect.scr2);
+                    }, transition_time)
+                }
+                break;
+            case 4:
+                if (direction == "down") {
+                    addClass('.third_work', 'active');
+                } else if (direction == "up") {
+                    removeClass('.second_work', 'active');
+                }
+                break;
+            case 5:
+                if (direction == "down") {
+                    addClass('.first_work', 'remove');
+                    addClass('.second_work', 'remove');
+                    addClass('.third_work', 'remove');
+                    addClass('.fourth_work', 'active');
+                } else if (direction == "up") {
+                    removeClass('.third_work', 'active');
+                }
+                break;
+            case 6:
+                if (direction == "down") {
+                    addClass('.fourth_work', 'remove');
+                    addClass('.fifth_work .right_part', 'active');
+                    addClass('.fifth_work .left_part', 'active');
+                } else if (direction == "up") {
+                    removeClass('.first_work', 'remove');
+                    removeClass('.second_work', 'remove');
+                    removeClass('.third_work', 'remove');
+                    removeClass('.fourth_work', 'active');
+                }
+                break;
+            case 7:
+                if (direction == "down") {
+                    addClass('.fifth_work .right_part', 'remove');
+                     removeClass('.fifth_work .left_part', 'active');
+                    addClass('.sixth_work', 'active');
+                   
+                } else if (direction == "up") { 
+                    removeClass('.fourth_work', 'remove');
+                    removeClass('.fifth_work .right_part', 'active');
+                    removeClass('.fifth_work .left_part', 'active');  
+                }
+
+                break;
+              case 8:
+                if (direction == "down") {
+                     getFullScreen(screen_effect.scr4);
+                 
+                   
+                } else if (direction == "up") { 
+                    removeClass('.fifth_work .right_part', 'remove');
+                    addClass('.fifth_work .left_part', 'active');
+                    removeClass('.sixth_work', 'active');
+                }
+
+                break;
+            case 9:
+                if (direction == "down") {
+                   
+                   
+                } else if (direction == "up") {
+                    getFullScreen(screen_effect.scr3);
+                   
+                }
+
+                break;
+
+            }
+
+            /*
             if (screen_num == 1) {
                 if (direction == "down") {
-                    document.querySelector('.main_wrapper').style.top = screen_effect.scr2;
+                    getFullScreen(screen_effect.scr2);
                 }
             } else if (screen_num == 2) {
                 if (direction == "down") {
-                    document.querySelector('.main_wrapper').style.top = screen_effect.scr3;
+                    getFullScreen(screen_effect.scr3);
+                    setTimeout(function () {
+                        addClassActive('.first_work .left_part');
+                        addClassActive('.first_work .right_part')
+                    }, transition_time)
+
                 } else if (direction == "up") {
-                    document.querySelector('.main_wrapper').style.top = screen_effect.scr1;
+                    getFullScreen(screen_effect.scr1);
                 }
             } else if (screen_num == "3") {
                 if (direction == "down") {
-                    //document.querySelector('.main_wrapper').style.top = "-200%";
+
                 } else if (direction == "up") {
-                    document.querySelector('.main_wrapper').style.top = screen_effect.scr2;
+                    removeClassActive('.first_work .left_part');
+                    removeClassActive('.first_work .right_part')
+                    setTimeout(function () {
+                        getFullScreen(screen_effect.scr2);
+                    }, transition_time)
+
+
                 }
-            }
+            }*/
         }
 
 

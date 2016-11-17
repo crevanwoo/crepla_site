@@ -36,8 +36,7 @@ body {
 
 .main_wrapper {
 	position: relative;
-	top:0;
-	transition: 1s;
+	top:0;	
 }
 
 .wrapper {
@@ -254,3 +253,6 @@ label.upload {
 	background-color: $soft_red;
 	transition-duration: 1s;
 }
+.scrollable_block {height: 100vh;
+    box-sizing: border-box;
+    padding-top: 90rem;}

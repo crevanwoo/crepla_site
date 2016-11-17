@@ -3,6 +3,7 @@
     padding-bottom: 30rem;
     position: relative;
     height: 100vh;
+    box-sizing: border-box;
     @include bp(800) {
         height: auto;
         padding-top: 60rem;
@@ -11,11 +12,12 @@
         @extend %h_border;
         padding-bottom: 50rem;
     }
-    .wrapper {height: 80%;
-      @include bp(800) {
-        height: auto;
-        
-    }}
+    .wrapper {
+        height: 80%;
+        @include bp(800) {
+            height: auto;
+        }
+    }
     .portfolio {
         display: none;
         @include bp(800) {
@@ -23,7 +25,6 @@
         }
         @extend %clear;
         margin: -$m_abs;
-        
         >a {
             display: block;
         }
@@ -142,107 +143,166 @@
         }
     }
     .dynamic_portfolio {
-        %dynamic_cube {  width: $cell_s_abs * 1.25;
+        %dynamic_cube {
+            width: $cell_s_abs * 1.25;
             height: $cell_s_abs * 1.25;
-      }
-        %dynamic_rect {width: $cell_s_abs * 2.5;
-            height: $cell_s_abs * 1.25; 
-            
-            
+        }
+        %dynamic_rect {
+            width: $cell_s_abs * 2.5;
+            height: $cell_s_abs * 1.25;
         }
         $bottom_offset: 25rem;
-            $right_offset: 50rem;
+        $right_offset: 50rem;
         display: block;
         position: relative;
         width: 100%;
         height: 80%;
-          padding-top: 50rem;
+        padding-top: 50rem;
         box-sizing: border-box;
         @include bp(800) {
             display: none;
         }
-        .first_work {//display:none;
+        .first_work {
+            //display:none;
             position: relative;
-          @extend %dynamic_rect;
+            transform: translateX(0);
+            opacity: 1;
+            @extend %dynamic_rect;
+            &.remove {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
             .left_part,
             .right_part {
                 width: 50%;
                 height: 100%;
                 position: absolute;
                 top: 0;
+                opacity: 0;
+                &.active {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
             }
             .left_part {
                 background-color: red;
+                transform: translateY(-100%);
             }
             .right_part {
                 left: 50%;
                 background-color: black;
+                transform: translateY(100%);
             }
         }
-        .second_work {//display:none;
+        .second_work {
+            //display:none;
             position: absolute;
-            bottom:  0;
-            right:$right_offset;
+            bottom: 0;
+            right: $right_offset;
             //transform: translate3d(130%, -70%,0);
             @extend %dynamic_cube;
             background-color: green;
-            &:hover {
+            opacity: 0;
+            &.active {
+                opacity: 1;
+            }
+            &.remove {
+                transform: translateY(100%);
                 opacity: 0;
-                transition: 1s;
             }
         }
-        .third_work {//display:none;
+        .third_work {
+            //display:none;
             position: absolute;
-            bottom:   $bottom_offset;
+            bottom: $bottom_offset;
             right: $right_offset*1.5;
             //transform: translate3d(130%, -70%,0);
-         @extend %dynamic_cube;
+            @extend %dynamic_cube;
             background-color: yellow;
-            &:hover {
-                transform: scale(3);
+            transform: scale(3);
+            opacity: 0;
+            &.active {
+                transform: scale(1);
+                opacity: 1;
+            }
+            &.remove {
+                transform: translateY(-100%);
                 opacity: 0;
-                transition: 1s;
             }
         }
         .fourth_work {
             position: absolute;
-            bottom:   0;
+            bottom: 0;
             right: calc(50% - (#{$cell_s_abs} * 1.25));
             //transform: translate3d(130%, -70%,0);
             @extend %dynamic_cube;
-            background-color: orange;         
-            
+            background-color: orange;
+            opacity: 0;
+            transform: translateY(-100%) rotateY(0deg);
+            -webkit-backface-visibility: hidden;
+            /* Chrome, Safari, Opera */
+            backface-visibility: hidden;
+            &.active {
+                transform: translateY(0) rotateY(0deg);
+                opacity: 1;
+            }
+            &.remove {
+                transform: translateY(0) rotateY(180deg);
+            }
         }
-        .fifth_work { @extend %dynamic_rect;
+        .fifth_work {
+            @extend %dynamic_rect;
             position: absolute;
-            left:0;
-            right:0;
-            margin:auto;
-            bottom:   0;
-            .left_part, .right_part {position: absolute;
-                width:50%;
-            height:100%;}
-            .left_part {
-        background-color: pink;
-              
-          }
+            left: 0;
+            right: 0;
+            margin: auto;
+            bottom: 0;
+            .left_part,
             .right_part {
-                left:50%;
-          
-            transform: rotateY(180deg);
-                background-color: aquamarine;
-                -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
-   	backface-visibility: hidden;
-              
+                position: absolute;
+                width: 50%;
+                height: 100%;
+            }
+            .left_part {
+                background-color: pink;
+                opacity: 0;
+                transform: translateX(-100%);
+                &.active {
+                    opacity: 1;
+                    transform: translateX(0);
                 }
+            }
+            .right_part {
+                left: 50%;
+                transform: rotateY(180deg) translateX(0);
+                background-color: aquamarine;
+                -webkit-backface-visibility: hidden;
+                /* Chrome, Safari, Opera */
+                backface-visibility: hidden;
+                opacity: 1;
+                &.active {
+                    transform: rotateY(0deg) translateX(0);
+                }
+                &.remove {
+                    transform: rotateY(0deg) translateX(100%);
+                    opacity: 0;
+                }
+            }
         }
-        .sixth_work {@extend %dynamic_cube;
-        position: absolute;
-        left:0;
-        right:0;
-            bottom:0;
-        margin:auto;
-        background-color: cornflowerblue}
-        
+        .sixth_work {
+            @extend %dynamic_cube;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background-color: cornflowerblue;
+            transform: scale(0);
+            opacity: 0;
+            &.active {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
     }
 }

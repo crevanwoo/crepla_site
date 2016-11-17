@@ -457,8 +457,7 @@ body {
 
 .main_wrapper {
   position: relative;
-  top: 0;
-  transition: 1s; }
+  top: 0; }
 
 .wrapper {
   width: 1200rem;
@@ -635,6 +634,11 @@ label.upload > * {
   right: 0;
   background-color: #f15151;
   transition-duration: 1s; }
+
+.scrollable_block {
+  height: 100vh;
+  box-sizing: border-box;
+  padding-top: 90rem; }
 
 .modal .bg_modal_trans.big_height, .modal .bg_modal_top.big_height, .modal .bg_modal_bottom.big_height {
   min-height: 575px; }
@@ -1815,6 +1819,7 @@ header {
   padding-bottom: 30rem;
   position: relative;
   height: 100vh;
+  box-sizing: border-box;
   /*@if $size==800 {
       @media screen and (max-height: 800px) and (min-height: 500px) {
           @content
@@ -1972,66 +1977,112 @@ header {
       .performed_works .dynamic_portfolio {
         display: none; } }
     .performed_works .dynamic_portfolio .first_work {
-      position: relative; }
+      position: relative;
+      transform: translateX(0);
+      opacity: 1; }
+      .performed_works .dynamic_portfolio .first_work.remove {
+        transform: translateX(-100%);
+        opacity: 0; }
       .performed_works .dynamic_portfolio .first_work .left_part,
       .performed_works .dynamic_portfolio .first_work .right_part {
         width: 50%;
         height: 100%;
         position: absolute;
-        top: 0; }
+        top: 0;
+        opacity: 0; }
+        .performed_works .dynamic_portfolio .first_work .left_part.active,
+        .performed_works .dynamic_portfolio .first_work .right_part.active {
+          transform: translateY(0);
+          opacity: 1; }
       .performed_works .dynamic_portfolio .first_work .left_part {
-        background-color: red; }
+        background-color: red;
+        transform: translateY(-100%); }
       .performed_works .dynamic_portfolio .first_work .right_part {
         left: 50%;
-        background-color: black; }
+        background-color: black;
+        transform: translateY(100%); }
     .performed_works .dynamic_portfolio .second_work {
       position: absolute;
       bottom: 0;
       right: 50rem;
-      background-color: green; }
-      .performed_works .dynamic_portfolio .second_work:hover {
-        opacity: 0;
-        transition: 1s; }
+      background-color: green;
+      opacity: 0; }
+      .performed_works .dynamic_portfolio .second_work.active {
+        opacity: 1; }
+      .performed_works .dynamic_portfolio .second_work.remove {
+        transform: translateY(100%);
+        opacity: 0; }
     .performed_works .dynamic_portfolio .third_work {
       position: absolute;
       bottom: 25rem;
       right: 75rem;
-      background-color: yellow; }
-      .performed_works .dynamic_portfolio .third_work:hover {
-        transform: scale(3);
-        opacity: 0;
-        transition: 1s; }
+      background-color: yellow;
+      transform: scale(3);
+      opacity: 0; }
+      .performed_works .dynamic_portfolio .third_work.active {
+        transform: scale(1);
+        opacity: 1; }
+      .performed_works .dynamic_portfolio .third_work.remove {
+        transform: translateY(-100%);
+        opacity: 0; }
     .performed_works .dynamic_portfolio .fourth_work {
       position: absolute;
       bottom: 0;
       right: calc(50% - (373.32rem * 1.25));
-      background-color: orange; }
+      background-color: orange;
+      opacity: 0;
+      transform: translateY(-100%) rotateY(0deg);
+      -webkit-backface-visibility: hidden;
+      /* Chrome, Safari, Opera */
+      backface-visibility: hidden; }
+      .performed_works .dynamic_portfolio .fourth_work.active {
+        transform: translateY(0) rotateY(0deg);
+        opacity: 1; }
+      .performed_works .dynamic_portfolio .fourth_work.remove {
+        transform: translateY(0) rotateY(180deg); }
     .performed_works .dynamic_portfolio .fifth_work {
       position: absolute;
       left: 0;
       right: 0;
       margin: auto;
       bottom: 0; }
-      .performed_works .dynamic_portfolio .fifth_work .left_part, .performed_works .dynamic_portfolio .fifth_work .right_part {
+      .performed_works .dynamic_portfolio .fifth_work .left_part,
+      .performed_works .dynamic_portfolio .fifth_work .right_part {
         position: absolute;
         width: 50%;
         height: 100%; }
       .performed_works .dynamic_portfolio .fifth_work .left_part {
-        background-color: pink; }
+        background-color: pink;
+        opacity: 0;
+        transform: translateX(-100%); }
+        .performed_works .dynamic_portfolio .fifth_work .left_part.active {
+          opacity: 1;
+          transform: translateX(0); }
       .performed_works .dynamic_portfolio .fifth_work .right_part {
         left: 50%;
-        transform: rotateY(180deg);
+        transform: rotateY(180deg) translateX(0);
         background-color: aquamarine;
         -webkit-backface-visibility: hidden;
         /* Chrome, Safari, Opera */
-        backface-visibility: hidden; }
+        backface-visibility: hidden;
+        opacity: 1; }
+        .performed_works .dynamic_portfolio .fifth_work .right_part.active {
+          transform: rotateY(0deg) translateX(0); }
+        .performed_works .dynamic_portfolio .fifth_work .right_part.remove {
+          transform: rotateY(0deg) translateX(100%);
+          opacity: 0; }
     .performed_works .dynamic_portfolio .sixth_work {
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
       margin: auto;
-      background-color: cornflowerblue; }
+      background-color: cornflowerblue;
+      transform: scale(0);
+      opacity: 0; }
+      .performed_works .dynamic_portfolio .sixth_work.active {
+        transform: scale(1);
+        opacity: 1; }
 
 .site_ordering {
   height: 350rem;
