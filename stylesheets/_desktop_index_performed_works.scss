@@ -60,13 +60,6 @@
                     position: relative;
                 }
                 span {
-                    /*
-                    margin-top: 20rem;
-                    margin-bottom: 20rem;
-                    display: block;
-                    position: relative;
-                    font-size: $f_14;
-                    */
                     display: block;
                     position: absolute;
                     left: 0;
@@ -76,16 +69,6 @@
                 }
                 .hover_logo_button {
                     @extend %buttons_hover;
-                    /* height: 29rem;
-                    //margin-top: 45rem; //old
-                    padding: 0 $m_abs 0 $m_abs;
-                    display: inline-block;
-                    position: relative;
-                    border: 2rem solid $soft_red;
-                    text-align: center;
-                    text-transform: uppercase;
-                    line-height: 29rem;
-                    font-size: $f_14;*/
                     height: 29rem;
                     width: 150rem;
                     padding: 0 10rem 0 10rem;
@@ -127,19 +110,10 @@
         .cell_cube {
             width: $cell_s_abs;
             position: relative;
-            /* .hover_logo >img {
-                width: 60%;
-                height: auto;
-                max-height: 60%;
-            }*/
         }
         .cell_rect {
             width: $cell_s_abs*2 + $m_abs*2;
             position: relative;
-            /*.hover_logo >img {
-                width: auto;
-                height: 60%;
-            }*/
         }
     }
     .dynamic_portfolio {
@@ -163,7 +137,6 @@
             display: none;
         }
         .first_work {
-            //display:none;
             position: relative;
             transform: translateX(0);
             opacity: 1;
@@ -195,11 +168,9 @@
             }
         }
         .second_work {
-            //display:none;
             position: absolute;
             bottom: 0;
             right: $right_offset;
-            //transform: translate3d(130%, -70%,0);
             @extend %dynamic_cube;
             background-color: green;
             opacity: 0;
@@ -212,11 +183,9 @@
             }
         }
         .third_work {
-            //display:none;
             position: absolute;
             bottom: $bottom_offset;
             right: $right_offset*1.5;
-            //transform: translate3d(130%, -70%,0);
             @extend %dynamic_cube;
             background-color: yellow;
             transform: scale(3);
@@ -234,13 +203,11 @@
             position: absolute;
             bottom: 0;
             right: calc(50% - (#{$cell_s_abs} * 1.25));
-            //transform: translate3d(130%, -70%,0);
             @extend %dynamic_cube;
             background-color: orange;
             opacity: 0;
             transform: translateY(-100%) rotateY(0deg);
             -webkit-backface-visibility: hidden;
-            /* Chrome, Safari, Opera */
             backface-visibility: hidden;
             &.active {
                 transform: translateY(0) rotateY(0deg);
@@ -277,7 +244,6 @@
                 transform: rotateY(180deg) translateX(0);
                 background-color: aquamarine;
                 -webkit-backface-visibility: hidden;
-                /* Chrome, Safari, Opera */
                 backface-visibility: hidden;
                 opacity: 1;
                 &.active {

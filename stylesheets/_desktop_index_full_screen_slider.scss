@@ -446,42 +446,4 @@
             }
         }
     }
-    .scroll_mouse {
-        // position: absolute;
-        position: fixed;
-        top: 50%;
-        right: 0;
-        z-index: 1;
-        transform: translateX(-70rem);
-        @include bp(1500) {
-            transform: translateX(-15rem);
-        }
-        >div {
-            width: 16rem;
-            height: 32rem;
-            margin: auto;
-            padding-top: 4rem;
-            border: 2rem solid white;
-            border-radius: 10rem;
-            >div {
-                width: 4rem;
-                height: 8rem;
-                margin: auto;
-                box-sizing: border-box;
-                background-color: white;
-                border-radius: 10rem;
-                animation-name: scroll_down;
-                animation-iteration-count: infinite;
-                animation-duration: 2s;
-                animation-timing-function: linear;
-            }
-        }
-        >p {
-            padding-top: 17rem;
-            text-align: center;
-            @include bp(1500) {
-                //display: none
-            }
-        }
-    }
 }

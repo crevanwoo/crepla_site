@@ -635,10 +635,83 @@ label.upload > * {
   background-color: #f15151;
   transition-duration: 1s; }
 
-.scrollable_block {
-  height: 100vh;
+.scroll_container_wrapper {
   box-sizing: border-box;
-  padding-top: 90rem; }
+  position: relative;
+  overflow: hidden;
+  height: 100vh; }
+  .scroll_container_wrapper .scroll_container {
+    box-sizing: border-box;
+    padding-top: 90rem;
+    transform: translateY(0px); }
+  .scroll_container_wrapper .scroll_block {
+    position: absolute;
+    width: 5rem;
+    top: 100rem;
+    height: auto;
+    right: 20rem;
+    bottom: 10rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1; }
+    .scroll_container_wrapper .scroll_block .scroll_runner {
+      position: relative;
+      top: 0;
+      background-color: darkred; }
+  .scroll_container_wrapper .scroll_container,
+  .scroll_container_wrapper .scroll_runner {
+    /*scroll speed*/
+    transition: 0.5s; }
+
+.scroll_mouse {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 1;
+  transform: translateX(-70rem);
+  transition: 0.5s;
+  opacity: 1;
+  /*@if $size==800 {
+      @media screen and (max-height: 800px) and (min-height: 500px) {
+          @content
+      }
+  }*/ }
+  @media screen and (max-width: 1500px) {
+    .scroll_mouse {
+      transform: translateX(-15rem); } }
+  .scroll_mouse.active > div {
+    border: 2rem solid #200772; }
+    .scroll_mouse.active > div > div {
+      background-color: #200772; }
+  .scroll_mouse.active > p {
+    color: #200772; }
+  .scroll_mouse.remove {
+    opacity: 0; }
+  .scroll_mouse > div {
+    width: 16rem;
+    height: 32rem;
+    margin: auto;
+    padding-top: 4rem;
+    border: 2rem solid white;
+    border-radius: 10rem; }
+    .scroll_mouse > div > div {
+      width: 4rem;
+      height: 8rem;
+      margin: auto;
+      box-sizing: border-box;
+      background-color: white;
+      border-radius: 10rem;
+      animation-name: scroll_down;
+      animation-iteration-count: infinite;
+      animation-duration: 2s;
+      animation-timing-function: linear; }
+  .scroll_mouse > p {
+    padding-top: 17rem;
+    text-align: center;
+    /*@if $size==800 {
+        @media screen and (max-height: 800px) and (min-height: 500px) {
+            @content
+        }
+    }*/ }
 
 .modal .bg_modal_trans.big_height, .modal .bg_modal_top.big_height, .modal .bg_modal_bottom.big_height {
   min-height: 575px; }
@@ -1490,46 +1563,6 @@ header {
             background-color: transparent;
             border: 2rem solid #f15151;
             margin: 0 2rem 0 2rem; }
-  .full_screen_slider .scroll_mouse {
-    position: fixed;
-    top: 50%;
-    right: 0;
-    z-index: 1;
-    transform: translateX(-70rem);
-    /*@if $size==800 {
-        @media screen and (max-height: 800px) and (min-height: 500px) {
-            @content
-        }
-    }*/ }
-    @media screen and (max-width: 1500px) {
-      .full_screen_slider .scroll_mouse {
-        transform: translateX(-15rem); } }
-    .full_screen_slider .scroll_mouse > div {
-      width: 16rem;
-      height: 32rem;
-      margin: auto;
-      padding-top: 4rem;
-      border: 2rem solid white;
-      border-radius: 10rem; }
-      .full_screen_slider .scroll_mouse > div > div {
-        width: 4rem;
-        height: 8rem;
-        margin: auto;
-        box-sizing: border-box;
-        background-color: white;
-        border-radius: 10rem;
-        animation-name: scroll_down;
-        animation-iteration-count: infinite;
-        animation-duration: 2s;
-        animation-timing-function: linear; }
-    .full_screen_slider .scroll_mouse > p {
-      padding-top: 17rem;
-      text-align: center;
-      /*@if $size==800 {
-          @media screen and (max-height: 800px) and (min-height: 500px) {
-              @content
-          }
-      }*/ }
 
 /*.top_offer {
     width: 100%;
@@ -1884,13 +1917,6 @@ header {
           display: block;
           position: relative; }
         .performed_works .portfolio > * .hover_logo span {
-          /*
-          margin-top: 20rem;
-          margin-bottom: 20rem;
-          display: block;
-          position: relative;
-          font-size: $f_14;
-          */
           display: block;
           position: absolute;
           left: 0;
@@ -1898,16 +1924,6 @@ header {
           bottom: 90rem;
           font-size: 14rem; }
         .performed_works .portfolio > * .hover_logo .hover_logo_button {
-          /* height: 29rem;
-          //margin-top: 45rem; //old
-          padding: 0 $m_abs 0 $m_abs;
-          display: inline-block;
-          position: relative;
-          border: 2rem solid $soft_red;
-          text-align: center;
-          text-transform: uppercase;
-          line-height: 29rem;
-          font-size: $f_14;*/
           height: 29rem;
           width: 150rem;
           padding: 0 10rem 0 10rem;
@@ -1942,19 +1958,10 @@ header {
           transition-duration: 1s; }
     .performed_works .portfolio .cell_cube {
       width: 373.32rem;
-      position: relative;
-      /* .hover_logo >img {
-          width: 60%;
-          height: auto;
-          max-height: 60%;
-      }*/ }
+      position: relative; }
     .performed_works .portfolio .cell_rect {
       width: 766.64rem;
-      position: relative;
-      /*.hover_logo >img {
-          width: auto;
-          height: 60%;
-      }*/ }
+      position: relative; }
   .performed_works .dynamic_portfolio {
     display: block;
     position: relative;
@@ -2033,7 +2040,6 @@ header {
       opacity: 0;
       transform: translateY(-100%) rotateY(0deg);
       -webkit-backface-visibility: hidden;
-      /* Chrome, Safari, Opera */
       backface-visibility: hidden; }
       .performed_works .dynamic_portfolio .fourth_work.active {
         transform: translateY(0) rotateY(0deg);
@@ -2063,7 +2069,6 @@ header {
         transform: rotateY(180deg) translateX(0);
         background-color: aquamarine;
         -webkit-backface-visibility: hidden;
-        /* Chrome, Safari, Opera */
         backface-visibility: hidden;
         opacity: 1; }
         .performed_works .dynamic_portfolio .fifth_work .right_part.active {
@@ -2506,14 +2511,23 @@ section.work_content {
         display: block; }
 
 footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -600rem;
+  box-sizing: border-box;
   padding-top: 130rem;
   padding-bottom: 100rem;
-  position: relative;
   background-image: url(../images/bg_footer.jpg);
   background-position: center bottom;
   background-size: cover;
   background-repeat: no-repeat;
-  color: white; }
+  color: white;
+  z-index: 2;
+  box-shadow: 0 3rem 20rem 6rem black;
+  transition: 0.5s; }
+  footer.active {
+    bottom: 0; }
   footer .wrapper {
     padding-left: 0rem;
     padding-right: 5rem; }

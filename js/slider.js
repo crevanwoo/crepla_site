@@ -51,9 +51,6 @@ var window_offset;
         if (slider.length > 0) {
             createNav(0);
         }
-        if (header) {
-            changeHeaderColor();
-        }
         if (document.getElementsByClassName('slider')[2]) {
             setElemsAttr();
         }
@@ -550,62 +547,13 @@ var window_offset;
 
 
     window.addEventListener('click', checkTarget);
-    window.addEventListener('scroll', changeHeaderColor);
-    //window.addEventListener('resize', setSliderWidth);	
     window.addEventListener('resize', calcPageHeight);
     window.addEventListener('resize', glowingPlanet);
 
 
     /* --------------------------------------------- other functions --------------------------------------------- */
 
-    /**
-     * modal_window + smooth display
-     */
-    /*function modalOpen(e) {
-        var index;
-        if (e.target.classList.contains('submit_app_btn') || (!e.target.classList.contains('modal_resume') && !e.target.classList.contains('modal_comment') && e.target.tagName == 'A')) {
-            index = 0;
-        } else if (e.target.classList.contains('modal_resume')) {
-            e.preventDefault();
-            index = 1
-        } else if (e.target.classList.contains('modal_comment')) {
-            e.preventDefault();
-            index = 2
-        }
-        document.getElementsByClassName('modal')[index].style.display = "block";
-        var int = setInterval(function () {
-            if ((getComputedStyle(document.getElementsByClassName('modal')[index]).opacity) < 0.98) {
-                document.getElementsByClassName('modal')[index].style.opacity = +document.getElementsByClassName('modal')[index].style.opacity + 0.1;
-            } else {
-                clearInterval(int)
-            }
-        }, 30)
 
-
-        document.body.style.marginRight = window.innerWidth - document.body.offsetWidth + "px";
-        header.style.marginRight = window.innerWidth - document.body.offsetWidth + "px";
-        document.body.style.width = "initial";
-        document.body.classList.add('hidden');
-
-
-    }
-
-    function modalClose(e) {
-        var index;
-        if (e.target.parentElement.parentElement.parentElement.id == 'modal_order') {
-            index = 0
-        } else if (e.target.parentElement.parentElement.parentElement.id == 'modal_resume') {
-            index = 1
-        } else if (e.target.parentElement.parentElement.parentElement.id == 'modal_comment') {
-            index = 2
-        }
-        document.getElementsByClassName('modal')[index].style.display = "none";
-        document.getElementsByClassName('modal')[index].style.opacity = "0";
-        document.body.style.marginRight = 0;
-        header.style.marginRight = 0;
-        document.body.style.width = (document.body.offsetHeight >= 1200) ? "100%" : "100vw";
-        document.body.classList.remove('hidden');
-    }*/
 
 
     function modalOpen(e) {
@@ -653,20 +601,7 @@ var window_offset;
 
 
 
-    /**
-     * change color of fixed nav block when scrolled under nth px
-     */
-    function changeHeaderColor() {
-        if (header) {
-            if (window.pageYOffset > 0) {
-                header.getElementsByClassName('header_bg')[0].style.opacity = "0.9";
 
-            } else {
-                header.getElementsByClassName('header_bg')[0].style.opacity = "0";
-
-            }
-        }
-    }
 
     /**
      * smooth scrolling 
@@ -1001,7 +936,7 @@ var window_offset;
 
     (function () {
 
-        var transition_time = "1000";
+        var transition_time = "700";
 
         function addTransitionTime(selector) {
             if (document.querySelector(selector)) {
@@ -1017,7 +952,6 @@ var window_offset;
         addTransitionTime('.fourth_work');
         addTransitionTime('.fifth_work .left_part');
         addTransitionTime('.fifth_work .right_part');
-
         addTransitionTime('.sixth_work');
 
 
@@ -1042,22 +976,27 @@ var window_offset;
                 defineSlideDirection(e);
                 if (defineSlideDirection(e) == 'down') {
                     translateBody('down');
-                    screen_num++;
-                } else if (defineSlideDirection(e) == 'up') {
+                    if (screen_num < 9) {
+                        screen_num++;
+                    }
+                } else if (defineSlideDirection(e) == 'up' && screen_num > 1) {
                     translateBody('up');
                     screen_num--;
+
+
                 }
                 setTimeout(function () {
                     scroll_mark = true
-                }, 300)
+                }, transition_time)
             }
         }
+
 
         var screen_effect = {
             scr1: "0",
             scr2: "-100%",
             scr3: "-200%",
-             scr4: "-300%",
+            scr4: "-300%",
         }
 
         function getFullScreen(coord) {
@@ -1082,6 +1021,7 @@ var window_offset;
                 break;
             case 2:
                 if (direction == "down") {
+                    addClass('.scroll_mouse', 'active');
                     getFullScreen(screen_effect.scr3);
                     setTimeout(function () {
                         addClass('.first_work .left_part', 'active');
@@ -1097,6 +1037,7 @@ var window_offset;
                     addClass('.second_work', 'active');
 
                 } else if (direction == "up") {
+                    removeClass('.scroll_mouse', 'active');
                     removeClass('.first_work .left_part', 'active');
                     removeClass('.first_work .right_part', 'active')
                     setTimeout(function () {
@@ -1136,22 +1077,23 @@ var window_offset;
             case 7:
                 if (direction == "down") {
                     addClass('.fifth_work .right_part', 'remove');
-                     removeClass('.fifth_work .left_part', 'active');
+                    removeClass('.fifth_work .left_part', 'active');
                     addClass('.sixth_work', 'active');
-                   
-                } else if (direction == "up") { 
+
+                } else if (direction == "up") {
                     removeClass('.fourth_work', 'remove');
                     removeClass('.fifth_work .right_part', 'active');
-                    removeClass('.fifth_work .left_part', 'active');  
+                    removeClass('.fifth_work .left_part', 'active');
                 }
 
                 break;
-              case 8:
+            case 8:
                 if (direction == "down") {
-                     getFullScreen(screen_effect.scr4);
-                 
-                   
-                } else if (direction == "up") { 
+                    getFullScreen(screen_effect.scr4);
+                    setHeight('.scroll_container_wrapper .scroll_block');
+                    addClass('.scroll_mouse', 'remove');
+
+                } else if (direction == "up") {
                     removeClass('.fifth_work .right_part', 'remove');
                     addClass('.fifth_work .left_part', 'active');
                     removeClass('.sixth_work', 'active');
@@ -1159,47 +1101,27 @@ var window_offset;
 
                 break;
             case 9:
-                if (direction == "down") {
-                   
-                   
-                } else if (direction == "up") {
-                    getFullScreen(screen_effect.scr3);
-                   
-                }
 
+                if (direction == "down") {
+                    document.querySelector('.scroll_marker').value = "true";
+                    if (document.querySelector('.scroll_position').value == "end") {
+                        addClass('footer', 'active');
+                    }
+                } else if (direction == "up") {
+                    screen_num++;
+                    document.querySelector('.scroll_marker').value = "";
+                    if (document.querySelector('footer').classList.contains('active')) {
+                        removeClass('footer', 'active');
+                    } else if (document.querySelector('.scroll_container').style.transform == "translateY(0px)") {
+                        document.querySelector('.scroll_marker').value = "";
+                        getFullScreen(screen_effect.scr3);
+                        screen_num--;
+                    } else {
+                        document.querySelector('.scroll_marker').value = "true";
+                    }
+                }
                 break;
-
             }
-
-            /*
-            if (screen_num == 1) {
-                if (direction == "down") {
-                    getFullScreen(screen_effect.scr2);
-                }
-            } else if (screen_num == 2) {
-                if (direction == "down") {
-                    getFullScreen(screen_effect.scr3);
-                    setTimeout(function () {
-                        addClassActive('.first_work .left_part');
-                        addClassActive('.first_work .right_part')
-                    }, transition_time)
-
-                } else if (direction == "up") {
-                    getFullScreen(screen_effect.scr1);
-                }
-            } else if (screen_num == "3") {
-                if (direction == "down") {
-
-                } else if (direction == "up") {
-                    removeClassActive('.first_work .left_part');
-                    removeClassActive('.first_work .right_part')
-                    setTimeout(function () {
-                        getFullScreen(screen_effect.scr2);
-                    }, transition_time)
-
-
-                }
-            }*/
         }
 
 
@@ -1259,7 +1181,45 @@ var window_offset;
             }
         }
 
+
+
+        /**
+         * change color of fixed nav block when scrolled under nth px
+         */
+        function changeHeaderColor() {
+            if (header) {
+                if (screen_num > 1) {
+                    header.getElementsByClassName('header_bg')[0].style.opacity = "0.9";
+
+                } else {
+                    header.getElementsByClassName('header_bg')[0].style.opacity = "0";
+
+                }
+            }
+        }
+
+        window.addEventListener('touchstart', changeHeaderColor);
+        window.addEventListener('wheel', changeHeaderColor);
+        window.addEventListener('keydown', changeHeaderColor);
+
+
+
+        function setHeight(selector) {
+            document.querySelector(selector).style.height = getHeight(selector) + 'px';
+        }
+
+        function getHeight(selector) {
+            return document.querySelector(selector).offsetHeight
+        }
+
     })();
+
+
+
+
+
+
+
 
 
 })();

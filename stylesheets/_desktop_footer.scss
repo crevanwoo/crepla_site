@@ -1,7 +1,11 @@
 footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: -600rem;
+    box-sizing: border-box;
     padding-top: 130rem;
     padding-bottom: 100rem;
-    position: relative;
     background: {
         image: url(../images/bg_footer.jpg);
         position: center bottom;
@@ -9,6 +13,12 @@ footer {
         repeat: no-repeat;
     }
     color: white;
+    z-index:2;
+    box-shadow: 0 3rem 20rem 6rem black;
+    transition: 0.5s;
+    &.active {
+        bottom: 0;
+    }
     .wrapper {
         @extend %clear;
         padding-left: 0rem;
