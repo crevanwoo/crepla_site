@@ -134,8 +134,12 @@
                     .talking_block {
                         @extend %clear;
                         font-size: $f_20;
-                        margin: auto;
+                        margin: 150rem auto 0 auto;
                         float: none;
+                        width: 420rem;
+                         @include bp(800) {
+                              margin: 50rem auto 0 350rem;
+                        }
                         >* {
                             float: left;
                         }
@@ -169,64 +173,6 @@
                                 position: absolute;
                                 border-right: 2rem solid #fff;
                             }
-                        }
-                        .left_speak {
-                            background-image: url(../images/speech_bubble_big.png);
-                            background-size: contain;
-                            background-repeat: no-repeat;
-                            height: 75rem;
-                            width: 235rem;
-                            padding-top: 10rem;
-                            text-align: center;
-                            box-sizing: border-box;
-                            margin-right: 30rem;
-                            margin-left: 70rem;
-                            //@extend %speech_bubbles;
-                            // margin-left: 70rem;
-                            //border-right: 2rem dashed #fff;
-                            /* &:after {
-                                right: 0;
-                                border-radius: 15rem 0;
-                            }
-                            &:before {
-                                left: 0;
-                                border-left: 2rem dashed #fff;
-                                border-radius: 15rem 0;
-                            }
-                            div {
-                                transform: skewX(-60deg) rotate(60deg);
-                                bottom: -12rem;
-                                left: -8rem;
-                                border-bottom: 2rem solid #fff;
-                            }*/
-                        }
-                        .right_speak {
-                            background-image: url(../images/speech_bubble_small.png);
-                            background-size: contain;
-                            background-repeat: no-repeat;
-                            height: 75rem;
-                            width: 158rem;
-                            padding-top: 20rem;
-                            text-align: center;
-                            margin-left: 30rem;
-                            // @extend %speech_bubbles;
-                            // border-left: 2rem dashed #fff;
-                            /* &:after {
-                                left: 0;
-                                border-radius: 0 15rem;
-                            }
-                            &:before {
-                                right: 0;
-                                border-right: 2rem dashed #fff;
-                                border-radius: 0 15rem;
-                            }
-                            div {
-                                transform: skewX(60deg) rotate(120deg);
-                                transform-origin: right top;
-                                border-top: 2rem solid #fff;
-                                bottom: -48rem;
-                                right: -32rem;
-                            }*/
                         }
                         .arrow {
                             position: relative;
@@ -343,36 +289,61 @@
                     }
                     .old_guy,
                     .young_guy {
+                        height:360rem;
+                        font-size: $f_20;
                         position: absolute;
                         bottom: -120rem;
                         background-size: contain;
                         background-position: center center;
                         background-repeat: no-repeat;
+                        .speak { position: aBSOLUTE;
+                            top: -130rem;
+                        @include bp(800) {
+                            top: -50rem;
+                        }}
                     }
                     .old_guy {
                         width: 163rem;
                         height: 360rem;
-                        left: -70rem;
-                        bottom: -140rem;
+                        left: 0;
+                        bottom: 0;
                         background-image: url(../images/old_guy.png);
-                        @include bp(800) {
-                            width: 40vh;
-                            height: 50vh;
-                            left: 0;
-                            bottom: 1vh
+                  
+                        .speak {
+                            right: -250rem;
+                 
+                            background-image: url(../images/speech_bubble_big.png);
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            height: 75rem;
+                            width: 235rem;
+                            padding-top: 10rem;
+                            text-align: center;
+                            box-sizing: border-box;
+                            margin-right: 30rem;
+                            margin-left: 70rem;
+                            
+                            
                         }
                     }
                     .young_guy {
                         width: 256rem;
-                        height: 341rem;
-                        right: -30rem;
-                        bottom: -120rem;
+                       // height: 341rem;
+                        right: 0;
+                        bottom: 0;
                         background-image: url(../images/young_guy.png);
-                        @include bp(800) {
-                            width: 40vh;
-                            height: 50vh;
-                            right: 3vh;
-                            bottom: 2vh
+                      
+                        .speak {
+                            left: -50rem;
+                            background-image: url(../images/speech_bubble_small.png);
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            background-position: top;
+                            height: 75rem;
+                            width: 158rem;
+                            padding-top: 20rem;
+                            text-align: center;
+                            margin-left: 30rem;
                         }
                     }
                     .sign {

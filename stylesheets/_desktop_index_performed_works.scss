@@ -13,7 +13,6 @@
         padding-bottom: 50rem;
     }
     .wrapper {
-        height: 80%;
         @include bp(800) {
             height: auto;
         }
@@ -125,12 +124,12 @@
             width: $cell_s_abs * 2.5;
             height: $cell_s_abs * 1.25;
         }
-        $bottom_offset: 25rem;
+        $top_offset: 150rem;
         $right_offset: 50rem;
         display: block;
         position: relative;
         width: 100%;
-        height: 80%;
+        height: 100vh;
         padding-top: 50rem;
         box-sizing: border-box;
         @include bp(800) {
@@ -169,7 +168,7 @@
         }
         .second_work {
             position: absolute;
-            bottom: 0;
+            top: 190rem;
             right: $right_offset;
             @extend %dynamic_cube;
             background-color: green;
@@ -184,7 +183,7 @@
         }
         .third_work {
             position: absolute;
-            bottom: $bottom_offset;
+            top: 165rem;
             right: $right_offset*1.5;
             @extend %dynamic_cube;
             background-color: yellow;
@@ -201,7 +200,7 @@
         }
         .fourth_work {
             position: absolute;
-            bottom: 0;
+            top: $top_offset;
             right: calc(50% - (#{$cell_s_abs} * 1.25));
             @extend %dynamic_cube;
             background-color: orange;
@@ -223,7 +222,7 @@
             left: 0;
             right: 0;
             margin: auto;
-            bottom: 0;
+            top: $top_offset;
             .left_part,
             .right_part {
                 position: absolute;
@@ -260,7 +259,7 @@
             position: absolute;
             left: 0;
             right: 0;
-            bottom: 0;
+            top: $top_offset;
             margin: auto;
             background-color: cornflowerblue;
             transform: scale(0);

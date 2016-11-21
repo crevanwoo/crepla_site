@@ -259,12 +259,21 @@ label.upload {
     position: relative;
     overflow: hidden;
     height: 100vh;
+    @include bp(800) {
+        height: auto;
+    }
     .scroll_container {
         box-sizing: border-box;
         padding-top: 90rem;
         transform: translateY(0px);
+        @include bp(800) {
+            padding-top: 0;
+        }
     }
     .scroll_block {
+        @include bp(800) {
+            display: none;
+        }
         position: absolute;
         width: 5rem;
         top: 100rem;

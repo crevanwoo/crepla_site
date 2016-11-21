@@ -16,11 +16,17 @@ footer {
     z-index:2;
     box-shadow: 0 3rem 20rem 6rem black;
     transition: 0.5s;
+    @include bp(800) {
+        position: relative;
+        bottom: 0;
+        box-shadow: 0 0 0 0 white;
+    }
     &.active {
         bottom: 0;
     }
     .wrapper {
         @extend %clear;
+        position: relative;
         padding-left: 0rem;
         padding-right: 5rem;
         .main_h {
@@ -196,6 +202,15 @@ footer {
                     text-transform: uppercase;
                 }
             }
+        }
+    }
+    .footer_close {
+        font-size: 30rem;
+        position: absolute;
+        top: -100rem;
+        right: 30rem;
+        @include bp(800) {
+            display: none;
         }
     }
 }

@@ -639,6 +639,9 @@ var window_offset;
         }, 30);
     }
 
+
+
+
     /**
      * show and hide header lists
      * @param {[[string]]} elem_class_name [name of class of list element]
@@ -662,8 +665,8 @@ var window_offset;
      * tuning of glowing planets
      */
     function glowingPlanet() {
-        var img = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service img');
-        var planet = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service .glowing');
+        var img = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service img'),
+            planet = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service .glowing');
         for (var i = 0; i < planet.length; i++) {
             planet[i].style.left = '5%';
             planet[i].style.top = img[i].offsetHeight / 4 + 'px';
@@ -919,7 +922,6 @@ var window_offset;
 
 
     function createRedLine() {
-        console.log('sdfg');
         var title = document.querySelectorAll('.performed_works .main_h, .review .main_h, .team .main_h');
         for (var i = 0; i < title.length; i++) {
             var elem = document.createElement('div')
@@ -932,288 +934,99 @@ var window_offset;
 
 
 
-    /*  Smooth scroll to next page when page onscroll  */
 
-    (function () {
 
-        var transition_time = "700";
+    window.addEventListener('scroll', changeHeaderColor);
+    /**
+     * change color of fixed nav block when scrolled under nth px
+     */
+    function changeHeaderColor() {
+        if (header) {
+            if (window.pageYOffset > 0) {
+                header.getElementsByClassName('header_bg')[0].style.opacity = "0.9";
 
-        function addTransitionTime(selector) {
-            if (document.querySelector(selector)) {
-                document.querySelector(selector).style.transition = transition_time + "ms";
+            } else {
+                header.getElementsByClassName('header_bg')[0].style.opacity = "0";
+
             }
         }
-        addTransitionTime('.main_wrapper');
-        addTransitionTime('.first_work');
-        addTransitionTime('.first_work .left_part');
-        addTransitionTime('.first_work .right_part');
-        addTransitionTime('.second_work');
-        addTransitionTime('.third_work');
-        addTransitionTime('.fourth_work');
-        addTransitionTime('.fifth_work .left_part');
-        addTransitionTime('.fifth_work .right_part');
-        addTransitionTime('.sixth_work');
+    }
 
 
-        function addScrollListeners() {
-            var listeners = ['wheel', 'keydown', 'touchstart', 'touchmove', 'touchend'];
-            for (var i = 0; i < listeners.length; i++) {
-                window.addEventListener(listeners[i], function (e) {
-                    pageSlide(e)
-                })
+
+
+
+    var animationStage = 0;
+
+    function animateGuys() {
+
+        if (animationStage === 0) {
+            moveOld();           
+        }
+
+
+
+    }
+
+
+    var AnimationSettings = {
+        fps: 30,
+        transition_old: 1,
+        transition_young: 1,
+        frame_state: true,
+
+
+    }
+
+    function moveOld() {
+        var old = document.querySelector('.old_guy'),
+            image_1 = "url(images/old_1.png)",
+            image_2 = "url(images/old_2.png)";
+        if (AnimationSettings.frame_state) {
+                old.style.backgroundImage = image_1;
+                AnimationSettings.frame_state = false
+            } else {
+                old.style.backgroundImage = image_2;
+                AnimationSettings.frame_state = true;
             }
-
-        }
-        addScrollListeners()
-
-
-        var screen_num = 1;
-        var scroll_mark = true;
-
-        function pageSlide(e) {
-            if (scroll_mark) {
-                scroll_mark = false;
-                defineSlideDirection(e);
-                if (defineSlideDirection(e) == 'down') {
-                    translateBody('down');
-                    if (screen_num < 9) {
-                        screen_num++;
-                    }
-                } else if (defineSlideDirection(e) == 'up' && screen_num > 1) {
-                    translateBody('up');
-                    screen_num--;
-
-
-                }
-                setTimeout(function () {
-                    scroll_mark = true
-                }, transition_time)
+            old.style.transform = "translateX(" + AnimationSettings.transition_old++ + "rem)";
+            setTimeout(function () {
+                requestAnimationFrame(moveOld);
+            }, 1000 / AnimationSettings.fps);
+         
+         if (window.innerWidth < 1200 && AnimationSettings.transition > window.innerWidth * 30 / 100) {console.log('asdfdsf');
+                cancelAnimationFrame(moveOld)
+            } else if (window.innerWidth >= 1200 && AnimationSettings.transition > (window.innerWidth * 30 / 100) - window.innerWidth - 600) {console.log('sdfsdfsdfsdf');
+                cancelAnimationFrame(moveOld)
             }
+        
+        
+        
+        
+        
+    }
+    
+    
+    function manageOld() {}
+
+
+
+
+    function moveYoung() {
+        var
+            young = document.querySelector('.young_guy');
+        if (window.innerHeight < 1200) {
+
+        } else {
+
+
         }
 
 
-        var screen_effect = {
-            scr1: "0",
-            scr2: "-100%",
-            scr3: "-200%",
-            scr4: "-300%",
-        }
-
-        function getFullScreen(coord) {
-            return document.querySelector('.main_wrapper').style.top = coord;
-        }
-
-        function addClass(selector, classSelector) {
-            document.querySelector(selector).classList.add(classSelector);
-        }
-
-        function removeClass(selector, classSelector) {
-            document.querySelector(selector).classList.remove(classSelector);
-        }
+    }
 
 
-        function translateBody(direction, full_screen) {
-            switch (screen_num) {
-            case 1:
-                if (direction == "down") {
-                    getFullScreen(screen_effect.scr2);
-                }
-                break;
-            case 2:
-                if (direction == "down") {
-                    addClass('.scroll_mouse', 'active');
-                    getFullScreen(screen_effect.scr3);
-                    setTimeout(function () {
-                        addClass('.first_work .left_part', 'active');
-                        addClass('.first_work .right_part', 'active')
-                    }, transition_time)
-
-                } else if (direction == "up") {
-                    getFullScreen(screen_effect.scr1);
-                }
-                break;
-            case 3:
-                if (direction == "down") {
-                    addClass('.second_work', 'active');
-
-                } else if (direction == "up") {
-                    removeClass('.scroll_mouse', 'active');
-                    removeClass('.first_work .left_part', 'active');
-                    removeClass('.first_work .right_part', 'active')
-                    setTimeout(function () {
-                        getFullScreen(screen_effect.scr2);
-                    }, transition_time)
-                }
-                break;
-            case 4:
-                if (direction == "down") {
-                    addClass('.third_work', 'active');
-                } else if (direction == "up") {
-                    removeClass('.second_work', 'active');
-                }
-                break;
-            case 5:
-                if (direction == "down") {
-                    addClass('.first_work', 'remove');
-                    addClass('.second_work', 'remove');
-                    addClass('.third_work', 'remove');
-                    addClass('.fourth_work', 'active');
-                } else if (direction == "up") {
-                    removeClass('.third_work', 'active');
-                }
-                break;
-            case 6:
-                if (direction == "down") {
-                    addClass('.fourth_work', 'remove');
-                    addClass('.fifth_work .right_part', 'active');
-                    addClass('.fifth_work .left_part', 'active');
-                } else if (direction == "up") {
-                    removeClass('.first_work', 'remove');
-                    removeClass('.second_work', 'remove');
-                    removeClass('.third_work', 'remove');
-                    removeClass('.fourth_work', 'active');
-                }
-                break;
-            case 7:
-                if (direction == "down") {
-                    addClass('.fifth_work .right_part', 'remove');
-                    removeClass('.fifth_work .left_part', 'active');
-                    addClass('.sixth_work', 'active');
-
-                } else if (direction == "up") {
-                    removeClass('.fourth_work', 'remove');
-                    removeClass('.fifth_work .right_part', 'active');
-                    removeClass('.fifth_work .left_part', 'active');
-                }
-
-                break;
-            case 8:
-                if (direction == "down") {
-                    getFullScreen(screen_effect.scr4);
-                    setHeight('.scroll_container_wrapper .scroll_block');
-                    addClass('.scroll_mouse', 'remove');
-
-                } else if (direction == "up") {
-                    removeClass('.fifth_work .right_part', 'remove');
-                    addClass('.fifth_work .left_part', 'active');
-                    removeClass('.sixth_work', 'active');
-                }
-
-                break;
-            case 9:
-
-                if (direction == "down") {
-                    document.querySelector('.scroll_marker').value = "true";
-                    if (document.querySelector('.scroll_position').value == "end") {
-                        addClass('footer', 'active');
-                    }
-                } else if (direction == "up") {
-                    screen_num++;
-                    document.querySelector('.scroll_marker').value = "";
-                    if (document.querySelector('footer').classList.contains('active')) {
-                        removeClass('footer', 'active');
-                    } else if (document.querySelector('.scroll_container').style.transform == "translateY(0px)") {
-                        document.querySelector('.scroll_marker').value = "";
-                        getFullScreen(screen_effect.scr3);
-                        screen_num--;
-                    } else {
-                        document.querySelector('.scroll_marker').value = "true";
-                    }
-                }
-                break;
-            }
-        }
-
-
-
-
-        /* Define direction */
-        function defineSlideDirection(e) {
-            if (e.type == "keydown") {
-                return getKeyCode(e);
-            } else if (e.type == "touchstart" || e.type == "touchmove" || e.type == "touchend") {
-                return getSwipeDirection(e);
-            } else if (e.type == "wheel") {
-                return getWheelDirection(e);
-            }
-        }
-
-
-        function getKeyCode(e) {
-            if (e.keyCode == 40) {
-                //console.log('down');
-                return 'down'
-            } else if (e.keyCode == 38) {
-                //console.log('up');
-                return 'up'
-            }
-        }
-
-        function getWheelDirection(e) {
-            if (e.deltaY > 0) {
-                //console.log('wheel down');
-                return 'down'
-            } else if (e.deltaY < 0) {
-                //console.log('wheel up');
-                return 'up'
-            }
-        }
-
-
-        function getTouchCoord(e) {
-            return e.touches[0].clientY
-        }
-
-
-        var firstCoord, lastCoord;
-
-        function getSwipeDirection(e) {
-            if (e.type == 'touchstart') {
-                firstCoord = getTouchCoord(e);
-            } else if (e.type == 'touchmove') {
-                lastCoord = getTouchCoord(e);
-            } else if (e.type == 'touchend') {
-                if (lastCoord - firstCoord > 10) {
-                    return 'up';
-                } else if (lastCoord - firstCoord < -10) {
-                    return 'down';
-                }
-            }
-        }
-
-
-
-        /**
-         * change color of fixed nav block when scrolled under nth px
-         */
-        function changeHeaderColor() {
-            if (header) {
-                if (screen_num > 1) {
-                    header.getElementsByClassName('header_bg')[0].style.opacity = "0.9";
-
-                } else {
-                    header.getElementsByClassName('header_bg')[0].style.opacity = "0";
-
-                }
-            }
-        }
-
-        window.addEventListener('touchstart', changeHeaderColor);
-        window.addEventListener('wheel', changeHeaderColor);
-        window.addEventListener('keydown', changeHeaderColor);
-
-
-
-        function setHeight(selector) {
-            document.querySelector(selector).style.height = getHeight(selector) + 'px';
-        }
-
-        function getHeight(selector) {
-            return document.querySelector(selector).offsetHeight
-        }
-
-    })();
-
+    window.requestAnimationFrame(animateGuys)
 
 
 

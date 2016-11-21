@@ -639,12 +639,33 @@ label.upload > * {
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  height: 100vh; }
+  height: 100vh;
+  /*@if $size==800 {
+      @media screen and (max-height: 800px) and (min-height: 500px) {
+          @content
+      }
+  }*/ }
+  @media screen and (max-width: 800px) {
+    .scroll_container_wrapper {
+      height: auto; } }
   .scroll_container_wrapper .scroll_container {
     box-sizing: border-box;
     padding-top: 90rem;
-    transform: translateY(0px); }
+    transform: translateY(0px);
+    /*@if $size==800 {
+        @media screen and (max-height: 800px) and (min-height: 500px) {
+            @content
+        }
+    }*/ }
+    @media screen and (max-width: 800px) {
+      .scroll_container_wrapper .scroll_container {
+        padding-top: 0; } }
   .scroll_container_wrapper .scroll_block {
+    /*@if $size==800 {
+        @media screen and (max-height: 800px) and (min-height: 500px) {
+            @content
+        }
+    }*/
     position: absolute;
     width: 5rem;
     top: 100rem;
@@ -653,6 +674,9 @@ label.upload > * {
     bottom: 10rem;
     background-color: rgba(0, 0, 0, 0.3);
     z-index: 1; }
+    @media screen and (max-width: 800px) {
+      .scroll_container_wrapper .scroll_block {
+        display: none; } }
     .scroll_container_wrapper .scroll_block .scroll_runner {
       position: relative;
       top: 0;
@@ -1321,61 +1345,19 @@ header {
                 margin-top: 20rem; }
           .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .talking_block {
             font-size: 20rem;
-            margin: auto;
-            float: none; }
+            margin: 150rem auto 0 auto;
+            float: none;
+            width: 420rem;
+            /*@if $size==800 {
+                @media screen and (max-height: 800px) and (min-height: 500px) {
+                    @content
+                }
+            }*/ }
+            @media screen and (max-width: 800px) {
+              .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .talking_block {
+                margin: 50rem auto 0 350rem; } }
             .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .talking_block > * {
               float: left; }
-            .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .talking_block .left_speak {
-              background-image: url(../images/speech_bubble_big.png);
-              background-size: contain;
-              background-repeat: no-repeat;
-              height: 75rem;
-              width: 235rem;
-              padding-top: 10rem;
-              text-align: center;
-              box-sizing: border-box;
-              margin-right: 30rem;
-              margin-left: 70rem;
-              /* &:after {
-                  right: 0;
-                  border-radius: 15rem 0;
-              }
-              &:before {
-                  left: 0;
-                  border-left: 2rem dashed #fff;
-                  border-radius: 15rem 0;
-              }
-              div {
-                  transform: skewX(-60deg) rotate(60deg);
-                  bottom: -12rem;
-                  left: -8rem;
-                  border-bottom: 2rem solid #fff;
-              }*/ }
-            .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .talking_block .right_speak {
-              background-image: url(../images/speech_bubble_small.png);
-              background-size: contain;
-              background-repeat: no-repeat;
-              height: 75rem;
-              width: 158rem;
-              padding-top: 20rem;
-              text-align: center;
-              margin-left: 30rem;
-              /* &:after {
-                  left: 0;
-                  border-radius: 0 15rem;
-              }
-              &:before {
-                  right: 0;
-                  border-right: 2rem dashed #fff;
-                  border-radius: 0 15rem;
-              }
-              div {
-                  transform: skewX(60deg) rotate(120deg);
-                  transform-origin: right top;
-                  border-top: 2rem solid #fff;
-                  bottom: -48rem;
-                  right: -32rem;
-              }*/ }
             .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .talking_block .arrow {
               position: relative;
               width: 31rem;
@@ -1467,45 +1449,60 @@ header {
                 margin-right: 10rem; }
           .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .old_guy,
           .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .young_guy {
+            height: 360rem;
+            font-size: 20rem;
             position: absolute;
             bottom: -120rem;
             background-size: contain;
             background-position: center center;
             background-repeat: no-repeat; }
+            .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .old_guy .speak,
+            .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .young_guy .speak {
+              position: aBSOLUTE;
+              top: -130rem;
+              /*@if $size==800 {
+                  @media screen and (max-height: 800px) and (min-height: 500px) {
+                      @content
+                  }
+              }*/ }
+              @media screen and (max-width: 800px) {
+                .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .old_guy .speak,
+                .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .young_guy .speak {
+                  top: -50rem; } }
           .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .old_guy {
             width: 163rem;
             height: 360rem;
-            left: -70rem;
-            bottom: -140rem;
-            background-image: url(../images/old_guy.png);
-            /*@if $size==800 {
-                @media screen and (max-height: 800px) and (min-height: 500px) {
-                    @content
-                }
-            }*/ }
-            @media screen and (max-width: 800px) {
-              .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .old_guy {
-                width: 40vh;
-                height: 50vh;
-                left: 0;
-                bottom: 1vh; } }
+            left: 0;
+            bottom: 0;
+            background-image: url(../images/old_guy.png); }
+            .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .old_guy .speak {
+              right: -250rem;
+              background-image: url(../images/speech_bubble_big.png);
+              background-size: contain;
+              background-repeat: no-repeat;
+              height: 75rem;
+              width: 235rem;
+              padding-top: 10rem;
+              text-align: center;
+              box-sizing: border-box;
+              margin-right: 30rem;
+              margin-left: 70rem; }
           .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .young_guy {
             width: 256rem;
-            height: 341rem;
-            right: -30rem;
-            bottom: -120rem;
-            background-image: url(../images/young_guy.png);
-            /*@if $size==800 {
-                @media screen and (max-height: 800px) and (min-height: 500px) {
-                    @content
-                }
-            }*/ }
-            @media screen and (max-width: 800px) {
-              .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .young_guy {
-                width: 40vh;
-                height: 50vh;
-                right: 3vh;
-                bottom: 2vh; } }
+            right: 0;
+            bottom: 0;
+            background-image: url(../images/young_guy.png); }
+            .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .young_guy .speak {
+              left: -50rem;
+              background-image: url(../images/speech_bubble_small.png);
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: top;
+              height: 75rem;
+              width: 158rem;
+              padding-top: 20rem;
+              text-align: center;
+              margin-left: 30rem; }
           .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .sign {
             padding-left: 50rem;
             padding-right: 50rem;
@@ -1865,7 +1862,6 @@ header {
   .performed_works .main_h {
     padding-bottom: 50rem; }
   .performed_works .wrapper {
-    height: 80%;
     /*@if $size==800 {
         @media screen and (max-height: 800px) and (min-height: 500px) {
             @content
@@ -1966,7 +1962,7 @@ header {
     display: block;
     position: relative;
     width: 100%;
-    height: 80%;
+    height: 100vh;
     padding-top: 50rem;
     box-sizing: border-box;
     /*@if $size==800 {
@@ -2010,7 +2006,7 @@ header {
         transform: translateY(100%); }
     .performed_works .dynamic_portfolio .second_work {
       position: absolute;
-      bottom: 0;
+      top: 190rem;
       right: 50rem;
       background-color: green;
       opacity: 0; }
@@ -2021,7 +2017,7 @@ header {
         opacity: 0; }
     .performed_works .dynamic_portfolio .third_work {
       position: absolute;
-      bottom: 25rem;
+      top: 165rem;
       right: 75rem;
       background-color: yellow;
       transform: scale(3);
@@ -2034,7 +2030,7 @@ header {
         opacity: 0; }
     .performed_works .dynamic_portfolio .fourth_work {
       position: absolute;
-      bottom: 0;
+      top: 150rem;
       right: calc(50% - (373.32rem * 1.25));
       background-color: orange;
       opacity: 0;
@@ -2051,7 +2047,7 @@ header {
       left: 0;
       right: 0;
       margin: auto;
-      bottom: 0; }
+      top: 150rem; }
       .performed_works .dynamic_portfolio .fifth_work .left_part,
       .performed_works .dynamic_portfolio .fifth_work .right_part {
         position: absolute;
@@ -2080,7 +2076,7 @@ header {
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 0;
+      top: 150rem;
       margin: auto;
       background-color: cornflowerblue;
       transform: scale(0);
@@ -2525,10 +2521,21 @@ footer {
   color: white;
   z-index: 2;
   box-shadow: 0 3rem 20rem 6rem black;
-  transition: 0.5s; }
+  transition: 0.5s;
+  /*@if $size==800 {
+      @media screen and (max-height: 800px) and (min-height: 500px) {
+          @content
+      }
+  }*/ }
+  @media screen and (max-width: 800px) {
+    footer {
+      position: relative;
+      bottom: 0;
+      box-shadow: 0 0 0 0 white; } }
   footer.active {
     bottom: 0; }
   footer .wrapper {
+    position: relative;
     padding-left: 0rem;
     padding-right: 5rem; }
     footer .wrapper .main_h {
@@ -2675,5 +2682,18 @@ footer {
           font-size: 14rem;
           color: white;
           text-transform: uppercase; }
+  footer .footer_close {
+    font-size: 30rem;
+    position: absolute;
+    top: -100rem;
+    right: 30rem;
+    /*@if $size==800 {
+        @media screen and (max-height: 800px) and (min-height: 500px) {
+            @content
+        }
+    }*/ }
+    @media screen and (max-width: 800px) {
+      footer .footer_close {
+        display: none; } }
 
 /*# sourceMappingURL=style.css.map */
