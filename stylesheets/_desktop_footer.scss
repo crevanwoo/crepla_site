@@ -208,7 +208,8 @@ footer {
         font-size: 30rem;
         position: absolute;
         top: -100rem;
-        right: 30rem;
+        right: 0rem;
+        cursor: pointer;
         @include bp(800) {
             display: none;
         }

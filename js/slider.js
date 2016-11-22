@@ -919,6 +919,8 @@ var window_offset;
 
 
     window.addEventListener('scroll', showRedLine)
+    
+    
 
 
     function createRedLine() {
