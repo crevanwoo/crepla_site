@@ -2,734 +2,775 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="format-detection" content="telephone=no">
-    <title></title>
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <script defer src="js/device.min.js"></script>
-    <script defer src="js/slider.js"></script>
-     <script defer src="js/separated_screens.js"></script>
-    <script defer src="js/custom_scroll.js"></script>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<title></title>
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<script defer src="js/device.min.js"></script>
+	<script defer src="js/slider.js"></script>
+	<script defer src="js/separated_screens.js"></script>
+	<script defer src="js/custom_scroll.js"></script>
+	<script defer src="js/slide_animation.js"></script>
 
 
 </head>
 
 <body>
 
-    <!-- modal order begins -->
-    <div class="modal" id="modal_order">
-
-        <div class="bg_modal_trans"></div>
-        <div class="bg_modal_top">
-            <div class="bg_modal_bottom"></div>
-            <div class="modal_content">
-                <h1 class="modal_main_h">Оставьте заявку</h1>
-                <p>Для получения консультации и обсуждения проекта</p>
-                <div class="close"></div>
-                <form action="">
-                    <div>
-                        <label for="">Ваше имя:
-                            <input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
-                        </label>
-                        <label for="">Ваш email:
-                            <input type="email" placeholder="Ваш email:" required>
-                        </label>
-                        <label for="">Ваш телефон:
-                            <input type="text" placeholder="Ваш телефон:" id="tel_modal">
-                        </label>
-                        <span class="tel_comment">* заполните это поле, если вы пользуетесь WhatsApp, Viber или Telegram</span>
-                    </div>
-                    <div>
-                        <label for="">Ваше сообщение:
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение:"></textarea>
-                        </label>
-                        <h3 class="chkbox_h">Выберите тему обращение (необязательно)</h3>
-                        <input id="chkbox_design" type="checkbox">
-                        <label for="chkbox_design" class="chkbox_label">Дизайн сайтов</label>
-                        <input type="checkbox" id="chkbox_develop">
-                        <label for="chkbox_develop" class="chkbox_label">Разработка сайтов</label>
-                        <input type="checkbox" id="chkbox_mob_apps">
-                        <label for="chkbox_mob_apps" class="chkbox_label">Мобильные приложения</label>
-                    </div>
-                    <button type="submit">отправить заявку</button>
-                    <input type="hidden" id="takes_used_button" value="">
-                </form>
-            </div>
-        </div>
-
-    </div>
-    <!-- modal order ends -->
-
-
-    <!-- modal resume begins -->
-
-    <div class="modal" id="modal_resume">
-        <div class="bg_modal_trans"></div>
-        <div class="bg_modal_top">
-            <div class="bg_modal_bottom"></div>
-            <div class="modal_content">
-                <h1 class="modal_main_h">Отправить резюме</h1>
-                <p>Если вам захотелось поработать с нами вы можете отправить свое резюме</p>
-                <div class="close"></div>
-                <form action="">
-                    <div>
-                        <label for="">Ваше имя:
-                            <input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
-                        </label>
-                        <label for="">Ваш email:
-                            <input type="text" placeholder="Ваш email:" required>
-                        </label>
-                    </div>
-                    <div>
-                        <label for="">Ваш телефон:
-                            <input type="text" placeholder="Ваш телефон:">
-                        </label>
-                        <label for="">Желаемая должность:
-                            <input type="text" placeholder="Например: сварщик">
-                        </label>
-                    </div>
-                    <label for="upload" class="upload">Резюме:
-                        <input type="file" id="upload">
-                        <label for="upload">загрузите своё резюме</label>
-                    </label>
-                    <button type="submit">отправить заявку</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- modal resume ends -->
-
-
-    <!-- modal user_comment begins -->
-    <div class="modal" id="modal_comment">
-        <div class="bg_modal_trans big_height"></div>
-        <div class="bg_modal_top big_height">
-            <div class="bg_modal_bottom big_height"></div>
-            <div class="modal_content big_height">
-                <h1 class="modal_main_h">Отправить заявку</h1>
-                <p>Если вам захотелось поработать с нами вы можете отправить свое резюме</p>
-                <div class="close"></div>
-                <form action="">
-                    <div>
-                        <label for="">Ваше имя:
-                            <input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
-                        </label>
-                    </div>
-                    <div>
-                        <label for="">Ваша должность:
-                            <input type="text" placeholder="Например: сварщик">
-                        </label>
-                    </div>
-                    <label for="" class="modal_textarea">Ваше сообщение:
-                        <textarea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение:"></textarea>
-                    </label>
-
-                    <label for="upload_photo" class="upload">Ваше фото:
-                        <input type="file" id="upload_photo">
-                        <label for="upload_photo">загрузите свою фотографию</label>
-                    </label>
-                    <label for="recomend_yes">Порекомендуете ли вы Creative Planet другим?</label><span>(необязательно):</span>
-                    <input id="recomend_yes" type="radio" name="recomend">
-                    <label for="recomend_yes" class="radio_label">Да</label>
-                    <input type="radio" id="recomend_no" name="recomend">
-                    <label for="recomend_no" class="radio_label">Нет</label>
-                    <button type="submit">отправить заявку</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- modal user_comment ends -->
-
-
-
-    <!-- general wrapper begins -->
-    <div class="main_wrapper">
-
-        <!-- header begins -->
-        <header>
-            <div class="header_bg"></div>
-            <div class="wrapper">
-
-                <nav>
-                    <a href="" id="logo_btn" class="logo"></a>
-                    <ul>
-                        <li id="works_btn"><a href="#">Наши работы</a></li>
-                        <li id="offers_btn"><a href="#">Услуги</a></li>
-                        <li id="cont_btn"><a href="#">Контакты</a></li>
-                    </ul>
-                </nav>
-                <div class="contacts">
-                    <div class="tel">
-                        <span>&#9660;</span>
-                        <div class="tel_num">+38 (095) 711-24-32
-                            <div class="tel_comment">WhatsApp, Viber, Telegram</div>
-                        </div>
-                        <div class="tel_num" hidden>+38 (095) 711-24-32
-                            <div class="tel_comment">free for USA</div>
-                        </div>
-                        <div class="tel_num" hidden>creplacom
-                            <div class="tel_comment">Skype</div>
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="top_nav">оставить заявку</div>
-                    <div class="lang_btn">
-                        <div class="arrow"></div>
-                        <div class="lang">rus</div>
-                        <a href="">
-                            <div class="lang" hidden>rus</div>
-                        </a>
-                        <a href="">
-                            <div class="lang" hidden>rus</div>
-                        </a>
-                        <a href="">
-                            <div class="lang" hidden>rus</div>
-                        </a>
-
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- header ends -->
-
-        <!-- first slider -->
-        <section class="full_screen_slider">
-            <div class="bg_figures"></div>
-
-
-            <div class="slider">
-                <div class="slider_wrapper">
-                    <div class="slides_wrapper">
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                       <!-- slide starts -->
-                        <div class="slide">
-                            <div class="slide_content_wrapper" style="background-image: url(images/bg_top_slider_2.jpg);">
-                                <div class="slide_content">
-                                    <h1 class="main_h">don't miss the chance to get special offer!</h1>
-
-                                    <div class="talking_block">                                       
-                                        <div class="arrow"></div>
-                                        <div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="full_screen_slider">order redesign</div>
-                                        <div class="arrow"></div>
-                                     
-
-
-                                    </div>
-                                    <div class="icons_block">
-
-                                        <img src="images/slide_3_icon_2.png" alt="">
-                                        <img src="images/slide_3_icon_1.png" alt="">
-                                        <img src="images/slide_3_icon_3.png" alt="">
-
-                                        <div class="caterpillar">
-                                            <div></div>
-                                            <div></div>
-                                            <img src="images/detal.png" alt="">
-                                            <img src="images/detal.png" alt="">
-                                            <img src="images/detal.png" alt="">
-                                        </div>
-
-
-
-                                    </div>
-                                   
-
-                                </div>
-                                 <div class="old_guy"> <div class="speak">I wanna refresh
-                                            <br> myself
-                                            <div></div>
-                                        </div></div>
-                                    <div class="young_guy">   <div class="speak">cool, thanks
-                                            <div></div>
-                                        </div></div>
-                            </div>
-                        </div>
-
-                        <!-- slide ends -->  
-                        
-                        
-
-
-                        <!-- slide starts -->
-                        <div class="slide">
-                            <div class="slide_content_wrapper" style="background-image: url(images/bg_top_slider_1.jpg);">
-                                <div class="slide_content">
-                                    <h1 class="main_h">выгодное предложение</h1>
-                                    <div class="slide_content_part">
-                                        <div class="slide_image"><img src="images/slider_1_pict_1.png" alt="image" class="image1"></div>
-                                        <div class="caption">сайт под ключ</div>
-                                    </div>
-                                    <div class="sign">+</div>
-                                    <div class="slide_content_part">
-                                        <div class="slide_image"><img src="images/slider_1_pict_2.png" alt="image" class="image2"></div>
-                                        <div class="caption">мобильная версия</div>
-                                    </div>
-                                    <div class="sign">=</div>
-                                    <div class="slide_content_part info">
-                                        <div class="price"><span>от</span> 500$</div>
-                                        <div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="full_screen_slider"> Нанять нас </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- slide ends -->
-
-
-
-                        <!-- slide starts -->
-                        <div class="slide">
-                            <div class="slide_content_wrapper" style="background-image: url(images/bg_top_slider_1.jpg);">
-                                <div class="slide_content">
-                                    <div class="slide_smart part_1"><img src="images/smart_1.png" alt=""></div>
-                                    <div class="slide_smart part_2">
-                                        <h1 class="main_h">don't matter IOS or Android</h1>
-                                        <p>if at the end it will be <span>amazing app</span></p>
-                                        <div class="price">from 25$/h</div>
-                                        <div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="full_screen_slider">Send a query</div>
-                                    </div>
-                                    <div class="slide_smart part_3"><img src="images/smart_2.png" alt=""></div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- slide ends -->
-
-
-
-
-                     
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-                <div class="pagination">
-                    <div>
-                    </div>
-                </div>
-            </div>
-            <div class="scroll_mouse">
-                <div>
-                    <div></div>
-                </div>
-                <p>Листайте
-                    <br> вниз
-                </p>
-            </div>
-
-        </section>
-
-
-        <!-- first ends -->
-
-
-
-
-        <!-- animate begins -->
-        <section class="work_directions">
-            <div class="invisible_scroll"></div>
-            <div class="wrapper">
-                <h1 class="main_h">направления нашей работы</h1>
-                <div class="direction">
-                    <div class="direction_wrapper">
-                        <div class="service item1">
-                            <a href=""></a>
-                            <img src="images/services_1.png" alt="image" class="image3">
-                            <div class="lines">
-
-                                <div class="direct_line">
-                                    <div class="skew_line">
-                                        <div class="circle first_circle"></div>
-                                    </div>
-                                    <div class="circle second_circle"></div>
-                                    <div class="circle third_circle"></div>
-                                </div>
-                            </div>
-                            <div class="service_name">turnkey websites</div>
-                            <div class="price">from 500$</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="direction">
-                    <div class="direction_wrapper">
-                        <div class="service item2">
-                            <a href=""></a>
-                            <img src="images/services_2.png" alt="image" class="image4">
-                            <div class="lines">
-
-                                <div class="direct_line">
-                                    <div class="skew_line">
-                                        <div class="circle first_circle"></div>
-                                    </div>
-                                    <div class="circle second_circle"></div>
-                                    <div class="circle third_circle"></div>
-                                </div>
-
-
-                            </div>
-                            <div class="service_name">awesome design</div>
-                            <div class="price">from 500$</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="direction">
-                    <div class="direction_wrapper">
-                        <div class="service item3">
-                            <a href=""></a>
-                            <img src="images/services_3.png" alt="image" class="image5">
-                            <div class="lines">
-
-                                <div class="direct_line">
-                                    <div class="skew_line">
-                                        <div class="circle first_circle"></div>
-                                    </div>
-                                    <div class="circle second_circle"></div>
-                                    <div class="circle third_circle"></div>
-                                </div>
-
-
-                            </div>
-                            <div class="service_name">fast mobile apps</div>
-                            <div class="price">from 500$</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!-- animate ends -->
-
-        <!-- works begins -->
-        <section class="performed_works">
-            <div class="invisible_scroll"></div>
-            <div class="wrapper">
-                <h1 class="main_h">выполненые проекты</h1>
-
-                <!-- tablet portfolio begins -->
-                <div class="portfolio">
-                    <div class="cell_cube"><img src="images/old_guy.png" alt="">
-                        <div class="hover_logo"><img src="images/services_2.png" alt="">
-                            <span>какой-то текст</span>
-                            <div class="hover_logo_button">посмотреть проект</div>
-                        </div>
-                    </div>
-                    <div class="cell_cube"><img src="" alt="">
-                        <div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
-                            <div class="hover_logo_button">посмотреть проект</div>
-                        </div>
-                    </div>
-                    <div class="cell_cube"><img src="" alt="">
-                        <div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
-                            <div class="hover_logo_button">посмотреть проект</div>
-                        </div>
-                    </div>
-                    <div class="cell_cube"><img src="" alt="">
-                        <div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
-                            <div class="hover_logo_button">посмотреть проект</div>
-                        </div>
-                    </div>
-                    <div class="cell_rect"><img src="" alt="">
-                        <div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
-                            <div class="hover_logo_button">посмотреть проект</div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="cell_rect"><img src="" alt="">
-                        <div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
-                            <div class="hover_logo_button">посмотреть проект</div>
-                        </div>
-                    </div>
-                    <div class="cell_cube"><img src="" alt="">
-                        <div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
-                            <div class="hover_logo_button">посмотреть проект</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- tablet portfolio ends -->
-
-                <!-- portfolio for desktops and landscape tablets begins -->
-                <div class="dynamic_portfolio">
-
-                    <div class="first_work">
-
-                        <div class="left_part"></div>
-                        <div class="right_part"></div>
-                    </div>
-                    <div class="second_work"></div>
-                    <div class="third_work"></div>
-                    <div class="fourth_work"></div>
-                    <div class="fifth_work">
-                        <div class="left_part"></div>
-                        <div class="right_part"></div>
-                    </div>
-                    <div class="sixth_work"></div>
-                </div>
-
-                <!-- portfolio for desktops and landscape tablets ends -->
-            </div>
-        </section>
-
-        <!-- works ends -->
-
-
-
-
-
-
-
-
-
-
-        <!-- scrollable block begins -->
-        <div class="scroll_container_wrapper">
-            <input type="hidden" class="scroll_marker" value="">
-            <input type="hidden" class="scroll_position" value="start">
-            <div class="scroll_container">
-
-
-                <!-- site ordering begins -->
-                <section class="site_ordering">
-                    <div class="wrapper">
-                        <h1 class="main_h">i want to order a website!</h1>
-                        <p>Or another services which will bring you success!</p>
-                        <div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="separate_block">оставить заявку</div>
-                        <div class="planet"></div>
-                    </div>
-                </section>
-
-                <!-- site ordering ends -->
-
-                <!-- about begins -->
-                <section class="about">
-                    <div class="wrapper">
-                        <h3 class="main_h">кратко о нас</h3>
-                        <p><span class="red">CRE</span><span class="blue">ative</span> <span class="red">PLA</span><span class="blue">net</span> - это международное агентство, которое специализируется на Веб/Мобильной разработке и дизайнерских услугах. Мы создаем высококачественные продукты, которые переносят ваш бизнес на следующий уровень. Мы делаем ваши мечты работоспособными. Вы меняете мир - мы помогаем вам в этом!</p>
-                        <h4 class="small_h">Typical website development cycle:</h4>
-                        <div class="cycle">
-                            <div class="step">
-                                <img src="images/process_1.png" alt="img">
-                                <div class="text"><span>step 1</span>
-                                    <br>Initial analysis
-                                </div>
-                            </div>
-                            <div class="arrow"></div>
-                            <div class="step">
-                                <img src="images/process_2.png" alt="img">
-                                <div class="text"><span>step 2</span>
-                                    <br>Requirements gathering &#38; sitemap
-
-
-                                </div>
-                            </div>
-                            <div class="arrow"></div>
-                            <div class="step">
-                                <img src="images/process_3.png" alt="img">
-                                <div class="text"><span>step 3</span>
-                                    <br>Homepage creative design
-                                </div>
-                            </div>
-                            <div class="arrow"></div>
-                            <div class="step">
-                                <img src="images/process_4.png" alt="img">
-                                <div class="text"><span>step 4</span>
-                                    <br>HTML development &#38; backend development
-                                </div>
-                            </div>
-                            <div class="arrow"></div>
-                            <div class="step">
-                                <img src="images/process_5.png" alt="img">
-                                <div class="text"><span>step 5</span>
-                                    <br>QA &#38; launch &#38; support
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <!-- about ends -->
-
-                <!-- review begins -->
-                <section class="review">
-                    <div class="wrapper">
-                        <h1 class="main_h">Что говорят о нас наши клиенты</h1>
-                        <div class="slider">
-                            <div class="arrow" data-direction="right"></div>
-                            <div class="arrow" data-direction="left"></div>
-                            <div class="slider_wrapper">
-                                <div class="slides_wrapper">
-
-
-                                    <!-- single slide begins -->
-                                    <div class="slide">
-
-
-
-                                        <div class="slide_content_part">
-                                            <img src="images/client.jpg" alt="image">
-                                            <p class="name med_h">Александра Садовская</p>
-                                            <p class="post">Директор ООО «Муромские просторы»</p>
-                                            <p class="text">Здравствуйте! Хотела бы поделиться впечатлениями о сотрудничестве с ребятами из CreativePlanet. Не так давно мы заказали у них разработку сайта. Результат не заставил себя ждать, и мы получили эффектный и стильный сайт, с ориентацией на привлечение новых клиентов! Спасибо!</p>
-                                            <a href="" class="button">Просмотреть проект</a>
-                                            <a href="" class="button modal_comment" data-modal-id="modal_comment">оставить отзыв</a>
-
-
-
-
-
-                                        </div>
-                                    </div>
-
-                                    <!-- single slide ends -->
-
-
-
-
-
-
-
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- review ends -->
-
-
-                <!-- team begins -->
-                <section class="team">
-                    <div class="wrapper">
-                        <h1 class="main_h">Наша команда</h1>
-
-
-                        <div class="slider">
-                            <div class="arrow" data-direction="right"></div>
-                            <div class="arrow" data-direction="left"></div>
-                            <div class="slider_wrapper">
-                                <div class="slides_wrapper">
-                                    <!-- single slide begins -->
-                                    <div class="slide">
-                                        <img src="images/david.png" alt="image">
-                                        <h4 class="main_h">Давид Подосян</h4>
-                                        <p>Коммерческий директор</p>
-                                    </div>
-                                    <!-- single slide ends -->
-
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <a href="" class="button modal_resume" data-modal-id="modal_resume">Я хочу к вам в команду</a>
-                    </div>
-                </section>
-
-                <!-- team ends -->
-
-
-            </div>
-
-            <div class="scroll_block">
-                <div class="scroll_runner"></div>
-            </div>
-
-
-        </div>
-
-        <!-- scrollable block ends -->
-
-
-
-
-
-        <!-- footer begins -->
-        <footer>
-            <div class="invisible_scroll"></div>
-            <div class="wrapper">
-               <div class="footer_close">&#x2716;</div>
-                <div class="contacts">
-                    <h1 class="main_h">Наши контакты</h1>
-                    <p>Украина 61000, Харьков, ул. Клочковская, 111а, оф. 302
-                        <br>
-                        <a href="">показать на карте</a>
-                    </p>
-                    <div class="cont s-1"><span class="med_h">+380957112432</span>
-                        <br>Whatsapp, viber
-                    </div>
-                    <div class="cont s-2"><span class="med_h">+18885769392</span>
-                        <br>Free for USA
-                    </div>
-                    <div class="cont s-3">
-                        <a href="skype:creativeplanet.ua?chat" class="med_h">creativeplanet.ua</a>
-                        <br>skype
-                    </div>
-                    <div class="cont s-4">
-                        <a href="mailto:support@crepla.com?subject=Question" class="med_h">support@crepla.com</a>
-                        <br>email
-                    </div>
-                    <div class="socials s-5">facebook:
-                        <br>
-                        <a href="https://facebook.com/creativeplanet.ua/">fb.com/creative.planet</a>
-                    </div>
-                    <div class="socials s-6">vk:
-                        <br>
-                        <a href="https://vk.com/crepla">vk.com/creative.planet</a>
-                    </div>
-                </div>
-                <div class="form">
-                    <h1 class="main_h">Оставьте заявку</h1>
-                    <p>чтобы обсудить концепцию проекта и рассчитать стоимость, и мы свяжемся с вами в ближайшее время.</p>
-                    <form action="">
-                        <input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
-                        <input type="email" placeholder="Email" required>
-                        <input type="tel" placeholder="Телефон">
-                        <textarea name="" id="" placeholder="Текст сообщения"></textarea>
-                        <button type="submit">отправить заявку</button>
-                    </form>
-                </div>
-            </div>
-            
-            
-
-        </footer>
-
-        <!-- footer ends -->
-
-
-
-
-    </div>
-
-    <!-- general wrapper ends -->
+	<!-- modal order begins -->
+	<div class="modal" id="modal_order">
+
+		<div class="bg_modal_trans"></div>
+		<div class="bg_modal_top">
+			<div class="bg_modal_bottom"></div>
+			<div class="modal_content">
+				<h1 class="modal_main_h">Оставьте заявку</h1>
+				<p>Для получения консультации и обсуждения проекта</p>
+				<div class="close"></div>
+				<form action="">
+					<div>
+						<label for="">Ваше имя:
+							<input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
+						</label>
+						<label for="">Ваш email:
+							<input type="email" placeholder="Ваш email:" required>
+						</label>
+						<label for="">Ваш телефон:
+							<input type="text" placeholder="Ваш телефон:" id="tel_modal">
+						</label>
+						<span class="tel_comment">* заполните это поле, если вы пользуетесь WhatsApp, Viber или Telegram</span>
+					</div>
+					<div>
+						<label for="">Ваше сообщение:
+							<textarea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение:"></textarea>
+						</label>
+						<h3 class="chkbox_h">Выберите тему обращение (необязательно)</h3>
+						<input id="chkbox_design" type="checkbox">
+						<label for="chkbox_design" class="chkbox_label">Дизайн сайтов</label>
+						<input type="checkbox" id="chkbox_develop">
+						<label for="chkbox_develop" class="chkbox_label">Разработка сайтов</label>
+						<input type="checkbox" id="chkbox_mob_apps">
+						<label for="chkbox_mob_apps" class="chkbox_label">Мобильные приложения</label>
+					</div>
+					<button type="submit">отправить заявку</button>
+					<input type="hidden" id="takes_used_button" value="">
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<!-- modal order ends -->
+
+
+	<!-- modal resume begins -->
+
+	<div class="modal" id="modal_resume">
+		<div class="bg_modal_trans"></div>
+		<div class="bg_modal_top">
+			<div class="bg_modal_bottom"></div>
+			<div class="modal_content">
+				<h1 class="modal_main_h">Отправить резюме</h1>
+				<p>Если вам захотелось поработать с нами вы можете отправить свое резюме</p>
+				<div class="close"></div>
+				<form action="">
+					<div>
+						<label for="">Ваше имя:
+							<input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
+						</label>
+						<label for="">Ваш email:
+							<input type="text" placeholder="Ваш email:" required>
+						</label>
+					</div>
+					<div>
+						<label for="">Ваш телефон:
+							<input type="text" placeholder="Ваш телефон:">
+						</label>
+						<label for="">Желаемая должность:
+							<input type="text" placeholder="Например: сварщик">
+						</label>
+					</div>
+					<label for="upload" class="upload">Резюме:
+						<input type="file" id="upload">
+						<label for="upload">загрузите своё резюме</label>
+					</label>
+					<button type="submit">отправить заявку</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- modal resume ends -->
+
+
+	<!-- modal user_comment begins -->
+	<div class="modal" id="modal_comment">
+		<div class="bg_modal_trans big_height"></div>
+		<div class="bg_modal_top big_height">
+			<div class="bg_modal_bottom big_height"></div>
+			<div class="modal_content big_height">
+				<h1 class="modal_main_h">Отправить заявку</h1>
+				<p>Если вам захотелось поработать с нами вы можете отправить свое резюме</p>
+				<div class="close"></div>
+				<form action="">
+					<div>
+						<label for="">Ваше имя:
+							<input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
+						</label>
+					</div>
+					<div>
+						<label for="">Ваша должность:
+							<input type="text" placeholder="Например: сварщик">
+						</label>
+					</div>
+					<label for="" class="modal_textarea">Ваше сообщение:
+						<textarea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение:"></textarea>
+					</label>
+
+					<label for="upload_photo" class="upload">Ваше фото:
+						<input type="file" id="upload_photo">
+						<label for="upload_photo">загрузите свою фотографию</label>
+					</label>
+					<label for="recomend_yes">Порекомендуете ли вы Creative Planet другим?</label><span>(необязательно):</span>
+					<input id="recomend_yes" type="radio" name="recomend">
+					<label for="recomend_yes" class="radio_label">Да</label>
+					<input type="radio" id="recomend_no" name="recomend">
+					<label for="recomend_no" class="radio_label">Нет</label>
+					<button type="submit">отправить заявку</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- modal user_comment ends -->
+
+
+
+	<!-- general wrapper begins -->
+	<div class="main_wrapper">
+
+		<!-- header begins -->
+		<header>
+			<div class="header_bg"></div>
+			<div class="wrapper">
+
+				<nav>
+					<a href="" id="logo_btn" class="logo"></a>
+					<ul>
+						<li id="works_btn"><a href="#">Наши работы</a></li>
+						<li id="offers_btn"><a href="#">Услуги</a></li>
+						<li id="cont_btn"><a href="#">Контакты</a></li>
+					</ul>
+				</nav>
+				<div class="contacts">
+					<div class="tel">
+						<span>&#9660;</span>
+						<div class="tel_num">+38 (095) 711-24-32
+							<div class="tel_comment">WhatsApp, Viber, Telegram</div>
+						</div>
+						<div class="tel_num" hidden>+38 (095) 711-24-32
+							<div class="tel_comment">free for USA</div>
+						</div>
+						<div class="tel_num" hidden>creplacom
+							<div class="tel_comment">Skype</div>
+						</div>
+
+
+					</div>
+
+
+					<div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="top_nav">оставить заявку</div>
+					<div class="lang_btn">
+						<div class="arrow"></div>
+						<div class="lang">rus</div>
+						<a href="">
+							<div class="lang" hidden>rus</div>
+						</a>
+						<a href="">
+							<div class="lang" hidden>rus</div>
+						</a>
+						<a href="">
+							<div class="lang" hidden>rus</div>
+						</a>
+
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- header ends -->
+
+		<!-- first slider -->
+		<section class="full_screen_slider">
+			<div class="bg_figures"></div>
+
+
+			<div class="slider">
+				<div class="slider_wrapper">
+					<div class="slides_wrapper">
+
+
+
+
+
+
+
+						<!-- slide starts -->
+						<div class="slide">
+							<div class="slide_content_wrapper" style="background-image: url(images/bg_top_slider_2.jpg);">
+								<div class="slide_content">
+									<h1 class="main_h">don't miss the chance to get special offer!</h1>
+
+									<div class="talking_block">
+										<div class="arrow"></div>
+										<div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="full_screen_slider">order redesign</div>
+										<div class="arrow"></div>
+
+
+
+									</div>
+									<div class="icons_block">
+
+										<img src="images/slide_3_icon_2.png" alt="">
+										<img src="images/slide_3_icon_1.png" alt="">
+										<img src="images/slide_3_icon_3.png" alt="">
+
+										<div class="caterpillar">
+											<div></div>
+											<div></div>
+											<img src="images/detal.png" alt="">
+											<img src="images/detal.png" alt="">
+											<img src="images/detal.png" alt="">
+										</div>
+
+
+
+									</div>
+
+
+								</div>
+								<div class="old_guy">
+									<div class="speak">I wanna refresh
+										<br> myself
+										<div></div>
+									</div>
+								</div>
+								<div class="young_guy">
+									<div class="speak">cool, thanks
+										<div></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- slide ends -->
+
+
+
+
+						<!-- slide starts -->
+						<div class="slide full_slider_slide_2">
+							<div class="slide_content_wrapper" style="background-image: url(images/bg_top_slider_1.jpg);">
+								<div class="slide_content">
+									<h1 class="main_h">выгодное предложение</h1>
+									<div class="slide_content_part">
+										<div class="slide_image"><img src="images/slider_1_pict_1.png" alt="image" class="image1"></div>
+										<div class="caption">сайт под ключ</div>
+									</div>
+									<div class="sign">+</div>
+									<div class="slide_content_part">
+										<div class="slide_image"><img src="images/slider_1_pict_2.png" alt="image" class="image2"></div>
+										<div class="caption">мобильная версия</div>
+									</div>
+									<div class="sign">=</div>
+									<div class="slide_content_part info">
+										<div class="price"><span>от</span> 500$</div>
+										<div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="full_screen_slider"> Нанять нас </div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- slide ends -->
+
+
+
+						<!-- slide starts -->
+						<div class="slide">
+							<div class="slide_content_wrapper" style="background-image: url(images/bg_top_slider_1.jpg);">
+								<div class="slide_content">
+									<div class="slide_smart part_1"><img src="images/smart_1.png" alt=""></div>
+									<div class="slide_smart part_2">
+										<h1 class="main_h">don't matter <ul><li>IOS or Android</li> <li>phone or desktop</li></ul></h1>
+										<p>if at the end it will be <span>amazing app</span></p>
+										<div class="price">from 25$/h</div>
+										<div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="full_screen_slider">Send a query</div>
+									</div>
+									<div class="slide_smart part_3"><img src="images/smart_2.png" alt=""></div>
+
+								</div>
+							</div>
+						</div>
+
+						<!-- slide ends -->
+
+
+
+
+
+
+
+
+
+
+					</div>
+				</div>
+				<div class="pagination">
+					<div>
+					</div>
+				</div>
+			</div>
+			<div class="scroll_mouse">
+				<div>
+					<div></div>
+				</div>
+				<p>Листайте
+					<br> вниз
+				</p>
+			</div>
+
+		</section>
+
+
+		<!-- first ends -->
+
+
+
+
+		<!-- animate begins -->
+		<section class="work_directions">
+			<div class="invisible_scroll"></div>
+			<div class="wrapper">
+				<h1 class="main_h">направления нашей работы</h1>
+				<div class="direction">
+					<div class="direction_wrapper">
+						<div class="service item1">
+							<a href=""></a>
+							<img src="images/services_1.png" alt="image" class="image3">
+							<div class="lines">
+
+								<div class="direct_line">
+									<div class="skew_line">
+										<div class="circle first_circle"></div>
+									</div>
+									<div class="circle second_circle"></div>
+									<div class="circle third_circle"></div>
+								</div>
+							</div>
+							<div class="service_name">turnkey websites</div>
+							<div class="price">from 500$</div>
+						</div>
+					</div>
+				</div>
+				<div class="direction">
+					<div class="direction_wrapper">
+						<div class="service item2">
+							<a href=""></a>
+							<img src="images/services_2.png" alt="image" class="image4">
+							<div class="lines">
+
+								<div class="direct_line">
+									<div class="skew_line">
+										<div class="circle first_circle"></div>
+									</div>
+									<div class="circle second_circle"></div>
+									<div class="circle third_circle"></div>
+								</div>
+
+
+							</div>
+							<div class="service_name">awesome design</div>
+							<div class="price">from 500$</div>
+						</div>
+					</div>
+				</div>
+				<div class="direction">
+					<div class="direction_wrapper">
+						<div class="service item3">
+							<a href=""></a>
+							<img src="images/services_3.png" alt="image" class="image5">
+							<div class="lines">
+
+								<div class="direct_line">
+									<div class="skew_line">
+										<div class="circle first_circle"></div>
+									</div>
+									<div class="circle second_circle"></div>
+									<div class="circle third_circle"></div>
+								</div>
+
+
+							</div>
+							<div class="service_name">fast mobile apps</div>
+							<div class="price">from 500$</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+		<!-- animate ends -->
+
+		<!-- works begins -->
+		<section class="performed_works">
+			<div class="invisible_scroll"></div>
+			<div class="wrapper">
+				<h1 class="main_h">выполненые проекты</h1>
+
+				<!-- tablet portfolio begins -->
+				<div class="portfolio">
+					<div class="cell_cube"><img src="images/old_guy.png" alt="">
+						<div class="hover_logo"><img src="images/services_2.png" alt="">
+							<span>какой-то текст</span>
+							<div class="hover_logo_button">посмотреть проект</div>
+						</div>
+					</div>
+					<div class="cell_cube"><img src="" alt="">
+						<div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
+							<div class="hover_logo_button">посмотреть проект</div>
+						</div>
+					</div>
+					<div class="cell_cube"><img src="" alt="">
+						<div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
+							<div class="hover_logo_button">посмотреть проект</div>
+						</div>
+					</div>
+					<div class="cell_cube"><img src="" alt="">
+						<div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
+							<div class="hover_logo_button">посмотреть проект</div>
+						</div>
+					</div>
+					<div class="cell_rect"><img src="" alt="">
+						<div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
+							<div class="hover_logo_button">посмотреть проект</div>
+						</div>
+					</div>
+
+
+
+					<div class="cell_rect"><img src="" alt="">
+						<div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
+							<div class="hover_logo_button">посмотреть проект</div>
+						</div>
+					</div>
+					<div class="cell_cube"><img src="" alt="">
+						<div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
+							<div class="hover_logo_button">посмотреть проект</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- tablet portfolio ends -->
+
+
+
+
+
+
+
+
+				<!-- portfolio for desktops and landscape tablets begins -->
+				<div class="dynamic_portfolio">
+
+					<div class="single_work">
+
+						<div><img src="images/portfolio/6.jpg" alt=""></div>
+						<div><img src="images/portfolio/6.jpg" alt=""></div>
+						<div class="hover_logo">
+							<img class="xfieldimage logo" src="images/portfolio/sun.png" alt="">
+							<a href=""><span>Web-design</span>
+           	<div class="hover_logo_button">View project</div></a>
+						</div>
+					</div>
+					<div class="single_work"> <img class="xfieldimage preview" src="images/portfolio/6.jpg" alt="">
+						<div class="hover_logo">
+							<img class="xfieldimage logo" src="images/portfolio/sun.png" alt="">
+							<a href=""><span>Landing page</span>
+           	<div class="hover_logo_button">View project</div></a>
+						</div>
+					</div>
+					<div class="single_work"> <img class="xfieldimage preview" src="images/portfolio/6.jpg" alt="">
+						<div class="hover_logo">
+							<img class="xfieldimage logo" src="images/portfolio/sun.png" alt="">
+							<a href=""><span>Landing page</span>
+           	<div class="hover_logo_button">View project</div></a>
+						</div>
+					</div>
+					<div class="single_work"> <img class="xfieldimage preview" src="images/portfolio/6.jpg" alt="">
+						<div class="hover_logo">
+							<img class="xfieldimage logo" src="images/portfolio/sun.png" alt="">
+							<a href=""><span>Landing page</span>
+           	<div class="hover_logo_button">View project</div></a>
+						</div>
+					</div>
+					<div class="single_work">
+						<div><img src="images/portfolio/6.jpg" alt=""></div>
+						<div><img src="images/portfolio/6.jpg" alt=""></div>
+						<div class="hover_logo">
+							<img class="xfieldimage logo" src="images/portfolio/sun.png" alt="">
+							<a href=""><span>Web-design</span>
+           	<div class="hover_logo_button">View project</div></a>
+						</div>
+					</div>
+					<div class="single_work">
+						<img class="xfieldimage preview" src="images/portfolio/6.jpg" alt="">
+						<div class="hover_logo">
+							<img class="xfieldimage logo" src="" alt="">
+							<a href=""></a>
+						</div>
+					</div>
+				</div>
+
+				<!-- portfolio for desktops and landscape tablets ends -->
+			</div>
+		</section>
+
+		<!-- works ends -->
+
+
+
+
+
+
+
+
+
+
+		<!-- scrollable block begins -->
+		<div class="scroll_container_wrapper">
+			<input type="hidden" class="scroll_marker" value="">
+			<input type="hidden" class="scroll_position" value="start">
+			<div class="scroll_container">
+
+
+				<!-- site ordering begins -->
+				<section class="site_ordering">
+					<div class="wrapper">
+						<h1 class="main_h">i want to order a website!</h1>
+						<p>Or another services which will bring you success!</p>
+						<div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="separate_block">оставить заявку</div>
+						<div class="planet"></div>
+					</div>
+				</section>
+
+				<!-- site ordering ends -->
+
+				<!-- about begins -->
+				<section class="about">
+					<div class="wrapper">
+						<h3 class="main_h">кратко о нас</h3>
+						<p><span class="red">CRE</span><span class="blue">ative</span> <span class="red">PLA</span><span class="blue">net</span> - это международное агентство, которое специализируется на Веб/Мобильной разработке и дизайнерских услугах. Мы создаем высококачественные продукты, которые переносят ваш бизнес на следующий уровень. Мы делаем ваши мечты работоспособными. Вы меняете мир - мы помогаем вам в этом!</p>
+						<h4 class="small_h">Typical website development cycle:</h4>
+						<div class="cycle">
+							<div class="step">
+								<img src="images/process_1.png" alt="img">
+								<div class="text"><span>step 1</span>
+									<br>Initial analysis
+								</div>
+							</div>
+							<div class="arrow"></div>
+							<div class="step">
+								<img src="images/process_2.png" alt="img">
+								<div class="text"><span>step 2</span>
+									<br>Requirements gathering &#38; sitemap
+
+
+								</div>
+							</div>
+							<div class="arrow"></div>
+							<div class="step">
+								<img src="images/process_3.png" alt="img">
+								<div class="text"><span>step 3</span>
+									<br>Homepage creative design
+								</div>
+							</div>
+							<div class="arrow"></div>
+							<div class="step">
+								<img src="images/process_4.png" alt="img">
+								<div class="text"><span>step 4</span>
+									<br>HTML development &#38; backend development
+								</div>
+							</div>
+							<div class="arrow"></div>
+							<div class="step">
+								<img src="images/process_5.png" alt="img">
+								<div class="text"><span>step 5</span>
+									<br>QA &#38; launch &#38; support
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</section>
+
+				<!-- about ends -->
+
+				<!-- review begins -->
+				<section class="review">
+					<div class="wrapper">
+						<h1 class="main_h">Что говорят о нас наши клиенты</h1>
+						<div class="slider">
+							<div class="arrow" data-direction="right"></div>
+							<div class="arrow" data-direction="left"></div>
+							<div class="slider_wrapper">
+								<div class="slides_wrapper">
+
+
+									<!-- single slide begins -->
+									<div class="slide">
+
+
+
+										<div class="slide_content_part">
+											<img src="images/client.jpg" alt="image">
+											<p class="name med_h">Александра Садовская</p>
+											<p class="post">Директор ООО «Муромские просторы»</p>
+											<p class="text">Здравствуйте! Хотела бы поделиться впечатлениями о сотрудничестве с ребятами из CreativePlanet. Не так давно мы заказали у них разработку сайта. Результат не заставил себя ждать, и мы получили эффектный и стильный сайт, с ориентацией на привлечение новых клиентов! Спасибо!</p>
+											<a href="" class="button">Просмотреть проект</a>
+											<a href="" class="button modal_comment" data-modal-id="modal_comment">оставить отзыв</a>
+
+
+
+
+
+										</div>
+									</div>
+
+									<!-- single slide ends -->
+
+
+
+
+
+
+
+
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- review ends -->
+
+
+				<!-- team begins -->
+				<section class="team">
+					<div class="wrapper">
+						<h1 class="main_h">Наша команда</h1>
+
+
+						<div class="slider">
+							<div class="arrow" data-direction="right"></div>
+							<div class="arrow" data-direction="left"></div>
+							<div class="slider_wrapper">
+								<div class="slides_wrapper">
+									<!-- single slide begins -->
+									<div class="slide">
+										<img src="images/david.png" alt="image">
+										<h4 class="main_h">Давид Подосян</h4>
+										<p>Коммерческий директор</p>
+									</div>
+									<!-- single slide ends -->
+
+								</div>
+							</div>
+						</div>
+
+
+
+						<a href="" class="button modal_resume" data-modal-id="modal_resume">Я хочу к вам в команду</a>
+					</div>
+				</section>
+
+				<!-- team ends -->
+
+
+			</div>
+
+			<div class="scroll_block">
+				<div class="scroll_runner"></div>
+			</div>
+
+
+		</div>
+
+		<!-- scrollable block ends -->
+
+
+
+
+
+		<!-- footer begins -->
+		<footer>
+			<div class="invisible_scroll"></div>
+			<div class="wrapper">
+				<div class="footer_close">&#x2716;</div>
+				<div class="contacts">
+					<h1 class="main_h">Наши контакты</h1>
+					<p>Украина 61000, Харьков, ул. Клочковская, 111а, оф. 302
+						<br>
+						<a href="">показать на карте</a>
+					</p>
+					<div class="cont s-1"><span class="med_h">+380957112432</span>
+						<br>Whatsapp, viber
+					</div>
+					<div class="cont s-2"><span class="med_h">+18885769392</span>
+						<br>Free for USA
+					</div>
+					<div class="cont s-3">
+						<a href="skype:creativeplanet.ua?chat" class="med_h">creativeplanet.ua</a>
+						<br>skype
+					</div>
+					<div class="cont s-4">
+						<a href="mailto:support@crepla.com?subject=Question" class="med_h">support@crepla.com</a>
+						<br>email
+					</div>
+					<div class="socials s-5">facebook:
+						<br>
+						<a href="https://facebook.com/creativeplanet.ua/">fb.com/creative.planet</a>
+					</div>
+					<div class="socials s-6">vk:
+						<br>
+						<a href="https://vk.com/crepla">vk.com/creative.planet</a>
+					</div>
+				</div>
+				<div class="form">
+					<h1 class="main_h">Оставьте заявку</h1>
+					<p>чтобы обсудить концепцию проекта и рассчитать стоимость, и мы свяжемся с вами в ближайшее время.</p>
+					<form action="">
+						<input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
+						<input type="email" placeholder="Email" required>
+						<input type="tel" placeholder="Телефон">
+						<textarea name="" id="" placeholder="Текст сообщения"></textarea>
+						<button type="submit">отправить заявку</button>
+					</form>
+				</div>
+			</div>
+
+
+
+		</footer>
+
+		<!-- footer ends -->
+
+
+
+
+	</div>
+
+	<!-- general wrapper ends -->
 
 
 </body>

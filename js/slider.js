@@ -816,56 +816,6 @@ var window_offset;
 
 
 
-    function autonomicSlider() {
-        var slide = document.querySelectorAll('.full_screen_slider .slide');
-        var i = 1;
-        if (slide.length > 0) {
-            function sliderAutoMove(i) {
-                var nav_item = document.querySelectorAll('.pagination .nav_item');
-                if (i !== 0) {
-                    nav_item[i - 1].classList.remove('active');
-                    slide[i - 1].classList.remove('active');
-                    slide[i - 1].querySelector('.slide_content_wrapper').style.opacity = "0";
-                } else {
-                    nav_item[nav_item.length - 1].classList.remove('active');
-                    slide[slide.length - 1].classList.remove('active');
-                    slide[slide.length - 1].querySelector('.slide_content_wrapper').style.opacity = "0";
-                }
-                nav_item[i].classList.add('active'); //change style of nav elem
-                slide[i].classList.add('active'); //show slide
-                slide[i].querySelector('.slide_content_wrapper').style.opacity = "1";
-            }
-            slider_interval = setInterval(function () {
-                if (i < slide.length - 1) {
-                    sliderAutoMove(i);
-                    i++
-                } else {
-                    sliderAutoMove(i);
-                    i = 0;
-                }
-            }, 7000)
-        }
-    }
-
-
-    function autoSliderStop() {
-        for (var i = 0; i < document.querySelectorAll('.pagination .nav_item').length; i++) {
-            document.querySelectorAll('.pagination .nav_item')[i].addEventListener('click', sliderStop)
-        }
-    }
-
-
-    function sliderStop() {
-        clearInterval(slider_interval)
-
-    }
-
-
-
-
-    autonomicSlider()
-    autoSliderStop()
-
 
 
 
@@ -935,9 +885,6 @@ var window_offset;
     createRedLine();
 
 
-
-
-
     window.addEventListener('scroll', changeHeaderColor);
     /**
      * change color of fixed nav block when scrolled under nth px
@@ -953,88 +900,5 @@ var window_offset;
             }
         }
     }
-
-
-
-
-
-    var animationStage = 0;
-
-    function animateGuys() {
-
-        if (animationStage === 0) {
-            moveOld();           
-        }
-
-
-
-    }
-
-
-    var AnimationSettings = {
-        fps: 30,
-        transition_old: 1,
-        transition_young: 1,
-        frame_state: true,
-
-
-    }
-
-    function moveOld() {
-        var old = document.querySelector('.old_guy'),
-            image_1 = "url(images/old_1.png)",
-            image_2 = "url(images/old_2.png)";
-        if (AnimationSettings.frame_state) {
-                old.style.backgroundImage = image_1;
-                AnimationSettings.frame_state = false
-            } else {
-                old.style.backgroundImage = image_2;
-                AnimationSettings.frame_state = true;
-            }
-            old.style.transform = "translateX(" + AnimationSettings.transition_old++ + "rem)";
-            setTimeout(function () {
-                requestAnimationFrame(moveOld);
-            }, 1000 / AnimationSettings.fps);
-         
-         if (window.innerWidth < 1200 && AnimationSettings.transition > window.innerWidth * 30 / 100) {console.log('asdfdsf');
-                cancelAnimationFrame(moveOld)
-            } else if (window.innerWidth >= 1200 && AnimationSettings.transition > (window.innerWidth * 30 / 100) - window.innerWidth - 600) {console.log('sdfsdfsdfsdf');
-                cancelAnimationFrame(moveOld)
-            }
-        
-        
-        
-        
-        
-    }
-    
-    
-    function manageOld() {}
-
-
-
-
-    function moveYoung() {
-        var
-            young = document.querySelector('.young_guy');
-        if (window.innerHeight < 1200) {
-
-        } else {
-
-
-        }
-
-
-    }
-
-
-    window.requestAnimationFrame(animateGuys)
-
-
-
-
-
-
-
 
 })();

@@ -1,3 +1,5 @@
+
+
 html,
 body {
 	width: 100%;
@@ -8,7 +10,7 @@ body {
 	color: $black;
 	/**/
 	height: 100%;
-	overflow: hidden;
+	//overflow: hidden;
 	
 	@include bp(800) {
 		height: auto;
@@ -17,8 +19,8 @@ body {
 }
 
 html {
-	//font-size: 0.14vh;
-	font-size: 0.1vh;
+	font-size: 0.14vh;
+	//font-size: 0.1vh;
 	//  font-size: 1px;
 	/* @include bp(1220) {
       font-size: 0.082vw;
