@@ -1,104 +1,12 @@
+;
+var window_offset;
 
-
-    /**
-     * listener for change color of invalid field
-     */
-    function addButtonListener() {
-        var form_button = document.getElementsByTagName('button')
-        for (var i = 0; i < form_button.length; i++) {
-            form_button[i].addEventListener('click', changeInvalidColor)
-        }
-    }
+(function () {
 
 
 
+    /* ----------------------------------------- HEADER > ----------------------------------------- */
 
-
-
-    /*  Show red line below titles when page scrolling */
-
-    function showRedLine() {
-        if (window.pageYOffset > (calcPageHeight() - document.getElementsByTagName('footer')[0].offsetHeight) - (document.querySelector('section.team').offsetHeight * 2)) {
-            document.querySelector('section.team .main_h .thin_red_line').style.width = "100rem";
-        } else if (window.pageYOffset >
-            (document.querySelector('.slide_content_wrapper').offsetHeight + document.querySelector('.performed_works').offsetHeight + document.querySelector('.work_directions').offsetHeight)) {
-            document.querySelector('section.review .main_h .thin_red_line').style.width = "100rem";
-        } else if (window.pageYOffset > (document.querySelector('.slide_content_wrapper').offsetHeight + (document.querySelector('.work_directions').offsetHeight / 2))) {
-            document.querySelector('section.performed_works .main_h .thin_red_line').style.width = "100rem";
-        }
-    }
-
-
-    window.addEventListener('scroll', showRedLine)
-    
-    
-
-
-    function createRedLine() {
-        var title = document.querySelectorAll('.performed_works .main_h, .review .main_h, .team .main_h');
-        for (var i = 0; i < title.length; i++) {
-            var elem = document.createElement('div')
-            var line = title[i].appendChild(elem);
-            line.classList.add('thin_red_line');
-        }
-    }
-
-    createRedLine();
-
-
-
-
-    function zoomInImg(e) {
-        e.target.querySelector('img').classList.add('zoom_img')
-    }
-
-    function zoomOutImg(e) {
-        e.target.querySelector('img').classList.remove('zoom_img')
-    }
-
-
-
-
-
-    /**
-     * change color of input form if there is wrong value
-     * @param {object} e [get clicked element (search in it's parent)]
-     */
-    function changeInvalidColor(e) {
-        var form_input = e.target.parentElement.getElementsByTagName('input');
-        for (var i = 0; i < form_input.length; i++) {
-            form_input[i].classList.add('valid')
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-/* ----------------------------------------- HEADER > ----------------------------------------- */
-
-
-    window.addEventListener('scroll', changeHeaderColor);
-    /**
-     * change color of fixed nav block when scrolled under nth px
-     */
-    function changeHeaderColor() {
-        if (header) {
-            if (window.pageYOffset > 0) {
-                header.getElementsByClassName('header_bg')[0].style.opacity = "0.9";
-
-            } else {
-                header.getElementsByClassName('header_bg')[0].style.opacity = "0";
-
-            }
-        }
-    }
 
 
 
@@ -138,6 +46,14 @@
      * @param {object} e [[lang elem]]
      */
 
+    if (document.getElementsByClassName('tel_num').length > 0 && device.desktop()) {
+        for (var i = 0; i < document.getElementsByClassName('tel_num').length; i++) {
+            document.getElementsByClassName('tel_num')[i].addEventListener('mouseenter', showHeaderTel);
+            document.getElementsByClassName('tel_num')[i].addEventListener('mouseleave', hideHeaderTel);
+        }
+    }
+
+
     function showHeaderTel(e) {
         for (var i = 1; i < document.querySelector('header .contacts .tel').getElementsByClassName('tel_num').length; i++) {
             document.querySelector('header .contacts .tel').getElementsByClassName('tel_num')[i].removeAttribute('hidden');
@@ -156,6 +72,18 @@
     }
 
 
+    /**
+     * elem on tel header
+     */
+    function createElemsForTablets() {
+        if (!device.desktop() && document.querySelector('header .contacts .tel')) {
+            var area = document.createElement('div');
+            document.querySelector('header .contacts .tel').appendChild(area);
+            area.classList.add('correct_work_on_tablet');
+        }
+    }
+    createElemsForTablets();
+
 
     /**
      * [show header tels on tablets]
@@ -169,10 +97,14 @@
             showHeaderTel()
         }
     }
-
-
-
-
+    
+    
+  /*  if (document.querySelector('.correct_work_on_tablet')) {
+        document.querySelector('.correct_work_on_tablet').addEventListener('click', tabletHeaderTelToggle);
+    }
+*/
+ 
+ 
 
 
     /**
@@ -194,18 +126,6 @@
     }
 
 
-
-
-    /**
-     * elem on tel header
-     */
-    function createElemsForTablets() {
-        if (!device.desktop() && document.querySelector('header .contacts .tel')) {
-            var area = document.createElement('div');
-            document.querySelector('header .contacts .tel').appendChild(area);
-            area.classList.add('correct_work_on_tablet');
-        }
-    }
 
 
 
@@ -233,6 +153,47 @@
         }
     }
 
+    window.addEventListener('click', checkTarget);
+
+
+
+    /* ----------------------------------------- < HEADER ----------------------------------------- */
+
+
+
+    /* ----------------------------------------- PLANETS > ----------------------------------------- */
+
+
+
+
+
+    /**
+     * add listeners for animated planets glowing
+     */
+    function manageGlowing() {
+        var elem = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service');
+        for (var i = 0; i < elem.length; i++) {
+            elem[i].addEventListener('mouseenter', showGlowing);
+            elem[i].addEventListener('mouseleave', hideGlowing);
+        }
+    };
+    manageGlowing();
+
+
+    /**
+     * create glowing across animated planets
+     */
+    function createGlowingPlanets() {
+        var img = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service img');
+        var parent = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service');
+        for (var i = 0; i < img.length; i++) {
+            var new_elem = document.createElement('div');
+            new_elem.classList.add('glowing');
+            parent[i].insertBefore(new_elem, img[i]);
+        }
+    };
+    createGlowingPlanets();
+
     /**
      * tuning of glowing planets
      */
@@ -246,6 +207,7 @@
             planet[i].style.height = img[i].offsetHeight / 2 + 'px';
         }
     };
+    glowingPlanet();
 
     function showGlowing(e) {
         e.target.querySelector(".glowing").classList.add('active');
@@ -255,46 +217,11 @@
         e.target.querySelector(".glowing").classList.remove('active');
     }
 
-/* ----------------------------------------- < HEADER ----------------------------------------- */
+
+    /* ----------------------------------------- < PLANETS ----------------------------------------- */
 
 
-
-/* ----------------------------------------- PLANETS > ----------------------------------------- */
-
-    /**
-     * add listeners for animated planets glowing
-     */
-    function manageGlowing() {
-        var elem = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service');
-        for (var i = 0; i < elem.length; i++) {
-            elem[i].addEventListener('mouseenter', showGlowing);
-            elem[i].addEventListener('mouseleave', hideGlowing);
-        }
-    }
-
-   
-
-/**
-     * create glowing across animated planets
-     */
-    function createGlowingPlanets() {
-        var img = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service img');
-        var parent = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service');
-        for (var i = 0; i < img.length; i++) {
-            var new_elem = document.createElement('div');
-            new_elem.classList.add('glowing');
-            parent[i].insertBefore(new_elem, img[i]);
-        }
-    }
-
-
-
-
-
-/* ----------------------------------------- < PLANETS ----------------------------------------- */
-
-
-/* ----------------------------------------- HIGHSLIDE FIX > ----------------------------------------- */
+    /* ----------------------------------------- HIGHSLIDE FIX > ----------------------------------------- */
 
 
 
@@ -323,7 +250,7 @@
      }*/
 
 
-/**
+    /**
      * [calc height for slide depends on window height and add style on page]
      */
     function addStyleForHighslide() {
@@ -336,7 +263,7 @@
         var newtext = document.createTextNode('.highslide-container {position: fixed !important; overflow: auto !important; height: ' + height + 'px !important} .highslide-wrapper {width: 1200rem !important; height: auto !important;     margin: auto !important; left: 0!important; right: 0; !important} .highslide-image {width: 100% !important; height: auto !important} .drop-shadow {display: none !important}');
         style.appendChild(newtext);
     }
-   /**
+    /**
      * [on page 'works' add listener on links bounded with highslide module ]
      */
     function highSlidePopUp() {
@@ -346,38 +273,87 @@
                 slide_link[i].addEventListener('click', bodyFixOn)
             }
         }
+    };
+    highSlidePopUp();
+
+    /* ----------------------------------------- < HIGHSLIDE FIX ----------------------------------------- */
+
+
+
+    /* ----------------------------------------- FORMS > ----------------------------------------- */
+
+       if (document.getElementsByTagName('button')) {
+        addButtonListener()
     }
 
-/* ----------------------------------------- < HIGHSLIDE FIX ----------------------------------------- */
+
+    /**
+     * listener for change color of invalid field
+     */
+    function addButtonListener() {
+        var form_button = document.getElementsByTagName('button')
+        for (var i = 0; i < form_button.length; i++) {
+            form_button[i].addEventListener('click', changeInvalidColor)
+        }
+    }
+    /**
+     * change color of input form if there is wrong value
+     * @param {object} e [get clicked element (search in it's parent)]
+     */
+    function changeInvalidColor(e) {
+        var form_input = e.target.parentElement.getElementsByTagName('input');
+        for (var i = 0; i < form_input.length; i++) {
+            form_input[i].classList.add('valid')
+        }
+    }
 
 
 
-/* -----------------------------------------  ----------------------------------------- */
+    /* ----------------------------------------- < FORMS ----------------------------------------- */
+
+
+    /* ----------------------------------------- OTHER > ----------------------------------------- */
 
 
 
 
-/* -----------------------------------------  ----------------------------------------- */
+    function createRedLine() {
+        var title = document.querySelectorAll('.performed_works .main_h, .review .main_h, .team .main_h');
+        for (var i = 0; i < title.length; i++) {
+            var elem = document.createElement('div')
+            var line = title[i].appendChild(elem);
+            line.classList.add('thin_red_line');
+        }
+    }
 
-
-/* -----------------------------------------  ----------------------------------------- */
-
-
-
-/* -----------------------------------------  ----------------------------------------- */
-
-
-
-
-
-/* -----------------------------------------  ----------------------------------------- */
-
-
-/* -----------------------------------------  ----------------------------------------- */
+    createRedLine();
 
 
 
-/* -----------------------------------------  ----------------------------------------- */
+
+
+    /* ----------------------------------------- < OTHER ----------------------------------------- */
 
 
 
+
+
+
+    
+    
+    /* -----------------------------------------  ----------------------------------------- */
+
+
+    /* -----------------------------------------  ----------------------------------------- */
+    
+    
+    /* -----------------------------------------  ----------------------------------------- */
+
+
+    /* -----------------------------------------  ----------------------------------------- */
+
+
+
+
+
+})();

@@ -145,10 +145,6 @@ footer {
         >div.form {
             width: 570rem;
             float: right;
-            @include bp(1220) {
-                width: 45vw;
-                padding-right: 3vw;
-            }
             p {
                 padding-bottom: 30rem;
             }
@@ -156,9 +152,6 @@ footer {
                 $margin: 0.53%;
                 width: 576rem;
                 margin: -$margin;
-                @include bp(1220) {
-                    width: 40vw
-                }
                 input {
                     @extend %valid;
                     border: 2px solid transparent;

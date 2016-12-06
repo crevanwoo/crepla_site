@@ -72,10 +72,7 @@
         &.big_height {
             @extend %big_min_height;
         }
-        @include bp(1220) {
-            max-width: 800px;
-            width: 95vw;
-        }
+    
         .modal_main_h {
             text-align: left;
             font-family: $f_medium;

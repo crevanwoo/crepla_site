@@ -15,32 +15,25 @@ header {
         bottom: 0;
         left: 0;
         background: {
-            //image: url(../images/bg_header.jpg);
             image: url(../images/bg_modal.jpg);
             size: cover;
             position: top center;
             repeat: no-repeat;
         }
         transition-duration: 1s;
-        //opacity: 0.9;
     }
     .wrapper {
         @extend %clear;
         height: 100%;
         nav {
-            //margin-left: -$m_abs*2;
             margin-left: 240-17.5rem;
             padding-top: 48rem;
             position: relative;
             float: left;
             font-size: $f_16;
-            //font-size: $f_18;
-            //text-transform: uppercase;
             ul {
-                //new
                 li {
                     @extend %transition_header;
-                    //transform: translateY(0);
                     &.up {
                         transform: translateY(-300rem);
                         transition-duration: 0s;
@@ -81,7 +74,6 @@ header {
         .contacts {
             $height: 35rem;
             height: 100%;
-            //max-width: 480rem;
             float: right;
             >* {
                 float: left
@@ -104,7 +96,7 @@ header {
                     padding-left: 20rem;
                     box-sizing: border-box;
                     padding-bottom: 20rem;
-                    &:not(:first-of-type) {
+                    &:not(: first-of-type) {
                         padding-top: 41-16rem;
                         padding-bottom: 16rem;
                         .tel_comment {
@@ -145,13 +137,6 @@ header {
                 text-align: center;
                 line-height: $height - 4rem;
                 text-transform: uppercase;
-                //new
-                //transform: translateY(0);
-                //transition-duration: 0.5s;
-                //&.up {
-                //   transform: translateY(-300px);
-                //    transition-duration: 0s;
-                // }
             }
             .lang_btn {
                 @extend %transition_header;
@@ -163,16 +148,12 @@ header {
                 line-height: $height;
                 text-transform: uppercase;
                 cursor: pointer;
-                @include bp(1220) {
-                   // margin-right: 1vw
-                }
                 .lang {
                     @extend %header_buttons;
                     width: 100%;
                     height: 100%;
                     padding-left: $m_abs;
                     position: relative;
-                    //border: 1rem solid $soft_violet;
                     &.active {
                         background-color: $additional_items_color;
                     }

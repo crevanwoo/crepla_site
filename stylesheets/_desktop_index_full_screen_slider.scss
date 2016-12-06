@@ -7,23 +7,7 @@
 	@include bp(800) {
 		height: 651rem
 	}
-	/*@include bp(800) {
-        height: 100vh
-    }*/
-	/* .bg_figures {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: {
-            image: url(../images/bg_full_screen_slider.png);
-            size: 100% auto;
-            position: bottom center;
-            repeat: no-repeat;
-        }
-        z-index:1;
-    }*/
+
 	.slider {
 		@extend %slider;
 		$width: 1040rem;
@@ -81,12 +65,7 @@
 						@include bp(800) {
 							top: 0%;
 						}
-						/* @include bp(800) {
-                            padding-top: 35vh;
-                        }
-                        @include bp(800) {
-                            position: static;
-                        }*/
+						
 						> .main_h {
 							position: absolute;
 							top: 140rem;
@@ -410,9 +389,7 @@
 					}
 					.slide_content_part {
 						width: 237rem;
-						@include bp(1220) {
-							width: 237 * 0.082vw;
-						}
+						
 						.slide_image {
 							height: 235rem;
 						}

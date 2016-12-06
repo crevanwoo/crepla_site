@@ -96,6 +96,12 @@ setModalButton()
 
 
 
+    
+     if (document.getElementById('tel_modal')) {
+        document.getElementById('tel_modal').addEventListener('focus', showTelComment);
+        document.getElementById('tel_modal').addEventListener('blur', hideTelComment);
+    }
+    
     /**
      * show comment for tel form in modal window
      */
