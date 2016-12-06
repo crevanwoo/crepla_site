@@ -31,7 +31,7 @@ var window_offset;
     addListeners();
     setSliderWidth();
     getArrows();
- 
+
     setModalButton();
     setElemForPropertyScrolling();
     createGlowingPlanets();
@@ -56,180 +56,15 @@ var window_offset;
         }
     }
 
-    /* --------------------------------------------- create elements --------------------------------------------- */
+ 
 
-    /**
-     * create pagination for slider and attr for slides
-     * @param {number} slider_num [number of slider on page]
-     */
-    function createNav(slider_num) {
-        wrapper = slider[slider_num].querySelector('.slides_wrapper');
-        slide = wrapper.querySelectorAll('.slide');
-        pag = slider[slider_num].querySelector('.pagination');
-        slides_amount = slide.length;
-        slide[0].classList.add('active'); //for fade in effect
-        slide[0].querySelector('.slide_content_wrapper').style.opacity = "1"; //for fade in effect
-
-        if (slide.length > 1 && pag) {
-            for (var i = 0; i < slides_amount; i++) {
-                var new_elem = document.createElement('div');
-                new_elem.className = 'nav_item';
-                new_elem.setAttribute('data-slide-num', i);
-                new_elem.addEventListener('click', sliderMove);
-                var full_elem = pag.querySelector('div').appendChild(new_elem) //.setAttribute('data-slide', i)
-                ;
-                slide[i].setAttribute('data-slide-num', i)
-                if (i === 0) {
-                    new_elem.classList.add('active');
-                }
-            }
-        }
-    };
-
-    /**
-     * set attr elems for slider with part slides
-     */
-    function setElemsAttr() {
-        var slide_position = document.getElementsByClassName('slider')[2].querySelectorAll('.slide');
-        if (slide_position[0]) {
-            slide_position[0].setAttribute('data-slide-position', 'left');
-        }
-        if (slide_position[1]) {
-            slide_position[1].setAttribute('data-slide-position', 'top');
-        }
-        if (slide_position[2]) {
-            slide_position[2].setAttribute('data-slide-position', 'right');
-        }
-        if (slide_position[3]) {
-            slide_position[3].setAttribute('data-slide-position', 'right_bottom');
-        }
-    }
-    /**
-     * create glowing across animated planets
-     */
-    function createGlowingPlanets() {
-        var img = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service img');
-        var parent = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service');
-        for (var i = 0; i < img.length; i++) {
-            var new_elem = document.createElement('div');
-            new_elem.classList.add('glowing');
-            parent[i].insertBefore(new_elem, img[i]);
-        }
-    }
-
-    /**
-     * Hiding arrows when slides ends
-     * @param {[[num]]} indexSlider [[index of slider on page]]
-     * @param {[[num]]} indexArrow  [[index of arrow]]
-     */
-
-    function hideSliderArrow(indexSlider, indexArrow) {
-        if (slider[indexSlider]) {
-            slider[indexSlider].getElementsByClassName('arrow')[indexArrow].setAttribute('hidden', '');
-        }
-
-    }
-
-    function showSliderArrow(indexSlider, indexArrow) {
-        if (slider[indexSlider]) {
-            slider[indexSlider].getElementsByClassName('arrow')[indexArrow].removeAttribute('hidden');
-        }
-    }
-
-    function checkIfSlidesExist() {
-        if (slider.length > 0) {
-            if (slider[1].getElementsByClassName('slide').length === 1) {
-                hideSliderArrow(1, 1)
-            }
-            if (slider[2].getElementsByClassName('slide').length < 4 && slider[2].getElementsByClassName('slide').length > 1) {
-                hideSliderArrow(2, 1)
-            }
-        }
-    }
-
-    /**
-     * elem on tel header
-     */
-    function createElemsForTablets() {
-        if (!device.desktop() && document.querySelector('header .contacts .tel')) {
-            var area = document.createElement('div');
-            document.querySelector('header .contacts .tel').appendChild(area);
-            area.classList.add('correct_work_on_tablet');
-        }
-    }
     /* --------------------------------------------- sizes --------------------------------------------- */
 
 
 
-    /**
-     * set width of slider_wrapper
-     */
-    function setSliderWidth() {
-        if (slider.length > 0) {
-            for (var i = 1; i < slider.length; i++) {
-                slide = slider[i].getElementsByClassName('slide');
-                var width = slide[0].offsetWidth;
-                if (window.innerWidth > 1200) {
-                    slider[i].querySelector('.slides_wrapper').style.width = width * slide.length + "rem"
-                } else {
-                    slider[i].querySelector('.slides_wrapper').style.width = (width /*n px*/ * Math.ceil((100 / window.innerWidth) * 1000) / 1000) /*n vw*/ * 1000 / 82 * slide.length + "rem";
-                }
-            }
-        }
-    }
-
-    /**
-     * total page height
-     * @returns {num} [page_height]
-     */
-    function calcPageHeight() {
-        if (header) {
-            var total = 0;
-            for (var i = 0; i < document.body.children.length; i++) {
-                total += document.body.children[i].offsetHeight;
-            }
-            total -= getHeaderHeight();
-            return total;
-        }
-    }
-
-    /**
-     * Define to what elem should scrolling in setTimeOut func 
-     * first param: which elem I want to see 
-     * second param: border when scrolling should stop (created additional element for fixed header offset)
-     */
-    function setScrollingArguments0() {
-        elem_position = "0";
-        elem_name = 'body'
-    }
-
-    function setScrollingArguments1() {
-
-        elem_position = calcPageHeight() - document.getElementsByTagName('footer')[0].offsetHeight - getHeaderHeight();
-        elem_name = 'footer .invisible_scroll'
-    }
-
-    function setScrollingArguments2() {
-
-        elem_position = document.getElementsByClassName('full_screen_slider')[0].offsetHeight - getHeaderHeight();
-        elem_name = 'section.work_directions .invisible_scroll'
-    }
-
-    function setScrollingArguments3() {
-
-        elem_position = document.getElementsByClassName('full_screen_slider')[0].offsetHeight + document.getElementsByClassName('work_directions')[0].offsetHeight - getHeaderHeight();
-        elem_name = 'section.performed_works .invisible_scroll'
-    }
-
-    /**
-     * set actual parameters of fixed header for invisible elem, which define, when scrolling stops. inisible elem should be put at the top part of relatively position elem where I want to stop scrolling
-     */
-    function setElemForPropertyScrolling() {
-        for (var i = 0; i < document.getElementsByClassName('invisible_scroll').length; i++) {
-            document.getElementsByClassName('invisible_scroll')[i].style.height = getHeaderHeight() + "px";
-            document.getElementsByClassName('invisible_scroll')[i].style.top = "-" + getHeaderHeight() + "px";
-        }
-    }
+ 
+	
+  
 
     /**
      * get header height (for adaptivity)
@@ -239,77 +74,10 @@ var window_offset;
         return header.offsetHeight;
     }
 
-    /**
-     * [calc height for slide depends on window height and add style on page]
-     */
-    function addStyleForHighslide() {
-        var height = window.innerHeight - 30;
-        var div = document.createElement('div');
-        var style = document.createElement('style');
-        document.body.appendChild(div);
-        div.appendChild(style);
-        div.classList.add('style_tag');
-        var newtext = document.createTextNode('.highslide-container {position: fixed !important; overflow: auto !important; height: ' + height + 'px !important} .highslide-wrapper {width: 1200rem !important; height: auto !important;     margin: auto !important; left: 0!important; right: 0; !important} .highslide-image {width: 100% !important; height: auto !important} .drop-shadow {display: none !important}');
-        style.appendChild(newtext);
-    }
-
+    
     /* --------------------------------------------- sliders --------------------------------------------- */
 
-    /**
-     * for slider with pagination
-     * @param {object} slide_index [clicked element]
-     */
-    function sliderMove(slide_index) {
-        var prev_index;
-        var active_slide;
-        pag_index = slide_index.target.getAttribute('data-slide-num');
-        var nav_item = slide_index.target.parentElement.getElementsByClassName('nav_item');
-        var slide = slide_index.target.parentElement.parentElement.parentElement.querySelector('.slide[data-slide-num="' + pag_index + '"]');
-        for (var j = 0; j < nav_item.length; j++) {
-            if (nav_item[j].classList.contains('active')) {
-                prev_index = j;
-                nav_item[j].classList.remove('active'); //change style of nav elem
-                active_slide = slide_index.target.parentElement.parentElement.parentElement.querySelectorAll('.slide')[prev_index];
-            }
-        }
-        active_slide.classList.remove('active');
-        active_slide.querySelector('.slide_content_wrapper').style.opacity = "0";
-        slide_index.target.classList.add('active'); //change style of nav elem
-        slide.classList.add('active'); //show slide
-        slide.querySelector('.slide_content_wrapper').style.opacity = "1";
-    }
-
-    /**
-     * for slider with arrows where moving all slide: moving + arrow hiding;
-     * @param {object} e [clicked element]
-     */
-    function sliderArrowMove(e) {
-        //checkWidth(e, 1);
-
-        if (e.target.getAttribute('data-direction') == 'right' && tick1 != 0) {
-            tick1 -= 1;
-            if (tick1 === 0) {
-                hideSliderArrow(1, 0);
-            } else if (tick1 === (e.target.parentElement.querySelectorAll('.slide').length - 2)) {
-                showSliderArrow(1, 1);
-            }
-        } else if (e.target.getAttribute('data-direction') == 'left' && tick1 != (e.target.parentElement.querySelectorAll('.slide').length - 1)) {
-            tick1 += 1;
-            if (tick1 == (e.target.parentElement.querySelectorAll('.slide').length - 1)) {
-                hideSliderArrow(1, 1);
-            }
-            if (tick1 >= 1) {
-                showSliderArrow(1, 0);
-            }
-        }
-        slides_wrapper = e.target.parentElement.querySelector('.slides_wrapper');
-        //var width = parseFloat(getComputedStyle(slides_wrapper.querySelector('.slide')).width);
-        //slides_wrapper.style.right = tick1 * width + "px";
-        slides_wrapper.style.transform = "translateX(-" + tick1 * 100 / slides_wrapper.querySelectorAll('.slide').length + "%)";
-
-    }
-
- 
+  
 
     /* --------------------------------------------- events --------------------------------------------- */
 
@@ -323,73 +91,8 @@ var window_offset;
     }
 
 
-    /**
-     * set modal button
-     */
-    function setModalButton() {
-        for (var i = 0; i < document.getElementsByClassName('submit_app_btn').length; i++) {
-            document.getElementsByClassName('submit_app_btn')[i].addEventListener('click', modalOpen);
-        }
-        if (document.querySelector('section.work_top_part .bg_top .wrapper .description a')) {
-            document.querySelector('section.work_top_part .bg_top .wrapper .description a').addEventListener('click', modalOpen);
-        }
-        for (var i = 0; i < document.getElementsByClassName('modal_comment').length; i++) {
-            document.getElementsByClassName('modal_comment')[i].addEventListener('click', modalOpen);
-        }
-        for (var i = 0; i < document.getElementsByClassName('modal_resume').length; i++) {
-            document.getElementsByClassName('  modal_resume')[i].addEventListener('click', modalOpen);
-        }
-        if (document.querySelector('footer .contacts >p >a')) {
-            document.querySelector('footer .contacts >p >a').addEventListener('click', modalOpen);
-        }
-        for (var i = 0; i < document.querySelectorAll('.modal .close').length; i++) {
-            document.querySelectorAll('.modal .close')[i].addEventListener('click', modalClose);
-        }
-    }
+  
 
-    /**
-     * for header menus
-     * @param {object} e [clicked elem]
-     */
-    function checkTarget(e) {
-        if (document.getElementsByClassName('lang').length > 0) {
-            if (!e.target.classList.contains('lang') || (e.target.classList.contains('lang') && e.target.classList.contains('active'))) {
-                if (e.target.classList.contains('lang')) {
-                    e.target.classList.remove('active')
-                }
-                hideElems('lang');
-                if (e.target.parentElement.querySelector('.arrow')) {
-                    e.target.parentElement.querySelector('.arrow').classList.remove('active')
-                }
-            } else if (e.target.classList.contains('lang')) {
-                showElems('lang');
-                if (e.target.parentElement.querySelector('.arrow')) {
-                    e.target.parentElement.querySelector('.arrow').classList.add('active')
-                }
-            }
-        }
-    }
-
-    /**
-     * add listeners for animated planets glowing
-     */
-    function manageGlowing() {
-        var elem = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service');
-        for (var i = 0; i < elem.length; i++) {
-            elem[i].addEventListener('mouseenter', showGlowing);
-            elem[i].addEventListener('mouseleave', hideGlowing);
-        }
-    }
-
-    /**
-     * listener for change color of invalid field
-     */
-    function addButtonListener() {
-        var form_button = document.getElementsByTagName('button')
-        for (var i = 0; i < form_button.length; i++) {
-            form_button[i].addEventListener('click', changeInvalidColor)
-        }
-    }
 
     /**
      * checking if element exist - add listener
@@ -458,17 +161,7 @@ var window_offset;
     }
 
 
-    /**
-     * [on page 'works' add listener on links bounded with highslide module ]
-     */
-    function highSlidePopUp() {
-        var slide_link = document.querySelectorAll('.work_content a.highslide');
-        if (slide_link.length > 0) {
-            for (var i = 0; i < slide_link.length; i++) {
-                slide_link[i].addEventListener('click', bodyFixOn)
-            }
-        }
-    }
+ 
 
 
     window.addEventListener('click', checkTarget);
@@ -476,354 +169,20 @@ var window_offset;
     window.addEventListener('resize', glowingPlanet);
 
 
-    /* --------------------------------------------- other functions --------------------------------------------- */
 
 
 
 
-    function modalOpen(e) {
-        e.preventDefault();
-        takeUsedButton(e);
-        var modal_id = e.target.getAttribute('data-modal-id');
 
-        document.getElementById(modal_id).style.display = "block";
-        var int = setInterval(function () {
-            if ((getComputedStyle(document.getElementById(modal_id)).opacity) < 0.98) {
-                document.getElementById(modal_id).style.opacity = +document.getElementById(modal_id).style.opacity + 0.1;
-            } else {
-                clearInterval(int)
-            }
-        }, 30)
-        var body_width = document.body.offsetWidth;
-        window_offset = window.pageYOffset;
-        document.body.style.marginRight = window.innerWidth - body_width + "px";
-        header.style.marginRight = window.innerWidth - body_width + "px";
-        document.body.style.width = body_width + "px";
-        document.body.style.top = "-" + window_offset + "px";
-        document.body.classList.add('hidden');
-        header.style.display = "none";
 
 
-        // window.addEventListener('scroll', scrollBodySync)
-    }
 
-    function modalClose(e) {
-        var elem = e.target;
-        while (!elem.classList.contains('modal')) {
-            elem = elem.parentElement;
-        }
-        var modal_id = elem.id;
-        document.getElementById(modal_id).style.display = "none";
-        document.getElementById(modal_id).style.opacity = "0";
-        document.body.style.marginRight = 0;
-        header.style.marginRight = 0;
-        document.body.style.width = (document.body.offsetHeight >= 1200) ? "100%" : "100vw";
-        document.body.classList.remove('hidden');
-        window.scrollTo(0, window_offset);
-        header.style.display = "block";
-        // window.removeEventListener('scroll', scrollBodySync)
-    }
 
 
 
 
 
-    /**
-     * smooth scrolling 
-     * @param {object} e [coord of clicked link from what is scrolling]
-     * arguments --> look in "sizes" part, there is a points where scrolling stop
-     * scrollIntoView(true): stop whete element on top of a page
-     * last "if" mean "stop at the end of page"
-     */
-    function scrollingButtonAction(e) {
-        var button_coord = e.pageY;
-        e.preventDefault();
-        var scroll_interval = setInterval(function scrolling() {
-            arguments[1] = elem_position;
-            console.log(arguments[1]);
-            arguments[2] = elem_name;
-            if (button_coord < arguments[1]) {
-                window.scrollBy(0, 70);
-                if (window.pageYOffset >= arguments[1]) {
-                    clearInterval(scroll_interval);
-                    document.querySelector(arguments[2]).scrollIntoView(true)
-                }
-                if (window.pageYOffset + document.documentElement.clientHeight >= document.body.offsetHeight) {
-                    console.log(window.pageYOffset);
-                    console.log(document.documentElement.clientHeight);
-                    console.log(document.body.offsetHeight);
-                    clearInterval(scroll_interval)
-                }
-            } else if (button_coord > arguments[1]) {
-                window.scrollBy(0, -70);
-                if (window.pageYOffset <= arguments[1] + 70) {
-                    clearInterval(scroll_interval);
-                    document.querySelector(arguments[2]).scrollIntoView(true)
-                }
-            }
-        }, 30);
-    }
 
 
-
-
-    /**
-     * show and hide header lists
-     * @param {[[string]]} elem_class_name [name of class of list element]
-     */
-    function showElems(elem_class_name) {
-        document.getElementsByClassName(elem_class_name)[0].classList.add('active');
-        for (var i = 1; i < document.getElementsByClassName(elem_class_name).length; i++) {
-            document.getElementsByClassName(elem_class_name)[i].removeAttribute('hidden')
-        }
-    }
-
-    function hideElems(elem_class_name) {
-        document.getElementsByClassName(elem_class_name)[0].classList.remove('active');
-        for (var i = 1; i < document.getElementsByClassName(elem_class_name).length; i++) {
-            document.getElementsByClassName(elem_class_name)[i].setAttribute('hidden', '')
-        }
-    }
-
-
-    /**
-     * tuning of glowing planets
-     */
-    function glowingPlanet() {
-        var img = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service img'),
-            planet = document.querySelectorAll('.work_directions .wrapper .direction .direction_wrapper .service .glowing');
-        for (var i = 0; i < planet.length; i++) {
-            planet[i].style.left = '5%';
-            planet[i].style.top = img[i].offsetHeight / 4 + 'px';
-            planet[i].style.width = '20%';
-            planet[i].style.height = img[i].offsetHeight / 2 + 'px';
-        }
-    };
-
-    function showGlowing(e) {
-        e.target.querySelector(".glowing").classList.add('active');
-    }
-
-    function hideGlowing(e) {
-        e.target.querySelector(".glowing").classList.remove('active');
-    }
-
-    /**
-     * change color of input form if there is wrong value
-     * @param {object} e [get clicked element (search in it's parent)]
-     */
-    function changeInvalidColor(e) {
-        var form_input = e.target.parentElement.getElementsByTagName('input');
-        for (var i = 0; i < form_input.length; i++) {
-            form_input[i].classList.add('valid')
-        }
-    }
-
-    /**
-     * show comment for tel form in modal window
-     */
-    function showTelComment() {
-        var tel_comment = document.querySelector('.tel_comment');
-        tel_comment.style.visibility = "visible";
-        tel_comment.style.opacity = "1";
-    }
-
-    function hideTelComment() {
-        var tel_comment = document.querySelector('.tel_comment');
-        tel_comment.style.visibility = "hidden";
-        tel_comment.style.opacity = "0";
-    }
-    /**
-     * [hover effect for portfolio]
-     * @param {object} e [portfolio item]
-     */
-    function showPortfolioLogo(e) {
-        e.target.querySelector('.portfolio .hover_logo').classList.add('active');
-    }
-
-    function hidePortfolioLogo(e) {
-        e.target.querySelector('.portfolio .hover_logo').classList.remove('active');
-    }
-
-    /**
-     * show header lang onhover
-     * @param {object} e [[lang elem]]
-     */
-
-    function showHeaderTel(e) {
-        for (var i = 1; i < document.querySelector('header .contacts .tel').getElementsByClassName('tel_num').length; i++) {
-            document.querySelector('header .contacts .tel').getElementsByClassName('tel_num')[i].removeAttribute('hidden');
-        }
-        document.querySelector('header .contacts .tel').querySelector('span').classList.add('active');
-        document.querySelector('header .contacts .tel').classList.add('active');
-    }
-
-    function hideHeaderTel(e) {
-        for (var i = 1; i < document.querySelector('header .contacts .tel').getElementsByClassName('tel_num').length; i++) {
-            document.querySelector('header .contacts .tel').getElementsByClassName('tel_num')[i].setAttribute('hidden', '');
-        }
-        document.querySelector('header .contacts .tel').querySelector('span').classList.remove('active');
-        document.querySelector('header .contacts .tel').classList.remove('active');
-
-    }
-
-    /**
-     * [highslide run as modal window]
-     */
-    function bodyFixOn() {
-        var body_width = document.body.offsetWidth;
-        window_offset = window.pageYOffset;
-        document.body.style.marginRight = window.innerWidth - body_width + "px";
-        document.body.style.width = body_width + "px";
-        document.body.style.top = "-" + window_offset + "px";
-        document.body.classList.add('hidden');
-        document.querySelector('header').style.display = "none";
-        addStyleForHighslide()
-    }
-
-    /* replace to highslide.js
-    function bodyFixOut() {
-         document.body.style.marginRight = 0;
-         document.body.style.width = (document.body.offsetHeight >= 1200) ? "100%" : "100vw";
-         document.body.classList.remove('hidden');
-         window.scrollTo(0, window_offset);
-         document.body.removeChild(document.querySelector('.style_tag'))
-     }*/
-
-    /**
-     * [show header tels on tablets]
-     */
-    function tabletHeaderTelToggle() {
-        if (document.querySelector('.correct_work_on_tablet').classList.contains('active')) {
-            document.querySelector('.correct_work_on_tablet').classList.remove('active');
-            hideHeaderTel()
-        } else {
-            document.querySelector('.correct_work_on_tablet').classList.add('active');
-            showHeaderTel()
-        }
-    }
-
-
-
-
-
-
-
-    function takeUsedButton(e) {
-        if (e.target.hasAttribute('data-trigger-ident')) {
-            document.getElementById('takes_used_button').value = e.target.getAttribute('data-trigger-ident')
-        }
-    }
-
-
-    function setModalAttribute() {
-        var elem = document.querySelector('section.work_top_part .description a[href^="#"]');
-        if (elem) {
-            console.log('link exist');
-            elem.setAttribute('data-modal-id', 'modal_order');
-            elem.setAttribute('data-trigger-ident', 'vnutryak')
-        }
-
-
-    }
-
-
-    setModalAttribute()
-
-
-    function zoomInImg(e) {
-        e.target.querySelector('img').classList.add('zoom_img')
-    }
-
-    function zoomOutImg(e) {
-        e.target.querySelector('img').classList.remove('zoom_img')
-    }
-
-
-
-
-
-
-
-
-
-
-
-    /* Sliding header elems when page has loaded */
-
-
-
-    function addTransitionClassToHeaderElems() {
-        var header_elem = document.querySelectorAll('header nav ul li, header nav .logo, header .contacts .tel, header .contacts .lang_btn, header .contacts .submit_app_btn ');
-        for (var i = 0; i < header_elem.length; i++) {
-            header_elem[i].classList.add('trans_right');
-        }
-    }
-
-
-    function slideHeaderElems() {
-        var header_elem = document.querySelectorAll('.trans_right');
-        var i = 0;
-        setInterval(function () {
-            if (i < header_elem.length)
-                header_elem[i].classList.remove('trans_right');
-            i++
-        }, 300)
-    }
-
-
-    addTransitionClassToHeaderElems();
-    slideHeaderElems();
-
-
-
-
-
-    /*  Show red line below titles when page scrolling */
-
-    function showRedLine() {
-        if (window.pageYOffset > (calcPageHeight() - document.getElementsByTagName('footer')[0].offsetHeight) - (document.querySelector('section.team').offsetHeight * 2)) {
-            document.querySelector('section.team .main_h .thin_red_line').style.width = "100rem";
-        } else if (window.pageYOffset >
-            (document.querySelector('.slide_content_wrapper').offsetHeight + document.querySelector('.performed_works').offsetHeight + document.querySelector('.work_directions').offsetHeight)) {
-            document.querySelector('section.review .main_h .thin_red_line').style.width = "100rem";
-        } else if (window.pageYOffset > (document.querySelector('.slide_content_wrapper').offsetHeight + (document.querySelector('.work_directions').offsetHeight / 2))) {
-            document.querySelector('section.performed_works .main_h .thin_red_line').style.width = "100rem";
-        }
-    }
-
-
-    window.addEventListener('scroll', showRedLine)
-    
-    
-
-
-    function createRedLine() {
-        var title = document.querySelectorAll('.performed_works .main_h, .review .main_h, .team .main_h');
-        for (var i = 0; i < title.length; i++) {
-            var elem = document.createElement('div')
-            var line = title[i].appendChild(elem);
-            line.classList.add('thin_red_line');
-        }
-    }
-
-    createRedLine();
-
-
-    window.addEventListener('scroll', changeHeaderColor);
-    /**
-     * change color of fixed nav block when scrolled under nth px
-     */
-    function changeHeaderColor() {
-        if (header) {
-            if (window.pageYOffset > 0) {
-                header.getElementsByClassName('header_bg')[0].style.opacity = "0.9";
-
-            } else {
-                header.getElementsByClassName('header_bg')[0].style.opacity = "0";
-
-            }
-        }
-    }
 
 })();
