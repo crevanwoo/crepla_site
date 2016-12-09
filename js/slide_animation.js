@@ -36,7 +36,7 @@
         old.style.transform = "translateX(" + AnimationSettings.transition_old + "rem)";
         AnimationSettings.transition_old += (window.innerWidth - document.querySelector('.slide_content').offsetWidth) / 100;
         setTimeout(function () {
-            if (AnimationSettings.transition_old > (((window.innerWidth - document.querySelector('.slide_content').offsetWidth) / 2))) {
+            if (AnimationSettings.transition_old > (((window.innerWidth - document.querySelector('.slide_content').offsetWidth) / 3))) {
                 cancelAnimationFrame(moveOld);
                 document.querySelector('.old_guy .speak').classList.add('active');
                 AnimationSettings.frame_state = true;
@@ -67,7 +67,7 @@
         young.style.transform = "translateX(" + AnimationSettings.transition_young + "rem)";
         AnimationSettings.transition_young += (window.innerWidth - document.querySelector('.slide_content').offsetWidth) / 50;
         setTimeout(function () {
-            if (AnimationSettings.transition_young > (((window.innerWidth - document.querySelector('.slide_content').offsetWidth) / 2))) {
+            if (AnimationSettings.transition_young > (((window.innerWidth - document.querySelector('.slide_content').offsetWidth) / 3))) {
                 cancelAnimationFrame(moveYoung);
                 document.querySelector('.young_guy .speak').classList.add('active');
                 setTimeout(function () {

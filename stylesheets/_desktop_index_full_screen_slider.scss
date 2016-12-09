@@ -132,13 +132,13 @@
 					.talking_block {
 						@extend %clear;
 						font-size: $f_20;
-						margin-top: 60rem;
+					//	margin-top: 60rem;
 						//margin: 60rem auto 0 auto;
 						float: none;
 						//width: 420rem;
 						width: 100%;
 						@include bp(800) {
-							margin-top: 10rem;
+							//margin-top: 10rem;
 							//margin: 50rem auto 0 350rem;
 						}
 						>* {
@@ -332,7 +332,8 @@
 						bottom: 0;
 						background-image: url(../images/old_guy.png);
 						.speak {
-							right: -220rem;
+							//right: -220rem;
+                            left: 40rem;
 							background-image: url(../images/speech_bubble_big.png);
 							background-size: contain;
 							background-repeat: no-repeat;
