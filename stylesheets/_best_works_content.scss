@@ -128,6 +128,7 @@ section.single_work {
 			height: 100%;
 			float: right;
 			>div {
+				transition-duration: 0.5s;
 				position: absolute;
 				width: 520rem;
 				img {
@@ -136,12 +137,20 @@ section.single_work {
 				}
 			}
 			.left_image {
+				opacity: 0;
 				top: 50rem;
 				left: 0;
+				&.active {
+					opacity: 1
+				}
 			}
 			.right_image {
+				opacity: 0;
 				top: 0rem;
 				right: 0;
+				&.active {
+					opacity: 1
+				}
 			}
 		}
 	}
@@ -193,7 +202,8 @@ section.single_work {
 }
 
 .best_works_footer {
-	height: 700rem;
+	height: 100vh;
+	//height: 700rem;
 	padding-top: 300rem;
 	box-sizing: border-box;
 	background-image: url(../images/best_works_footer.jpg);

@@ -1,6 +1,6 @@
     @mixin bp($size) {
         @if $size==800 {
-            @media screen and (max-width: 800px) {
+            @media screen and (max-aspect-ratio: 1221 / 696) {
                 @content
             }
         }
@@ -212,113 +212,113 @@
     @mixin placeholder_white {
         color: white;
     }
-    
+    $x: 1.4;
     //animations 
     @keyframes orbit1 {
         0% {
-            transform: translate(90rem, 0rem);
+            transform: translate(90rem/$x, 0rem);
         }
         10% {
-            transform: translate(100rem, 55rem);
+            transform: translate(100rem/$x, 55rem/$x);
         }
         20% {
-            transform: translate(115rem, 110rem);
+            transform: translate(115rem/$x, 110rem/$x);
         }
         30% {
-            transform: translate(120rem, 165rem);
+            transform: translate(120rem/$x, 165rem/$x);
         }
         40% {
-            transform: translate(123rem, 220rem);
+            transform: translate(123rem/$x, 220rem/$x);
         }
         50% {
-            transform: translate(125rem, 275rem);
+            transform: translate(125rem/$x, 275rem/$x);
         }
         60% {
-            transform: translate(123rem, 330rem);
+            transform: translate(123rem/$x, 330rem/$x);
         }
         70% {
-            transform: translate(115rem, 385rem);
+            transform: translate(115rem/$x, 385rem/$x);
         }
         80% {
-            transform: translate(100rem, 440rem);
+            transform: translate(100rem/$x, 440rem/$x);
         }
         90% {
-            transform: translate(80rem, 495rem);
+            transform: translate(80rem/$x, 495rem/$x);
         }
         100% {
-            transform: translate(65rem, 550rem);
+            transform: translate(65rem/$x, 550rem/$x);
         }
     }
     
     @keyframes orbit2 {
         100% {
-            transform: translate(95rem, 50rem);
+            transform: translate(95rem/$x, 50rem/$x);
         }
         90% {
-            transform: translate(101.25rem, 105rem);
+            transform: translate(101.25rem/$x, 105rem/$x);
         }
         80% {
-            transform: translate(107.5rem, 160rem);
+            transform: translate(107.5rem/$x, 160rem/$x);
         }
         70% {
-            transform: translate(113.75rem, 215rem);
+            transform: translate(113.75rem/$x, 215rem/$x);
         }
         60% {
-            transform: translate(120rem, 270rem); //!!
+            transform: translate(120rem/$x, 270rem/$x); //!!
         }
         50% {
-            transform: translate(109.17rem, 325rem);
+            transform: translate(109.17rem/$x, 325rem/$x);
         }
         40% {
-            transform: translate(98.34rem, 380rem);
+            transform: translate(98.34rem/$x, 380rem/$x);
         }
         30% {
-            transform: translate(87.51rem, 435rem);
+            transform: translate(87.51rem/$x, 435rem/$x);
         }
         20% {
-            transform: translate(76.68rem, 490rem);
+            transform: translate(76.68rem/$x, 490rem/$x);
         }
         10% {
-            transform: translate(65.85rem, 545rem);
+            transform: translate(65.85rem/$x, 545rem/$x);
         }
         0% {
-            transform: translate(55rem, 600rem);
+            transform: translate(55rem/$x, 600rem/$x);
         }
     }
     
     @keyframes orbit3 {
         0% {
-            transform: translate(100rem, 58rem);
+            transform: translate(100rem/$x, 58rem/$x);
         }
         10% {
-            transform: translate(106.25rem, 116rem);
+            transform: translate(106.25rem/$x, 116rem/$x);
         }
         20% {
-            transform: translate(112.5rem, 174rem);
+            transform: translate(112.5rem/$x, 174rem/$x);
         }
         30% {
-            transform: translate(118.75rem, 232rem);
+            transform: translate(118.75rem/$x, 232rem/$x);
         }
         40% {
-            transform: translate(125rem, 290rem); //!
+            transform: translate(125rem/$x, 290rem/$x); //!
         }
         50% {
-            transform: translate(110.84rem, 348rem);
+            transform: translate(110.84rem/$x, 348rem/$x);
         }
         60% {
-            transform: translate(96.67rem, 406rem);
+            transform: translate(96.67rem/$x, 406rem/$x);
         }
         70% {
-            transform: translate(82.51rem, 464rem);
+            transform: translate(82.51rem/$x, 464rem/$x);
         }
         80% {
-            transform: translate(68.34rem, 522rem);
+            transform: translate(68.34rem/$x, 522rem/$x);
         }
         90% {
-            transform: translate(54.18rem, 580rem);
+            transform: translate(54.18rem/$x, 580rem/$x);
         }
         100% {
-            transform: translate(40rem, 638rem);
+            transform: translate(40rem/$x, 638rem/$x);
         }
     }
     

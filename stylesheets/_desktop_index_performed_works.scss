@@ -4,6 +4,10 @@
 	position: relative;
 	height: 100vh;
 	box-sizing: border-box;
+	&.marketing_landing_page {
+		height: auto;
+		padding-top: 60rem;
+	}
 	@include bp(800) {
 		height: auto;
 		padding-top: 60rem;
@@ -19,6 +23,9 @@
 	}
 	.portfolio {
 		display: none;
+		&.marketing_landing_page {
+			display: block;
+		}
 		@include bp(800) {
 			display: block;
 		}
@@ -117,20 +124,20 @@
 	}
 	.dynamic_portfolio {
 		%dynamic_cube {
-			width: $cell_s_abs * 1.25;
-			height: $cell_s_abs * 1.25;
+			width: $cell_s_abs;
+			height: $cell_s_abs;
 		}
 		%dynamic_rect {
-			width: $cell_s_abs * 2.5;
-			height: $cell_s_abs * 1.25;
+			width: $cell_s_abs * 2;
+			height: $cell_s_abs;
 		}
-		$top_offset: 150rem;
-		$right_offset: 50rem;
+		$top_offset: 100rem;
+		$right_offset: 100rem;
 		display: block;
 		position: relative;
 		width: 100%;
 		height: 100vh;
-		padding-top: 50rem;
+		padding-top: 30rem;
 		box-sizing: border-box;
 		@include bp(800) {
 			display: none;
@@ -171,8 +178,8 @@
 		}
 		.single_work:nth-of-type(2) {
 			position: absolute;
-			top: 190rem;
-			right: $right_offset;
+			top: 120rem;
+			right: $right_offset*2;
 			@extend %dynamic_cube;
 			background-color: green;
 			opacity: 0;
@@ -188,8 +195,8 @@
 		}
 		.single_work:nth-of-type(3) {
 			position: absolute;
-			top: 165rem;
-			right: $right_offset*1.5;
+			top: 70rem;
+			right: $right_offset*2.5;
 			@extend %dynamic_cube;
 			background-color: yellow;
 			transform: scale(3);
@@ -282,6 +289,57 @@
 			&.active {
 				transform: scale(1);
 				opacity: 1;
+			}
+			>div {
+				display: inline-block;
+				position: relative;
+				top: 140rem;
+				left: 60rem;
+				padding-bottom: 1rem;
+				font-family: $f_medium;
+				font-size: 38rem;
+				color: white;
+				text-transform: uppercase;
+				&:before {
+					content: '';
+					position: absolute;
+					width: 0%;
+					bottom: 0;
+					left: 0;
+					border-bottom: 3rem solid $soft_red;
+					transition-duration: 0.5s
+				}
+				span {
+					display: inline-block;
+					position: relative;
+					padding-bottom: 1rem;
+					&:before {
+						content: '';
+						position: absolute;
+						width: 0%;
+						bottom: 0;
+						left: 0;
+						border-bottom: 3rem solid $soft_red;
+						transition-duration: 0.5s
+					}
+				}
+				&.active {
+					&:before {
+						width: 100%;
+					}
+					span {
+						&:before {
+							width: 100%;
+						}
+					}
+				}
+			}
+			>img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
 			}
 		}
 		.hover_logo {

@@ -96,7 +96,7 @@ header {
                     padding-left: 20rem;
                     box-sizing: border-box;
                     padding-bottom: 20rem;
-                    &:not(: first-of-type) {
+                    &:not(:first-of-type) {
                         padding-top: 41-16rem;
                         padding-bottom: 16rem;
                         .tel_comment {

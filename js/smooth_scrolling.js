@@ -121,6 +121,8 @@
                      document.getElementById('works_btn').addEventListener('click', setScrollingArguments3);
                  }
              }
+			 
+			 addListeners() 
 
 
          }})();

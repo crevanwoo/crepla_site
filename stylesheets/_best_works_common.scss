@@ -10,7 +10,7 @@ body {
 	color: $black;
 	/**/
 	height: 100%;
-	//overflow: hidden;
+	overflow: hidden;
 	
 	@include bp(800) {
 		height: auto;
@@ -42,10 +42,12 @@ body {
 	}*/
 }
 
-.main_wrapper {
+.general_wrapper {
 	position: relative;
 	top: 0;
+	transition: 0.7s;
 }
+
 
 .wrapper {
 	width: 1200rem;

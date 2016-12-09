@@ -1,0 +1,105 @@
+%big_h {
+	font-family: $f_medium;
+	font-size: 30rem;
+	text-transform: uppercase;
+}
+
+%p {
+	font-size: 18rem;
+}
+
+section.sect_1 {
+	box-sizing: border-box;
+	padding-top: 90rem;
+	padding-bottom: 130rem;
+	color: white;
+	background-image: url(../images/market_bg_1.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	.pictures,
+	.description {
+		margin-top: 100rem;
+		float: left;
+	}
+	.pictures {
+		position: relative;
+		width: 475rem;
+		height: 255rem;
+		img {
+			position: absolute;
+			width: 450rem;
+			height: 230rem;
+			&:nth-of-type(1) {
+				top: 0;
+				left: 0
+			}
+			&:nth-of-type(2) {
+				bottom: 0;
+				right: 0;
+			}
+		}
+	}
+	.description {
+		box-sizing: border-box;
+		width: 630rem;
+		padding-top: 15rem;
+		padding-right: 45rem;
+		margin-left: 55rem;
+		.main_h {
+			@extend %big_h;
+			text-align:left;
+			margin-bottom: 30rem;
+		}
+		p {
+			@extend %p;
+			margin-bottom: 60rem;
+		}
+		.price {padding-top: 10rem;
+			text-transform: uppercase;
+			font-family: $f_medium;
+			font-size: 36rem;
+			float:left;
+			
+		}
+		.submit_app_btn{
+			$height:50rem;
+			height: $height;
+			line-height: $height;
+			font-family: $f_medium;
+			font-size: 20rem;
+			padding: 0 15rem;
+			border:4rem solid $soft_red;
+			float:left;
+			margin-left: 40rem;
+			
+		}
+	}
+	.wrapper {
+		@extend %clear
+	}
+}
+
+section.sect_2 {
+	.wrapper {
+		@extend %clear
+	}
+}
+
+section.sect_3 {
+	.wrapper {
+		@extend %clear
+	}
+}
+
+section.sect_4 {
+	.wrapper {
+		@extend %clear
+	}
+}
+
+section.page_sheme {
+	.wrapper {
+		@extend %clear
+	}
+}
