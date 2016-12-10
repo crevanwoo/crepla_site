@@ -8,9 +8,6 @@
         repeat: no-repeat;
     }
     color: white;
-    @include bp(1220) {
-        height: 350 * 0.082vw;
-    }
     .wrapper {
         height: 100%;
         position: relative;
@@ -18,18 +15,11 @@
     .main_h {
         padding-top: 50rem;
         padding-bottom: 15rem;
-        @include bp(1220) {
-            padding-top: 50 * 0.082vw;
-            padding-bottom: 15 * 0.082vw;
-        }
     }
     p {
         margin-bottom: 70rem;
         position: relative;
         display: inline-block;
-        @include bp(1220) {
-            margin-bottom: 70* 0.082vw;
-        }
         &:before,
         &:after {
             position: absolute;
@@ -61,12 +51,6 @@
         font-family: $f_medium;
         font-size: $f_16;
         text-transform: uppercase;
-        @include bp(1220) {
-            height: 45 * 0.082vw;
-            padding-left: 25 * 0.082vw;
-            padding-right: 25 * 0.082vw;
-            line-height: 45 * 0.082vw;
-        }
     }
     .planet {
         width: auto;
@@ -87,9 +71,6 @@
             position: absolute;
             bottom: -70rem;
             left: 125rem;
-            @include bp(1220) {
-                left: 10vw
-            }
         }
         &:after {
             content: " ";

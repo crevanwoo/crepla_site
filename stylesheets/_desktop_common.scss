@@ -6,25 +6,39 @@ body {
     background-color: #f0f0f0;
     font-family: $f_regular;
     color: $black;
+    height: 100%;
+    @include bp(800) {
+        height: auto;
+        //overflow: auto;
+    }
 }
 
 html {
-    font-size: 1px;
-    @include bp(1220) {
+    //font-size: 0.1vh;
+    font-size: 0.14vh;
+    @include bp(800) {
         font-size: 0.082vw;
     }
 }
 
 body {
+    overflow: hidden;
     &.hidden {
         //overflow: hidden //old scrolling
         position: fixed; //new scrolling
         left: 0; //new scrolling
     }
-    @include bp(1220) {
-        // width: 100vw;
-        overflow-x: hidden;
+    &.marketing_landing_page {
+        overflow: auto
     }
+    @include bp(800) {
+        overflow: auto;
+    }
+}
+
+.main_wrapper {
+    position: relative;
+    top: 0;
 }
 
 .wrapper {
@@ -225,5 +239,118 @@ div.prewproject {
 label.upload {
     >* {
         cursor: pointer
+    }
+}
+
+.thin_red_line {
+    width: 0;
+    height: 2rem;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 40rem;
+    left: 0;
+    right: 0;
+    background-color: $soft_red;
+    transition-duration: 1s;
+}
+
+.scroll_container_wrapper {
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    @include bp(800) {
+        height: auto;
+    }
+    .scroll_container {
+        box-sizing: border-box;
+        padding-top: 90rem;
+        transform: translateY(0px);
+        @include bp(800) {
+            padding-top: 0;
+        }
+    }
+    .scroll_block {
+        @include bp(800) {
+            display: none;
+        }
+        position: absolute;
+        width: 5rem;
+        top: 100rem;
+        height: auto;
+        right: 20rem;
+        bottom: 10rem;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+        .scroll_runner {
+            position: relative;
+            top: 0;
+            background-color: darkred
+        }
+    }
+    .scroll_container,
+    .scroll_runner {
+        /*scroll speed*/
+        transition: 0.5s;
+    }
+}
+
+.scroll_mouse {
+    $dark_color: #200772;
+    // position: absolute;
+    position: fixed;
+    //top: 50%;
+    top:30%;
+    right: 0;
+    z-index: 2;
+    transform: translateX(-70rem);
+    transition: 0.5s;
+    opacity: 1;
+    @include bp(800) {
+        top: 30%;
+        transform: translateX(-15rem);
+        z-index: 2;
+    }
+    &.active {
+        >div {
+            border: 2rem solid $dark_color;
+            >div {
+                background-color: $dark_color;
+            }
+        }
+        >p {
+            color: $dark_color
+        }
+    }
+    &.remove {
+        opacity: 0;
+    }
+    >div {
+        width: 16rem;
+        height: 32rem;
+        margin: auto;
+        padding-top: 4rem;
+        border: 2rem solid white;
+        border-radius: 10rem;
+        >div {
+            width: 4rem;
+            height: 8rem;
+            margin: auto;
+            box-sizing: border-box;
+            background-color: white;
+            border-radius: 10rem;
+            animation-name: scroll_down;
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+        }
+    }
+    >p {
+        padding-top: 17rem;
+        text-align: center;
+        @include bp(1500) {
+            //display: none
+        }
     }
 }

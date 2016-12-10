@@ -1,0 +1,376 @@
+%big_h {
+    font-family: $f_medium;
+    font-size: 30rem;
+    text-transform: uppercase;
+}
+
+%p {
+    font-size: 18rem;
+}
+
+%pictures_block {
+    position: relative;
+    img {
+        position: absolute;
+        &:nth-of-type(1) {
+            top: 0;
+            left: 0
+        }
+    }
+}
+
+%submit {
+    $height: 50rem;
+    height: $height;
+    line-height: $height;
+    font-family: $f_medium;
+    font-size: 20rem;
+    padding: 0 15rem;
+    border: 4rem solid $soft_red;
+}
+
+%underline {
+    position: relative;
+    padding-bottom: 10rem;
+    &:before {
+        content: '';
+        display: block;
+        width: 250rem;
+        height: 3rem;
+        background-color: $soft_red;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        margin: auto;
+    }
+}
+
+%text_block {
+    border-left: 3rem solid $soft_red;
+    padding-left: 17rem;
+    .title {
+        font-family: $f_medium;
+        font-size: $f_24;
+        text-transform: uppercase;
+        text-align: left;
+        padding-bottom: 15rem;
+    }
+    p {
+        font-size: $f_16;
+    }
+}
+
+section.sect_1 {
+    box-sizing: border-box;
+    padding-top: 90rem;
+    padding-bottom: 130rem;
+    color: white;
+    background-image: url(../images/market_bg_1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    .pictures,
+    .description {
+        margin-top: 100rem;
+        float: left;
+    }
+    .pictures {
+        @extend %pictures_block;
+        width: 475rem;
+        height: 255rem;
+        img {
+            width: 450rem;
+            height: 230rem;
+            &:nth-of-type(2) {
+                bottom: 0;
+                right: 0;
+            }
+        }
+    }
+    .description {
+        box-sizing: border-box;
+        width: 630rem;
+        padding-top: 15rem;
+        padding-right: 45rem;
+        margin-left: 55rem;
+        .main_h {
+            @extend %big_h;
+            text-align: left;
+            margin-bottom: 30rem;
+        }
+        p {
+            @extend %p;
+            margin-bottom: 60rem;
+        }
+        .price {
+            padding-top: 10rem;
+            text-transform: uppercase;
+            font-family: $f_medium;
+            font-size: 36rem;
+            float: left;
+        }
+        .submit_app_btn {
+            @extend %submit;
+            float: left;
+            margin-left: 40rem;
+        }
+    }
+    .wrapper {
+        @extend %clear
+    }
+}
+
+section.sect_2 {
+    box-sizing: border-box;
+    padding-top: 70rem;
+    .main_h {
+        @extend %big_h;
+        @extend %underline;
+        margin-bottom: 40rem;
+    }
+    p {
+        @extend %p;
+        width: 80%;
+        text-align: center;
+        margin: 0 auto 85rem auto;
+    }
+    .columns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .column {
+            width: 360rem;
+            img {
+                display: block;
+                margin: auto;
+            }
+            .title {
+                padding-top: 30rem;
+                font-family: $f_medium;
+                font-size: 20rem;
+            }
+            p {
+                font-size: 16rem;
+                text-align: center;
+            }
+            &:nth-of-type(1) img {
+                width: 97rem;
+                height: 101rem;
+            }
+            &:nth-of-type(2) img {
+                width: 100rem;
+                height: 100rem;
+            }
+            &:nth-of-type(3) img {
+                width: 97rem;
+                height: 101rem;
+            }
+        }
+    }
+    .wrapper {
+        @extend %clear
+    }
+}
+
+section.sect_3 {
+    padding-bottom: 60rem;
+    .main_h {
+        @extend %big_h;
+        @extend %underline;
+        margin-bottom: 70rem;
+    }
+    .pictures,
+    .description {
+        float: left;
+    }
+    .pictures {
+        @extend %pictures_block;
+        width: 625rem;
+        height: 395rem;
+        img {
+            width: 520rem;
+            height: 270rem;
+            &:nth-of-type(2) {
+                bottom: 0;
+                right: 0;
+                left: 0;
+                top: 0;
+                margin: auto;
+            }
+            &:nth-of-type(3) {
+                bottom: 0;
+                right: 0;
+            }
+        }
+    }
+    .description {
+        margin-top: 120rem;
+        margin-left: 45rem;
+        width: 450rem;
+        .text {
+            @extend %text_block;
+        }
+        .submit_app_btn {
+            @extend %submit;
+            display: inline-block;
+            margin-left: 18rem;
+            margin-top: 30rem;
+        }
+    }
+    .wrapper {
+        @extend %clear
+    }
+}
+
+section.sect_4 {
+    box-sizing: border-box;
+    background-image: url(../images/market_bg_new_york.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    .wrapper {
+        position: relative;
+        box-sizing: border-box;
+        padding-top: 100rem;
+        padding-bottom: 55rem;
+    }
+    .description {
+        width: 500rem;
+        color: white;
+        float: left;
+        .text {
+            @extend %text_block;
+            margin-left: -20rem;
+            width: 460rem;
+        }
+        ul {
+            margin-top: 25rem;
+            li {
+                @extend %p;
+                padding-left: 25rem;
+                margin-bottom: 20rem;
+                position: relative;
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 14rem;
+                    height: 18rem;
+                    background-image: url(../images/market_icon_list.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+        .submit_app_btn {
+            display: inline-block;
+            @extend %submit;
+        }
+    }
+    .pictures {
+        position: absolute;
+        bottom: 105rem;
+        right: 70rem;
+        width: 560rem;
+        margin-left: 50rem;
+        .img_screen {
+            height: 270rem;
+            border: 18rem solid black;
+            border-top-left-radius: 10rem;
+            border-top-right-radius: 10rem;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+        >img {
+            width: 560rem;
+            height: auto;
+            position: absolute;
+            z-index: 1;
+            bottom: -117rem;
+        }
+    }
+    .wrapper {
+        @extend %clear
+    }
+}
+
+section.page_scheme {
+    box-sizing: border-box;
+    padding-top: 100rem;
+    padding-bottom: 85rem;
+    .main_h {
+        @extend %big_h;
+        @extend %underline;
+        margin-bottom: 55rem;
+    }
+    .picture {
+        width: 425rem;
+        margin: auto;
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+    .content {
+        position: relative;
+        .row {
+            @extend %clear;
+            position: absolute;
+            width: 100%;
+            &.row_1 {
+                top: 25rem;
+            }
+            &.row_2 {
+                top: 50%;
+                transform: translateY(-50%);
+                
+            }
+            &.row_3 {
+                bottom: 60rem;
+            }
+            .text {
+                width: 330rem;
+                .title {
+                    font-family: $f_medium;
+                    font-size: $f_20;
+                    text-transform: uppercase;
+                    margin-bottom: 15rem;
+                }
+                p {
+                    font-size: $f_14;
+                }
+                &:first-of-type {
+                    float: left;
+                    >* {
+                        text-align: left;
+                    }
+                }
+                &:last-of-type {
+                    float: right;
+                    >* {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+    .wrapper {
+        @extend %clear
+    }
+}
+
+.performed_works.marketing_landing_page {
+    padding-top: 80rem;
+    .main_h {
+        @extend %underline;
+        margin-bottom: 40rem;
+    }
+}

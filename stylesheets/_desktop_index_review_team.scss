@@ -7,10 +7,6 @@ section.review {
     .slider {
         @extend %slider;
         @extend %slider_with_arrows;
-        //min-height: 242rem;
-        //height: 1px;
-        //height: 242rem;
-        // margin-bottom: 150rem;
         margin-bottom: 50rem;
         .arrow {
             top: 85rem;
@@ -110,9 +106,6 @@ section.team {
                         padding-bottom: 150rem;
                         float: left;
                         transition-duration: 1s;
-                        @include bp(1220) {
-                            width: $widtn_vw;
-                        }
                         &[data-slide-position='left'],
                         &[data-slide-position='right'] {
                             padding-top: 40rem;
@@ -129,10 +122,6 @@ section.team {
                             margin: auto;
                             display: block;
                             overflow: hidden;
-                            @include bp(1220) {
-                                width: 15.7vw;
-                                height: 11.7vw;
-                            }
                         }
                         .main_h {
                             padding-top: 15rem;
