@@ -1552,7 +1552,10 @@ header {
       height: auto;
       padding-top: 60rem; } }
   .performed_works .main_h {
-    padding-bottom: 50rem; }
+    padding-bottom: 50rem;
+    transition-duration: 0.5s; }
+    .performed_works .main_h.active {
+      color: white; }
   @media screen and (max-aspect-ratio: 1221 / 696) {
     .performed_works .wrapper {
       height: auto; } }
@@ -1770,7 +1773,8 @@ header {
       margin: auto;
       background-color: cornflowerblue;
       transform: scale(0);
-      opacity: 0; }
+      opacity: 0;
+      z-index: 1; }
       .performed_works .dynamic_portfolio .single_work:nth-of-type(6).active {
         transform: scale(1);
         opacity: 1; }
@@ -1877,6 +1881,20 @@ header {
       .performed_works .dynamic_portfolio img.zoom_img {
         transform: scale(1.2);
         transition-duration: 1s; }
+  .performed_works .single_work_full_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition-duration: 0.5s; }
+    .performed_works .single_work_full_bg.active {
+      opacity: 1; }
+    .performed_works .single_work_full_bg img {
+      display: block;
+      width: 100%;
+      height: auto; }
 
 .site_ordering {
   height: 350rem;

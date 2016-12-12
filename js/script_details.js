@@ -33,8 +33,8 @@ var window_offset;
     }
 
 
-    addTransitionClassToHeaderElems();
-    slideHeaderElems();
+    addTransitionClassToHeaderElems();//this commented on the site
+    slideHeaderElems();//this commented on the site
 
 
 
