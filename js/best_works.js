@@ -195,62 +195,56 @@
     })
 
 
-    
-    
-    
-    
-    	if (window.innerWidth / window.innerHeight <= 1221 / 696) {
-		function getHeaderHeight() {
-			return header.offsetHeight;
-		}
 
-		/**
-		 * total page height
-		 * @returns {num} [page_height]
-		 */
-		function calcPageHeight() {
-			if (header) {
-				var total = 0;
-				for (var i = 0; i < document.body.children.length; i++) {
-					total += document.body.children[i].offsetHeight;
-				}
-				total -= getHeaderHeight();
-				return total;
-			}
-		}
-            
-            
-            
-            	window.addEventListener('scroll', changeHeaderColor);
-		/**
-		 * change color of fixed nav block when scrolled under nth px
-		 */
-		var header = document.querySelector('header');
 
-		function changeHeaderColor() {
-			if (header) {
-				if (window.pageYOffset > 0) {
-					header.getElementsByClassName('header_bg')[0].style.opacity = "0.9";
 
-				} else {
-					header.getElementsByClassName('header_bg')[0].style.opacity = "0";
 
-				}
-			}
-		}
-
-            
+    if (window.innerWidth / window.innerHeight <= 1221 / 696) {
+        function getHeaderHeight() {
+            return header.offsetHeight;
         }
-    
-    
-    $.ajax({
-  url: 'ajax/test.html',
-  success: function(){
-    alert('Load was performed.');
-  }
-});
-    
-    
+
+        /**
+         * total page height
+         * @returns {num} [page_height]
+         */
+        function calcPageHeight() {
+            if (header) {
+                var total = 0;
+                for (var i = 0; i < document.body.children.length; i++) {
+                    total += document.body.children[i].offsetHeight;
+                }
+                total -= getHeaderHeight();
+                return total;
+            }
+        }
+
+
+
+        window.addEventListener('scroll', changeHeaderColor);
+        /**
+         * change color of fixed nav block when scrolled under nth px
+         */
+        var header = document.querySelector('header');
+
+        function changeHeaderColor() {
+            if (header) {
+                if (window.pageYOffset > 0) {
+                    header.getElementsByClassName('header_bg')[0].style.opacity = "0.9";
+
+                } else {
+                    header.getElementsByClassName('header_bg')[0].style.opacity = "0";
+
+                }
+            }
+        }
+
+
+    }
+
+
+
+
 })();
 
 
