@@ -445,7 +445,8 @@
 
 		// Scroll to position from header button 
 
-		document.querySelector('#works_btn').addEventListener('click', function () {
+		document.querySelector('#works_btn').addEventListener('click', function (e) {
+            e.preventDefault();
 			changeHeaderColor();
 			removeClass('footer', 'active');
 			if (GlobalVariables.screen_num > 8) {
@@ -459,7 +460,8 @@
 
 
 
-		document.querySelector('#offers_btn').addEventListener('click', function () {
+		document.querySelector('#offers_btn').addEventListener('click', function (e) {
+            e.preventDefault();
 			getFullScreen(screen_effect.scr2);
 			GlobalVariables.screen_num = 2;
 			changeHeaderColor();
