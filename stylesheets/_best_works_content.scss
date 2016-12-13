@@ -51,6 +51,7 @@ section.single_work {
     height: 100vh;
     box-sizing: border-box;
     overflow: hidden;
+    background-color: #000;
     @include bp(800) {
         height: 60vw;
     }
@@ -65,7 +66,9 @@ section.single_work {
         width: 100%;
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center;       
+        background-position: center;
+        filter: blur(6px);
+        transform: scale(1.1);
     }
     .wrapper {
         position: relative;

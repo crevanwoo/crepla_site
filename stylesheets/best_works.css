@@ -718,7 +718,8 @@ section.single_work {
   position: relative;
   height: 100vh;
   box-sizing: border-box;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: #000; }
   @media screen and (max-aspect-ratio: 1221 / 696) {
     section.single_work {
       height: 60vw; } }
@@ -732,7 +733,9 @@ section.single_work {
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; }
+    background-position: center;
+    filter: blur(6px);
+    transform: scale(1.1); }
   section.single_work .wrapper {
     position: relative;
     padding-top: 150rem; }

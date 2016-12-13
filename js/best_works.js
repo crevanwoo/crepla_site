@@ -186,7 +186,8 @@
 
     // Show/hide footer on header in button click
 
-    document.querySelector('#cont_btn').addEventListener('click', function () {
+    document.querySelector('#cont_btn').addEventListener('click', function (e) {
+        e.preventDefault();
         $('footer').addClass('active');
     })
 
