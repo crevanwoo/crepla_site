@@ -1,5 +1,6 @@
 ;
 var window_offset;
+var aspect_ratio = 1280/900;
 
 (function () {
 
@@ -99,10 +100,9 @@ var window_offset;
     }
     
     
-  /*  if (document.querySelector('.correct_work_on_tablet')) {
-        document.querySelector('.correct_work_on_tablet').addEventListener('click', tabletHeaderTelToggle);
-    }
-*/
+    if (document.querySelector('.correct_work_on_tablet')) {
+        document.querySelector('.correct_work_on_tablet').addEventListener('click', tabletHeaderTelToggle);}
+    
  
  
 
@@ -154,6 +154,7 @@ var window_offset;
     }
 
     window.addEventListener('click', checkTarget);
+     window.addEventListener('touchstart', checkTarget);
 
 
 

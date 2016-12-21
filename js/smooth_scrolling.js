@@ -1,8 +1,7 @@
  ;
  (function () {
          if (window.innerWidth / window.innerHeight <= aspect_ratio) {
-             console.log('324');
-
+    
              /**
               * total page height
               * @returns {num} [page_height]

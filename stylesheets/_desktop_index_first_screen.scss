@@ -14,6 +14,9 @@
 	@include bp(800) {
 		height: 650rem
 	}
+    @include bp(900) {
+        height: 100%;
+    }
 	color: white;
 	* {
 		cursor: default !important;

@@ -55,6 +55,9 @@ section.single_work {
     @include bp(800) {
         height: 60vw;
     }
+    @include bp(900) {
+        height: 100%;
+    }
     .single_work_bg_img {
         display: none;
     }
@@ -133,7 +136,7 @@ section.single_work {
             height: 100%;
             float: right;
             >div {
-                transition-duration: 0.5s;
+                //transition-duration: 0.5s;
                 position: absolute;
                 width: 520rem;
                 img {
@@ -222,14 +225,23 @@ section.single_work {
     @include bp(800) {
         height: 60vw;
     }
+    @include bp(900) {
+        height: 100%;
+    }
     div.other_works {
         position: relative;
         height: calc(100vh - 300rem);
+       /* @include bp(900) {
+            height: calc(100% - 300rem);
+        }*/
         div.single_work {
             position: relative;
             width: 570rem;
             height: 100vh;
             margin: 0 10rem;
+            /*@include bp(900) {
+               
+            }*/
             .single_work_picture {
                 >div {
                     position: absolute;

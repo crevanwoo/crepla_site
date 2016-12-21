@@ -35,13 +35,24 @@
     createNav()
 
     function showPictures(index) {
+        
+        $('.single_work:eq('+ index+ ')').find('.single_work_picture .left_image').delay(600).animate({
+            opacity:1
+            
+        })
+           $('.single_work:eq('+ index + ')').find('.single_work_picture .right_image').delay(1200).animate({
+            opacity:1
+            
+        })
+        /*
+    
         setTimeout(function () {
             document.querySelectorAll('.single_work')[index].querySelector('.single_work_picture .left_image').classList.add('active');
         }, 600)
 
         setTimeout(function () {
             document.querySelectorAll('.single_work')[index].querySelector('.single_work_picture .right_image').classList.add('active');
-        }, 1200)
+        }, 1200)*/
 
 
     }
@@ -64,7 +75,9 @@
 
 
     function translatePage(slide_num) {
-        $('.main_wrapper').css('top', -slide_num + '00%');
+        $('.main_wrapper').animate({            
+           top: -slide_num + '00%' 
+        }, 700);
         showPictures(slide_num);
 
 

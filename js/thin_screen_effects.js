@@ -1,7 +1,7 @@
 ;
 (function () {
 	if (window.innerWidth / window.innerHeight <= aspect_ratio) {
-		console.log('324');
+		
 
 		/*  Show red line below titles when page scrolling */
 

@@ -12,6 +12,9 @@
         height: auto;
         padding-top: 60rem;
     }
+    @include bp(900) {
+        height: 100%;
+    }
     .main_h {
         @extend %h_border;
         padding-bottom: 50rem;
@@ -146,6 +149,9 @@
         @include bp(800) {
             display: none;
         }
+        @include bp(900) {
+        height: 100%;
+    }
         >* {
             display: none
         }

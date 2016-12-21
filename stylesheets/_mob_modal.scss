@@ -13,6 +13,9 @@ $height: 15rem;
     color: white;
     z-index: 100;
     overflow: auto; //!!!
+    @include bp(900) {
+        min-height: 100%;
+    }
     .bg_modal_trans {
         width: 100%;
         height: 100%;

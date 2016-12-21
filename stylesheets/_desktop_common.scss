@@ -16,6 +16,9 @@ body {
 html {
     //font-size: 0.1vh;
     font-size: 0.14vh;
+    @include bp(900) {
+        font-size: 0.8px;
+    }
     @include bp(800) {
         font-size: 0.082vw;
     }
@@ -23,6 +26,7 @@ html {
 
 body {
     overflow: hidden;
+ 
     &.hidden {
         //overflow: hidden //old scrolling
         position: fixed; //new scrolling
@@ -34,11 +38,18 @@ body {
     @include bp(800) {
         overflow: auto;
     }
+       @include bp(900) {
+        overflow: auto;
+        position: fixed;
+    }
 }
 
 .main_wrapper {
     position: relative;
     top: 0;
+    @include bp(900) {
+        height: 100%;
+    }
 }
 
 .wrapper {
@@ -263,6 +274,9 @@ label.upload {
     @include bp(800) {
         height: auto;
     }
+    @include bp(900) {
+        height: 100%;
+    }
     .scroll_container {
         box-sizing: border-box;
         padding-top: 90rem;
@@ -301,7 +315,7 @@ label.upload {
     // position: absolute;
     position: fixed;
     //top: 50%;
-    top:30%;
+    top: 30%;
     right: 0;
     z-index: 2;
     transform: translateX(-70rem);

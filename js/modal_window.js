@@ -1,4 +1,4 @@
-var aspect_ratio = 1280/900;
+
 
 var header = document.getElementsByTagName('header')[0]; 
 

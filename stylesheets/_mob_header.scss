@@ -93,6 +93,9 @@ section.first_screen {
                 @include bp(landscape) {
                     height: 300vw;
                 }
+                @include bp(900) {
+        height: 100%;
+    }
                 >* {
                     box-sizing: border-box;
                 }
