@@ -1,6 +1,6 @@
 ;
 (function () {
-	if (window.innerWidth / window.innerHeight > 1221 / 696) {
+	if (window.innerWidth / window.innerHeight > aspect_ratio) {
 
 		var GlobalVariables = {
 			transition_time: "700",

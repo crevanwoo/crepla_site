@@ -344,14 +344,14 @@ body {
   font-family: GothamProRegular, sans-serif;
   color: #333333;
   height: 100%; }
-  @media screen and (max-aspect-ratio: 1221 / 696) {
+  @media screen and (max-aspect-ratio: 1280 / 900) {
     html,
     body {
       height: auto; } }
 
 html {
   font-size: 0.14vh; }
-  @media screen and (max-aspect-ratio: 1221 / 696) {
+  @media screen and (max-aspect-ratio: 1280 / 900) {
     html {
       font-size: 0.082vw; } }
 
@@ -362,7 +362,7 @@ body {
     left: 0; }
   body.marketing_landing_page {
     overflow: auto; }
-  @media screen and (max-aspect-ratio: 1221 / 696) {
+  @media screen and (max-aspect-ratio: 1280 / 900) {
     body {
       overflow: auto; } }
 
@@ -551,14 +551,14 @@ label.upload > * {
   position: relative;
   overflow: hidden;
   height: 100vh; }
-  @media screen and (max-aspect-ratio: 1221 / 696) {
+  @media screen and (max-aspect-ratio: 1280 / 900) {
     .scroll_container_wrapper {
       height: auto; } }
   .scroll_container_wrapper .scroll_container {
     box-sizing: border-box;
     padding-top: 90rem;
     transform: translateY(0px); }
-    @media screen and (max-aspect-ratio: 1221 / 696) {
+    @media screen and (max-aspect-ratio: 1280 / 900) {
       .scroll_container_wrapper .scroll_container {
         padding-top: 0; } }
   .scroll_container_wrapper .scroll_block {
@@ -570,7 +570,7 @@ label.upload > * {
     bottom: 10rem;
     background-color: rgba(0, 0, 0, 0.3);
     z-index: 1; }
-    @media screen and (max-aspect-ratio: 1221 / 696) {
+    @media screen and (max-aspect-ratio: 1280 / 900) {
       .scroll_container_wrapper .scroll_block {
         display: none; } }
     .scroll_container_wrapper .scroll_block .scroll_runner {
@@ -590,7 +590,7 @@ label.upload > * {
   transform: translateX(-70rem);
   transition: 0.5s;
   opacity: 1; }
-  @media screen and (max-aspect-ratio: 1221 / 696) {
+  @media screen and (max-aspect-ratio: 1280 / 900) {
     .scroll_mouse {
       top: 30%;
       transform: translateX(-15rem);
@@ -1099,7 +1099,7 @@ header {
   position: relative;
   color: white;
   background-color: #6671ad; }
-  @media screen and (max-aspect-ratio: 1221 / 696) {
+  @media screen and (max-aspect-ratio: 1280 / 900) {
     .full_screen_slider {
       height: 651rem; } }
   .full_screen_slider .slider {
@@ -1141,7 +1141,7 @@ header {
             margin: auto;
             padding-top: 210rem;
             z-index: 2; }
-            @media screen and (max-aspect-ratio: 1221 / 696) {
+            @media screen and (max-aspect-ratio: 1280 / 900) {
               .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .slide_content {
                 top: 0%; } }
             .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .slide_content > .main_h {
@@ -1319,7 +1319,7 @@ header {
               top: -150rem;
               opacity: 0;
               transition-duration: 0.5s; }
-              @media screen and (max-aspect-ratio: 1221 / 696) {
+              @media screen and (max-aspect-ratio: 1280 / 900) {
                 .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .old_guy .speak,
                 .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .young_guy .speak {
                   top: -100rem; } }
@@ -1344,7 +1344,7 @@ header {
               box-sizing: border-box;
               margin-right: 30rem;
               margin-left: 70rem; }
-              @media screen and (max-aspect-ratio: 1221 / 696) {
+              @media screen and (max-aspect-ratio: 1280 / 900) {
                 .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .old_guy .speak {
                   right: -200rem; } }
           .full_screen_slider .slider .slider_wrapper .slides_wrapper .slide .young_guy {
@@ -1427,7 +1427,7 @@ header {
   background-position: center center;
   background-repeat: no-repeat;
   color: white; }
-  @media screen and (max-aspect-ratio: 1221 / 696) {
+  @media screen and (max-aspect-ratio: 1280 / 900) {
     .work_directions {
       height: 650rem; } }
   .work_directions * {
@@ -1440,7 +1440,7 @@ header {
       position: absolute;
       right: 0;
       left: 0; }
-      @media screen and (max-aspect-ratio: 1221 / 696) {
+      @media screen and (max-aspect-ratio: 1280 / 900) {
         .work_directions .wrapper .main_h {
           padding-top: 120rem; } }
     .work_directions .wrapper .direction {
@@ -1522,19 +1522,19 @@ header {
           .work_directions .wrapper .direction .direction_wrapper .service.item1 {
             animation-name: orbit1;
             animation-duration: 10s; }
-            @media screen and (max-aspect-ratio: 1221 / 696) {
+            @media screen and (max-aspect-ratio: 1280 / 900) {
               .work_directions .wrapper .direction .direction_wrapper .service.item1 {
                 animation-name: orbit4; } }
           .work_directions .wrapper .direction .direction_wrapper .service.item2 {
             animation-name: orbit2;
             animation-duration: 12s; }
-            @media screen and (max-aspect-ratio: 1221 / 696) {
+            @media screen and (max-aspect-ratio: 1280 / 900) {
               .work_directions .wrapper .direction .direction_wrapper .service.item2 {
                 animation-name: orbit5; } }
           .work_directions .wrapper .direction .direction_wrapper .service.item3 {
             animation-name: orbit3;
             animation-duration: 15s; }
-            @media screen and (max-aspect-ratio: 1221 / 696) {
+            @media screen and (max-aspect-ratio: 1280 / 900) {
               .work_directions .wrapper .direction .direction_wrapper .service.item3 {
                 animation-name: orbit6; } }
 
@@ -1547,7 +1547,7 @@ header {
   .performed_works.marketing_landing_page {
     height: auto;
     padding-top: 60rem; }
-  @media screen and (max-aspect-ratio: 1221 / 696) {
+  @media screen and (max-aspect-ratio: 1280 / 900) {
     .performed_works {
       height: auto;
       padding-top: 60rem; } }
@@ -1556,7 +1556,7 @@ header {
     transition-duration: 0.5s; }
     .performed_works .main_h.active {
       color: white; }
-  @media screen and (max-aspect-ratio: 1221 / 696) {
+  @media screen and (max-aspect-ratio: 1280 / 900) {
     .performed_works .wrapper {
       height: auto; } }
   .performed_works .portfolio {
@@ -1564,7 +1564,7 @@ header {
     margin: -10rem; }
     .performed_works .portfolio.marketing_landing_page {
       display: block; }
-    @media screen and (max-aspect-ratio: 1221 / 696) {
+    @media screen and (max-aspect-ratio: 1280 / 900) {
       .performed_works .portfolio {
         display: block; } }
     .performed_works .portfolio > a {
@@ -1657,7 +1657,7 @@ header {
     .performed_works .dynamic_portfolio .single_work:nth-of-type(1), .performed_works .dynamic_portfolio .single_work:nth-of-type(5) {
       width: 746.64rem;
       height: 373.32rem; }
-    @media screen and (max-aspect-ratio: 1221 / 696) {
+    @media screen and (max-aspect-ratio: 1280 / 900) {
       .performed_works .dynamic_portfolio {
         display: none; } }
     .performed_works .dynamic_portfolio > * {
@@ -2276,7 +2276,7 @@ footer {
     position: relative;
     bottom: 0;
     box-shadow: 0 0 0 0 white; }
-  @media screen and (max-aspect-ratio: 1221 / 696) {
+  @media screen and (max-aspect-ratio: 1280 / 900) {
     footer {
       position: relative;
       bottom: 0;
@@ -2420,7 +2420,7 @@ footer {
     top: -100rem;
     right: 0rem;
     cursor: pointer; }
-    @media screen and (max-aspect-ratio: 1221 / 696) {
+    @media screen and (max-aspect-ratio: 1280 / 900) {
       footer .footer_close {
         display: none; } }
 
