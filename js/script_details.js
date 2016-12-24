@@ -26,10 +26,11 @@ var aspect_ratio = 1280/900;
     function slideHeaderElems() {
         var header_elem = document.querySelectorAll('.trans_right');
         var i = 0;
-        setInterval(function () {
-            if (i < header_elem.length)
+        var interval = setInterval(function () {
+            if (i < header_elem.length) {
                 header_elem[i].classList.remove('trans_right');
-            i++
+            i++}
+			else (clearInterval(interval))
         }, 300)
     }
 
@@ -320,12 +321,14 @@ var aspect_ratio = 1280/900;
 
     function createRedLine() {
         var title = document.querySelectorAll('.performed_works .main_h, .review .main_h, .team .main_h');
+		
+		if (title.length > 2) {
         for (var i = 0; i < title.length; i++) {
             var elem = document.createElement('div')
             var line = title[i].appendChild(elem);
             line.classList.add('thin_red_line');
         }
-    }
+    }}
 
     createRedLine();
 

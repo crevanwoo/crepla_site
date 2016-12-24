@@ -6,6 +6,9 @@
 		/*  Show red line below titles when page scrolling */
 
 		function showRedLine() {
+			 var title = document.querySelectorAll('.performed_works .main_h, .review .main_h, .team .main_h');
+		
+		if (title.length > 2) {
 			if (window.pageYOffset > (calcPageHeight() - document.getElementsByTagName('footer')[0].offsetHeight) - (document.querySelector('section.team').offsetHeight * 2)) {
 				document.querySelector('section.team .main_h .thin_red_line').style.width = "100rem";
 			} else if (window.pageYOffset >
@@ -13,11 +16,11 @@
 				document.querySelector('section.review .main_h .thin_red_line').style.width = "100rem";
 			} else if (window.pageYOffset > (document.querySelector('.slide_content_wrapper').offsetHeight + (document.querySelector('.work_directions').offsetHeight / 2))) {
 				document.querySelector('section.performed_works .main_h .thin_red_line').style.width = "100rem";
-			}
+			}}
 		}
 
-
-		window.addEventListener('scroll', showRedLine)
+if ($('section.works_direction')) {
+		window.addEventListener('scroll', showRedLine)}
 
 
 
