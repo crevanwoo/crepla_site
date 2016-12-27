@@ -26,16 +26,16 @@ html {
 }
 
 body {
+    font-size: 0px;
     height: 100%;
-    &.hidden {     
-        position: fixed; 
-        left: 0; 
+    &.hidden {
+        position: fixed;
+        left: 0;
     }
     @include bp(900) {
         overflow: auto;
         position: fixed;
     }
-
 }
 
 .main_wrapper {
@@ -359,3 +359,4 @@ label.upload {
         }
     }
 }
+
