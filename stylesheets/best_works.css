@@ -171,6 +171,75 @@ header .wrapper nav ul li, header .wrapper nav .logo, header .wrapper .contacts 
     transform: translate(8%, 327rem); }
   100% {
     transform: translate(6%, 370rem); } }
+@keyframes orbit7 {
+  0% {
+    transform: translate(30%, 10vh); }
+  10% {
+    transform: translate(32%, 16vh); }
+  20% {
+    transform: translate(34%, 22vh); }
+  30% {
+    transform: translate(32%, 28vh); }
+  40% {
+    transform: translate(30%, 34vh); }
+  50% {
+    transform: translate(28%, 40vh); }
+  60% {
+    transform: translate(26%, 46vh); }
+  70% {
+    transform: translate(24%, 52vh); }
+  80% {
+    transform: translate(22%, 58vh); }
+  90% {
+    transform: translate(20%, 64vh); }
+  100% {
+    transform: translate(18%, 70vh); } }
+@keyframes orbit8 {
+  100% {
+    transform: translate(20%, 70rem); }
+  90% {
+    transform: translate(21%, 100rem); }
+  80% {
+    transform: translate(20%, 130rem); }
+  70% {
+    transform: translate(19%, 160rem); }
+  60% {
+    transform: translate(18%, 190rem); }
+  50% {
+    transform: translate(17%, 220rem); }
+  40% {
+    transform: translate(16%, 250rem); }
+  30% {
+    transform: translate(15%, 280rem); }
+  20% {
+    transform: translate(14%, 310rem); }
+  10% {
+    transform: translate(13%, 340rem); }
+  0% {
+    transform: translate(12%, 370rem); } }
+@keyframes orbit9 {
+  0% {
+    transform: translate(10%, -60rem); }
+  10% {
+    transform: translate(12%, -17rem); }
+  20% {
+    transform: translate(14%, 26rem); }
+  30% {
+    transform: translate(16%, 69rem); }
+  40% {
+    transform: translate(18%, 112rem); }
+  50% {
+    transform: translate(16%, 155rem); }
+  60% {
+    transform: translate(14%, 198rem); }
+  70% {
+    transform: translate(12%, 241rem); }
+  80% {
+    transform: translate(10%, 284rem); }
+  90% {
+    transform: translate(8%, 327rem); }
+  100% {
+    transform: translate(6%, 370rem); } }
 @keyframes hvr-buzz-out {
   10% {
     -webkit-transform: translateX(3rem) rotate(2deg);

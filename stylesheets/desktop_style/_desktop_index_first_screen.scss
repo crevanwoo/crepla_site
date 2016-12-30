@@ -136,6 +136,10 @@
 						@include bp(800) {
 							animation-name: orbit4;
 						}
+                        @include bp(900) {
+                            animation-duration: 25s;
+							animation-name: orbit7;
+						}
 					}
 					&.item2 {
 						animation-name: orbit2;
@@ -143,12 +147,20 @@
 						@include bp(800) {
 							animation-name: orbit5;
 						}
+                        @include bp(900) {
+                            animation-duration: 18s;
+							animation-name: orbit7;
+						}
 					}
 					&.item3 {
 						animation-name: orbit3;
 						animation-duration: 15s;
 						@include bp(800) {
 							animation-name: orbit6;
+						}
+                        @include bp(900) {
+                            animation-duration: 30s;
+							animation-name: orbit7;
 						}
 					}
 				}
