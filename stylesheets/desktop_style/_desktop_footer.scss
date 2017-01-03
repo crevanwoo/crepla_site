@@ -1,4 +1,5 @@
 footer {
+    overflow:hidden;
 	position: fixed;
 	left: 0;
 	right: 0;
@@ -13,7 +14,7 @@ footer {
 		repeat: no-repeat;
 	}
 	color: white;
-	z-index:2;
+	z-index:10;
 	box-shadow: 0 3rem 20rem 6rem black;
 	transition: 0.5s;
 	&.marketing_landing_page {

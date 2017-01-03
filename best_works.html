@@ -2,32 +2,55 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="format-detection" content="telephone=no">
-	<title></title>
-	<link rel="stylesheet" href="stylesheets/best_works.css">
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+    <link rel="stylesheet" href="stylesheets/best_works.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
 
-	<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script defer src="js/device.min.js"></script>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script defer src="js/device.min.js"></script>
 
-	<script defer src="js/script_details.js"></script>
-
-
-
+    <script defer src="js/script_details.js"></script>
 
 
 
-	<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
 
 
 
-	<script defer type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    <script defer type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 
     <script defer src="js/modal_window.js"></script>
-	<script defer src="js/best_works.js"></script>
-	<script defer src="js/smooth_scrolling.js"></script>
+    <script defer src="js/best_works.js"></script>    
+    
+    
+ 
+
+
+
+
+
+    <script defer src="js/slider_common.js"></script>
+
+
+    <script defer src="js/modal_window.js"></script>
+
+
+    <script defer src="js/slider_pagination.js"></script>
+    <script defer src="js/slider_simple.js"></script>
+    <script defer src="js/slider_carousel.js"></script>
+
+    <script defer src="js/separated_screens.js"></script>
+    <script defer src="js/slide_animation.js"></script>
+    <script defer src="js/custom_scroll.js"></script>
+
+
+
+    <script defer src="js/smooth_scrolling_ver2.0.js"></script>
+    <script defer src="js/thin_screen_effects.js"></script>
+    
 
 
 </head>
@@ -35,328 +58,327 @@
 <body>
 
 
-	<!-- modal order begins -->
-	<div class="modal" id="modal_order">
-
-		<div class="bg_modal_trans"></div>
-		<div class="bg_modal_top">
-			<div class="bg_modal_bottom"></div>
-			<div class="modal_content">
-				<h1 class="modal_main_h">Оставьте заявку</h1>
-				<p>Для получения консультации и обсуждения проекта</p>
-				<div class="close"></div>
-				<form action="">
-					<div>
-						<label for="">Ваше имя:
-							<input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
-						</label>
-						<label for="">Ваш email:
-							<input type="email" placeholder="Ваш email:" required>
-						</label>
-						<label for="">Ваш телефон:
-							<input type="text" placeholder="Ваш телефон:" id="tel_modal">
-						</label>
-						<span class="tel_comment">* заполните это поле, если вы пользуетесь WhatsApp, Viber или Telegram</span>
-					</div>
-					<div>
-						<label for="">Ваше сообщение:
-							<textarea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение:"></textarea>
-						</label>
-						<h3 class="chkbox_h">Выберите тему обращение (необязательно)</h3>
-						<input id="chkbox_design" type="checkbox">
-						<label for="chkbox_design" class="chkbox_label">Дизайн сайтов</label>
-						<input type="checkbox" id="chkbox_develop">
-						<label for="chkbox_develop" class="chkbox_label">Разработка сайтов</label>
-						<input type="checkbox" id="chkbox_mob_apps">
-						<label for="chkbox_mob_apps" class="chkbox_label">Мобильные приложения</label>
-					</div>
-					<button type="submit">отправить заявку</button>
-					<input type="hidden" id="takes_used_button" value="">
-				</form>
-			</div>
-		</div>
-
-	</div>
-	<!-- modal order ends -->
-
-
-
-
-<div class="main_wrapper">
-
-	<!-- header begins -->
-	<header>
-		<div class="header_bg"></div>
-		<div class="wrapper">
-
-			<nav>
-				<a href="" id="logo_btn" class="logo"></a>
-				<ul>
-					<li id="works_btn"><a href="#">Наши работы</a></li>
-					<li id="offers_btn"><a href="#">Услуги</a></li>
-					<li id="cont_btn"><a href="#">Контакты</a></li>
-				</ul>
-			</nav>
-			<div class="contacts">
-				<div class="tel">
-					<span>&#9660;</span>
-					<div class="tel_num">+38 (095) 711-24-32
-						<div class="tel_comment">WhatsApp, Viber, Telegram</div>
-					</div>
-					<div class="tel_num" hidden>+38 (095) 711-24-32
-						<div class="tel_comment">free for USA</div>
-					</div>
-					<div class="tel_num" hidden>creplacom
-						<div class="tel_comment">Skype</div>
-					</div>
+    <!-- modal order begins -->
+    <div class="modal" id="modal_order">
+
+        <div class="bg_modal_trans"></div>
+        <div class="bg_modal_top">
+            <div class="bg_modal_bottom"></div>
+            <div class="modal_content">
+                <h1 class="modal_main_h">Оставьте заявку</h1>
+                <p>Для получения консультации и обсуждения проекта</p>
+                <div class="close"></div>
+                <form action="">
+                    <div>
+                        <label for="">Ваше имя:
+                            <input type="text" placeholder="Ваше имя:" required pattern="^[A-Za-zА-Яа-яЁё\s]{1,50}" title="допускаются буквы русского и латинского алфавита">
+                        </label>
+                        <label for="">Ваш email:
+                            <input type="email" placeholder="Ваш email:" required>
+                        </label>
+                        <label for="">Ваш телефон:
+                            <input type="text" placeholder="Ваш телефон:" id="tel_modal">
+                        </label>
+                        <span class="tel_comment">* заполните это поле, если вы пользуетесь WhatsApp, Viber или Telegram</span>
+                    </div>
+                    <div>
+                        <label for="">Ваше сообщение:
+                            <textarea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение:"></textarea>
+                        </label>
+                        <h3 class="chkbox_h">Выберите тему обращение (необязательно)</h3>
+                        <input id="chkbox_design" type="checkbox">
+                        <label for="chkbox_design" class="chkbox_label">Дизайн сайтов</label>
+                        <input type="checkbox" id="chkbox_develop">
+                        <label for="chkbox_develop" class="chkbox_label">Разработка сайтов</label>
+                        <input type="checkbox" id="chkbox_mob_apps">
+                        <label for="chkbox_mob_apps" class="chkbox_label">Мобильные приложения</label>
+                    </div>
+                    <button type="submit">отправить заявку</button>
+                    <input type="hidden" id="takes_used_button" value="">
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!-- modal order ends -->
+
+
+
+
+    <div class="main_wrapper">
+
+        <!-- header begins -->
+        <header>
+            <div class="header_bg"></div>
+            <div class="wrapper">
+
+                <nav>
+                    <a href="" id="logo_btn" class="logo"></a>
+                    <ul>
+                        <li id="works_btn"><a href="#">Наши работы</a></li>
+                        <li id="offers_btn"><a href="#">Услуги</a></li>
+                        <li id="cont_btn"><a href="#">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="contacts">
+                    <div class="tel">
+                        <span>&#9660;</span>
+                        <div class="tel_num">+38 (095) 711-24-32
+                            <div class="tel_comment">WhatsApp, Viber, Telegram</div>
+                        </div>
+                        <div class="tel_num" hidden>+38 (095) 711-24-32
+                            <div class="tel_comment">free for USA</div>
+                        </div>
+                        <div class="tel_num" hidden>creplacom
+                            <div class="tel_comment">Skype</div>
+                        </div>
 
 
-				</div>
-
-
-				<div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="top_nav">оставить заявку</div>
-				<div class="lang_btn">
-					<div class="arrow"></div>
-					<div class="lang">rus</div>
-					<a href="">
-						<div class="lang" hidden>rus</div>
-					</a>
-					<a href="">
-						<div class="lang" hidden>rus</div>
-					</a>
-					<a href="">
-						<div class="lang" hidden>rus</div>
-					</a>
+                    </div>
 
-				</div>
-			</div>
-		</div>
-	</header>
 
-	<!-- header ends -->
+                    <div class="submit_app_btn" data-modal-id="modal_order" data-trigger-ident="top_nav">оставить заявку</div>
+                    <div class="lang_btn">
+                        <div class="arrow"></div>
+                        <div class="lang">rus</div>
+                        <a href="">
+                            <div class="lang" hidden>rus</div>
+                        </a>
+                        <a href="">
+                            <div class="lang" hidden>rus</div>
+                        </a>
+                        <a href="">
+                            <div class="lang" hidden>rus</div>
+                        </a>
 
+                    </div>
+                </div>
+            </div>
+        </header>
 
-	<section class="single_work active best_works_screen">
-		<div class="single_work_bg_img"><img src="images/b_w_bg_1.jpg" alt=""></div>
-		<div class="single_work_bg"></div>
+        <!-- header ends -->
 
 
-		<div class="wrapper">
+        <section class="single_work active best_works_screen">
+            <div class="single_work_bg_img"><img src="images/b_w_bg_1.jpg" alt=""></div>
+            <div class="single_work_bg"></div>
 
 
-			<div class="single_work_description red">
-				<h1 class="single_work_title">perfect site</h1>
-				<p class="single_work_comment"></p>
-				<ul class="single_work_text">
-					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-					<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-				</ul>
+            <div class="wrapper">
 
-				<div class="single_work_link"><a href="">Посмотреть проект</a></div>
 
+                <div class="single_work_description red">
+                    <h1 class="single_work_title">perfect site</h1>
+                    <p class="single_work_comment"></p>
+                    <ul class="single_work_text">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    </ul>
 
+                    <div class="single_work_link"><a href="">Посмотреть проект</a></div>
 
-			</div>
 
-			<div class="single_work_picture">
-				<div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-				<div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-			</div>
-		</div>
 
+                </div>
 
+                <div class="single_work_picture">
+                    <div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                    <div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                </div>
+            </div>
 
-	</section>
-	
-	<section class="single_work best_works_screen">
-		<div class="single_work_bg_img"><img src="images/b_w_bg_2.jpg" alt=""></div>
-		<div class="single_work_bg"></div>
 
 
-		<div class="wrapper">
+        </section>
 
+        <section class="single_work best_works_screen">
+            <div class="single_work_bg_img"><img src="images/b_w_bg_2.jpg" alt=""></div>
+            <div class="single_work_bg"></div>
 
-			<div class="single_work_description red">
-				<h1 class="single_work_title">perfect site</h1>
-				<p class="single_work_comment"></p>
-				<ul class="single_work_text">
-					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-					<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-				</ul>
 
-				<div class="single_work_link"><a href="">Посмотреть проект</a></div>
+            <div class="wrapper">
 
 
+                <div class="single_work_description red">
+                    <h1 class="single_work_title">perfect site</h1>
+                    <p class="single_work_comment"></p>
+                    <ul class="single_work_text">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    </ul>
 
-			</div>
+                    <div class="single_work_link"><a href="">Посмотреть проект</a></div>
 
-			<div class="single_work_picture">
-				<div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-				<div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-			</div>
-		</div>
 
 
+                </div>
 
-	</section>
-	
-	
-	<section class="single_work best_works_screen">
-		<div class="single_work_bg_img"><img src="images/b_w_bg_3.jpg" alt=""></div>
-		<div class="single_work_bg"></div>
+                <div class="single_work_picture">
+                    <div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                    <div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                </div>
+            </div>
 
 
-		<div class="wrapper">
 
+        </section>
 
-			<div class="single_work_description red">
-				<h1 class="single_work_title">perfect site</h1>
-				<p class="single_work_comment"></p>
-				<ul class="single_work_text">
-					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-					<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-				</ul>
 
-				<div class="single_work_link"><a href="">Посмотреть проект</a></div>
+        <section class="single_work best_works_screen">
+            <div class="single_work_bg_img"><img src="images/b_w_bg_3.jpg" alt=""></div>
+            <div class="single_work_bg"></div>
 
 
+            <div class="wrapper">
 
-			</div>
 
-			<div class="single_work_picture">
-				<div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-				<div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-			</div>
-		</div>
+                <div class="single_work_description red">
+                    <h1 class="single_work_title">perfect site</h1>
+                    <p class="single_work_comment"></p>
+                    <ul class="single_work_text">
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    </ul>
 
+                    <div class="single_work_link"><a href="">Посмотреть проект</a></div>
 
 
-	</section>
-	
-	
 
-	
-	
-	
+                </div>
 
-	
+                <div class="single_work_picture">
+                    <div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                    <div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                </div>
+            </div>
 
 
 
-<section class="best_works_screen">
-	<div class="best_works_footer">
-		<div class="wrapper">
-			<div class="other_works">
-				
-				<!-- single work begins -->
-				<div class="single_work">
+        </section>
 
-					<div class="single_work_picture">
-						<div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-						<div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-					</div>
-					<div class="single_work_hover">
-						<div class="single_work_title blue">super site</div>
-						<p class="single_work_comment">Landing page</p>
-						<div class="single_work_link"><a href="">view project</a></div>
-						
-					</div>
 
-				</div>
 
-				<!-- single work ends -->
 
 
-				<!-- single work begins -->
-				<div class="single_work">
 
-					<div class="single_work_picture">
-						<div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-						<div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-					</div>
-					<div class="single_work_hover">
-						<div class="single_work_title blue">super site</div>
-						<p class="single_work_comment">Landing page</p>
-						<div class="single_work_link"><a href="">view project</a></div>
 
-					</div>
 
-				</div>
 
-				<!-- single work ends -->
-				
-					
-				<!-- single work begins -->
-				<div class="single_work">
 
-					<div class="single_work_picture">
-						<div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-						<div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-					</div>
-					<div class="single_work_hover">
-						<div class="single_work_title blue">super site</div>
-						<p class="single_work_comment">Landing page</p>
-						<div class="single_work_link"><a href="">view project</a></div>
-						
-					</div>
+        <section class="best_works_screen">
+            <div class="best_works_footer">
+                <div class="wrapper">
+                    <div class="other_works">
 
-				</div>
+                        <!-- single work begins -->
+                        <div class="single_work">
 
-				<!-- single work ends -->
-				
-				
-					
-				<!-- single work begins -->
-				<div class="single_work">
+                            <div class="single_work_picture">
+                                <div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                                <div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                            </div>
+                            <div class="single_work_hover">
+                                <div class="single_work_title blue">super site</div>
+                                <p class="single_work_comment">Landing page</p>
+                                <div class="single_work_link"><a href="">view project</a></div>
 
-					<div class="single_work_picture">
-						<div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-						<div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
-					</div>
-					<div class="single_work_hover">
-						<div class="single_work_title blue">super site</div>
-						<p class="single_work_comment">Landing page</p>
-						<div class="single_work_link"><a href="">view project</a></div>
-						
-					</div>
+                            </div>
 
-				</div>
+                        </div>
 
-				<!-- single work ends -->
+                        <!-- single work ends -->
 
 
+                        <!-- single work begins -->
+                        <div class="single_work">
 
+                            <div class="single_work_picture">
+                                <div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                                <div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                            </div>
+                            <div class="single_work_hover">
+                                <div class="single_work_title blue">super site</div>
+                                <p class="single_work_comment">Landing page</p>
+                                <div class="single_work_link"><a href="">view project</a></div>
 
+                            </div>
 
+                        </div>
 
-			</div>
-		</div>
+                        <!-- single work ends -->
 
-	</div>
-	</section>
 
+                        <!-- single work begins -->
+                        <div class="single_work">
 
+                            <div class="single_work_picture">
+                                <div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                                <div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                            </div>
+                            <div class="single_work_hover">
+                                <div class="single_work_title blue">super site</div>
+                                <p class="single_work_comment">Landing page</p>
+                                <div class="single_work_link"><a href="">view project</a></div>
 
+                            </div>
 
-	<div class="best_works_pagination">
-	
-	
-		<div class="arrow_top"></div>
-		<div class="arrow_bottom"></div>
+                        </div>
 
-		<ul>
-			
-		</ul>
+                        <!-- single work ends -->
 
 
-	</div>
-	
-	
-	
-	
+
+                        <!-- single work begins -->
+                        <div class="single_work">
+
+                            <div class="single_work_picture">
+                                <div class="left_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                                <div class="right_image"><img src="images/portfolio/sample_1.jpg" alt=""></div>
+                            </div>
+                            <div class="single_work_hover">
+                                <div class="single_work_title blue">super site</div>
+                                <p class="single_work_comment">Landing page</p>
+                                <div class="single_work_link"><a href="">view project</a></div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- single work ends -->
+
+
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+        <div class="best_works_pagination">
+
+
+            <div class="arrow_top"></div>
+            <div class="arrow_bottom"></div>
+
+            <ul>
+
+            </ul>
+
+
+        </div>
+
+
+
+
         <!-- footer begins -->
         <footer>
-            <div class="invisible_scroll"></div>
+            <div class="invisible_scroll" id="contacts"></div>
             <div class="wrapper">
                 <div class="footer_close">&#x2716;</div>
                 <div class="contacts">
@@ -408,7 +430,7 @@
         <!-- footer ends -->
 
 
-</div>
+    </div>
 
 
 

@@ -85,6 +85,14 @@ section.single_work {
         filter: blur(6px);
         transform: scale(1.1);
         opacity: 0;
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.4;
+        }
     }
     .wrapper {
         position: relative;

@@ -26,7 +26,6 @@ html {
 
 body {
     overflow: hidden;
- 
     &.hidden {
         //overflow: hidden //old scrolling
         position: fixed; //new scrolling
@@ -38,9 +37,11 @@ body {
     @include bp(800) {
         overflow: auto;
     }
-       @include bp(900) {
-        overflow: auto;
-        position: fixed;
+    &.fix_for_safari {
+        @include bp(900) {
+            overflow: auto;
+            position: fixed;
+        }
     }
 }
 
@@ -53,7 +54,7 @@ body {
 }
 
 .wrapper {
-    width: 1200rem;
+    width: 1200rem;  
     margin: auto;
     padding-right: $m_abs *2;
     padding-left: $m_abs *2;
@@ -322,6 +323,7 @@ label.upload {
     transition: 0.5s;
     opacity: 1;
     @include bp(800) {
+        display: none;
         top: 30%;
         transform: translateX(-15rem);
         z-index: 2;

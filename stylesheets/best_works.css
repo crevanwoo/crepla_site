@@ -319,17 +319,15 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
-  background-color: #f0f0f0;
+  background-color: black;
   font-family: GothamProRegular, sans-serif;
   color: #333333;
   /**/
-  height: 100%;
-  overflow: hidden; }
+  height: 100%; }
   @media screen and (max-aspect-ratio: 1280 / 900) {
     html,
     body {
-      height: auto;
-      overflow: auto; } }
+      height: auto; } }
 
 html {
   font-size: 0.14vh; }
@@ -341,13 +339,17 @@ html {
       font-size: 0.8px; } }
 
 body {
+  overflow: hidden;
   font-size: 0px;
   height: 100%; }
   body.hidden {
     position: fixed;
     left: 0; }
-  @media screen and (min-aspect-ratio: 1280 / 900) and (max-aspect-ratio: 1221 / 696) {
+  @media screen and (max-aspect-ratio: 1280 / 900) {
     body {
+      overflow: auto; } }
+  @media screen and (min-aspect-ratio: 1280 / 900) and (max-aspect-ratio: 1221 / 696) {
+    body.fix_for_safari {
       overflow: auto;
       position: fixed; } }
 
@@ -520,18 +522,6 @@ div.prewproject:hover {
 label.upload > * {
   cursor: pointer; }
 
-.thin_red_line {
-  width: 0;
-  height: 2rem;
-  margin: auto;
-  display: block;
-  position: absolute;
-  top: 40rem;
-  left: 0;
-  right: 0;
-  background-color: #f15151;
-  transition-duration: 1s; }
-
 .scroll_container_wrapper {
   box-sizing: border-box;
   position: relative;
@@ -570,44 +560,6 @@ label.upload > * {
   .scroll_container_wrapper .scroll_runner {
     /*scroll speed*/
     transition: 0.5s; }
-
-.scroll_mouse {
-  position: fixed;
-  top: 50%;
-  right: 0;
-  z-index: 1;
-  transform: translateX(-70rem);
-  transition: 0.5s;
-  opacity: 1; }
-  .scroll_mouse.active > div {
-    border: 2rem solid #200772; }
-    .scroll_mouse.active > div > div {
-      background-color: #200772; }
-  .scroll_mouse.active > p {
-    color: #200772; }
-  .scroll_mouse.remove {
-    opacity: 0; }
-  .scroll_mouse > div {
-    width: 16rem;
-    height: 32rem;
-    margin: auto;
-    padding-top: 4rem;
-    border: 2rem solid white;
-    border-radius: 10rem; }
-    .scroll_mouse > div > div {
-      width: 4rem;
-      height: 8rem;
-      margin: auto;
-      box-sizing: border-box;
-      background-color: white;
-      border-radius: 10rem;
-      animation-name: scroll_down;
-      animation-iteration-count: infinite;
-      animation-duration: 2s;
-      animation-timing-function: linear; }
-  .scroll_mouse > p {
-    padding-top: 17rem;
-    text-align: center; }
 
 header {
   height: 90rem;
@@ -825,6 +777,13 @@ section.single_work {
     filter: blur(6px);
     transform: scale(1.1);
     opacity: 0; }
+    section.single_work div.single_work_bg:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0.4; }
   section.single_work .wrapper {
     position: relative;
     padding-top: 150rem; }
@@ -1096,7 +1055,8 @@ header .wrapper .contacts .lang_btn {
     background-position: bottom left;
     background-repeat: no-repeat; }
   .modal .modal_content {
-    width: 800px;
+    width: 80%;
+    max-width: 800px;
     height: 460px;
     margin: auto;
     position: absolute;
@@ -1194,7 +1154,10 @@ header .wrapper .contacts .lang_btn {
       text-transform: uppercase; }
     .modal .modal_content label {
       font-family: GothamProMedium, sans-serif;
-      font-size: 14rem; }
+      font-size: 14px; }
+      @media screen and (max-aspect-ratio: 1280 / 900) {
+        .modal .modal_content label {
+          font-size: 14rem; } }
       .modal .modal_content label + span {
         display: inline-block;
         padding-left: 5px;
@@ -1379,6 +1342,7 @@ header .wrapper .contacts .lang_btn {
         z-index: 3; }
 
 footer {
+  overflow: hidden;
   position: fixed;
   left: 0;
   right: 0;
@@ -1391,7 +1355,7 @@ footer {
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
-  z-index: 2;
+  z-index: 10;
   box-shadow: 0 3rem 20rem 6rem black;
   transition: 0.5s; }
   footer.marketing_landing_page {

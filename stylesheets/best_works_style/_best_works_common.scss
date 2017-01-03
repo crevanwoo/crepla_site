@@ -3,15 +3,13 @@ body {
     width: 100%;
     padding: 0;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: black;
     font-family: $f_regular;
     color: $black;
     /**/
     height: 100%;
-    overflow: hidden;
     @include bp(800) {
         height: auto;
-        overflow: auto;
     }
 }
 
@@ -26,15 +24,21 @@ html {
 }
 
 body {
+    overflow: hidden;
     font-size: 0px;
     height: 100%;
     &.hidden {
         position: fixed;
         left: 0;
     }
-    @include bp(900) {
+    @include bp(800) {
         overflow: auto;
-        position: fixed;
+    }
+    &.fix_for_safari {
+        @include bp(900) {
+            overflow: auto;
+            position: fixed;
+        }
     }
 }
 
@@ -246,19 +250,6 @@ label.upload {
     }
 }
 
-.thin_red_line {
-    // width: 100rem;
-    width: 0;
-    height: 2rem;
-    margin: auto;
-    display: block;
-    position: absolute;
-    top: 40rem;
-    left: 0;
-    right: 0;
-    background-color: $soft_red;
-    transition-duration: 1s;
-}
 
 .scroll_container_wrapper {
     box-sizing: border-box;
@@ -303,60 +294,3 @@ label.upload {
         transition: 0.5s;
     }
 }
-
-.scroll_mouse {
-    $dark_color: #200772;
-    // position: absolute;
-    position: fixed;
-    top: 50%;
-    right: 0;
-    z-index: 1;
-    transform: translateX(-70rem);
-    transition: 0.5s;
-    opacity: 1;
-    @include bp(1500) {
-        transform: translateX(-15rem);
-    }
-    &.active {
-        >div {
-            border: 2rem solid $dark_color;
-            >div {
-                background-color: $dark_color;
-            }
-        }
-        >p {
-            color: $dark_color
-        }
-    }
-    &.remove {
-        opacity: 0;
-    }
-    >div {
-        width: 16rem;
-        height: 32rem;
-        margin: auto;
-        padding-top: 4rem;
-        border: 2rem solid white;
-        border-radius: 10rem;
-        >div {
-            width: 4rem;
-            height: 8rem;
-            margin: auto;
-            box-sizing: border-box;
-            background-color: white;
-            border-radius: 10rem;
-            animation-name: scroll_down;
-            animation-iteration-count: infinite;
-            animation-duration: 2s;
-            animation-timing-function: linear;
-        }
-    }
-    >p {
-        padding-top: 17rem;
-        text-align: center;
-        @include bp(1500) {
-            //display: none
-        }
-    }
-}
-

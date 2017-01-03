@@ -612,7 +612,8 @@ label.upload > * {
     background-position: bottom left;
     background-repeat: no-repeat; }
   .modal .modal_content {
-    width: 800px;
+    width: 80%;
+    max-width: 800px;
     height: 460px;
     margin: auto;
     position: absolute;
@@ -710,7 +711,10 @@ label.upload > * {
       text-transform: uppercase; }
     .modal .modal_content label {
       font-family: GothamProMedium, sans-serif;
-      font-size: 14rem; }
+      font-size: 14px; }
+      @media screen and (max-aspect-ratio: 1280 / 900) {
+        .modal .modal_content label {
+          font-size: 14rem; } }
       .modal .modal_content label + span {
         display: inline-block;
         padding-left: 5px;
@@ -1034,6 +1038,7 @@ header {
             transform: rotate(225deg); }
 
 .performed_works {
+  overflow: hidden;
   padding-top: 120rem;
   padding-bottom: 30rem;
   position: relative;
@@ -1505,7 +1510,8 @@ section.work_top_part {
 
 section.work_content {
   padding-top: 35rem;
-  padding-bottom: 55rem; }
+  padding-bottom: 55rem;
+  overflow: hidden; }
   section.work_content .main_h {
     padding-bottom: 20rem;
     font-size: 20rem;
@@ -1533,6 +1539,7 @@ section.work_content {
         display: block; }
 
 footer {
+  overflow: hidden;
   position: fixed;
   left: 0;
   right: 0;
@@ -1545,7 +1552,7 @@ footer {
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
-  z-index: 2;
+  z-index: 10;
   box-shadow: 0 3rem 20rem 6rem black;
   transition: 0.5s; }
   footer.marketing_landing_page {

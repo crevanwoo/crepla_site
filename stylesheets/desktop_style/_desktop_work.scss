@@ -112,6 +112,7 @@ section.work_content {
     @extend %clear;
     padding-top: 35rem;
     padding-bottom: 55rem;
+    overflow: hidden;
     .main_h {
         padding-bottom: 20rem;
         font-size: $f_20;
