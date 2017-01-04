@@ -1,5 +1,5 @@
 .performed_works {
-    overflow:hidden;
+    overflow: hidden;
     padding-top: 120rem;
     padding-bottom: 30rem;
     position: relative;
@@ -201,7 +201,6 @@
             right: $right_offset*2;
             @include bp(900) {
                 right: 100rem;
-                
             }
             @extend %dynamic_cube;
             background-color: green;
@@ -222,7 +221,6 @@
             right: $right_offset*2.5;
             @include bp(900) {
                 right: 160rem;
-                
             }
             @extend %dynamic_cube;
             background-color: yellow;
@@ -269,7 +267,7 @@
             .hover_logo {
                 z-index: -1;
             }
-            .active + .hover_logo {
+            .active+.hover_logo {
                 z-index: 1;
             }
             >div:nth-of-type(1),
@@ -454,13 +452,49 @@
         bottom: 0;
         opacity: 0;
         transition-duration: 0.5s;
+        background-image: url(../images/fon.jpg);
+        background-position: center;
+        background-size: cover;
         &.active {
             opacity: 1;
         }
         img {
-            display: block;
+            //display: block;
+            display: none;
             width: 100%;
             height: auto;
+        }
+    }
+    .works_arrows_wrapper {
+        position: absolute;
+        width: 40rem;
+        height: 100rem;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        left: 30rem;
+        >div {
+            position: absolute;
+            width: 40rem;
+            height: 40rem;
+            background-image: url(../images/double_arrow.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            border-radius: 2rem;
+            transition-duration: 0.5s;
+            background-color: rgba(0, 0, 0, 0);
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+        }
+        .up_arrow {
+            top: 0;
+            transform: rotate(-90deg)
+        }
+        .down_arrow {
+            bottom: 0;
+            transform: rotate(90deg)
         }
     }
 }

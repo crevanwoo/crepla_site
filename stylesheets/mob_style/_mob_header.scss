@@ -21,11 +21,16 @@ header {
             text-align: center;
             font-size: 8rem;
             color: #ffffff;
-            >div {
+            /*new*/
+            background-origin: content-box;
+            background-image: url(../images/mob/hamburger.png);
+            background-position: center;
+            background-size: contain;
+            /*>div {
                 height: 1.5rem;
                 background-color: white;
                 margin-bottom: 2rem;
-            }
+            }*/
             &.active {
                 background-color: $dark_blue;
             }
@@ -65,7 +70,7 @@ header {
         margin-left: 10%;
         display: block;
         border: none;
-        background-image: url(../images/logo_mob.png);
+        background-image: url(../images/mob/logo_mob.png);
         background-size: contain;
         background-position: center center;
     }

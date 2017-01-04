@@ -741,21 +741,19 @@ section.single_work .wrapper .single_work_description .single_work_comment, .bes
   padding-bottom: 0; }
 
 section.single_work {
-  /* for dle 
-  b {
-      display: none;
-  }
-  ul li {
-      font-size: 16rem;
-      display: list-item;
-      line-height: 1.4;
-      padding-bottom: 15rem;
-  }*/
+  /* for dle */
   position: absolute;
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
   overflow: hidden; }
+  section.single_work b {
+    display: none; }
+  section.single_work ul li {
+    font-size: 16rem;
+    display: list-item;
+    line-height: 1.4;
+    padding-bottom: 15rem; }
   @media screen and (max-aspect-ratio: 1280 / 900) {
     section.single_work {
       position: relative;

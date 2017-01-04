@@ -2,7 +2,7 @@ section.work_directions {
     position: relative;
     padding-bottom: $padding;
     background: {
-        image: url(../images/mob_bg_services.jpg);
+        image: url(../images/mob/mob_bg_services.jpg);
         size: cover;
         position: center left;
     }
@@ -79,7 +79,7 @@ section.work_directions {
             right: 14%;
             top: 15rem;
             background: {
-                image: url(../images/red_triangle.png);
+                image: url(../images/mob/red_triangle.png);
                 size: contain;
                 position: right center;
             }

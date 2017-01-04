@@ -197,7 +197,7 @@ button {
     height: 100%;
     min-height: 230rem;
     position: absolute;
-    background-image: url(../images/mob_bg_modal.jpg);
+    background-image: url(../images/mob/mob_bg_modal.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -371,7 +371,7 @@ button {
           position: absolute;
           top: 2.5rem;
           right: 2rem;
-          background-image: url(../images/attach.png);
+          background-image: url(../images/mob/attach.png);
           background-size: contain;
           background-position: center center;
           background-repeat: no-repeat; }
@@ -409,11 +409,17 @@ header {
       box-sizing: border-box;
       text-align: center;
       font-size: 8rem;
-      color: #ffffff; }
-      header nav .toggle_btn > div {
-        height: 1.5rem;
-        background-color: white;
-        margin-bottom: 2rem; }
+      color: #ffffff;
+      /*new*/
+      background-origin: content-box;
+      background-image: url(../images/mob/hamburger.png);
+      background-position: center;
+      background-size: contain;
+      /*>div {
+          height: 1.5rem;
+          background-color: white;
+          margin-bottom: 2rem;
+      }*/ }
       header nav .toggle_btn.active {
         background-color: rgba(1, 11, 39, 0.9); }
     header nav ul {
@@ -447,7 +453,7 @@ header {
     margin-left: 10%;
     display: block;
     border: none;
-    background-image: url(../images/logo_mob.png);
+    background-image: url(../images/mob/logo_mob.png);
     background-size: contain;
     background-position: center center; }
 
@@ -561,7 +567,7 @@ section.performed_works {
 section.work_directions {
   position: relative;
   padding-bottom: 5rem;
-  background-image: url(../images/mob_bg_services.jpg);
+  background-image: url(../images/mob/mob_bg_services.jpg);
   background-size: cover;
   background-position: center left;
   color: white;
@@ -622,7 +628,7 @@ section.work_directions {
       padding-right: 3rem;
       right: 14%;
       top: 15rem;
-      background-image: url(../images/red_triangle.png);
+      background-image: url(../images/mob/red_triangle.png);
       background-size: contain;
       background-position: right center;
       line-height: 5rem;
@@ -630,7 +636,7 @@ section.work_directions {
 
 section.site_ordering {
   padding-bottom: 5rem;
-  background-image: url(../images/mob_bg_order_website.jpg);
+  background-image: url(../images/mob/mob_bg_order_website.jpg);
   background-position: bottom right;
   background-size: cover;
   text-align: center;
@@ -702,7 +708,7 @@ section.work_part {
     font-size: 3rem; }
     section.work_part ul li {
       padding-bottom: 5rem;
-      list-style-image: url(../images/list_item.png);
+      list-style-image: url(../images/mob/list_item.png);
       text-align: left; }
   section.work_part a {
     display: inline-block; }
@@ -734,7 +740,7 @@ section.screens {
 footer {
   padding: 5rem;
   position: relative;
-  background-image: url(../images/mob_bg_footer.jpg);
+  background-image: url(../images/mob/mob_bg_footer.jpg);
   background-position: center bottom;
   background-size: cover;
   text-align: center;

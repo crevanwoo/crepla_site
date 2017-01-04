@@ -68,6 +68,7 @@ function showIndexPageSaparately() {
         }
 
         function displayOff(selector) {
+            console.log(selector);
             setTimeout(function () {
                 document.querySelector(selector).style.display = "none"
             }, GlobalVariables.transition_time)
@@ -97,8 +98,8 @@ function showIndexPageSaparately() {
 
         function removeAllClassesFromPortfolio() {
             var work = document.querySelectorAll('.single_work');
-            for (var i = 0; i < work.length; i++) {
-                displayOff(work[i])
+            for (var i = 1; i <= work.length; i++) {
+                displayOff('.single_work:nth-of-type(' + i + ')')
             }
 
             removeClass('.single_work:nth-of-type(1) >div:nth-of-type(1)', 'active');
@@ -124,203 +125,207 @@ function showIndexPageSaparately() {
 
             switch (GlobalVariables.screen_num) {
 
-            case 1:
-                if (direction == "down") {
-                    getFullScreen(screen_effect.scr2);
-                    showUnderlinePlanets();
-                    GlobalVariables.screen_num++;
-                }
-                break;
+                case 1:
+                    if (direction == "down") {
+                        getFullScreen(screen_effect.scr2);
+                        showUnderlinePlanets();
+                        GlobalVariables.screen_num++;
+                    }
+                    break;
 
-            case 2:
-                if (direction == "down") {
-                    addClass('.scroll_mouse', 'active');
-                    getFullScreen(screen_effect.scr3);
-                    displayOn('.single_work:nth-of-type(1)');
-                    displayOn('.single_work:nth-of-type(2)');
-                    displayOn('.single_work:nth-of-type(3)');
-                    displayOn('.single_work:nth-of-type(4)');
-                    setTimeout(function () {
-                        addClass('.single_work:nth-of-type(1) >div:nth-of-type(1)', 'active');
-                        addClass('.single_work:nth-of-type(1) >div:nth-of-type(2)', 'active');
+                case 2:
+                    if (direction == "down") {
+                        addClass('.scroll_mouse', 'active');
+                        getFullScreen(screen_effect.scr3);
+                        displayOn('.single_work:nth-of-type(1)');
+                        displayOn('.single_work:nth-of-type(2)');
+                        displayOn('.single_work:nth-of-type(3)');
+                        displayOn('.single_work:nth-of-type(4)');
+                        setTimeout(function () {
+                            addClass('.single_work:nth-of-type(1) >div:nth-of-type(1)', 'active');
+                            addClass('.single_work:nth-of-type(1) >div:nth-of-type(2)', 'active');
 
-                    }, GlobalVariables.transition_time);
-                    setTimeout(function () {
+                        }, GlobalVariables.transition_time);
+                        setTimeout(function () {
+                            $('.single_work:nth-of-type(1) .hover_logo').css('display', 'block');
+
+                        }, GlobalVariables.transition_time * 2);
+
+                        GlobalVariables.screen_num++;
+
+                    } else if (direction == "up") {
+                        getFullScreen(screen_effect.scr1);
+
+                        GlobalVariables.screen_num--;
+                    }
+                    break;
+
+                case 3:
+                    if (direction == "down") {
+
+                        addClass('.single_work:nth-of-type(2)', 'active');
+                        GlobalVariables.screen_num++;
+
+                    } else if (direction == "up") {
+
+                        removeClass('.scroll_mouse', 'active');
+                        removeClass('.single_work:nth-of-type(1) >div:nth-of-type(1)', 'active');
+                        removeClass('.single_work:nth-of-type(1) >div:nth-of-type(2)', 'active')
+                        displayOff('.single_work:nth-of-type(1)');
+                        displayOff('.single_work:nth-of-type(2)');
+                        displayOff('.single_work:nth-of-type(3)');
+                        displayOff('.single_work:nth-of-type(4)');
+
+                        setTimeout(function () {
+                            getFullScreen(screen_effect.scr2);
+                        }, GlobalVariables.transition_time)
+
+                        showUnderlinePlanets();
+                        $('.single_work:nth-of-type(1) .hover_logo').css('display', 'none');
+                        GlobalVariables.screen_num--
+                    }
+                    break;
+
+                case 4:
+                    if (direction == "down") {
+                        addClass('.single_work:nth-of-type(3)', 'active');
+                        GlobalVariables.screen_num++;
+                    } else if (direction == "up") {
+                        removeClass('.single_work:nth-of-type(2)', 'active');
+                        GlobalVariables.screen_num--
+                    }
+                    break;
+
+                case 5:
+                    if (direction == "down") {
+
+                        displayOn('.single_work:nth-of-type(5)');
+                        displayOn('.single_work:nth-of-type(6)');
+
+                        addClass('.single_work:nth-of-type(1)', 'remove');
+                        addClass('.single_work:nth-of-type(2)', 'remove');
+                        addClass('.single_work:nth-of-type(3)', 'remove');
+                        addClass('.single_work:nth-of-type(4)', 'active');
+
+
+                        $('.single_work:nth-of-type(5) .hover_logo').css('display', 'none');
+                        $('.single_work:nth-of-type(1) .hover_logo').css('display', 'none');
+
+                        GlobalVariables.screen_num++;
+                    } else if (direction == "up") {
+                        removeClass('.single_work:nth-of-type(3)', 'active');
+
+                        GlobalVariables.screen_num--;
+                    }
+                    break;
+
+                case 6:
+                    if (direction == "down") {
+
+                        addClass('.single_work:nth-of-type(4)', 'remove');
+                        addClass('.single_work:nth-of-type(5) >div:nth-of-type(2)', 'active');
+                        addClass('.single_work:nth-of-type(5) >div:nth-of-type(1)', 'active');
+                        displayOff('.single_work:nth-of-type(1)');
+                        displayOff('.single_work:nth-of-type(2)');
+                        displayOff('.single_work:nth-of-type(3)');
+
+                        $('.single_work:nth-of-type(5) .hover_logo').css('display', 'block');
+
+                        GlobalVariables.screen_num++;
+                    } else if (direction == "up") {
+                        removeClass('.single_work:nth-of-type(1)', 'remove');
+                        removeClass('.single_work:nth-of-type(2)', 'remove');
+                        removeClass('.single_work:nth-of-type(3)', 'remove');
+                        removeClass('.single_work:nth-of-type(4)', 'active');
+                        displayOff('.single_work:nth-of-type(5)');
+                        displayOff('.single_work:nth-of-type(6)');
+
                         $('.single_work:nth-of-type(1) .hover_logo').css('display', 'block');
 
-                    }, GlobalVariables.transition_time * 2);
 
-                    GlobalVariables.screen_num++;
-
-                } else if (direction == "up") {
-                    getFullScreen(screen_effect.scr1);
-                    GlobalVariables.screen_num--;
-                }
-                break;
-
-            case 3:
-                if (direction == "down") {
-
-                    addClass('.single_work:nth-of-type(2)', 'active');
-                    GlobalVariables.screen_num++;
-
-                } else if (direction == "up") {
-
-                    removeClass('.scroll_mouse', 'active');
-                    removeClass('.single_work:nth-of-type(1) >div:nth-of-type(1)', 'active');
-                    removeClass('.single_work:nth-of-type(1) >div:nth-of-type(2)', 'active')
-                    displayOff('.single_work:nth-of-type(1)');
-                    displayOff('.single_work:nth-of-type(2)');
-                    displayOff('.single_work:nth-of-type(3)');
-                    displayOff('.single_work:nth-of-type(4)');
-
-                    setTimeout(function () {
-                        getFullScreen(screen_effect.scr2);
-                    }, GlobalVariables.transition_time)
-
-
-                    $('.single_work:nth-of-type(1) .hover_logo').css('display', 'none');
-                    GlobalVariables.screen_num--
-                }
-                break;
-
-            case 4:
-                if (direction == "down") {
-                    addClass('.single_work:nth-of-type(3)', 'active');
-                    GlobalVariables.screen_num++;
-                } else if (direction == "up") {
-                    removeClass('.single_work:nth-of-type(2)', 'active');
-                    GlobalVariables.screen_num--
-                }
-                break;
-
-            case 5:
-                if (direction == "down") {
-
-                    displayOn('.single_work:nth-of-type(5)');
-                    displayOn('.single_work:nth-of-type(6)');
-
-                    addClass('.single_work:nth-of-type(1)', 'remove');
-                    addClass('.single_work:nth-of-type(2)', 'remove');
-                    addClass('.single_work:nth-of-type(3)', 'remove');
-                    addClass('.single_work:nth-of-type(4)', 'active');
-
-                    $('.single_work:nth-of-type(1) .hover_logo').css('display', 'none');
-
-                    GlobalVariables.screen_num++;
-                } else if (direction == "up") {
-                    removeClass('.single_work:nth-of-type(3)', 'active');
-
-                    GlobalVariables.screen_num--;
-                }
-                break;
-
-            case 6:
-                if (direction == "down") {
-
-                    addClass('.single_work:nth-of-type(4)', 'remove');
-                    addClass('.single_work:nth-of-type(5) >div:nth-of-type(2)', 'active');
-                    addClass('.single_work:nth-of-type(5) >div:nth-of-type(1)', 'active');
-                    displayOff('.single_work:nth-of-type(1)');
-                    displayOff('.single_work:nth-of-type(2)');
-                    displayOff('.single_work:nth-of-type(3)');
-
-                    $('.single_work:nth-of-type(5) .hover_logo').css('display', 'block');
-
-                    GlobalVariables.screen_num++;
-                } else if (direction == "up") {
-                    removeClass('.single_work:nth-of-type(1)', 'remove');
-                    removeClass('.single_work:nth-of-type(2)', 'remove');
-                    removeClass('.single_work:nth-of-type(3)', 'remove');
-                    removeClass('.single_work:nth-of-type(4)', 'active');
-                    displayOff('.single_work:nth-of-type(5)');
-                    displayOff('.single_work:nth-of-type(6)');
-
-                    $('.single_work:nth-of-type(1) .hover_logo').css('display', 'block');
-
-
-                    GlobalVariables.screen_num--;
-                }
-                break;
-
-            case 7:
-                if (direction == "down") {
-                    addClass('.single_work:nth-of-type(5) >div:nth-of-type(2)', 'remove');
-                    removeClass('.single_work:nth-of-type(5) >div:nth-of-type(1)', 'active');
-                    addClass('.single_work:nth-of-type(6)', 'active');
-
-                    $('.single_work:nth-of-type(5) .hover_logo').css('display', 'none');
-
-                    $('.single_work_full_bg').addClass('active');
-                    $('section.performed_works .main_h').addClass('active');
-                    GlobalVariables.screen_num++;
-
-                } else if (direction == "up") {
-
-
-                    removeClass('.single_work:nth-of-type(4)', 'remove');
-                    removeClass('.single_work:nth-of-type(5) >div:nth-of-type(2)', 'active');
-                    removeClass('.single_work:nth-of-type(5) >div:nth-of-type(1)', 'active');
-                    displayOn('.single_work:nth-of-type(1)');
-                    displayOn('.single_work:nth-of-type(2)');
-                    displayOn('.single_work:nth-of-type(3)');
-
-                    $('.single_work:nth-of-type(5) .hover_logo').css('display', 'none');
-
-
-                    GlobalVariables.screen_num--;
-                }
-
-                break;
-
-            case 8:
-                if (direction == "down") {
-                    getFullScreen(screen_effect.scr4);
-                    setHeight('.scroll_container_wrapper .scroll_block');
-                    addClass('.scroll_mouse', 'remove');
-                    $('.single_work_full_bg').removeClass('active');
-                    $('section.performed_works .main_h').removeClass('active');
-
-                    GlobalVariables.screen_num++;
-
-                } else if (direction == "up") {
-
-                    removeClass('.single_work:nth-of-type(5) >div:nth-of-type(2)', 'remove');
-                    addClass('.single_work:nth-of-type(5) >div:nth-of-type(1)', 'active');
-
-                    removeClass('.single_work:nth-of-type(6)', 'active');
-
-                    $('.single_work:nth-of-type(5) .hover_logo').css('display', 'block');
-                    $('.single_work_full_bg').removeClass('active');
-                    $('section.performed_works .main_h').removeClass('active');
-
-                    GlobalVariables.screen_num--
-                }
-
-                break;
-
-            case 9:
-                if (direction == "down") {
-                    document.querySelector('.scroll_marker').value = "true";
-                    if (document.querySelector('.scroll_position').value == "end") {
-                        addClass('footer', 'active');
+                        GlobalVariables.screen_num--;
                     }
-                } else if (direction == "up") {
-                    console.log(GlobalVariables.screen_num);
-                    document.querySelector('.scroll_marker').value = "";
-                    if (document.querySelector('footer').classList.contains('active')) {
-                        removeClass('footer', 'active');
-                    } else if (document.querySelector('.scroll_container').style.transform == "translateY(0px)") {
-                        document.querySelector('.scroll_marker').value = "";
-                        getFullScreen(screen_effect.scr3);
+                    break;
+
+                case 7:
+                    if (direction == "down") {
+                        addClass('.single_work:nth-of-type(5) >div:nth-of-type(2)', 'remove');
+                        removeClass('.single_work:nth-of-type(5) >div:nth-of-type(1)', 'active');
+                        addClass('.single_work:nth-of-type(6)', 'active');
+
+                        $('.single_work:nth-of-type(5) .hover_logo').css('display', 'none');
+
                         $('.single_work_full_bg').addClass('active');
                         $('section.performed_works .main_h').addClass('active');
+                        manageNavArrows();
+                        GlobalVariables.screen_num++;
+
+                    } else if (direction == "up") {
+
+
+                        removeClass('.single_work:nth-of-type(4)', 'remove');
+                        removeClass('.single_work:nth-of-type(5) >div:nth-of-type(2)', 'active');
+                        removeClass('.single_work:nth-of-type(5) >div:nth-of-type(1)', 'active');
+                        displayOn('.single_work:nth-of-type(1)');
+                        displayOn('.single_work:nth-of-type(2)');
+                        displayOn('.single_work:nth-of-type(3)');
+
+                        $('.single_work:nth-of-type(5) .hover_logo').css('display', 'none');
+
+
                         GlobalVariables.screen_num--;
-                    } else {
-                        document.querySelector('.scroll_marker').value = "true";
                     }
-                }
-                break;
+
+                    break;
+
+                case 8:
+                    if (direction == "down") {
+                        getFullScreen(screen_effect.scr4);
+                        setHeight('.scroll_container_wrapper .scroll_block');
+                        addClass('.scroll_mouse', 'remove');
+                        $('.single_work_full_bg').removeClass('active');
+                        $('section.performed_works .main_h').removeClass('active');
+
+                        GlobalVariables.screen_num++;
+
+                    } else if (direction == "up") {
+
+                        removeClass('.single_work:nth-of-type(5) >div:nth-of-type(2)', 'remove');
+                        addClass('.single_work:nth-of-type(5) >div:nth-of-type(1)', 'active');
+
+                        removeClass('.single_work:nth-of-type(6)', 'active');
+
+                        $('.single_work:nth-of-type(5) .hover_logo').css('display', 'block');
+                        $('.single_work_full_bg').removeClass('active');
+                        $('section.performed_works .main_h').removeClass('active');
+
+                        GlobalVariables.screen_num--
+                    }
+
+                    break;
+
+                case 9:
+                    if (direction == "down") {
+                        document.querySelector('.scroll_marker').value = "true";
+                        if (document.querySelector('.scroll_position').value == "end") {
+                            addClass('footer', 'active');
+                        }
+                    } else if (direction == "up") {
+                        console.log(GlobalVariables.screen_num);
+                        document.querySelector('.scroll_marker').value = "";
+                        if (document.querySelector('footer').classList.contains('active')) {
+                            removeClass('footer', 'active');
+                        } else if (document.querySelector('.scroll_container').style.transform == "translateY(0px)") {
+                            document.querySelector('.scroll_marker').value = "";
+                            getFullScreen(screen_effect.scr3);
+                            $('.single_work_full_bg').addClass('active');
+                            $('section.performed_works .main_h').addClass('active');
+                            GlobalVariables.screen_num--;
+                        } else {
+                            document.querySelector('.scroll_marker').value = "true";
+                        }
+                    }
+                    break;
 
             }
         }
@@ -592,10 +597,96 @@ function showIndexPageSaparately() {
 
 
 
+        function checkLocation() {
+            if (window.innerWidth / window.innerHeight > aspect_ratio && document.querySelector('.work_directions')) {
+                var url = $(location).attr('href');
+                if (url.indexOf('#') != -1) {
+                    var from = url.indexOf('#');
+                    if (url.indexOf('?') != -1) {
+                        var to = url.indexOf('?');
+                    }
+                    var anchor = url.slice(from, to || url.length);
+
+                    switch (anchor) {
+                        case '#portfolio':
+                            GlobalVariables.screen_num = 2;
+                            translateBody('down');
+                            changeHeaderColor();
+                            showRedLine();
+                            break;
+                        case '#services':
+                            GlobalVariables.screen_num = 1;
+                            translateBody('down');
+                            changeHeaderColor();
+                            break;
+                        case '#contacts':
+                            addClass('footer', 'active');
+                            break;
+                    }
+                }
+            }
+        }
+
+        checkLocation()
+
+
+
+
+
+        function createNavArrows(inner_name, outer_name) {
+            inner_name = $("<div>").addClass(inner_name);
+            $(outer_name).append(inner_name);
+
+        }
+
+
+        var manage_arrows_marker = true;
+
+        function manageNavArrows() {
+            if (manage_arrows_marker) {
+                manage_arrows_marker = false;
+                createNavArrows('works_arrows_wrapper', 'section.performed_works');
+                createNavArrows('up_arrow', '.works_arrows_wrapper');
+                createNavArrows('down_arrow', '.works_arrows_wrapper');
+                $('.works_arrows_wrapper .up_arrow').on('click', function () {
+                    if (GlobalVariables.screen_num > 2 && GlobalVariables.screen_num < 9) {
+                        GlobalVariables.screen_num = 3;
+                        translateBody('up');
+                        removeAllClassesFromPortfolio();
+                        $('.single_work_full_bg').removeClass('active');
+                    }
+                });
+                $('.works_arrows_wrapper .down_arrow').on('click', function () {
+                    GlobalVariables.screen_num = 8;
+                    translateBody('down');
+                    $('.single_work_full_bg').removeClass('active');
+                    addClass('.single_work:nth-of-type(1) >div:nth-of-type(1)', 'active');
+                    addClass('.single_work:nth-of-type(1) >div:nth-of-type(2)', 'active');
+                    addClass('.single_work:nth-of-type(1)', 'remove');
+                    addClass('.single_work:nth-of-type(2)', 'active');
+                    addClass('.single_work:nth-of-type(2)', 'remove');
+                    addClass('.single_work:nth-of-type(3)', 'active');
+                    addClass('.single_work:nth-of-type(3)', 'remove');
+                    addClass('.single_work:nth-of-type(4)', 'active');
+                    addClass('.single_work:nth-of-type(4)', 'remove');
+                    removeClass('.single_work:nth-of-type(5) >div:nth-of-type(1)', 'active');
+                    addClass('.single_work:nth-of-type(5) >div:nth-of-type(2)', 'active');
+                    addClass('.single_work:nth-of-type(5) >div:nth-of-type(2)', 'remove');
+                    addClass('.single_work:nth-of-type(6)', 'active');
+                });
+            }
+        }
+
+
+
+
+
+
+
     }
 }
 
 
 showIndexPageSaparately();
 
-window.addEventListener('resize', showIndexPageSaparately);
+//window.addEventListener('resize', showIndexPageSaparately);

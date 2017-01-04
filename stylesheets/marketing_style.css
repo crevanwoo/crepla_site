@@ -1410,13 +1410,43 @@ header {
     right: 0;
     bottom: 0;
     opacity: 0;
-    transition-duration: 0.5s; }
+    transition-duration: 0.5s;
+    background-image: url(../images/fon.jpg);
+    background-position: center;
+    background-size: cover; }
     .performed_works .single_work_full_bg.active {
       opacity: 1; }
     .performed_works .single_work_full_bg img {
-      display: block;
+      display: none;
       width: 100%;
       height: auto; }
+  .performed_works .works_arrows_wrapper {
+    position: absolute;
+    width: 40rem;
+    height: 100rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 30rem; }
+    .performed_works .works_arrows_wrapper > div {
+      position: absolute;
+      width: 40rem;
+      height: 40rem;
+      background-image: url(../images/double_arrow.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      border-radius: 2rem;
+      transition-duration: 0.5s;
+      background-color: transparent; }
+      .performed_works .works_arrows_wrapper > div:hover {
+        background-color: rgba(0, 0, 0, 0.2); }
+    .performed_works .works_arrows_wrapper .up_arrow {
+      top: 0;
+      transform: rotate(-90deg); }
+    .performed_works .works_arrows_wrapper .down_arrow {
+      bottom: 0;
+      transform: rotate(90deg); }
 
 section.work_top_part {
   color: white; }

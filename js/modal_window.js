@@ -1,6 +1,6 @@
 var header = document.getElementsByTagName('header')[0];
 
-'use strict';
+
 /**
  * set modal button
  */

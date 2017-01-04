@@ -229,4 +229,4 @@ function showOnWideScreens() {
 }
 
 showOnWideScreens();
-window.addEventListener('resize', showOnWideScreens);
+//window.addEventListener('resize', showOnWideScreens);

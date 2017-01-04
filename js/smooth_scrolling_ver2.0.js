@@ -1,6 +1,6 @@
 if (window.innerWidth / window.innerHeight <= aspect_ratio) {
 
-    'use strict';
+
 
     /**
      * total page height
@@ -45,7 +45,8 @@ if (window.innerWidth / window.innerHeight <= aspect_ratio) {
     function movePage() {
 
         if (cancel_condition()) {
-            document.querySelector(elem_name).scrollIntoView(true);
+            //  document.querySelector(elem_name).scrollIntoView(true);
+            window.scrollTo(0, elem_position);
             cancelAnimationFrame(movePage);
             return
         }
@@ -114,16 +115,16 @@ if (window.innerWidth / window.innerHeight <= aspect_ratio) {
             elem_name = 'section.performed_works .invisible_scroll';
             elem_position = $(elem_name).parent().offset().top;
             manageMoving(e);
-        } else if ($('.works_directions').length > 0 && (window.innerWidth / window.innerHeight <= aspect_ratio)) {}
+        } else if ($('.work_directions').length > 0 && (window.innerWidth / window.innerHeight <= aspect_ratio)) {
+            e.preventDefault();
+            elem_name = 'section.performed_works .invisible_scroll';
+            elem_position = document.querySelector('section.full_screen_slider').offsetHeight + document.querySelector('section.work_directions').offsetHeight - getHeaderHeight();
+            manageMoving(e);
+        }
     });
 
     $('#cont_btn').on('click', function (e) {
-        if ($('.crepla_ru').length > 0) {
-            e.preventDefault();
-            elem_position = calcPageHeight() - document.getElementsByTagName('footer')[0].offsetHeight - getHeaderHeight();
-            elem_name = 'footer .invisible_scroll';
-            manageMoving(e);
-        } else if ($('.works_directions').length > 0 && (window.innerWidth / window.innerHeight <= aspect_ratio)) {
+        if ($('.crepla_ru').length > 0 || ($('.work_directions').length > 0 && (window.innerWidth / window.innerHeight <= aspect_ratio))) {
             e.preventDefault();
             elem_position = calcPageHeight() - document.getElementsByTagName('footer')[0].offsetHeight - getHeaderHeight();
             elem_name = 'footer .invisible_scroll';
@@ -132,27 +133,23 @@ if (window.innerWidth / window.innerHeight <= aspect_ratio) {
     })
 
     $('#logo_btn').on('click', function (e) {
-        if ($('.crepla_ru').length > 0) {
+        if ($('.crepla_ru').length > 0 || ($('.work_directions').length > 0 && (window.innerWidth / window.innerHeight <= aspect_ratio))) {
             e.preventDefault();
             elem_name = 'body';
             elem_position = "0";
             manageMoving(e);
-        } else if ($('.works_directions').length > 0 && (window.innerWidth / window.innerHeight <= aspect_ratio)) {}
-
-    })
-
-    $('#offers_btn').on('click', function (e) {
-        if ($('.works_directions').length > 0 && (window.innerWidth / window.innerHeight <= aspect_ratio)) {
-            e.preventDefault();
-            elem_name = 'body';
-            elem_position = "0";
-            manageMoving(e);
-
-
         }
 
     })
 
+    $('#offers_btn').on('click', function (e) {
+        if ($('.work_directions').length > 0 && (window.innerWidth / window.innerHeight <= aspect_ratio)) {
+            e.preventDefault();
+            elem_name = 'section.work_directions .invisible_scroll';
+            elem_position = document.querySelector('section.full_screen_slider').offsetHeight - getHeaderHeight();
+            manageMoving(e);
+        }
+    })
 
 
 
