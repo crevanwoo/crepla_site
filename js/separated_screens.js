@@ -183,8 +183,6 @@ function showIndexPageSaparately() {
 
 
 
-
-
         function translateBody(direction) {
 
 
@@ -289,6 +287,7 @@ function showIndexPageSaparately() {
                         addClass('active',
                             '.single_work:nth-of-type(6)',
                             '.single_work_full_bg',
+                            '.works_arrows_wrapper',
                             'section.performed_works .main_h');
 
                         removeClass('active',
@@ -311,6 +310,7 @@ function showIndexPageSaparately() {
                         addClass('remove', '.scroll_mouse');
 
                         removeClass('active', '.single_work_full_bg',
+                            '.works_arrows_wrapper',
                             'section.performed_works .main_h');
 
                         GlobalVariables.screen_num++;
@@ -423,6 +423,7 @@ function showIndexPageSaparately() {
                         removeClass('active',
                             '.single_work:nth-of-type(6)',
                             '.single_work_full_bg',
+                            '.works_arrows_wrapper',
                             'section.performed_works .main_h');
 
                         addClass('active',
@@ -450,6 +451,7 @@ function showIndexPageSaparately() {
 
                             addClass('active',
                                 '.single_work_full_bg',
+                                '.works_arrows_wrapper',
                                 'section.performed_works .main_h');
 
                             GlobalVariables.screen_num--;
@@ -475,53 +477,7 @@ function showIndexPageSaparately() {
 
 
 
-        /* ANCHOR FIX > */
-        function checkLocation() {
-            if (window.innerWidth / window.innerHeight > aspect_ratio && document.querySelector('.work_directions')) {
-                var url = $(location).attr('href');
-                if (url.indexOf('#') != -1) {
-                    var from = url.indexOf('#');
-                    if (url.indexOf('?') != -1) {
-                        var to = url.indexOf('?');
-                    }
-                    var anchor = url.slice(from, to || url.length);
-
-                    switch (anchor) {
-
-                        case '#portfolio':
-
-                            GlobalVariables.screen_num = 2;
-
-                            translateBody('down');
-
-                            changeHeaderColor();
-
-                            showRedLine();
-
-                            break;
-
-                        case '#services':
-
-                            GlobalVariables.screen_num = 1;
-
-                            translateBody('down');
-
-                            changeHeaderColor();
-
-                            break;
-                        case '#contacts':
-
-                            addClass('active', 'footer');
-
-                            break;
-                    }
-                }
-            }
-        }
-
-        checkLocation();
-
-        /* < ANCHOR FIX  */
+       
 
 
 
@@ -533,59 +489,58 @@ function showIndexPageSaparately() {
 
         }
 
+        createNavArrows('works_arrows_wrapper', 'section.performed_works');
+
+        createNavArrows('up_arrow', '.works_arrows_wrapper');
+
+        createNavArrows('down_arrow', '.works_arrows_wrapper');
 
 
-        var manage_arrows_marker = true;
+
+
 
         function manageNavArrows() {
 
-            if (manage_arrows_marker) {
+            $('.works_arrows_wrapper').css('display', 'block');
 
-                manage_arrows_marker = false;
+            $('.works_arrows_wrapper .up_arrow').on('click', function () {
+                if (GlobalVariables.screen_num > 2 && GlobalVariables.screen_num < 9) {
+                    GlobalVariables.screen_num = 3;
+                    translateBody('up');
+                    removeAllClassesFromPortfolio();
+                    removeClass('active', '.single_work_full_bg', '.works_arrows_wrapper');
+                }
+            });
 
-                createNavArrows('works_arrows_wrapper', 'section.performed_works');
+            $('.works_arrows_wrapper .down_arrow').on('click', function () {
 
-                createNavArrows('up_arrow', '.works_arrows_wrapper');
+                GlobalVariables.screen_num = 8;
 
-                createNavArrows('down_arrow', '.works_arrows_wrapper');
+                translateBody('down');
 
-                $('.works_arrows_wrapper .up_arrow').on('click', function () {
-                    if (GlobalVariables.screen_num > 2 && GlobalVariables.screen_num < 9) {
-                        GlobalVariables.screen_num = 3;
-                        translateBody('up');
-                        removeAllClassesFromPortfolio();
-                        $('.single_work_full_bg').removeClass('active');
-                    }
-                });
+                addClass('active',
+                    '.single_work:nth-of-type(1) >div:nth-of-type(1)',
+                    '.single_work:nth-of-type(1) >div:nth-of-type(2)',
+                    '.single_work:nth-of-type(2)',
+                    '.single_work:nth-of-type(3)',
+                    '.single_work:nth-of-type(4)',
+                    '.single_work:nth-of-type(5) >div:nth-of-type(2)',
+                    '.single_work:nth-of-type(6)');
 
-                $('.works_arrows_wrapper .down_arrow').on('click', function () {
+                addClass('remove',
+                    '.single_work:nth-of-type(1)',
+                    '.single_work:nth-of-type(2)',
+                    '.single_work:nth-of-type(3)',
+                    '.single_work:nth-of-type(4)',
+                    '.single_work:nth-of-type(5) >div:nth-of-type(2)');
 
-                    GlobalVariables.screen_num = 8;
+                removeClass('active',
+                    '.single_work:nth-of-type(5) >div:nth-of-type(1)',
+                    '.single_work_full_bg',
+                    '.works_arrows_wrapper');
 
-                    translateBody('down');
+            });
 
-                    addClass('active',
-                        '.single_work:nth-of-type(1) >div:nth-of-type(1)',
-                        '.single_work:nth-of-type(1) >div:nth-of-type(2)',
-                        '.single_work:nth-of-type(2)',
-                        '.single_work:nth-of-type(3)',
-                        '.single_work:nth-of-type(4)',
-                        '.single_work:nth-of-type(5) >div:nth-of-type(2)',
-                        '.single_work:nth-of-type(6)');
-
-                    addClass('remove',
-                        '.single_work:nth-of-type(1)',
-                        '.single_work:nth-of-type(2)',
-                        '.single_work:nth-of-type(3)',
-                        '.single_work:nth-of-type(4)',
-                        '.single_work:nth-of-type(5) >div:nth-of-type(2)');
-
-                    removeClass('active',
-                        '.single_work:nth-of-type(5) >div:nth-of-type(1)',
-                        '.single_work_full_bg');
-
-                });
-            }
         }
 
 
@@ -731,10 +686,8 @@ function showIndexPageSaparately() {
             if ($("header").length > 0) {
                 if (GlobalVariables.screen_num > 1) {
                     showHeaderBg();
-
                 } else {
                     hideHeaderBg();
-
                 }
             }
         }
@@ -847,6 +800,54 @@ function showIndexPageSaparately() {
 
         /* --------- --------- --------- PORTFOLIO HOVERS < --------- --------- --------- */
 
+        
+         /* ANCHOR FIX > */
+        function checkLocation() {
+            if (window.innerWidth / window.innerHeight > aspect_ratio && document.querySelector('.work_directions')) {
+                var url = $(location).attr('href');
+                if (url.indexOf('#') != -1) {
+                    var from = url.indexOf('#');
+                    if (url.indexOf('?') != -1) {
+                        var to = url.indexOf('?');
+                    }
+                    var anchor = url.slice(from, to || url.length);
+
+                    switch (anchor) {
+
+                        case '#portfolio':
+
+                            GlobalVariables.screen_num = 2;
+
+                            translateBody('down');
+
+                            changeHeaderColor();
+
+                            showRedLine();
+
+                            break;
+
+                        case '#services':
+
+                            GlobalVariables.screen_num = 1;
+
+                            translateBody('down');
+
+                            changeHeaderColor();
+
+                            break;
+                        case '#contacts':
+
+                            addClass('active', 'footer');
+
+                            break;
+                    }
+                }
+            }
+        }
+
+        checkLocation();
+
+        /* < ANCHOR FIX  */
 
 
 

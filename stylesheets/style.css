@@ -2041,15 +2041,19 @@ header {
   .performed_works .works_arrows_wrapper {
     position: absolute;
     width: 40rem;
-    height: 100rem;
+    height: 85rem;
     bottom: 10%;
     margin: auto;
-    left: 30rem; }
+    left: 30rem;
+    cursor: pointer;
+    display: none; }
+    .performed_works .works_arrows_wrapper.active > div {
+      background-image: url(../images/port_arrow_1.png); }
     .performed_works .works_arrows_wrapper > div {
       position: absolute;
       width: 40rem;
       height: 40rem;
-      background-image: url(../images/double_arrow.png);
+      background-image: url(../images/port_arrow_2.png);
       background-position: center center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -2453,7 +2457,7 @@ footer {
       bottom: 0;
       box-shadow: 0 0 0 0 white; } }
   footer.active {
-    bottom: 0; }
+    bottom: 0 !important; }
   footer .wrapper {
     position: relative;
     padding-left: 0rem;

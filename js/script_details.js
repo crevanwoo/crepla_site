@@ -9,8 +9,10 @@ var aspect_ratio = 1280 / 900;
 
         $('body').css('overflow', 'auto')
     }
-
-
+    
+    
+    $('footer').css('bottom', -$('footer').innerHeight());
+    
 
     // Show/hide footer on header in button click
 

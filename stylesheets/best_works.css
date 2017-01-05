@@ -1344,7 +1344,7 @@ footer {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: -600rem;
+  bottom: -620rem;
   box-sizing: border-box;
   padding-top: 130rem;
   padding-bottom: 100rem;
@@ -1366,7 +1366,7 @@ footer {
       bottom: 0;
       box-shadow: 0 0 0 0 white; } }
   footer.active {
-    bottom: 0; }
+    bottom: 0 !important; }
   footer .wrapper {
     position: relative;
     padding-left: 0rem;
@@ -1408,6 +1408,8 @@ footer {
         background-image: url(../images/big_triangle.png); }
         footer .wrapper > div.contacts .socials > a {
           font-family: GothamProMedium, sans-serif; }
+      footer .wrapper > div.contacts .s-5 {
+        clear: both; }
       footer .wrapper > div.contacts .s-1:before,
       footer .wrapper > div.contacts .s-2:before,
       footer .wrapper > div.contacts .s-3:before,

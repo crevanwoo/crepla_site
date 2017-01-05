@@ -29,7 +29,7 @@ footer {
         box-shadow: 0 0 0 0 white;
     }
     &.active {
-        bottom: 0;
+        bottom: 0 !important;
     }
     .wrapper {
         @extend %clear;

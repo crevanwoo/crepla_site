@@ -468,17 +468,22 @@
     .works_arrows_wrapper {
         position: absolute;
         width: 40rem;
-        height: 100rem;
-       // top: 0;
-       // bottom: 0;
-        bottom:10%;
+        height: 85rem;
+        // top: 0;
+        // bottom: 0;
+        bottom: 10%;
         margin: auto;
         left: 30rem;
+        cursor:pointer;
+        display: none;
+        &.active>div {
+            background-image: url(../images/port_arrow_1.png);
+        }
         >div {
             position: absolute;
             width: 40rem;
             height: 40rem;
-            background-image: url(../images/double_arrow.png);
+            background-image: url(../images/port_arrow_2.png);
             background-position: center center;
             background-repeat: no-repeat;
             background-size: contain;

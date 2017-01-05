@@ -10,14 +10,16 @@ function createSlideAnimation() { /* INDEX PAGE */
     if ($('.work_directions').length > 0) {
 
 
-        var animationStage = 0;
+
 
 
         function animateGuys() {
 
-            if (animationStage === 0) {
+
+            setTimeout(function () {
                 moveOld();
-            }
+            }, 1500)
+
 
         }
 
@@ -32,8 +34,8 @@ function createSlideAnimation() { /* INDEX PAGE */
 
 
         var old = document.querySelector('.old_guy'),
-            image_1 = "url(images/old_1.png)",
-            image_2 = "url(images/old_2.png)";
+            image_1 = "url(" + old.getAttribute('data-img-1') + ")",
+            image_2 = "url(" + old.getAttribute('data-img-2') + ")";
 
         function moveOld() {
 
@@ -63,8 +65,8 @@ function createSlideAnimation() { /* INDEX PAGE */
 
 
         var young = document.querySelector('.young_guy'),
-            image_3 = "url(images/young_1.png)",
-            image_4 = "url(images/young_2.png)";
+            image_3 = "url(" + young.getAttribute('data-img-1') + ")",
+            image_4 = "url(" + young.getAttribute('data-img-2') + ")";
 
         function moveYoung() {
 
@@ -98,7 +100,8 @@ function createSlideAnimation() { /* INDEX PAGE */
         function setYoungPos() {
             document.querySelector('.young_guy').style.right = ((window.innerWidth - document.querySelector('.slide_content').offsetWidth) / 2) + 'px';
         }
-        setYoungPos()
+
+        setYoungPos();
 
 
         function showBtn() {
@@ -122,9 +125,7 @@ function createSlideAnimation() { /* INDEX PAGE */
             moveYoung()
         }
 
-
-
-        animateGuys()
+        animateGuys();
 
 
         var slider_counter = 1,
@@ -181,11 +182,11 @@ function createSlideAnimation() { /* INDEX PAGE */
         }
 
 
-        autoSliderStop()
+        autoSliderStop();
 
     }
 
 
 }
 
-createSlideAnimation()
+createSlideAnimation();
