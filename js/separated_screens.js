@@ -157,7 +157,7 @@ function showIndexPageSaparately() {
         function removeAllClassesFromPortfolio() {
             var work = document.querySelectorAll('.single_work');
             for (var i = 1; i <= work.length; i++) {
-                displayOff(false, false, '.single_work:nth-of-type(' + i + ')')
+                displayOff(true, false, '.single_work:nth-of-type(' + i + ')')
             }
 
             removeClass('active',

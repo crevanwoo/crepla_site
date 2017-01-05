@@ -2042,8 +2042,7 @@ header {
     position: absolute;
     width: 40rem;
     height: 100rem;
-    top: 0;
-    bottom: 0;
+    bottom: 10%;
     margin: auto;
     left: 30rem; }
     .performed_works .works_arrows_wrapper > div {
@@ -2432,7 +2431,7 @@ footer {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: -600rem;
+  bottom: -620rem;
   box-sizing: border-box;
   padding-top: 130rem;
   padding-bottom: 100rem;
@@ -2496,6 +2495,8 @@ footer {
         background-image: url(../images/big_triangle.png); }
         footer .wrapper > div.contacts .socials > a {
           font-family: GothamProMedium, sans-serif; }
+      footer .wrapper > div.contacts .s-5 {
+        clear: both; }
       footer .wrapper > div.contacts .s-1:before,
       footer .wrapper > div.contacts .s-2:before,
       footer .wrapper > div.contacts .s-3:before,
