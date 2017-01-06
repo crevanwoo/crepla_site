@@ -657,11 +657,11 @@ label.upload > * {
         top: 0;
         left: -11px;
         bottom: 0; }
-    .modal .modal_content form > div:first-of-type {
+    .modal .modal_content form > div:nth-of-type(1) {
       width: 48%;
       padding-bottom: 20px;
       float: left; }
-    .modal .modal_content form > div:last-of-type {
+    .modal .modal_content form > div:nth-of-type(2) {
       width: 48%;
       float: right; }
     .modal .modal_content .chkbox_h {
@@ -787,6 +787,12 @@ label.upload > * {
       clear: both;
       text-align: left;
       color: white; }
+      .modal .modal_content .upload span {
+        font-family: GothamProMedium, sans-serif;
+        font-size: 14px; }
+        @media screen and (max-aspect-ratio: 1280 / 900) {
+          .modal .modal_content .upload span {
+            font-size: 14rem; } }
       .modal .modal_content .upload label {
         height: 47px;
         margin-top: 15px;

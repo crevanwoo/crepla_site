@@ -87,7 +87,7 @@ function createSlideAnimation() { /* INDEX PAGE */
                         if (end_animation_marker) {
                             autonomicSlider()
                         }
-                    }, 1200);
+                    }, 3000);
 
 
                     return
@@ -128,7 +128,7 @@ function createSlideAnimation() { /* INDEX PAGE */
         animateGuys();
 
 
-        var slider_counter = 1,
+        var slider_counter = 0,
             pag_slide = document.querySelectorAll('.full_screen_slider .slide');
 
         var slider_interval = setInterval(function () {
@@ -167,6 +167,7 @@ function createSlideAnimation() { /* INDEX PAGE */
 
             }
         }
+
 
 
         function autoSliderStop() {

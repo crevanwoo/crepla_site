@@ -477,9 +477,6 @@ function showIndexPageSaparately() {
 
 
 
-       
-
-
 
         /* PORT ARROWS > */
 
@@ -508,7 +505,10 @@ function showIndexPageSaparately() {
                     GlobalVariables.screen_num = 3;
                     translateBody('up');
                     removeAllClassesFromPortfolio();
-                    removeClass('active', '.single_work_full_bg', '.works_arrows_wrapper');
+                    removeClass('active',
+                        '.single_work_full_bg',
+                        '.works_arrows_wrapper',
+                        'section.performed_works .main_h');
                 }
             });
 
@@ -537,7 +537,8 @@ function showIndexPageSaparately() {
                 removeClass('active',
                     '.single_work:nth-of-type(5) >div:nth-of-type(1)',
                     '.single_work_full_bg',
-                    '.works_arrows_wrapper');
+                    '.works_arrows_wrapper',
+                    'section.performed_works .main_h');
 
             });
 
@@ -800,11 +801,12 @@ function showIndexPageSaparately() {
 
         /* --------- --------- --------- PORTFOLIO HOVERS < --------- --------- --------- */
 
-        
-         /* ANCHOR FIX > */
+
+        /* ANCHOR FIX > */
         function checkLocation() {
             if (window.innerWidth / window.innerHeight > aspect_ratio && document.querySelector('.work_directions')) {
                 var url = $(location).attr('href');
+
                 if (url.indexOf('#') != -1) {
                     var from = url.indexOf('#');
                     if (url.indexOf('?') != -1) {
@@ -833,11 +835,6 @@ function showIndexPageSaparately() {
                             translateBody('down');
 
                             changeHeaderColor();
-
-                            break;
-                        case '#contacts':
-
-                            addClass('active', 'footer');
 
                             break;
                     }

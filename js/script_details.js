@@ -9,10 +9,10 @@ var aspect_ratio = 1280 / 900;
 
         $('body').css('overflow', 'auto')
     }
-    
-    
-    $('footer').css('bottom', -$('footer').innerHeight());
-    
+
+
+
+
 
     // Show/hide footer on header in button click
 
@@ -476,6 +476,14 @@ function manageHeader() {
 }
 
 manageHeader();
+
+function setFooterOffset() {
+    if (window.innerWidth / window.innerHeight > aspect_ratio) {
+        $('footer').css('bottom', -$('footer').innerHeight());
+    }
+}
+setFooterOffset()
+
 
 
 /* < HEADER & FOOTER */
