@@ -111,15 +111,15 @@
 
 
     function managePage() {
-        if (window.innerWidth / window.innerHeight <= aspect_ratio) {
+       // if (window.innerWidth / window.innerHeight <= aspect_ratio) {
           
             addPortfolioListeners();
             window.addEventListener('scroll', showRedLine);
 
-        } else {
-            window.removeEventListener('scroll', showRedLine);
+       // } else {
+          //  window.removeEventListener('scroll', showRedLine);
 
-        }
+       // }
     }
 
     managePage()
@@ -128,7 +128,7 @@
 
 
 
-    window.addEventListener('resize', managePage);
+  //  window.addEventListener('resize', managePage);
 
 
 

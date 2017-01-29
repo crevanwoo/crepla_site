@@ -1,6 +1,7 @@
 var header = document.getElementsByTagName('header')[0];
 
 
+
 /**
  * set modal button
  */
@@ -28,6 +29,7 @@ function setModalButton() {
 
 
 function modalOpen(e) {
+	mark = false;
     e.preventDefault();
     takeUsedButton(e);
     var modal_id = e.target.getAttribute('data-modal-id');
@@ -52,6 +54,7 @@ function modalOpen(e) {
 }
 
 function modalClose(e) {
+    checkSize();
     var elem = e.target;
     while (!elem.classList.contains('modal')) {
         elem = elem.parentElement;

@@ -1299,7 +1299,8 @@ header {
       margin: auto;
       transform: scale(0);
       opacity: 0;
-      z-index: 1; }
+      z-index: 1;
+      cursor: pointer; }
       .performed_works .dynamic_portfolio .single_work:nth-of-type(6).active {
         transform: scale(1);
         opacity: 1; }

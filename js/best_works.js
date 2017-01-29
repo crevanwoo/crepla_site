@@ -1,3 +1,4 @@
+   
 function activateBestWorksPage() {
 
     'use strict';
@@ -39,31 +40,37 @@ activateBestWorksPage();
 
 
 function showOnThinScreens() {
-    if (window.innerWidth / window.innerHeight <= aspect_ratio && $('.best_works_screen').length > 0) {
+    if ($('.best_works_screen').length > 0 && !mark) {
 
 
 
-        if ($('.best_works_pagination').find('.nav_item').length > 0) {
+        /*if ($('.best_works_pagination').find('.nav_item').length > 0) {
             $('.best_works_pagination').find('.nav_item').remove();
-        }
+        }*/
 
         var showing_elems = ".single_work_description, .single_work_bg, .best_works_footer";
         $('.best_works_screen').addClass('active');
         $('.best_works_screen').addClass('active');
         $('.best_works_screen').find(showing_elems).css('opacity', '1');
         $('.best_works_screen').find('.single_work_picture .right_image, .single_work_picture .left_image').addClass('active');
+		$('.best_works_screen:last-of-type').css('visibility', 'visible');
 
     }
 
 }
 
 showOnThinScreens();
-window.addEventListener('resize', showOnThinScreens);
+window.addEventListener('resize', function() {
+	
+		if (version = "tablet")
+		showOnThinScreens();
+});
 
 
+var nav_created = false;
 
 function showOnWideScreens() {
-    if (window.innerWidth / window.innerHeight > aspect_ratio && $('.best_works_screen').length > 0) {
+    if ($('.best_works_screen').length > 0 && mark) {
         fixBodyForSafari()
         var showing_elems = ".single_work_description, .single_work_bg, .best_works_footer";
         $('.best_works_screen:last-of-type').addClass('active');
@@ -74,7 +81,7 @@ function showOnWideScreens() {
 
 
 
-        var mark = true;
+    
 
         var screen_index = 0;
 
@@ -85,12 +92,14 @@ function showOnWideScreens() {
 
 
         function createNav() {
+			if (!nav_created) { nav_created = true;
             for (var i = 0; i <= Settings.total_slide_amount; i++) {
                 var new_elem = document.createElement('li');
                 new_elem.className = 'nav_item';
                 new_elem.setAttribute('data-slide-num', i);
                 $('.best_works_pagination').find('ul').append(new_elem);
             }
+		  }
         };
 
         createNav()
@@ -229,4 +238,9 @@ function showOnWideScreens() {
 }
 
 showOnWideScreens();
+window.addEventListener('resize', function() {
+	
+		if (version = "desktop")
+		showOnWideScreens();
+});
 //window.addEventListener('resize', showOnWideScreens);

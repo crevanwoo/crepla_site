@@ -1,4 +1,4 @@
-if (window.innerWidth / window.innerHeight <= aspect_ratio) {
+
 
 
 
@@ -153,4 +153,4 @@ if (window.innerWidth / window.innerHeight <= aspect_ratio) {
 
 
 
-}
+

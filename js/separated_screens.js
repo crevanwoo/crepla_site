@@ -1,19 +1,40 @@
 function showIndexPageSaparately() {
+	 'use strict';
+	if ($('.work_directions').length > 0) {
 
     /* INDEX PAGE ON WIDE SCREEN*/
 
 
-    'use strict';
+   
+	
+	$(window).on('resize', checkVersion)
+	
+	function checkVersion(){
+	if (mark && version == "tablet") {
+			version = "desktop";	
+			changeParameters();
+		} else if (!mark && version == "desktop"){
+			version = "tablet";
+			changeParameters();
+		}
+	}
+
+	function changeParameters() {
+		GlobalVariables.screen_num = 1;
+		translateFullScreen(screen_effect.scr1);
+		removeAllClassesFromPortfolio();
+		window.scrollTo(0,0);
+  
+	}
+	
 
 
-    if (window.innerWidth / window.innerHeight > aspect_ratio && document.querySelector('.work_directions')) {
 
         fixBodyForSafari();
 
         var GlobalVariables = {
             transition_time: "700",
-            screen_num: 1,
-            scroll_mark: true,
+            screen_num: 1,          
             touch_sensitivity: 30,
 
         }
@@ -65,8 +86,8 @@ function showIndexPageSaparately() {
         function pageScroll(e) {
             var direction = ScrollDirection.defineScrollDirection(e);
             if (direction == 'down') {
-                if (GlobalVariables.scroll_mark) {
-                    GlobalVariables.scroll_mark = false;
+                if (mark) {
+                    mark = false;
                     translateBody('down');
                     if (!GlobalVariables.screen_num == 2) {
                         setSecurityTrigger(GlobalVariables.transition_time)
@@ -75,8 +96,8 @@ function showIndexPageSaparately() {
                     }
                 }
             } else if (direction == 'up' && GlobalVariables.screen_num > 1) {
-                if (GlobalVariables.scroll_mark) {
-                    GlobalVariables.scroll_mark = false;
+                if (mark) {
+                   mark = false;
                     translateBody('up');
                     if (!GlobalVariables.screen_num == 3) {
                         setSecurityTrigger(GlobalVariables.transition_time)
@@ -91,7 +112,7 @@ function showIndexPageSaparately() {
 
         function setSecurityTrigger(time) {
             setTimeout(function () {
-                GlobalVariables.scroll_mark = true;
+                mark = true;
             }, time)
         }
 
@@ -845,15 +866,21 @@ function showIndexPageSaparately() {
         checkLocation();
 
         /* < ANCHOR FIX  */
+		
+		$('.single_work:eq(5)').on('click', function(){
+	 
+			location.href="best_works.html"
+		
+		})
 
 
 
 
 
 
+}
 
-
-    }
+    
 }
 
 

@@ -1,6 +1,39 @@
 ;
 var window_offset;
 var aspect_ratio = 1280 / 900;
+var mark;
+var version;
+checkSize();
+setDefaultVersion();
+
+	$(window).on('resize', checkSize)
+
+	
+	function checkSize(){
+		if (window.innerWidth / window.innerHeight > aspect_ratio) {
+			mark = true;
+			version = "desktop";
+			
+			
+		} else  {
+			mark = false;
+			version = "tablet";
+			
+			
+		}	
+	}
+
+	function setDefaultVersion(){
+		if (mark) {			
+			version = "desktop";			
+			
+		} else  {		
+			version = "tablet";		
+			
+		}	
+	}
+
+
 
 (function () {
     'use strict';
@@ -481,8 +514,11 @@ function setFooterOffset() {
     if (window.innerWidth / window.innerHeight > aspect_ratio) {
         $('footer').css('bottom', -$('footer').innerHeight());
     }
+	else { $('footer').css('bottom', 0);}
 }
 setFooterOffset()
+
+$(window).on('resize', setFooterOffset)
 
 
 
