@@ -6,7 +6,7 @@
         var CustomScrollSettings = {
             wrapper_selector: '.scroll_container_wrapper',
             container_selector: '.scroll_container',
-            container_step_size: 300,
+            container_step_size: 100,
             /* Amount of scrolling pictures */
             runner_step: 0, //don't touch
             runner_marker: true, //don't touch
