@@ -511,7 +511,7 @@ function manageHeader() {
 manageHeader();
 
 function setFooterOffset() {
-    if (window.innerWidth / window.innerHeight > aspect_ratio) {
+    if (window.innerWidth / window.innerHeight > aspect_ratio && $('.work_directions').length > 0 || $('.best_works_screen').length > 0 || $('.work_content').length > 0 ) {
         $('footer').css('bottom', -$('footer').innerHeight());
     }
 	else { $('footer').css('bottom', 0);}

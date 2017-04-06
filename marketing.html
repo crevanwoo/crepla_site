@@ -94,16 +94,16 @@
     <div class="main_wrapper">
 
         <!-- header begins -->
-        <header>
+        <header style="position:absolute">
             <div class="header_bg"></div>
             <div class="wrapper">
 
                 <nav>
-                    <a href="" id="logo_btn" class="logo"></a>
+                    <a href="index.html" id="logo_btn" class="logo"></a>
                     <ul>
-                        <li id="works_btn"><a href="#">Наши работы</a></li>
-                        <li id="offers_btn"><a href="#">Услуги</a></li>
-                        <li id="cont_btn"><a href="#">Контакты</a></li>
+                        <li id="works_btn"><a href="index.html#portfolio">Наши работы</a></li>
+                        <li id="offers_btn"><a href="index.html#services">Услуги</a></li>
+                        <li id="cont_btn"><a href="index.html#contacts">Контакты</a></li>
                     </ul>
                 </nav>
                 <div class="contacts">
@@ -158,7 +158,7 @@
                     <h1 class="main_h">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
                     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
                     <h4 class="price">from 10000</h4>
-                    <div class="submit_app_btn">Send request</div>
+                    <div class="submit_app_btn" data-modal-id="modal_order">Send request</div>
                 </div>
             </div>
         </section>
@@ -262,28 +262,28 @@
 
                 <!-- tablet portfolio begins -->
                 <div class="portfolio marketing_landing_page">
-                    <div class="cell_cube"><img src="images/old_guy.png" alt="">
+                    <div class="cell_cube"><img src="images/portfolio/1474453804_1474030432_yvayvayv.jpg" alt="">
                         <div class="hover_logo"><img src="images/services_2.png" alt="">
                             <span>какой-то текст</span>
                             <div class="hover_logo_button">посмотреть проект</div>
                         </div>
                     </div>
-                    <div class="cell_cube"><img src="" alt="">
+                    <div class="cell_cube"><img src="images/portfolio/1474453429_1474031279_555.jpg" alt="">
                         <div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
                             <div class="hover_logo_button">посмотреть проект</div>
                         </div>
                     </div>
-                    <div class="cell_cube"><img src="" alt="">
+                    <div class="cell_cube"><img src="images/portfolio/1474924379_mokap-kvadrat.jpg" alt="">
                         <div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
                             <div class="hover_logo_button">посмотреть проект</div>
                         </div>
                     </div>
-                    <div class="cell_cube"><img src="" alt="">
+                    <div class="cell_cube"><img src="images/portfolio/1474923886_mokap-kvadrat.jpg" alt="">
                         <div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
                             <div class="hover_logo_button">посмотреть проект</div>
                         </div>
                     </div>
-                    <div class="cell_rect"><img src="" alt="">
+                    <div class="cell_rect"><img src="images/portfolio/1474454622_1474042560_vgggg.jpg" alt="">
                         <div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
                             <div class="hover_logo_button">посмотреть проект</div>
                         </div>
@@ -291,12 +291,12 @@
 
 
 
-                    <div class="cell_rect"><img src="" alt="">
+                    <div class="cell_rect"><img src="images/portfolio/1474453984_1474033789_bez-imeni-4.jpg" alt="">
                         <div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
                             <div class="hover_logo_button">посмотреть проект</div>
                         </div>
                     </div>
-                    <div class="cell_cube"><img src="" alt="">
+                    <div class="cell_cube"><img src="images/portfolio/1474453804_1474030432_yvayvayv.jpg" alt="">
                         <div class="hover_logo"><img src="images/services_2.png" alt=""><span>какой-то текст</span>
                             <div class="hover_logo_button">посмотреть проект</div>
                         </div>
@@ -403,7 +403,7 @@
         <footer class="marketing_landing_page">
             <div class="invisible_scroll"></div>
             <div class="wrapper">
-                <div class="footer_close">&#x2716;</div>
+                <div class="footer_close" style="display:none">&#x2716;</div>
                 <div class="contacts">
                     <h1 class="main_h">Наши контакты</h1>
                     <p>Украина 61000, Харьков, ул. Клочковская, 111а, оф. 302
